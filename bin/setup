@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+require 'securerandom'
+
+## STEP 1
+# Move development.rb template into environments
+puts "*** Copying development.rb template to config/environments/"
+development = "config/environments/development.rb"
+unless File.exist? development
+  FileUtils.cp("config/templates/development.rb", development)
+else
+  puts "*** File already exists."
+end
+
+## STEP 2
+# Move database.yml template into config
+puts "\n*** Copying database.yml template to config/"
+database = "config/database.yml"
+unless File.exist? database
+  FileUtils.cp("config/templates/database.yml", database)
+else
+  puts "*** File already exists."
+end
+
+## STEP 3
+# Generate app_config.yml with secret token
+# Can't use the rake task here (since secret_token needs
+# to exist before we can load the environment), so just do
+# what Rails does with SecureRandom.
+puts "\n*** Generating secret_token into config/app_config.yml"
+app_config = "config/app_config.yml"
+unless File.exist? app_config
+  key = SecureRandom.hex(64)
+  File.open(app_config, "w+") do |f|
+    f.write "secret_token: #{key}"
+  end
+else
+  puts "*** File already exists. Please make sure it contains a secret_key."
+end
+
+## STEP 4
+# Bundle install
+puts "\n*** Running bundle install"
+system "bundle install"
+
+## STEP 5
+# Setup database
+puts "\n***Setting up databases"
+system "bundle exec rake db:create"
+system "bundle exec rake db:migrate"
+system "bundle exec rake db:test:prepare"
+
+## STEP 64
+# Run tests
+puts "\n*** Running tests"
+system "rspec"
