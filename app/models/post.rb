@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
     :published => 1
   }
 
-  has_many :assets, class_name: "PostAsset", order: "position"
+  has_many :assets, -> { order("position") }, class_name: "PostAsset"
   has_many :authors
 
   def draft?
