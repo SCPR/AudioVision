@@ -25,4 +25,7 @@ AudioVision::Application.configure do
 
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
+
+  # Uncomment to use Pry instead of IRB
+  # silence_warnings { IRB = Pry }
 end

@@ -15,23 +15,3 @@ production:
 
 staging:
   <<: *development
-
-
-# Mercer
-mercer_development: &mercer_development
-  adapter: mysql2
-  database: mercer
-  username: root
-  password: 
-
-mercer_test:
-  adapter: mysql2
-  database: mercer_test
-  username: root
-  password: 
-
-mercer_production:
-  <<: *mercer_development
-
-mercer_staging:
-  <<: *mercer_development
