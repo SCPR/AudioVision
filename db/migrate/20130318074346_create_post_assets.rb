@@ -8,6 +8,6 @@ class CreatePostAssets < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :posts, [:post_id, :position]
+    add_index :post_assets, [:post_id, :position]
   end
 end
