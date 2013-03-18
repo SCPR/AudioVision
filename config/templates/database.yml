@@ -34,4 +34,4 @@ mercer_production:
   <<: *mercer_development
 
 mercer_staging:
-  <<: *mercer_staging
+  <<: *mercer_development
