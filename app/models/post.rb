@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   }
 
   has_many :assets, -> { order("position") }, class_name: "PostAsset"
-  has_many :authors
+  has_many :attributions
 
   def draft?
     self.staus == STATUS[:draft]

@@ -31,11 +31,7 @@ end
 
 group :test, :development do
   gem "rspec-rails", "2.12.0"
-  gem 'rb-fsevent', '~> 0.9'
   gem 'launchy'
-  gem 'rb-readline'
-  gem 'guard', '~> 1.5'
-  gem 'guard-rspec'
 end
 
 group :test do
@@ -43,6 +39,5 @@ group :test do
   gem 'factory_girl_rails', "~> 4.1"
   gem 'database_cleaner'
   gem 'capybara', "~> 2.0"
-  gem 'shoulda-matchers'
   gem 'fakeweb'
 end

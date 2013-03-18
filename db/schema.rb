@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130318091018) do
+ActiveRecord::Schema.define(version: 20130318185032) do
 
   create_table "authors", force: true do |t|
     t.text    "bio"
@@ -62,5 +62,18 @@ ActiveRecord::Schema.define(version: 20130318091018) do
 
   add_index "posts", ["media_type"], name: "index_posts_on_media_type"
   add_index "posts", ["status", "published_at"], name: "index_posts_on_status_and_published_at"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.boolean  "is_superuser"
+    t.boolean  "can_login",       default: true
+    t.datetime "last_login"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email", "can_login"], name: "index_users_on_email_and_can_login"
 
 end

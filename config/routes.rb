@@ -4,8 +4,14 @@
   get '/slideshows'  => 'posts#index', defaults: { media_type: "slideshow" }
   get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }
 
-  get '/staff'       => 'authors#index'
-  get '/staff/:slug' => 'authors#show'
+  get '/reporters'       => 'reporters#index'
+  get '/reporters/:slug' => 'reporters#show'
 
   get '*path'        => 'flatpages#show'
+
+  namespace :outpost do
+    resources :posts
+    resources :users
+    resources :reporters
+  end
 end

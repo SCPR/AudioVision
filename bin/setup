@@ -40,10 +40,8 @@ puts "\n*** Running bundle install"
 system "bundle install"
 
 # Setup database
-puts "\n***Setting up databases"
-system "bundle exec rake db:create"
-system "bundle exec rake db:schema:load"
-system "bundle exec rake db:test:prepare"
+puts "\n***Setting up databases (development, test)"
+system "bundle exec rake db:setup"
 
 # Run tests
 puts "\n*** Running tests"
