@@ -8,7 +8,7 @@ development = "config/environments/development.rb"
 unless File.exist? development
   FileUtils.cp("config/templates/development.rb", development)
 else
-  puts "*** File already exists."
+  puts "*** #{development} already exists."
 end
 
 # Move database.yml template into config
@@ -17,7 +17,7 @@ database = "config/database.yml"
 unless File.exist? database
   FileUtils.cp("config/templates/database.yml", database)
 else
-  puts "*** File already exists."
+  puts "*** #{database} already exists."
 end
 
 # Generate app_config.yml with secret token
@@ -32,7 +32,7 @@ unless File.exist? app_config
     f.write "secret_token: #{key}"
   end
 else
-  puts "*** File already exists. Please make sure it contains a secret_key."
+  puts "*** #{app_config} already exists. Please make sure it contains a secret_key."
 end
 
 # Bundle install
