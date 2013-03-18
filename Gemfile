@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.0.0.beta1'
 gem 'mysql2'
 gem 'thinking-sphinx', '~> 3.0'
-gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'outpost', github: "SCPR/outpost"
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'
@@ -18,6 +18,7 @@ end
 
 group :development do
   gem 'capistrano'
+  gem 'pry'
 end
 
 ## Test, Development
