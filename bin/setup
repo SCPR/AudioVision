@@ -42,7 +42,7 @@ system "bundle install"
 # Setup database
 puts "\n***Setting up databases"
 system "bundle exec rake db:create"
-system "bundle exec rake db:migrate"
+system "bundle exec rake db:schema:load"
 system "bundle exec rake db:test:prepare"
 
 # Run tests
