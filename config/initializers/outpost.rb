@@ -3,7 +3,8 @@ Outpost::Config.configure do |config|
     "Post"
   ]
   
-  config.title_attributes      = [:title, :name]
-  config.excluded_form_fields  = []
-  config.excluded_list_columns = ["body"]
+  config.authentication_attribute   = :username
+  config.title_attributes           = [:title, :name]
+  config.excluded_form_fields       = []
+  config.excluded_list_columns      = ["body"]
 end

@@ -11,7 +11,6 @@
 
   namespace :outpost do
     resources :posts
-    resources :users
     resources :reporters
   end
 end
