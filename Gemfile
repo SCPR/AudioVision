@@ -5,8 +5,9 @@ gem 'mysql2'
 gem 'thinking-sphinx', '~> 3.0'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
-gem 'turbolinks'
-gem 'outpost', github: "SCPR/outpost"
+gem 'outpost', github: 'SCPR/outpost'
+#gem 'outpost', path: '/Users/bryan/projects/outpost'
+#gem 'outpost', path: '/Users/bricker/websites/kpcc/outpost'
 
 gem 'redis-store', github: "bricker/redis-store"
 gem 'redis-actionpack', github: "bricker/redis-store"
