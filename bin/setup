@@ -43,6 +43,10 @@ system "bundle install"
 puts "\n***Setting up databases (development, test)"
 system "bundle exec rake db:setup"
 
+# Build Permissions
+puts "\n*** Adding necessary Permissions"
+system "bundle exec rake outpost:permissions"
+
 # Run tests
 puts "\n*** Running tests"
 system "rspec"

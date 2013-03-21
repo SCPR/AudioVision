@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  outpost_model
+  
   MEDIA_TYPES = {
     :slideshow => "slideshow"
   }
