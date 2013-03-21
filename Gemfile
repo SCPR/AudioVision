@@ -2,12 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.0.0.beta1'
 gem 'mysql2'
-gem 'thinking-sphinx', '~> 3.0'
-gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
 gem 'outpost', github: 'SCPR/outpost'
 #gem 'outpost', path: '/Users/bryan/projects/outpost'
 #gem 'outpost', path: '/Users/bricker/websites/kpcc/outpost'
+gem 'kaminari', github: "amatsuda/kaminari"
 
 gem 'redis-store', github: "bricker/redis-store"
 gem 'redis-actionpack', github: "bricker/redis-store"
@@ -19,6 +18,7 @@ gem "faraday_middleware", "~> 0.8"
 gem "hashie", "~> 1.2.0"
 
 group :assets do
+  gem 'eco', '~> 1.0.0'
   gem 'sass-rails',   '~> 4.0.0.beta1'
   gem 'bootstrap-sass', '~> 2.2'
   gem 'coffee-rails', '~> 4.0.0.beta1'

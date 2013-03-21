@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130318232021) do
+ActiveRecord::Schema.define(version: 20130321045050) do
 
   create_table "authors", force: true do |t|
     t.text    "bio"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 20130318232021) do
   end
 
   add_index "flatpages", ["path"], name: "index_flatpages_on_path"
+
+  create_table "permissions", force: true do |t|
+    t.string   "resource"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "permissions", ["resource"], name: "index_permissions_on_resource"
 
   create_table "post_assets", force: true do |t|
     t.integer  "asset_id"
