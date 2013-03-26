@@ -7,7 +7,7 @@
   get '/reporters'       => 'reporters#index'
   get '/reporters/:slug' => 'reporters#show'
 
-  get '*path'        => 'flatpages#show'
+#  get '*path'        => 'flatpages#show'
 
   namespace :outpost do
     resources :posts
