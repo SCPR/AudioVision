@@ -18,10 +18,181 @@
 body {
 	background: white;
     -webkit-text-size-adjust: none;
-	font-family: "myriad-pro", Arial, sans-serif;
+	font-family: "adelle", Garamond, Georgia, serif;
 	font-weight: 400;
 	font-size: 100%;
 	line-height: 1.2;
 	z-index: 1;
-	color: black;
+	color: #3a3a3a;
 }
+a {
+	text-decoration: none;
+	color: #149fce;
+}
+
+
+
+/*
+#####################################################################################################################
+#####################################################################################################################
+MASTHEAD
+#####################################################################################################################
+##################################################################################################################### */
+
+.masthead {
+	border-bottom: 1px solid #bcbcbc;
+	box-shadow: 0 0 3px 3px rgba(0,0,0,0.15);
+	margin-bottom: 100px;
+}
+		.masthead .global {
+			border-bottom: 1px solid #efefef;
+		}
+				.masthead .global-inner {
+					position: relative;
+					padding: 20px 0 10px;
+				}
+				.masthead .kpcc-nav {
+					position: absolute;
+					top: 0;
+					right: 0;
+					text-transform: uppercase;
+					font: normal 700 0.75em/1.1 "proxima-nova", Avenir, Arial, sans-serif;
+					color: #fb8a3b;
+				}
+						.masthead .kpcc-nav > ul {
+						}
+								.masthead .kpcc-nav > ul > li {
+									display: block;
+									float: left;
+									margin-left: 13px;
+								}
+										.masthead .kpcc-nav > ul > li:first-child {
+											margin-left: none;
+										}
+										.masthead .kpcc-nav mark {
+											display: block;
+											background: none;
+											padding: 25px 0 0;
+										}
+										.masthead .kpcc-nav a {
+										}
+												.masthead .kpcc-nav a:hover {
+													text-decoration: underline;
+												}
+
+										.masthead .kpcc-nav .homeward a {
+											color: #b3b3b3;
+										}
+										.masthead .kpcc-nav .pledge a {
+											color: #67b6f3;
+										}
+										.masthead .kpcc-nav .inside {
+											padding: 0 8px 4px 10px;
+										}
+												.masthead .kpcc-nav .inside mark {
+													color: #fb8a3b;
+													cursor: default;
+												}
+												.masthead .kpcc-nav .inside span {
+													display: inline-block;
+													padding-right: 10px;
+													background: url(i/ephemera-triangle-inverted-orange.png) no-repeat right 4px;
+													background-size: 8px 25px;
+													margin-bottom: 12px;
+												}
+												.masthead .kpcc-nav .inside ul {
+													text-align: right;
+													padding-right: 8px;
+													display: none;
+												}
+														.masthead .kpcc-nav .inside:hover {
+															background: #fb8a3b;
+														}
+																.masthead .kpcc-nav .inside:hover span {
+																	color: #ba530a;
+																	background-position: right -15px;
+																}
+																.masthead .kpcc-nav .inside:hover ul {
+																	display: block;
+																}
+
+														.masthead .kpcc-nav .inside li {
+															margin-bottom: 0.64em;
+															font-size: 0.91666666666667em; /* 11 / 12 */
+														}
+														.masthead .kpcc-nav .inside a {
+															color: white;
+															display: block;
+														}
+
+				.masthead .kpcc-brand {
+					width: 109px;
+					height: 16px;
+				}
+						.masthead .kpcc-brand a {
+							display: block;
+							background: url(i/logo-kpcc-fullcolor.png) no-repeat;
+							background-size: 109px 16px;
+							text-indent: 100%;
+							white-space: nowrap;
+							overflow: hidden;
+						}
+
+		.masthead .av-brand {
+			padding: 50px 0 40px;
+		}
+				.masthead .av-brand h1 {
+					float: left;
+					width: 296px;
+					height: 47px;
+					margin-left: -6px;
+				}
+						.masthead .av-brand h1 a {
+							display: block;
+							text-indent: 100%;
+							white-space: nowrap;
+							overflow: hidden;
+							background: url(i/logo-av-fullcolor.png) no-repeat;
+							background-size: 296px 47px;
+							height: 100%;
+						}
+
+				.masthead .av-brand h2 {
+					float: left;
+					font-weight: 100;
+					color: #404040;
+					padding: 17px 0 0 13px;
+				}
+
+		.masthead .atlas {
+			background: rgba(0,0,0,0.2);
+			margin-bottom: -10px;
+		}
+				.masthead .atlas .wayfinder {
+					float: left;
+				}
+				.masthead .atlas .follow {
+					float: right;
+				}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
