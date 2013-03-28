@@ -1,6 +1,13 @@
 AudioVision::Application.routes.draw do
   root to: 'home#index'
 
+
+  get '/slideshows'  => 'posts#index', defaults: { media_type: "slideshow" }
+  get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }
+
+  get '/reporters'       => 'reporters#index'
+  get '/reporters/:slug' => 'reporters#show'
+
   namespace :outpost do
     root to: 'home#dashboard'
     
@@ -13,10 +20,6 @@ AudioVision::Application.routes.draw do
     resources :reporters
   end
 
-  get '/slideshows'  => 'posts#index', defaults: { media_type: "slideshow" }
-  get '/reporters'       => 'reporters#index'
-  get '/reporters/:slug' => 'reporters#show'
 
-  get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }
-  get '*path' => 'flatpages#show'
+  #get '*path' => 'flatpages#show'
 end
