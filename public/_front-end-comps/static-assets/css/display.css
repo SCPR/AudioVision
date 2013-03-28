@@ -41,7 +41,7 @@ MASTHEAD
 
 .masthead {
 	border-bottom: 1px solid #bcbcbc;
-	box-shadow: 0 0 3px 3px rgba(0,0,0,0.15);
+	box-shadow: 0 0 2px 3px rgba(0,0,0,0.07);
 	margin-bottom: 100px;
 }
 		.masthead .global {
@@ -105,20 +105,23 @@ MASTHEAD
 													padding-right: 8px;
 													display: none;
 												}
-														.masthead .kpcc-nav .inside:hover {
+														.masthead .kpcc-nav .inside.revealed {
 															background: #fb8a3b;
 														}
-																.masthead .kpcc-nav .inside:hover span {
+																.masthead .kpcc-nav .inside.revealed span {
 																	color: #ba530a;
 																	background-position: right -15px;
 																}
-																.masthead .kpcc-nav .inside:hover ul {
+																.masthead .kpcc-nav .inside.revealed ul {
 																	display: block;
 																}
 
 														.masthead .kpcc-nav .inside li {
 															margin-bottom: 0.64em;
 															font-size: 0.91666666666667em; /* 11 / 12 */
+														}
+														.masthead .kpcc-nav .inside .conditional {
+															display: none;
 														}
 														.masthead .kpcc-nav .inside a {
 															color: white;
@@ -139,11 +142,11 @@ MASTHEAD
 						}
 
 		.masthead .av-brand {
-			padding: 50px 0 40px;
+			padding: 40px 0 57px;
 		}
 				.masthead .av-brand h1 {
 					float: left;
-					width: 296px;
+					width: 296px; /* ~48.7% of source raster by default */
 					height: 47px;
 					margin-left: -6px;
 				}
@@ -153,7 +156,7 @@ MASTHEAD
 							white-space: nowrap;
 							overflow: hidden;
 							background: url(i/logo-av-fullcolor.png) no-repeat;
-							background-size: 296px 47px;
+							background-size: 100%;
 							height: 100%;
 						}
 
@@ -164,18 +167,224 @@ MASTHEAD
 					padding: 17px 0 0 13px;
 				}
 
+				/*	===================================================================================
+				    =================================================================================== */
+
+				    @media screen and (max-width: 930px) {
+						
+						.masthead .av-brand h1 {
+							width: 231px; /* 38% */
+							height: 37px;
+						}
+						.masthead .av-brand h2 {
+							padding-top: 15px;
+							font-size: 0.75em;
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */
+				
+
 		.masthead .atlas {
-			background: rgba(0,0,0,0.2);
-			margin-bottom: -10px;
+			margin-bottom: -4px;
 		}
-				.masthead .atlas .wayfinder {
+				.masthead .wayfinder {
 					float: left;
 				}
-				.masthead .atlas .follow {
+						.masthead .wayfinder ul {
+						}
+								.masthead .wayfinder li {
+									display: inline-block;
+									text-transform: uppercase;
+									font: normal 900 0.9375em/1.1 "proxima-nova", Avenir, Arial, sans-serif; /* 15 / 16 */
+									margin-right: 15px;
+									padding: 0 0 16px;
+								}
+										.masthead .wayfinder li:last-child {
+											padding-right: 0;
+										}
+										.masthead .wayfinder a {
+											display: block;
+											color: #cacaca;
+											background: -webkit-gradient(linear,left top,left bottom,from(#7b7b7b),to(#cacaca));
+											-webkit-background-clip: text;
+											-webkit-text-fill-color: transparent;
+										}
+										.masthead .wayfinder a:hover {
+											color: gray;
+											background: -webkit-gradient(linear,left top,left bottom,from(#005d7c),to(#149fce));
+											-webkit-background-clip: text;
+											-webkit-text-fill-color: transparent;
+										}
+										.masthead .wayfinder .selected {
+											background: url(i/ephemera-indicator-dot.png) no-repeat center bottom;
+											background-size: 8px 8px;
+										}
+										.masthead .wayfinder .selected a {
+											color: #d62537;
+											background: -webkit-gradient(linear,left top,left bottom,from(#a10010),to(#d62537));
+											-webkit-background-clip: text;
+											-webkit-text-fill-color: transparent;
+										}
+
+				.masthead .follow {
 					float: right;
+					padding-top: 1px;
 				}
+						.masthead .follow ul {
+						}
+								.masthead .follow li {
+									display: inline-block;
+									padding-left: 14px;
+								}
+										.masthead .follow li:first-child {
+											padding-left: 0;
+										}
+										.masthead .follow a {
+											display: block;
+											width: 16px;
+											height: 15px;
+											background: url(i/icons-follow.png) no-repeat;
+											background-size: 80px 30px;
+											text-indent: 100%;
+											white-space: nowrap;
+											overflow: hidden;
+										}
+										.masthead .follow .fbk a			{ background-position: 0 0;				}
+										.masthead .follow .fbk a:hover		{ background-position: 0 -15px;			}
+										.masthead .follow .tum a			{ background-position: -16px 0;			}
+										.masthead .follow .tum a:hover		{ background-position: -16px -15px;		}
+										.masthead .follow .ins a			{ background-position: -32px 0;			}
+										.masthead .follow .ins a:hover		{ background-position: -32px -15px;		}
+										.masthead .follow .twi a			{ background-position: -48px 0;			}
+										.masthead .follow .twi a:hover		{ background-position: -48px -15px;		}
+										.masthead .follow .rss a			{ background-position: -64px 0;			}
+										.masthead .follow .rss a:hover		{ background-position: -64px -15px;		}
 
+										/*	===================================================================================
+										    =================================================================================== */
 
+										    @media screen and (max-width: 823px) {
+
+												.masthead .wayfinder li {
+													font-size: 0.88em; /* had been 0.9375em = 15px */
+													margin-right: 8px;
+												}
+												.masthead .follow {
+													padding-top: 2px;
+												}
+												.masthead .follow li {
+													padding-left: 11px;
+												}
+
+										    }
+
+										/*	===================================================================================
+										    =================================================================================== */
+
+										    @media screen and (max-width: 730px) {
+
+												.masthead .av-brand {
+													padding: 30px 0 20px;
+												}
+														.masthead .av-brand h1 {
+															float: none;
+															margin: 0 auto 20px auto;
+														}
+														.masthead .av-brand h2 {
+															float: none;
+															padding: 0 0 0 0;
+															margin-bottom: 10px;
+															text-align: center;
+														}
+
+												.masthead .wayfinder {
+													float: none;
+													border-top: 1px solid rgba(0,0,0,0.12);
+													padding: 10px 0 0px;
+												}
+												.masthead .follow {
+													float: none;
+													padding-top: 0;
+													margin: 0 auto 20px;
+													width: 177px;
+													overflow: hidden;
+												}
+														.masthead .follow li {
+															padding-left: 20px;
+														}
+
+										    }
+
+										/*	===================================================================================
+										    =================================================================================== */
+
+										    @media screen and (max-width: 580px) {
+
+												.masthead .av-brand {
+													padding-bottom: 15px;
+												}
+												.masthead .atlas {
+													margin-bottom: 0;
+												}
+														.masthead .atlas.bound {
+															width: 100%;
+															border-top: 1px solid rgba(0,0,0,0.3);
+															padding-top: 15px;
+															box-shadow: inset 0 15px 35px -25px rgba(0,0,0,0.65);
+														}
+														.masthead .follow {
+															margin-bottom: 12px;
+														}
+														.masthead .wayfinder {
+															border-top: 1px solid rgba(0,0,0,0.07);
+															padding: 14px 0 2px;
+														}
+														.masthead .wayfinder ul {
+															text-align: center;
+															margin: 0 3% 8px;
+														}
+																.masthead .wayfinder li {
+																	padding-bottom: 0; /* no longer needs to be 16px */
+																}
+																		.masthead .wayfinder a {
+																			margin: 0 3px 11px;
+																		}
+																		.masthead .wayfinder .selected {
+																			background: none;
+																		}
+
+										    }
+
+										/*	===================================================================================
+										    =================================================================================== */
+
+										    @media screen and (max-width: 455px) {
+
+												.masthead .kpcc-nav .homeward {
+													display: none;
+												}
+
+										    }
+
+										/*	===================================================================================
+										    =================================================================================== */
+
+										    @media screen and (max-width: 355px) {
+
+												.masthead .kpcc-nav .pledge {
+													display: none;
+												}
+												.masthead .kpcc-nav .inside .conditional {
+													display: list-item;
+												}
+
+										    }
+
+										/*	===================================================================================
+										    =================================================================================== */
 
 
 
