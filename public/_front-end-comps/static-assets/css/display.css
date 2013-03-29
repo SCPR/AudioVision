@@ -42,7 +42,7 @@ MASTHEAD
 .masthead {
 	border-bottom: 1px solid #bcbcbc;
 	box-shadow: 0 0 2px 3px rgba(0,0,0,0.07);
-	margin-bottom: 100px;
+	margin-bottom: 61px;
 }
 		.masthead .global {
 			border-bottom: 1px solid #efefef;
@@ -247,7 +247,7 @@ MASTHEAD
 											width: 16px;
 											height: 15px;
 											background: url(i/icons-follow.png) no-repeat;
-											background-size: 80px 30px;
+											background-size: 80px 60px;
 											text-indent: 100%;
 											white-space: nowrap;
 											overflow: hidden;
@@ -392,6 +392,254 @@ MASTHEAD
 
 
 
+
+
+/*
+#####################################################################################################################
+#####################################################################################################################
+LEDGE
+#####################################################################################################################
+##################################################################################################################### */
+
+.ledge {
+	background: black;
+	height: 47px;
+	width: 100%;
+	box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
+	color: white;
+	position: fixed;
+	z-index: 10; /* don't ever let anything get higher than 10 mmkay */
+	text-transform: uppercase;
+	font-family: "proxima-nova", Avenir, Arial, sans-serif;
+}
+		.ledge-inner {
+			position: relative;
+		}
+				.ledge .nav-kpcc {
+					postion: absolute;
+					right: 0;
+					top: 0;
+					text-align: right;
+					overflow: hidden;
+					width: auto;
+				}
+						.ledge .nav-kpcc > ul,
+						.ledge .nav-kpcc .pledge {
+							display: block;
+							float: right;
+						}
+								.ledge .nav-kpcc > ul {
+								}
+										.ledge .nav-kpcc .inside {
+											display: block;
+											position: relative;
+										}
+										.ledge .nav-kpcc mark {
+											display: block;
+											cursor: pointer;
+											height: 47px; /* can be whittled down for handheld proportions */
+											width: 105px; /* pretty arbitrary */
+											position: relative;
+											background: none;
+										}
+												.ledge .nav-kpcc mark span {
+													display: block;
+													width: 82px;
+													height: 11px;
+													background: url(i/logo-kpcc-dropdown.png) no-repeat;
+													background-size: 82px 22px;
+													text-indent: 100%;
+													white-space: nowrap;
+													overflow: hidden;
+													position: absolute;
+													top: 19px;
+													right: 13px;
+												}
+										
+										.ledge .nav-kpcc ul ul {
+											font-weight: 900;
+											font-size: 0.875em; /* 14 / 16 */
+											background: black;
+											padding: 0 0 13px;
+											display: none;
+										}
+												.ledge .nav-kpcc ul ul li {
+													margin-bottom: 2px;
+												}
+												.ledge .nav-kpcc ul ul .conditional {
+													display: none;
+												}
+												.ledge .nav-kpcc ul ul a {
+													color: #9c9c9c;
+													display: block;
+													padding: 2px 18px 2px 20px;
+												}
+												.ledge .nav-kpcc ul .revealed ul {
+													display: block;
+												}
+												.ledge .nav-kpcc ul .revealed mark {
+													width: auto;
+												}
+												.ledge .nav-kpcc ul .revealed mark span {
+													background-position: 0 -11px;
+												}
+
+								.ledge .nav-kpcc .pledge {
+									font-style: normal;
+									font-weight: 700;
+									font-size: 0.75em;
+									padding-top: 18px;
+								}
+										.ledge .nav-kpcc .pledge a {
+											color: #67b6f3;
+										}
+										.ledge .nav-kpcc .pledge a:hover {
+											color: #9dd4ff;
+											text-decoration: underline;
+										}
+
+
+				.ledge .nav-av {
+					position: absolute;
+					top: 13px;
+					left: 0;
+					overflow: hidden;
+					font-weight: 900;
+					font-size: 0.875em; /* 14 / 16 */
+				}
+						.ledge .nav-av > ul > li {
+							display: block;
+							position: relative;
+							width: 100%;
+							height: 100%;
+						}
+								.ledge .nav-av mark {
+									display: block;
+									width: 54px;
+									height: 21px;
+									text-indent: 100%;
+									white-space: nowrap;
+									overflow: hidden;
+									cursor: pointer;
+									background: url(i/logo-ledge-av.png) no-repeat;
+									background-size: 54px 68px;
+								}
+								.ledge .nav-av ul ul {
+									background: black;
+									padding: 17px 0 20px;
+									display: none;
+								}
+										.ledge .nav-av ul .revealed ul {
+											display: block;
+										}
+										.ledge .nav-av .revealed mark {
+											background-position: 0 -47px;
+										}
+										.ledge .nav-av ul ul li {
+											margin-bottom: 2px;
+										}
+										.ledge .nav-av a {
+											color: #9c9c9c;
+											display: block;
+										}
+												.ledge .nav-av li > a {
+													padding: 1px 31px 2px 23px;
+												}
+												.ledge .nav-av a:hover,
+												.ledge .nav-kpcc ul ul li a:hover {
+													color: #cfcfcf;
+													text-decoration: underline;
+												}
+												.ledge .nav-av .selected a,
+												.ledge .nav-av .selected a:hover {
+													color: white;
+													text-decoration: none;
+												}
+										
+										.ledge .nav-av .follow {
+											display: block;
+											padding-top: 9px;
+											margin: 0 31px 0 23px;
+										}
+												.ledge .nav-av .follow b {
+													display: block;
+													float: left;
+													width: 16px;
+													height: 15px;
+													margin-left: 17px;
+												}
+												.ledge .nav-av .follow b:first-child {
+													margin-left: 0;
+												}
+												.ledge .nav-av .follow a {
+													width: 100%;
+													height: 100%;
+													text-indent: 100%;
+													white-space: nowrap;
+													overflow: hidden;
+													background: black url(i/icons-follow.png) no-repeat;
+													background-size: 80px 60px;
+												}
+														.ledge .nav-av .follow .fbk a		{ background-position: 0px -30px; }
+														.ledge .nav-av .follow .fbk a:hover	{ background-position: 0px -45px; }
+														.ledge .nav-av .follow .tum a		{ background-position: -16px -30px; }
+														.ledge .nav-av .follow .tum a:hover	{ background-position: -16px -45px; }
+														.ledge .nav-av .follow .ins a		{ background-position: -32px -30px; }
+														.ledge .nav-av .follow .ins a:hover	{ background-position: -32px -45px; }
+														.ledge .nav-av .follow .twi a		{ background-position: -48px -30px; }
+														.ledge .nav-av .follow .twi a:hover	{ background-position: -48px -45px; }
+														.ledge .nav-av .follow .rss a		{ background-position: -64px -30px; }
+														.ledge .nav-av .follow .rss a:hover	{ background-position: -64px -45px; }
+
+
+
+
+
+
+/*
+#####################################################################################################################
+#####################################################################################################################
+BILLBOARD
+#####################################################################################################################
+##################################################################################################################### */
+
+.billboard {
+	margin-bottom: 83px;
+}
+
+
+
+
+
+
+/*
+#####################################################################################################################
+#####################################################################################################################
+WARMUP
+#####################################################################################################################
+##################################################################################################################### */
+
+.warmup {
+	background: tan;
+	box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
+	border-top: 1px solid rgba(0,0,0,0.7);
+	padding: 76px 0 0;
+	margin-bottom: 125px;
+}
+		.warmup-inner {
+			margin-bottom: 190px;
+		}
+				.warmup .recent {
+					width: 68%; /* 816 / 1200 */
+					float: left;
+					background: rgba(0,0,0,0.2);
+				}
+				.warmup .primer {
+					width: 17%; /* 204 / 1200 */
+					float: right;
+					background: rgba(0,0,0,0.7);
+					color: white;
+				}
 
 
 
