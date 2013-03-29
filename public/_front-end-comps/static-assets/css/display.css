@@ -643,25 +643,66 @@ WARMUP
 ##################################################################################################################### */
 
 .warmup {
-	background: tan;
+	background: url(i/structure-warmup-splice-base.png) repeat-y center top;
 	box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
 	border-top: 1px solid rgba(0,0,0,0.7);
-	padding: 76px 0 0;
-	margin-bottom: 125px;
+	margin-bottom: 100px;
 }
 		.warmup-inner {
-			margin-bottom: 190px;
+			box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
+			padding: 30px 0 260px;
+			background: url(i/structure-warmup-splice-inner.png) repeat-y 79.583333333333% 0;
 		}
 				.warmup .recent {
 					width: 68%; /* 816 / 1200 */
 					float: left;
 					background: rgba(0,0,0,0.2);
+					padding-top: 60px;
 				}
 				.warmup .primer {
 					width: 17%; /* 204 / 1200 */
 					float: right;
-					background: rgba(0,0,0,0.7);
+					background: purple;
 					color: white;
+					position: relative;
+					z-index: 3; /* in order to rise above .warmup .inset-title */
+				}
+		
+		.warmup .inset-title {
+			background: url(i/structure-warmup-insettitle.png) repeat-y center top;
+			color: white;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			z-index: 2;
+			padding: 13px 0;
+			text-transform: uppercase;
+		}
+				.warmup .inset-title span {
+					display: block;
+				}
+				.warmup .inset-title b {
+					font-weight: normal;
+					display: block;
+					margin-left: 15%;
+					font: italic 100 1.25em/1.1 "proxima-nova", Avenir, Arial, sans-serif; /* 20 / 16 */
+				}
+				.warmup .inset-title mark {
+					background: none;
+					color: #8bdef0;
+				}
+		
+		.warmup .partnership {
+			margin-top: -191px;
+			background: rgba(171,42,0,0.7);
+			color: yellow;
+			height: 191px;
+		}
+				.warmup .partnership a {
+					display: block;
+					color: white;
+					width: 100%;
+					height: 100%;
 				}
 
 
