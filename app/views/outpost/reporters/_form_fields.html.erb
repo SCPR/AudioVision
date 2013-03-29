@@ -1,0 +1,6 @@
+<%= form_block "Details" do %>
+  <%= f.input :name %>
+  <%= f.input :bio, input_html: { class: 'tiny' } %>
+  <%= f.input :slug %>
+  <%= f.association :user %>
+<% end %>
