@@ -13,24 +13,27 @@
 
 ActiveRecord::Schema.define(version: 20130321045050) do
 
-  create_table "authors", force: true do |t|
-    t.text    "bio"
-    t.integer "user_id"
-    t.string  "name"
-    t.string  "slug"
+  create_table "attributions", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.boolean  "is_included_in_byline", default: true
+    t.integer  "reporter_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "authors", ["slug"], name: "index_authors_on_slug"
-  add_index "authors", ["user_id"], name: "index_authors_on_user_id"
+  add_index "attributions", ["post_id", "is_included_in_byline"], name: "index_attributions_on_post_id_and_is_included_in_byline"
+  add_index "attributions", ["reporter_id"], name: "index_attributions_on_reporter_id"
 
   create_table "flatpages", force: true do |t|
     t.string   "path"
     t.string   "title"
     t.string   "description"
-    t.string   "content"
+    t.text     "content"
     t.string   "redirect_to"
-    t.string   "extra_head"
-    t.string   "extra_footer"
+    t.text     "extra_head"
+    t.text     "extra_footer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -70,5 +73,17 @@ ActiveRecord::Schema.define(version: 20130321045050) do
 
   add_index "posts", ["media_type"], name: "index_posts_on_media_type"
   add_index "posts", ["status", "published_at"], name: "index_posts_on_status_and_published_at"
+
+  create_table "reporters", force: true do |t|
+    t.string   "name"
+    t.text     "bio"
+    t.integer  "user_id"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reporters", ["slug"], name: "index_reporters_on_slug"
+  add_index "reporters", ["user_id"], name: "index_reporters_on_user_id"
 
 end

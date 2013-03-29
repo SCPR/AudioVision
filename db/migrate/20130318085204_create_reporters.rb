@@ -5,6 +5,7 @@ class CreateReporters < ActiveRecord::Migration
       t.text :bio
       t.integer :user_id
       t.string :slug
+      t.timestamps
     end
 
     add_index :reporters, :user_id
@@ -16,6 +17,7 @@ class CreateReporters < ActiveRecord::Migration
       t.boolean :is_included_in_byline, default: true
       t.integer :reporter_id
       t.integer :post_id
+      t.timestamps
     end
 
     add_index :attributions, :reporter_id
