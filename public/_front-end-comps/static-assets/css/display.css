@@ -407,11 +407,18 @@ LEDGE
 	width: 100%;
 	box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
 	color: white;
-	position: fixed;
+	position: relative;
 	z-index: 10; /* don't ever let anything get higher than 10 mmkay */
 	text-transform: uppercase;
 	font-family: "proxima-nova", Avenir, Arial, sans-serif;
+	display: none;
 }
+		.ledge.stuck {
+			position: fixed;
+			display: block;
+			top: 0;
+			left: 0;
+		}
 		.ledge-inner {
 			position: relative;
 		}
@@ -592,6 +599,22 @@ LEDGE
 														.ledge .nav-av .follow .rss a:hover	{ background-position: -64px -45px; }
 
 
+														/*	===================================================================================
+														    =================================================================================== */
+
+														    @media screen and (max-width: 479px) {
+
+																.ledge .nav-kpcc .pledge {
+																	display: none;
+																}
+																.ledge .nav-kpcc ul ul .conditional {
+																	display: list-item;
+																}
+
+														    }
+
+														/*	===================================================================================
+														    =================================================================================== */
 
 
 
