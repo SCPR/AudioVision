@@ -659,6 +659,63 @@ WARMUP
 					background: rgba(0,0,0,0.2);
 					padding-top: 60px;
 				}
+						.warmup .recent figure {
+							background: yellow;
+							margin-bottom: 40px;
+						}
+								.warmup .recent figure .img {
+									display: block;
+									float: right;
+									width: 77.941176470588%; /* 636 / 816 */
+								}
+								.warmup .recent figure .img img {
+									display: block;
+									width: 100%;
+								}
+								.warmup .recent figcaption {
+									float: left;
+									width: 19.362745098039%; /* 158 / 816 */
+									padding-top: 48px;
+								}
+										.warmup .recent figcaption .meta {
+											padding-bottom: 26px;
+											margin-bottom: 23px;
+											background: url(i/ornament-hairline-gray-med.png) no-repeat left bottom;
+											background-size: 26px 1px;
+										}
+												.warmup .recent figcaption .meta,
+												.warmup .recent figcaption .desc {
+													font-size: 0.625em; /* 10 / 16 */
+												}
+												.warmup .recent figcaption .meta .date {
+													margin-bottom: 10px;
+													color: #8b8b8b;
+												}
+												.warmup .recent figcaption .meta .type {
+													font-family: "proxima-nova", Avenir, Arial, sans-serif;
+													font-weight: 400;
+													text-transform: uppercase;
+												}
+
+										.warmup .recent figcaption mark {
+											display: block;
+											background: none;
+											text-transform: uppercase;
+											font: normal 900 0.875em/1.2 "proxima-nova", Avenir, Arial, sans-serif; /* 14 / 16 */
+											margin-bottom: 27px;
+										}
+										.warmup .recent figcaption mark a {
+											display: block;
+											color: black;
+										}
+										.warmup .recent figcaption .desc {
+											color: #919191;
+											line-height: 1.45;
+										}
+										.warmup .recent figcaption a:hover {
+											text-decoration: underline;
+										}
+
 				.warmup .primer {
 					width: 17%; /* 204 / 1200 */
 					float: right;
