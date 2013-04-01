@@ -1009,16 +1009,136 @@ MEMBERSHIP PLUG
 ##################################################################################################################### */
 
 .membership {
-	background: #60c8eb;
-	margin-bottom: 90px;
+	background: #60c8eb url(i/ephemera-membership-logos-melange.jpg) no-repeat -30px 24px;
+	background-size: 335px 234px;
+	margin: 90px 0 140px;
+	box-shadow: inset 0 24px 0 white;
 }
 		.membership a {
 			display: block;
 			width: 100%;
 			height: 100%;
-			padding: 50px 0;
 			color: white;
 		}
+		.membership-inner {
+			background: url(i/ephemera-membership-diecut.png) no-repeat right top;
+			background-size: 48px 48px;
+			padding: 82px 0 34px;
+		}
+				.membership h1 {
+					font-size: 2em; /* 32 / 16 */
+					width: 57.5%; /* 690 / 1200 */
+					font-weight: 100;
+					float: left;
+				}
+				.membership .secondary {
+					float: right;
+					width: 40.5%; /* 486 / 1200 */
+					text-align: right;
+					padding-top: 8px;
+				}
+						.membership .secondary p {
+							padding-bottom: 23px;
+							background: url(i/ornament-hairline-aqua.png) no-repeat right bottom;
+							margin-bottom: 16px;
+						}
+								.membership .secondary p span,
+								.membership .secondary p em {
+									display: block;
+									font: normal 700 1.0625em/1.1 "proxima-nova", Avenir, Arial, sans-serif;
+								}
+								.membership .secondary p span {
+									color: #baeeff;
+									margin-bottom: 3px;
+								}
+								.membership .secondary p em {
+									text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+									padding: 0 12px 0 0;
+									background: url(i/ephemera-triangle-shadowed.png) no-repeat right 5px;
+									background-size: 6px 10px;
+								}
+						
+						.membership h2 {
+							background: url(i/logo-kpcc-white.png) no-repeat;
+							background-size: 100%;
+							text-indent: 100%;
+							white-space: nowrap;
+							overflow: hidden;
+							float: right;
+							width: 100px;
+							height: 15px;
+						}
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (min-width: 1400px) {
+
+								.membership {
+									background-position: 5% top;
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+		
+						    @media screen and (min-width: 1700px) {
+
+								.membership {
+									background-position: 13% top;
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (max-width: 740px) {
+
+								.membership {
+									background-position: -60px 24px;
+								}
+								.membership h1 {
+									font-size: 1.6em;
+									text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (max-width: 460px) {
+
+								.membership-inner {
+									padding-bottom: 5px;
+								}
+								.membership h1,
+								.membership .secondary {
+									float: none;
+									width: 90%;
+									margin: 0 auto 40px;
+									text-align: center;
+								}
+								.membership .secondary p {
+									background-position: center bottom;
+									margin-bottom: 30px;
+									padding-bottom: 28px;
+								}
+								.membership .secondary p em {
+									display: inline-block;
+								}
+								.membership h2 {
+									margin: 0 auto;
+									float: none;
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+			
 
 
 
