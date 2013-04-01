@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20130321045050) do
   create_table "attributions", force: true do |t|
     t.string   "name"
     t.string   "url"
-    t.boolean  "is_included_in_byline", default: true
+    t.integer  "role"
     t.integer  "reporter_id"
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "attributions", ["post_id", "is_included_in_byline"], name: "index_attributions_on_post_id_and_is_included_in_byline"
+  add_index "attributions", ["post_id", "role"], name: "index_attributions_on_post_id_and_role"
   add_index "attributions", ["reporter_id"], name: "index_attributions_on_reporter_id"
 
   create_table "flatpages", force: true do |t|
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20130321045050) do
     t.integer  "asset_id"
     t.integer  "post_id"
     t.integer  "position"
-    t.string   "caption"
+    t.text     "caption"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

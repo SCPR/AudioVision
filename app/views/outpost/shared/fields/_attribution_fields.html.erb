@@ -1,0 +1,8 @@
+<tr>
+  <%= render '/outpost/resource/errors', f: f %>
+  <td><%= f.association :reporter, collection: Reporter.select_collection, label: false, input_html: { class: "span2" } %></td>
+  <td><%= f.input :name, label: false, input_html: { class: "span2", placeholder: "Optional" } %></td>
+  <td><%= f.input :url, label: false, input_html: { class: "span2", placeholder: "Optional" } %></td>
+  <td><%= f.input :role, label: false, input_html: { class: "span2" }, collection: Attribution.roles_collection, include_blank: false, placeholder: "test" %></td>
+  <td><%= f.input :_destroy, as: :boolean, label: false, input_html: { class: "span1" } %></td>
+</tr>
