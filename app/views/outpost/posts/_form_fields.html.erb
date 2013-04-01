@@ -6,6 +6,47 @@
   <%= f.input :slug, label: "URL Slug", input_html: { class: "span5" } %>
 <% end %>
 
+
+<%= form_block "Asset Management" do %>  
+  <div id="asset_bucket" class="clearfix"></div>
+  <%= f.input :asset_json, as: :hidden, input_html: { id: "asset_json" } %>
+  
+  <script>
+    $(document).ready(function() {
+      new outpost.AssetManager(<%= raw record.assets.to_json %>, "#asset_bucket")
+    });
+  </script>
+<% end %>
+
+
+<%= form_block "Attribution" do %>
+  <% record.attributions.build %>
+  
+  <table class="field-rows">
+    <thead>
+      <tr>
+        <th>Reporter</th>
+        <th>Name</th>
+        <th>URL</th>
+        <th>Role</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    
+    <tfoot>
+      <tr>
+        <td colspan="10">
+          <%= f.link_to_add_fields(:attributions, title: "Add another Attribution", build_target: "#attributions-fields") %>
+        </td>
+      </tr>
+    </tfoot>
+    
+    <tbody id="attributions-fields">
+      <%= f.has_many_fields :attributions %>
+    </tbody>
+  </table>
+<% end %>
+
 <%= form_block "Publishing" do %>
   <%= f.input :status, selected: record.status || Post::STATUS[:draft], collection: Post.status_collection %>
   <%= f.input :published_at %>

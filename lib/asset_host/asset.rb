@@ -38,6 +38,7 @@ module AssetHost
           
           outputs
         end
+      end
     
       #-------------------
       
