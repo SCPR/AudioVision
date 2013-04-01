@@ -407,11 +407,18 @@ LEDGE
 	width: 100%;
 	box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
 	color: white;
-	position: fixed;
+	position: relative;
 	z-index: 10; /* don't ever let anything get higher than 10 mmkay */
 	text-transform: uppercase;
 	font-family: "proxima-nova", Avenir, Arial, sans-serif;
+	display: none;
 }
+		.ledge.stuck {
+			position: fixed;
+			display: block;
+			top: 0;
+			left: 0;
+		}
 		.ledge-inner {
 			position: relative;
 		}
@@ -592,6 +599,22 @@ LEDGE
 														.ledge .nav-av .follow .rss a:hover	{ background-position: -64px -45px; }
 
 
+														/*	===================================================================================
+														    =================================================================================== */
+
+														    @media screen and (max-width: 479px) {
+
+																.ledge .nav-kpcc .pledge {
+																	display: none;
+																}
+																.ledge .nav-kpcc ul ul .conditional {
+																	display: list-item;
+																}
+
+														    }
+
+														/*	===================================================================================
+														    =================================================================================== */
 
 
 
@@ -620,39 +643,400 @@ WARMUP
 ##################################################################################################################### */
 
 .warmup {
-	background: tan;
+	background: url(i/structure-warmup-splice-base.png) repeat-y center top;
 	box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
 	border-top: 1px solid rgba(0,0,0,0.7);
-	padding: 76px 0 0;
-	margin-bottom: 125px;
+	margin-bottom: 100px;
+	position: relative;
 }
 		.warmup-inner {
-			margin-bottom: 190px;
+			box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
+			padding: 30px 0 260px;
+			background: url(i/structure-warmup-splice-inner.png) repeat-y 79.583333333333% 0;
 		}
 				.warmup .recent {
 					width: 68%; /* 816 / 1200 */
 					float: left;
-					background: rgba(0,0,0,0.2);
+					padding-top: 161px;
+					background: url(i/ornament-gray-hairline-vertical.png) repeat-y 22.058823529412% top;
+					box-shadow: inset 0 161px 0 white;
 				}
+						.warmup .recent figure {
+							margin-bottom: 185px;
+						}
+						.warmup .recent figure:last-child {
+							margin-bottom: 0;
+						}
+								.warmup .recent figure .img {
+									display: block;
+									float: right;
+									width: 77.941176470588%; /* 636 / 816 */
+								}
+								.warmup .recent figure .img img {
+									display: block;
+									width: 100%;
+								}
+								.warmup .recent figcaption {
+									float: left;
+									width: 19.362745098039%; /* 158 / 816 */
+									padding-top: 48px;
+								}
+										.warmup .recent figcaption .meta {
+											padding-bottom: 26px;
+											margin-bottom: 23px;
+											background: url(i/ornament-hairline-gray-med.png) no-repeat left bottom;
+											background-size: 26px 1px;
+										}
+												.warmup .recent figcaption .meta,
+												.warmup .recent figcaption .desc {
+													font-size: 0.625em; /* 10 / 16 */
+												}
+												.warmup .recent figcaption .meta .date {
+													margin-bottom: 10px;
+													color: #8b8b8b;
+												}
+												.warmup .recent figcaption .meta .type {
+													font-family: "proxima-nova", Avenir, Arial, sans-serif;
+													font-weight: 400;
+													text-transform: uppercase;
+												}
+
+										.warmup .recent figcaption mark {
+											display: block;
+											background: none;
+											text-transform: uppercase;
+											font: normal 900 0.875em/1.2 "proxima-nova", Avenir, Arial, sans-serif; /* 14 / 16 */
+											margin-bottom: 27px;
+										}
+										.warmup .recent figcaption mark a {
+											display: block;
+											color: black;
+										}
+										.warmup .recent figcaption .desc {
+											color: #919191;
+											line-height: 1.5;
+										}
+										.warmup .recent figcaption a:hover {
+											text-decoration: underline;
+										}
+
 				.warmup .primer {
 					width: 17%; /* 204 / 1200 */
 					float: right;
-					background: rgba(0,0,0,0.7);
 					color: white;
+					position: relative;
+					z-index: 3; /* in order to rise above .warmup .inset-title */
+					padding-top: 46px;
+				}
+						.warmup .pamphlet {
+							color: #959494;
+						}
+								.warmup .pamphlet h2 {
+									font: italic 100 1.125em/1.05 "proxima-nova", Avenir, Arial, sans-serif; /* 18 / 16 */
+									text-transform: uppercase;
+									border-top: 1px solid #505050;
+									padding-top: 9px;
+									margin: 65px 0 30px;
+								}
+								.warmup .pamphlet h2:first-child {
+									margin-top: 0;
+								}
+								.warmup .pamphlet p {
+									font-size: 0.75em;
+									line-height: 1.4;
+									margin-bottom: 1.7em;
+								}
+								.warmup .pamphlet figure {
+									margin-bottom: 40px;
+								}
+										.warmup .pamphlet figure .img,
+										.warmup .pamphlet figure .img a,
+										.warmup .pamphlet figure .img img,
+										.warmup .pamphlet figure mark,
+										.warmup .pamphlet figure mark a {
+											display: block;
+											width: 100%;
+										}
+										.warmup .pamphlet figure .img {
+											margin-bottom: 14px;
+											border: 1px solid #696969;
+											box-shadow: 0 1px 3px black;
+										}
+										.warmup .pamphlet figcaption {
+											text-align: right;
+											text-transform: uppercase;
+											font-family: "proxima-nova", Avenir, Arial, sans-serif;
+										}
+										.warmup .pamphlet figcaption mark {
+											background: none;
+											font-weight: 700;
+											font-size: 0.8125em; /* 13 / 16 */
+											line-height: 1.0;
+											margin-bottom: 6px;
+										}
+										.warmup .pamphlet figcaption mark a {
+											color: #e6e6e6;
+										}
+										.warmup .pamphlet figcaption mark a:hover {
+											color: white;
+											text-decoration: underline;
+										}
+										.warmup .pamphlet figcaption .meta {
+											font-size: 0.625em; /* 10 / 16 */
+											color: #747474;
+										}
+												.warmup .pamphlet figcaption .meta li {
+													display: inline;
+												}
+												.warmup .pamphlet figcaption .meta .date {
+													color: #a8a8a8;
+													padding-left: 8px;
+												}
+										
+
+						.warmup .partnership-tease {
+							margin-bottom: 30px;
+						}
+								.warmup .partnership-tease a {
+									display: block;
+									width: 100%;
+									background: #eb592a;
+									height: 55px; /* 85 */
+									padding-top: 30px;
+									color: white;
+								}
+								.warmup .partnership-tease span {
+									display: block;
+									text-align: center;
+									margin: 0 5%;
+									font-size: 0.75em;
+								}
+		
+		.warmup .inset-title {
+			background: url(i/structure-warmup-insettitle.png) repeat-y center top;
+			color: white;
+			position: absolute;
+			left: 0;
+			top: 76px;
+			width: 100%;
+			z-index: 2;
+			padding: 9px 0 11px;
+			text-transform: uppercase;
+		}
+				.warmup .inset-title span {
+					display: block;
+				}
+				.warmup .inset-title b {
+					font-weight: normal;
+					display: block;
+					margin-left: 15%;
+					font: italic 100 1.25em/1.1 "proxima-nova", Avenir, Arial, sans-serif; /* 20 / 16 */
+				}
+				.warmup .inset-title mark {
+					background: none;
+					color: #8bdef0;
+				}
+		
+		.warmup .partnership {
+			margin-top: -191px;
+			background: rgba(171,42,0,0.7);
+			color: yellow;
+			height: 191px;
+		}
+				.warmup .partnership a {
+					display: block;
+					color: white;
+					width: 100%;
+					height: 100%;
 				}
 
 
 
 
+				/*	===================================================================================
+				    =================================================================================== */
+
+				    @media screen and (max-width: 1100px) {
+
+						.warmup .recent {
+							background-position: 27.058823529412% top; /* +5 */
+						}
+						.warmup .recent figure {
+							margin-bottom: 120px;
+						}
+						.warmup .recent figcaption {
+							width: 24.362745098039%; /* +5 */
+							padding-top: 15px; /* had been 48 */
+						}
+						.warmup .recent figcaption .meta {
+							padding-bottom: 15px;
+							margin-bottom: 15px;
+						}
+						.warmup .recent figure .img {
+							width: 72.941176470588%; /* -5 */
+						}
+						.warmup .inset-title b {
+							margin-left: 20%;
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */
+
+				    @media screen and (max-width: 920px) {
+
+						.warmup-inner {
+							background-position: 81.7% 0; /* had been 79.583333333333% 0; */
+						}
+						.warmup .recent {
+							background: none;
+							box-shadow: none;
+						}
+						.warmup .recent figure {
+							margin-bottom: 70px;
+						}
+						.warmup .recent figure .img,
+						.warmup .recent figcaption {
+							float: none;
+							width: 100%;
+						}
+						.warmup .recent figcaption mark {
+							margin-bottom: 10px; /* had been 27 */
+						}
+						.warmup .recent figcaption .meta li {
+							display: inline;
+						}
+						.warmup .recent figcaption .meta li:first-child {
+							padding-right: 12px;
+						}
+						.warmup .inset-title b {
+							margin-left: 0;
+						}
+						.warmup .primer {
+							width: 23%; /* had been 17 */
+							
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */
+
+				    @media screen and (max-width: 730px) {
+
+						.warmup-inner {
+							background-position: 83% 0;
+						}
+						.warmup .recent {
+							width: 62%; /* had been 68 */
+						}
+						.warmup .primer {
+							width: 28%; /* had been 17 */
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */
+
+				    @media screen and (max-width: 655px) {
+
+						.warmup-inner {
+							background-position: 82.8% 0;
+						}
+						.warmup .recent {
+							width: 61%;
+						}
+						.warmup .primer {
+							width: 29.5%;
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */
+
+				    @media screen and (max-width: 580px) {
+
+						.warmup {
+							background: none;
+						}
+						.warmup .inset-title {
+							background-position: -1250px 0;
+							position: absolute;
+							width: 100%;
+						}
+						.warmup-inner {
+							background: none;
+							box-shadow: none;
+						}
+						.warmup .recent {
+							width: 100%;
+							float: none;
+							margin-bottom: 70px;
+						}
+						.warmup .primer {
+							width: 96%;
+							margin-left: -3%;
+							padding: 40px 5% 50px 5%;
+							float: none;
+							background: #353535;
+						}
+						.warmup .partnership-tease {
+							width: 90%;
+							max-width: 370px;
+							margin: 0 auto 50px;
+						}
+						.warmup .pamphlet figure {
+							margin: 0 auto 30px;
+							width: 80%;
+							max-width: 300px;
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */
+
+
+
+/*
+#####################################################################################################################
+#####################################################################################################################
+MEMBERSHIP PLUG
+#####################################################################################################################
+##################################################################################################################### */
+
+.membership {
+	background: #60c8eb;
+	margin-bottom: 90px;
+}
+		.membership a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			padding: 50px 0;
+			color: white;
+		}
 
 
 
 
 
+/*
+#####################################################################################################################
+#####################################################################################################################
+FOOTER
+#####################################################################################################################
+##################################################################################################################### */
 
-
-
-
+.epilogue {
+	background: black;
+	color: #8f8f8f;
+	overflow: hidden;
+	padding: 100px 0;
+}
 
 
 
