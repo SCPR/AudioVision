@@ -1,5 +1,4 @@
 require "bundler/capistrano"
-require 'thinking_sphinx/deploy/capistrano'
 require 'new_relic/recipes'
 require 'net/http'
 
@@ -34,7 +33,6 @@ role :app,      media
 role :web,      media
 role :workers,  media
 role :db,       media, :primary => true
-role :sphinx,   media
 
 
 
@@ -42,7 +40,6 @@ role :sphinx,   media
 # Callbacks
 before "deploy:update_code", "deploy:notify"
 before "deploy:assets:precompile", "deploy:symlink_config"
-after "deploy:update_code", "thinking_sphinx:configure"
 after "deploy:update", "deploy:cleanup"
 after "deploy:update", "newrelic:notice_deployment"
 
@@ -91,25 +88,8 @@ namespace :deploy do
   end
 
   task :symlink_config do
-    %w{ database.yml app_config.yml sphinx.yml newrelic.yml }.each do |file|
+    %w{ database.yml app_config.yml newrelic.yml }.each do |file|
       run "ln -nfs #{shared_path}/config/#{file} #{release_path}/config/#{file}"
     end
-  end
-end
-
-# --------------
-# Sphinx
-namespace :remote_ts do
-  task :start, roles: :sphinx do
-    thinking_sphinx.configure
-    thinking_sphinx.start
-  end
-  
-  task :stop, roles: :sphinx do
-    thinking_sphinx.stop
-  end
-  
-  task :index, roles: :sphinx do 
-    thinking_sphinx.index
   end
 end
