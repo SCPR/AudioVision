@@ -1009,16 +1009,136 @@ MEMBERSHIP PLUG
 ##################################################################################################################### */
 
 .membership {
-	background: #60c8eb;
-	margin-bottom: 90px;
+	background: #60c8eb url(i/ephemera-membership-logos-melange.jpg) no-repeat -30px 24px;
+	background-size: 335px 234px;
+	margin: 90px 0 140px;
+	box-shadow: inset 0 24px 0 white;
 }
 		.membership a {
 			display: block;
 			width: 100%;
 			height: 100%;
-			padding: 50px 0;
 			color: white;
 		}
+		.membership-inner {
+			background: url(i/ephemera-membership-diecut.png) no-repeat right top;
+			background-size: 48px 48px;
+			padding: 82px 0 34px;
+		}
+				.membership h1 {
+					font-size: 2em; /* 32 / 16 */
+					width: 57.5%; /* 690 / 1200 */
+					font-weight: 100;
+					float: left;
+				}
+				.membership .secondary {
+					float: right;
+					width: 40.5%; /* 486 / 1200 */
+					text-align: right;
+					padding-top: 8px;
+				}
+						.membership .secondary p {
+							padding-bottom: 23px;
+							background: url(i/ornament-hairline-aqua.png) no-repeat right bottom;
+							margin-bottom: 16px;
+						}
+								.membership .secondary p span,
+								.membership .secondary p em {
+									display: block;
+									font: normal 700 1.0625em/1.1 "proxima-nova", Avenir, Arial, sans-serif;
+								}
+								.membership .secondary p span {
+									color: #baeeff;
+									margin-bottom: 3px;
+								}
+								.membership .secondary p em {
+									text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+									padding: 0 12px 0 0;
+									background: url(i/ephemera-triangle-shadowed.png) no-repeat right 5px;
+									background-size: 6px 10px;
+								}
+						
+						.membership h2 {
+							background: url(i/logo-kpcc-white.png) no-repeat;
+							background-size: 100%;
+							text-indent: 100%;
+							white-space: nowrap;
+							overflow: hidden;
+							float: right;
+							width: 100px;
+							height: 15px;
+						}
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (min-width: 1400px) {
+
+								.membership {
+									background-position: 5% top;
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+		
+						    @media screen and (min-width: 1700px) {
+
+								.membership {
+									background-position: 13% top;
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (max-width: 740px) {
+
+								.membership {
+									background-position: -60px 24px;
+								}
+								.membership h1 {
+									font-size: 1.6em;
+									text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (max-width: 460px) {
+
+								.membership-inner {
+									padding-bottom: 5px;
+								}
+								.membership h1,
+								.membership .secondary {
+									float: none;
+									width: 90%;
+									margin: 0 auto 40px;
+									text-align: center;
+								}
+								.membership .secondary p {
+									background-position: center bottom;
+									margin-bottom: 30px;
+									padding-bottom: 28px;
+								}
+								.membership .secondary p em {
+									display: inline-block;
+								}
+								.membership h2 {
+									margin: 0 auto;
+									float: none;
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+			
 
 
 
@@ -1032,11 +1152,139 @@ FOOTER
 ##################################################################################################################### */
 
 .epilogue {
-	background: black;
-	color: #8f8f8f;
+	background: black url(i/ephemera-footer-scanlines.png) repeat-x left top;
+	background-size: 15px 30px;
+	color: #595959;
 	overflow: hidden;
-	padding: 100px 0;
+	padding: 120px 0 100px;
 }
+		.epilogue h3,
+		.epilogue .fineprint {
+			font-weight: 700;
+			font-family: "proxima-nova", Avenir, Arial, sans-serif;
+			text-transform: uppercase;
+		}
+		.epilogue .fineprint {
+			font-size: 0.625em; /* 10 / 16 */
+			text-align: center;
+			margin: 0 20%;
+		}
+		.epilogue-primary {
+			padding-bottom: 80px;
+			border-bottom: 1px solid #333333;
+			margin-bottom: 65px;
+		}
+				.epilogue .branding {
+					width: 90%;
+					max-width: 506px;
+					background: url(i/logo-av-lightningbolt-fullcolor.png) no-repeat center top;
+					background-size: 22px 22px;
+					margin: 0 auto;
+					overflow: hidden;
+				}
+						.epilogue .branding hgroup {
+							margin-left: 7.114624505929%; /* 36 / 506 */
+						}
+								.epilogue .branding h1 {
+									float: right;
+									background: url(i/logo-av-wordmark-white.png) no-repeat;
+									width: 38.723404255319%; /* 182 / 470 */
+								}
+								.epilogue .branding h2 {
+									float: left;
+									background: url(i/logo-kpcc-white.png) no-repeat;
+									width: 31.276595744681%; /* 147 / 470 */
+								}
+								.epilogue .branding h1,
+								.epilogue .branding h2 {
+									background-size: 100%;
+									height: 22px;
+								}
+								.epilogue .branding a {
+									display: block;
+									width: 100%;
+									height: 100%;
+									white-space: nowrap;
+									text-indent: 100%;
+									overflow: hidden;
+								}
+		
+		.epilogue .credits {
+			margin: 0 auto 80px;
+			width: 90%; /* 90% - 6.5% (78 / 1200) */
+			max-width: 1200px;
+			font-size: 0.75em;
+		}
+				.epilogue .credits aside {
+					float: left;
+					width: 25.5%; /* 306 / 1200 */
+				}
+				.epilogue .credits .staff {
+					float: right;
+				}
+				.epilogue .credits .global {
+					margin-right: 8.5%; /* 102 / 1200 */
+					margin-left: 6.5%; /* 78 / 1200 */
+				}
+				.epilogue .credits aside h3 {
+					float: left;
+					width: 33.333333333333%; /* 102 / 306 */
+					text-align: right;
+					color: #8f8f8f;
+					overflow: visible;
+				}
+				.epilogue .credits aside ul {
+					float: right;
+					width: 58.823529411765%; /* 180 / 306 */
+				}
+				.epilogue .credits aside li {
+					margin-bottom: 0.8em;
+				}
+				.epilogue .credits a {
+					color: #8f8f8f;
+				}
+						.epilogue .credits a:hover {
+							color: #0ed8fc;
+							text-decoration: underline;
+						}
+						
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (max-width: 760px) {
 
 
 
+								.epilogue .credits .global,
+								.epilogue .credits .connect,
+								.epilogue .credits .staff {
+									float: none;
+									width: 100%;
+									margin: 0 auto 30px auto;
+								}
+								.epilogue .credits aside h3 {
+									width: 47%;
+								}
+								.epilogue .credits aside ul {
+									width: 47%;
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+		
+						    @media screen and (max-width: 500px) {
+
+									.epilogue .branding {
+										width: 75%;
+									}
+									.epilogue .branding h1,
+									.epilogue .branding h2 {
+										margin-top: 5px;
+									}
+
+							}
+
+						/*	===================================================================================
+						    =================================================================================== */
