@@ -27,6 +27,6 @@ module AudioVision
     config.assethost.prefix = "/api"
 
     config.assets.precompile += %w( outpost/outpost.css outpost/outpost.js )
-
+    config.autoload_paths += %W( #{config.root}/lib )
   end
 end
