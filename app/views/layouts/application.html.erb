@@ -1,14 +1,225 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AudioVision</title>
-  <%= stylesheet_link_tag    "shared", "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+
+    <title>AudioVision | 89.3 KPCC</title>
+
+    <!-- ######################################################################## -->
+    <!-- ######################################################################## -->
+    <!-- ######################################################################## -->
+    <!-- REMOVE BEFORE DEPLOYING! ############################################### -->
+    <meta name="robots" content="noindex, nofollow">
+    <!-- ######################################################################## -->
+    <!-- ######################################################################## -->
+    <!-- ######################################################################## -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="!!!!!!!!!!!!!!!!!!!!!" />
+    <meta name="keywords" content="!!!!!!!!!!!!!!!!!!!!!" />
+    <meta name="author" content="89.3 KPCC" />
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <meta property="og:site_name" content="AudioVision" />
+    <meta property="og:title" content="AudioVision | 89.3 KPCC" />
+    <meta property="og:url" content="http://audiovision.scpr.org/" />
+    <meta property="og:image" content="static-assets/meta/audiovision-opengraph.png" /><!-- MAKE THIS AN ABSOLUTE URL BEFORE DEPLOYING -->
+    <meta property="og:description" content="!!!!!!!!!!!!!!!!!!!!!" />
+
+    <link rel="apple-touch-icon-precomposed" href="!!!!!!!!!!!!!!!!!!!!!/apple-touch-icon-144x144-precomposed.png" />
+    <link href="http://media.scpr.org/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <script type="text/javascript" src="//use.typekit.net/ypz5aii.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 </head>
 <body>
 
-<%= yield %>
+
+
+    <header class="masthead">
+        <div class="global">
+            <div class="global-inner bound">
+                <h3 class="kpcc-brand"><a href="http://kpcc.org" title="Southern California Public Radio">89.3 KPCC</a></h3>
+                <nav class="kpcc-nav">
+                    <ul class="clearfix">
+                        <li class="homeward"><mark><a href="http://kpcc.org">KPCC Home</a></mark></li>
+                        <li class="inside">
+                            <mark><span>Inside KPCC</span></mark>
+                            <ul>
+                                <li><a href="http://www.scpr.org/listen_live/">Listen Live</a></li>
+                                <li><a href="http://www.scpr.org/news/">News</a></li>
+                                <li><a href="http://www.scpr.org/arts-life/">Arts &amp; Life</a></li>
+                                <li><a href="http://www.scpr.org/programs/">Programs</a></li>
+                                <li><a href="http://www.scpr.org/events/">Events</a></li>
+                                <li><a href="http://www.scpr.org/about/">About</a></li>
+                                <li class="conditional"><a href="https://scprcontribute.publicradio.org/contribute.php">Pledge Now</a></li>
+                            </ul>
+                        </li>
+                        <li class="pledge"><mark><a href="https://scprcontribute.publicradio.org/contribute.php">Pledge Now</a></mark></li>
+                    </ul>
+                </nav>
+            </div>
+        </div><!--/ .global -->
+        <hgroup class="av-brand bound clearfix">
+            <h1><a href="/">AudioVision</a></h1>
+            <h2>KPCC's blog of visual journalism from and about Southern California.</h2>
+        </hgroup>
+        <div class="atlas bound clearfix">
+            <nav class="follow">
+                <ul>
+                    <li class="fbk"><a href="https://www.facebook.com/Audiovision" title="AudioVision on Facebook">Facebook</a></li>
+                    <li class="tum"><a href="http://www.tumblr.com/audiovision" title="AudioVision on Tumblr">Tumblr</a></li>
+                    <li class="ins"><a href="http://www.instagram.com/kpcc" title="AudioVision on Instagram">Instagram</a></li>
+                    <li class="twi"><a href="http://www.twitter.com/audiovision" title="AudioVision on Twitter">Twitter</a></li>
+                    <li class="rss"><a href="http://audiovision.scpr.org/feed" title="Subscribe to AudioVision's RSS feed">RSS</a></li>
+                </ul>
+            </nav>
+            <nav class="wayfinder">
+                <ul>
+                    <li class="selected"><a href="/">Home</a></li>
+                    <li><a href="/images">Images</a></li>
+                    <li><a href="/video">Video</a></li>
+                    <li><a href="/mobile">Mobile Photography</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/archives">Archives</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header><!--/ .masthead -->
+
+
+
+    <header class="ledge" aria-hidden="true">
+        <div class="ledge-inner bound">
+
+            <nav class="nav-av">
+                <ul>
+                    <li class="menu">
+                        <mark>AudioVision</mark>
+                        <ul>
+                            <li class="selected"><a href="/">AudioVision Home</a></li>
+                            <li><a href="/images">Images</a></li>
+                            <li><a href="/video">Video</a></li>
+                            <li><a href="/mobile">Mobile Photography</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/archives">Archives</a></li>
+                            <li>
+                                <span class="follow clearfix">
+                                    <b class="fbk"><a href="https://www.facebook.com/Audiovision" title="AudioVision on Facebook">Facebook</a></b>
+                                    <b class="tum"><a href="http://www.tumblr.com/audiovision" title="AudioVision on Tumblr">Tumblr</a></b>
+                                    <b class="ins"><a href="http://www.instagram.com/kpcc" title="AudioVision on Instagram">Instagram</a></b>
+                                    <b class="twi"><a href="http://www.twitter.com/audiovision" title="AudioVision on Twitter">Twitter</a></b>
+                                    <b class="rss"><a href="http://audiovision.scpr.org/feed" title="Subscribe to AudioVision's RSS feed">RSS</a></b>
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav><!--/ .nav-av -->
+
+            <nav class="nav-kpcc clearfix">
+                <em class="pledge">
+                    <a href="https://scprcontribute.publicradio.org/contribute.php">Pledge Now</a>
+                </em>
+                <ul>
+                    <li class="inside">
+                        <mark><span>89.3 KPCC</span></mark>
+                        <ul>
+                            <li><a href="http://kpcc.org">KPCC Home</a></li>
+                            <li><a href="http://www.scpr.org/listen_live/">Listen Live</a></li>
+                            <li><a href="http://www.scpr.org/news/">News</a></li>
+                            <li><a href="http://www.scpr.org/arts-life/">Arts &amp; Life</a></li>
+                            <li><a href="http://www.scpr.org/programs/">Programs</a></li>
+                            <li><a href="http://www.scpr.org/events/">Events</a></li>
+                            <li><a href="http://www.scpr.org/about/">About</a></li>
+                            <li class="conditional"><a href="https://scprcontribute.publicradio.org/contribute.php">Pledge Now</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header><!--/ .ledge -->
+
+
+
+    
+    <%= yield %>
+
+
+
+
+    <aside class="membership">
+        <a href="#">
+            <div class="membership-inner clearfix bound">
+                <h1>Did you know AudioVision is run from member-supported public radio?</h1>
+                <div class="secondary">
+                    <p>
+                        <span>Your contributions power KPCC.</span>
+                        <em>Give today</em>
+                    </p>
+                    <h2>89.3 KPCC</h2>
+                </div>
+            </div>
+        </a>
+    </aside><!--/ .membership -->
+
+
+    <footer class="epilogue">
+        <div class="epilogue-primary">
+            <header class="branding">
+                <hgroup class="clearfix">
+                    <h1><a href="/">AudioVision</a></h1>
+                    <h2><a href="http://kpcc.org">89.3 KPCC</a></h2>
+                </hgroup>
+            </header>
+        </div><!--/ .epilogue-primary -->
+        <div class="epilogue-secondary">
+            <section class="credits clearfix">
+                <aside class="global clearfix">
+                    <h3>kpcc.org</h3>
+                    <ul>
+                        <li><a href="http://www.scpr.org/terms/">Terms &amp; Conditions</a></li>
+                        <li><a href="http://www.scpr.org/privacy/">Privacy</a></li>
+                        <li><a href="http://www.scpr.org/web_site_feedback/">Website Feedback</a></li>
+                    </ul>
+                </aside>
+                <aside class="connect clearfix">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:photos@kpcc.org">Email Us</a></li>
+                        <li><a href="http://www.twitter.com/audiovision">Twitter</a></li>
+                        <li><a href="http://www.instagram.com/kpcc">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/Audiovision">Facebook</a></li>
+                        <li><a href="http://www.tumblr.com/audiovision">Tumblr</a></li>
+                        <li><a href="http://audiovision.scpr.org/feed">RSS</a></li>
+                    </ul>
+                </aside>
+                <aside class="staff clearfix">
+                    <h3>Editors</h3>
+                    <ul>
+                        <li><a href="http://www.scpr.org/about/people/staff/mae-ryan">Mae Ryan</a></li>
+                        <li><a href="http://www.scpr.org/about/people/staff/grant-slater">Grant Slater</a></li>
+                        <li><a href="http://www.scpr.org/about/people/staff/maya-sugarman">Maya Sugarman</a></li>
+                    </ul>
+                </aside>
+            </section>
+            <p class="fineprint">Copyright 2013 &copy; Southern California Public Radio</p>
+        </div><!--/ .epilogue-secondary -->
+    </footer><!--/ .epilogue -->
+
+
 
 </body>
 </html>

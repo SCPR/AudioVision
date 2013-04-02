@@ -1,3 +1,5 @@
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require waypoints.min
+//= require waypoints-sticky.min
+//= require scripts
