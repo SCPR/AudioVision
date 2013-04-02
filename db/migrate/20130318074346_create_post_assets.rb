@@ -4,7 +4,7 @@ class CreatePostAssets < ActiveRecord::Migration
       t.integer :asset_id
       t.integer :post_id
       t.integer :position
-      t.string :caption
+      t.text :caption
       t.timestamps
     end
 

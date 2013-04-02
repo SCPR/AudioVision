@@ -1,13 +1,7 @@
-# --------------
-# Requires and Multistage setup
-
 require "bundler/capistrano"
 require 'thinking_sphinx/deploy/capistrano'
-
-set :stages, %w{ production staging }
-set :default_stage, "production"
-require 'capistrano/ext/multistage'
-
+require 'new_relic/recipes'
+require 'net/http'
 
 # --------------
 # Universal Variables
@@ -17,10 +11,10 @@ set :scm, :git
 set :repository,  "git@github.com:SCPR/AudioVision.git"
 set :scm_verbose, true
 set :deploy_via, :remote_cache
-set :deploy_to, "/web/audio_vision"
+set :deploy_to, "/web/audiovision"
 set :keep_releases, 5
 
-set :user, "audio_vision"
+set :user, "audiovision"
 set :use_sudo, false
 set :group_writable, false
 
@@ -31,39 +25,50 @@ set :maintenance_basename, "maintenance"
 #    cap deploy -s force_assets=true
 set :force_assets,  false # If assets wouldn't normally be precompiled, force them to be
 set :skip_assets,   false # If assets are going to be precompiled, force them NOT to be
-set :ts_index,      false # Staging only - Whether or not to run the sphinx index on drop
-set :syncdb,        false # Staging only - Whether or not to run a dbsync to mercer_staging
+
+
+
+media = "66.226.4.228"
+
+role :app,      media
+role :web,      media
+role :workers,  media
+role :db,       media, :primary => true
+role :sphinx,   media
+
+
 
 # --------------
-# Universal Callbacks
+# Callbacks
+before "deploy:update_code", "deploy:notify"
 before "deploy:assets:precompile", "deploy:symlink_config"
+after "deploy:update_code", "thinking_sphinx:configure"
 after "deploy:update", "deploy:cleanup"
+after "deploy:update", "newrelic:notice_deployment"
 
-# --------------
-# Universal Tasks
+
 namespace :deploy do
-  # --------------
-  # Override disable/enable
-  # https://github.com/capistrano/capistrano/blob/master/lib/capistrano/recipes/deploy.rb
-  namespace :web do
-    task :disable, :roles => :web, :except => { :no_release => true } do
-      require 'erb'
-      on_rollback { run "rm -f #{shared_path}/system/#{maintenance_basename}.html" }
-
-      reason    = ENV['REASON']
-      deadline  = ENV['UNTIL']
-
-      template = File.read(maintenance_template_path)
-      result   = ERB.new(template).result(binding)
-
-      put result, "#{shared_path}/system/#{maintenance_basename}.html", :mode => 0644
-    end
-
-    task :enable, :roles => :web, :except => { :no_release => true } do
-      run "rm -f #{shared_path}/system/#{maintenance_basename}.html"
-    end
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   
+  # --------------
+  
+  task :notify do
+    data = {
+      :token  => "droQQ2LcESKeGPzldQr7",
+      :user        => `whoami`.gsub("\n", ""),
+      :datetime    => Time.now.strftime("%F %T"),
+      :application => application
+    }
+    
+    url = "http://www.scpr.org/api/private/utility/notify"
+    logger.info "Sending notification to #{url}"
+    Net::HTTP.post_form(URI.parse(URI.encode(url)), data)
+  end
+
   # --------------
   # Skip asset precompile if no assets were changed
   namespace :assets do

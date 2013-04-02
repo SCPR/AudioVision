@@ -11,37 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130318232021) do
+ActiveRecord::Schema.define(version: 20130321045050) do
 
-  create_table "authors", force: true do |t|
-    t.text    "bio"
-    t.integer "user_id"
-    t.string  "name"
-    t.string  "slug"
+  create_table "attributions", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "role"
+    t.integer  "reporter_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "authors", ["slug"], name: "index_authors_on_slug"
-  add_index "authors", ["user_id"], name: "index_authors_on_user_id"
+  add_index "attributions", ["post_id", "role"], name: "index_attributions_on_post_id_and_role"
+  add_index "attributions", ["reporter_id"], name: "index_attributions_on_reporter_id"
 
   create_table "flatpages", force: true do |t|
     t.string   "path"
     t.string   "title"
     t.string   "description"
-    t.string   "content"
+    t.text     "content"
     t.string   "redirect_to"
-    t.string   "extra_head"
-    t.string   "extra_footer"
+    t.text     "extra_head"
+    t.text     "extra_footer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "flatpages", ["path"], name: "index_flatpages_on_path"
 
+  create_table "permissions", force: true do |t|
+    t.string   "resource"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "permissions", ["resource"], name: "index_permissions_on_resource"
+
   create_table "post_assets", force: true do |t|
     t.integer  "asset_id"
     t.integer  "post_id"
     t.integer  "position"
-    t.string   "caption"
+    t.text     "caption"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,5 +73,17 @@ ActiveRecord::Schema.define(version: 20130318232021) do
 
   add_index "posts", ["media_type"], name: "index_posts_on_media_type"
   add_index "posts", ["status", "published_at"], name: "index_posts_on_status_and_published_at"
+
+  create_table "reporters", force: true do |t|
+    t.string   "name"
+    t.text     "bio"
+    t.integer  "user_id"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reporters", ["slug"], name: "index_reporters_on_slug"
+  add_index "reporters", ["user_id"], name: "index_reporters_on_user_id"
 
 end

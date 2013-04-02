@@ -4,10 +4,10 @@ class CreateFlatpages < ActiveRecord::Migration
       t.string :path
       t.string :title
       t.string :description
-      t.string :content
+      t.text :content
       t.string :redirect_to
-      t.string :extra_head
-      t.string :extra_footer
+      t.text :extra_head
+      t.text :extra_footer
       t.timestamps
     end
 
