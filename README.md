@@ -34,7 +34,3 @@ Run `rake` to run the test suite.
 This application deploys to media via [capistrano](http://rubygems.org/gems/capistrano). To deploy to production:
 
     cap deploy
-
-To deploy to staging:
-
-    cap staging deploy
