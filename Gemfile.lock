@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/SCPR/outpost-asset_host.git
+  revision: 19556708ea27c3e08ccb6103b40748c3245f1098
+  specs:
+    outpost-asset_host (1.0.0)
+
+GIT
   remote: git://github.com/amatsuda/kaminari.git
   revision: 5f62aa596658f444da336d409c4d104672fa0b6e
   specs:
@@ -241,6 +247,7 @@ DEPENDENCIES
   launchy
   mysql2
   outpost!
+  outpost-asset_host!
   pry
   rails (~> 4.0.0.beta1)
   redis-actionpack!
