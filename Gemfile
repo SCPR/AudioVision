@@ -14,6 +14,7 @@ gem 'outpost-asset_host', github: "SCPR/outpost-asset_host"
 gem 'kaminari', github: "amatsuda/kaminari"
 gem 'simple_form', '~> 3.0.0.beta1'
 gem 'ckeditor_rails', '~> 4.1'
+gem 'bootstrap-sass', '~> 2.2'
 
 gem 'redis-store', github: "bricker/redis-store"
 gem 'redis-actionpack', github: "bricker/redis-store"
@@ -27,7 +28,6 @@ gem "hashie", "~> 1.2.0"
 group :assets do
   gem 'eco', '~> 1.0.0'
   gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'bootstrap-sass', '~> 2.2'
   gem 'coffee-rails', '~> 4.0.0.beta1'
   gem 'uglifier', '>= 1.0.3'
 end
