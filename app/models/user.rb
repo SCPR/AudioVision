@@ -1,7 +1,4 @@
-class User < ActiveRecord::Base
-  establish_connection "mercer_#{Rails.env}"
-  self.table_name = "auth_user"
-  
+class User < ActiveRecord::Base  
   include Outpost::Model::Authorization
   include Outpost::Model::Authentication
 
