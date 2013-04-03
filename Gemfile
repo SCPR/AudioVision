@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.0.0.beta1'
 gem 'mysql2'
 gem 'jquery-rails'
+gem 'newrelic_rpm'
 
 gem 'outpost', github: 'SCPR/outpost'
 #gem 'outpost', path: '/Users/bryan/projects/outpost'
