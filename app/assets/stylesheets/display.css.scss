@@ -1419,11 +1419,11 @@ FEEDGRID
 		.feedgrid .pair {
 			margin-bottom: 80px;
 		}
-				.feedgrid article {
+				.feedgrid .pair article {
 					width: 40.5%; /* 486 / 1200 */
 					float: left;
 				}
-						.feedgrid article:last-child {
+						.feedgrid .pair article:last-child {
 							float: right;
 						}
 						.feedgrid article a {
@@ -1463,7 +1463,6 @@ FEEDGRID
 												.feedgrid a .desc p			{ color: #4e4e4e; }
 												.feedgrid a .desc mark		{ color: #4e7386; }
 
-
 												.feedgrid .date {
 													display: block;
 													float: left;
@@ -1473,6 +1472,7 @@ FEEDGRID
 													background: image-url('i/ornament-hairline-gray-med.png') no-repeat left bottom;
 													background-size: 26px 1px;
 												}
+
 												.feedgrid .desc {
 													float: right;
 													width: 79.012345679012%; /* 384 / 486 */
@@ -1491,6 +1491,43 @@ FEEDGRID
 															font-weight: 700;
 															text-transform: uppercase;
 														}
+
+
+														/*	===================================================================================
+														    =================================================================================== */
+
+														    @media screen and (min-width: 651px) {
+
+																.feedgrid.small .pair article {
+																	width: 49%; /* 588 / 1200 */
+																}
+																
+																.feedgrid.small figure .img {
+																	width: 47.959183673469%; /* 282 / 588 */
+																	float: left;
+																	padding-bottom: 32%;
+																}
+																
+																.feedgrid.small figcaption {
+																	width: 47.959183673469%; /* 282 / 588 */
+																	padding-top: 10px;
+																	float: right;
+																}
+																		.feedgrid.small .date {
+																			background-position: left top;
+																			padding-top: 10px;
+																			padding-bottom: 0;
+																		}
+																		.feedgrid.small .date,
+																		.feedgrid.small .desc {
+																			float: none;
+																			width: 100%;
+																		}
+																		.feedgrid.small .desc {
+																			margin-bottom: 10px;
+																		}
+
+															}
 														
 														/*	===================================================================================
 														    =================================================================================== */
@@ -1500,8 +1537,8 @@ FEEDGRID
 																.feedgrid .pair {
 																	margin-bottom: 0;
 																}
-																.feedgrid article,
-																.feedgrid article:last-child {
+																.feedgrid .pair article,
+																.feedgrid .pair article:last-child {
 																	float: none;
 																	width: 100%;
 																	margin-bottom: 40px;
