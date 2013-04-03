@@ -22,15 +22,6 @@ GIT
       activesupport (>= 3.0.0)
 
 GIT
-  remote: git://github.com/bricker/dbsync.git
-  revision: 4167fcd2beb1892c896e7a05e094d87c57c7c2f9
-  specs:
-    dbsync (0.1.1)
-      activerecord (>= 3.2.8)
-      activesupport (>= 3.2.8)
-      railties (>= 3.2.8)
-
-GIT
   remote: git://github.com/bricker/redis-store.git
   revision: 99aa42f876d89d84e66a3a59f31e867a382bbd8a
   specs:
@@ -107,6 +98,10 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     database_cleaner (0.9.1)
+    dbsync (0.1.2)
+      activerecord (>= 3.2.8)
+      activesupport (>= 3.2.8)
+      railties (>= 3.2.8)
     diff-lcs (1.1.3)
     eco (1.0.0)
       coffee-script
@@ -247,7 +242,7 @@ DEPENDENCIES
   ckeditor_rails (~> 4.1)
   coffee-rails (~> 4.0.0.beta1)
   database_cleaner
-  dbsync!
+  dbsync
   eco (~> 1.0.0)
   factory_girl_rails (~> 4.1)
   fakeweb
