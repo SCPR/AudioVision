@@ -655,7 +655,6 @@ ROUNDUP (Instagram contests, etc., etc.)
 					background: url(i/structure-roundup-splice-title.png) no-repeat 25.5% 0;
 				}
 				.roundup-title {
-					outline: 1px dotted lime;
 					width: 23.5%; /* 282 / 1200 */
 					padding: 18px 0 17px;
 					text-transform: uppercase;
@@ -730,12 +729,34 @@ ROUNDUP (Instagram contests, etc., etc.)
 												.roundup figcaption mark {
 													background: none;
 													color: #6beafd;
+													font-size: 0.875em; /* 14 / 16 */
 												}
 												.roundup a:hover figcaption mark {
 													color: white;
 													text-decoration: underline;
 												}
 												
+												/*	===================================================================================
+												    =================================================================================== */
+
+												    @media screen and (max-width: 940px) {
+
+														.roundup-ephemera .bound {
+															background: black;
+														}
+														.roundup-title {
+															width: 100%;
+															font-size: 1.3em;
+														}
+														.roundup-inner nav {
+															margin-top: 0;
+														}
+
+												    }
+
+												/*	===================================================================================
+												    =================================================================================== */
+
 
 
 
