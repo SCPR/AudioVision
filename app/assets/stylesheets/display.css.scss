@@ -263,7 +263,7 @@ MASTHEAD
 											width: 16px;
 											height: 15px;
 											background: image-url('i/icons-follow.png') no-repeat;
-											background-size: 80px 60px;
+											background-size: 80px 90px;
 											text-indent: 100%;
 											white-space: nowrap;
 											overflow: hidden;
@@ -606,7 +606,7 @@ LEDGE
 													white-space: nowrap;
 													overflow: hidden;
 													background: black image-url('i/icons-follow.png') no-repeat;
-													background-size: 80px 60px;
+													background-size: 80px 90px;
 												}
 														.ledge .nav-av .follow .fbk a		{ background-position: 0px -30px; }
 														.ledge .nav-av .follow .fbk a:hover	{ background-position: 0px -45px; }
@@ -1580,6 +1580,7 @@ PROSE (anywhere it shows up) (reset its parent's contextual em to 1.0, first, if
 .prose {
 	color: #3a3a3a;
 	font-size: 0.875em; /* 14 / 16 */
+	line-height: 1.4;
 }
 		.prose h3,
 		.prose h4,
@@ -1595,7 +1596,32 @@ PROSE (anywhere it shows up) (reset its parent's contextual em to 1.0, first, if
 		.prose figure,
 		.prose iframe {
 			display: block;
-			margin-bottom: 1.2em;
+			margin-bottom: 1.3em;
+		}
+		.prose a {
+			font-weight: 700;
+		}
+				.prose a:hover {
+					text-decoration: underline;
+				}
+		
+		.prose h3 {
+			text-transform: uppercase;
+			color: #e0495b;
+			padding-top: 16px;
+			font: normal 700 0.92857142857143em/1 "proxima-nova", Avenir, Arial, sans-serif; /* 13 / 14 */
+		}
+		.prose ul,
+		.prose ul li {
+			list-style: disc outside;
+		}
+				.prose ul li {
+					margin: 0 0 10px 20px;
+				}
+		
+		.prose blockquote {
+			font-style: italic;
+			padding-left: 20px;
 		}
 
 
@@ -1619,6 +1645,20 @@ EXHIBIT (the main part of a single node)
 					float: right;
 					width: 59.5%; /* 714 / 1200 */
 				}
+						.exhibit .primary .caption {
+							font-style: italic;
+							text-align: right;
+							color: #909090;
+							font-size: 0.6875em; /* 11 / 16 */
+							margin-top: 25px;
+							padding-top: 8px;
+							background: image-url('i/ornament-hairline-gray-med.png') no-repeat right top;
+							background-size: 20px 1px;
+						}
+								.exhibit .primary .caption p {
+									margin-left: 30%;
+								}
+
 				.exhibit .secondary {
 					float: left;
 					width: 32%; /* 384 / 1200 */
@@ -1659,7 +1699,6 @@ EXHIBIT (the main part of a single node)
 								    =================================================================================== */
 
 								.exhibit .intro .share {
-									outline: 1px solid red;
 									overflow: hidden;
 									position: absolute;
 									top: 252px;
@@ -1673,8 +1712,8 @@ EXHIBIT (the main part of a single node)
 															display: block;
 															width: 16px;
 															height: 15px;
-															background: green;
-															white-space: nowrap;
+															background: image-url('i/icons-follow.png') no-repeat;
+															background-size: 80px 90px;
 															text-indent: 100%;
 															overflow: hidden;
 															float: left;
@@ -1683,6 +1722,13 @@ EXHIBIT (the main part of a single node)
 														.exhibit .intro .share li:first-child a {
 															margin-left: 0;
 														}
+														.exhibit .intro .share .fbk a			{ background-position: 0 -60px;			}
+														.exhibit .intro .share .fbk a:hover		{ background-position: 0 -75px;			}
+														.exhibit .intro .share .tum a			{ background-position: -16px -60px;		}
+														.exhibit .intro .share .tum a:hover		{ background-position: -16px -75px;		}
+														.exhibit .intro .share .twi a			{ background-position: -48px -60px;		}
+														.exhibit .intro .share .twi a:hover		{ background-position: -48px -75px;		}
+
 
 								.exhibit .intro .byline {
 									position: absolute;
@@ -1709,9 +1755,69 @@ EXHIBIT (the main part of a single node)
 							padding: 25px 0 0 13.5%;
 							box-shadow: 5px 0 0 white; /* I hate myself */
 						}
+								.exhibit .prose .first {
+									font-size: 1.78571428571429em; /* 25 / 14 */
+									line-height: 1.3;
+									font-weight: 100;
+									padding-bottom: 20px;
+									margin-bottom: 20px;
+									background: image-url('i/ornament-hairline-gray-med.png') no-repeat left bottom;
+									background-size: 20px 1px;
+								}
 
 
 
+
+.newsbox {
+	background: #e7e7e7;
+	width: 60.504201680672%; /* 432 / 714 */
+	float: right;
+	margin-top: 80px; /* just for now -- will fix on thursday */
+}
+		.newsbox header {
+			color: white;
+			background: #acacac;
+			padding: 14px 5%;
+			position: relative;
+			margin-bottom: 18px;
+		}
+				.newsbox header p {
+					font: normal 700 0.8125em/1.05 "proxima-nova", Avenir, Arial, sans-serif; /* 13 / 16 */
+					text-shadow: 0 1px 2px gray;
+					margin-right: 110px;
+				}
+				.newsbox header .logo {
+					display: block;
+					width: 87px;
+					height: 13px;
+					position: absolute;
+					top: 14px;
+					right: 5%;
+				}
+						.newsbox header .logo a {
+							display: block;
+							width: 100%;
+							height: 100%;
+							background: image-url('i/logo-kpcc-white.png') no-repeat;
+							background-size: 100%;
+							white-space: nowrap;
+							text-indent: 100%;
+							overflow: hidden;
+						}
+				
+		.newsbox .popular-links {
+			font-size: 0.9375em; /* 15 / 16 */
+			margin: 0 5% 20px;
+		}
+				.newsbox .popular-links li {
+					margin-bottom: 0.7em;
+				}
+				.newsbox .popular-links a {
+					color: #d76305;
+				}
+				.newsbox .popular-links a:hover {
+					text-decoration: underline;
+				}
 
 
 
