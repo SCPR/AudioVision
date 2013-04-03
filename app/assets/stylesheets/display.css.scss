@@ -725,11 +725,16 @@ ROUNDUP (Instagram contests, etc., etc.)
 													font-size: 0.625em;  /* 10 / 16 */
 													color: white;
 													margin-bottom: 2px;
+													white-space: nowrap;
+													text-overflow: ellipsis;
+													overflow: hidden;
 												}
 												.roundup figcaption mark {
 													background: none;
 													color: #6beafd;
 													font-size: 0.875em; /* 14 / 16 */
+													text-overflow: ellipsis;
+													overflow: hidden;
 												}
 												.roundup a:hover figcaption mark {
 													color: white;
@@ -756,6 +761,43 @@ ROUNDUP (Instagram contests, etc., etc.)
 
 												/*	===================================================================================
 												    =================================================================================== */
+
+												    @media screen and (max-width: 880px) {
+
+														.roundup-inner .intro {
+															float: none;
+															width: 85%;
+															padding: 0 15% 0 0;
+															background-position: right top;
+															margin-bottom: 35px;
+														}
+														.roundup-inner nav {
+															float: none;
+															width: 100%;
+														}
+
+												    }
+
+												/*	===================================================================================
+												    =================================================================================== */
+
+												    @media screen and (max-width: 520px) {
+
+														.roundup-inner nav a {
+															width: 45%;
+															margin-right: 0;
+															margin-bottom: 20px;
+														}
+														.roundup-inner nav a:nth-child(2) {
+															float: right;
+															margin-right: 0;
+														}
+
+												    }
+
+												/*	===================================================================================
+												    =================================================================================== */
+
 
 
 
