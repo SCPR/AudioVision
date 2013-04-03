@@ -96,7 +96,7 @@ MASTHEAD
 												.masthead .kpcc-nav .inside span {
 													display: inline-block;
 													padding-right: 10px;
-													background: url(i/ephemera-triangle-inverted-orange.png) no-repeat right 4px;
+													background: image-url('i/ephemera-triangle-inverted-orange.png') no-repeat right 4px;
 													background-size: 8px 25px;
 													margin-bottom: 12px;
 												}
@@ -134,7 +134,7 @@ MASTHEAD
 				}
 						.masthead .kpcc-brand a {
 							display: block;
-							background: url(i/logo-kpcc-fullcolor.png) no-repeat;
+							background: image-url('i/logo-kpcc-fullcolor.png') no-repeat;
 							background-size: 109px 16px;
 							text-indent: 100%;
 							white-space: nowrap;
@@ -155,7 +155,7 @@ MASTHEAD
 							text-indent: 100%;
 							white-space: nowrap;
 							overflow: hidden;
-							background: url(i/logo-av-fullcolor.png) no-repeat;
+							background: image-url('i/logo-av-fullcolor.png') no-repeat;
 							background-size: 100%;
 							height: 100%;
 						}
@@ -219,7 +219,7 @@ MASTHEAD
 											-webkit-text-fill-color: transparent;
 										}
 										.masthead .wayfinder .selected {
-											background: url(i/ephemera-indicator-dot.png) no-repeat center bottom;
+											background: image-url('i/ephemera-indicator-dot.png') no-repeat center bottom;
 											background-size: 8px 8px;
 										}
 										.masthead .wayfinder .selected a {
@@ -246,7 +246,7 @@ MASTHEAD
 											display: block;
 											width: 16px;
 											height: 15px;
-											background: url(i/icons-follow.png) no-repeat;
+											background: image-url('i/icons-follow.png') no-repeat;
 											background-size: 80px 60px;
 											text-indent: 100%;
 											white-space: nowrap;
@@ -423,7 +423,7 @@ LEDGE
 			position: relative;
 		}
 				.ledge .nav-kpcc {
-					postion: absolute;
+					position: absolute;
 					right: 0;
 					top: 0;
 					text-align: right;
@@ -444,7 +444,7 @@ LEDGE
 										.ledge .nav-kpcc mark {
 											display: block;
 											cursor: pointer;
-											height: 47px; /* can be whittled down for handheld proportions */
+											height: 47px; // can be whittled down for handheld proportions 
 											width: 105px; /* pretty arbitrary */
 											position: relative;
 											background: none;
@@ -453,7 +453,7 @@ LEDGE
 													display: block;
 													width: 82px;
 													height: 11px;
-													background: url(i/logo-kpcc-dropdown.png) no-repeat;
+													background: image-url('i/logo-kpcc-dropdown.png') no-repeat;
 													background-size: 82px 22px;
 													text-indent: 100%;
 													white-space: nowrap;
@@ -528,7 +528,7 @@ LEDGE
 									white-space: nowrap;
 									overflow: hidden;
 									cursor: pointer;
-									background: url(i/logo-ledge-av.png) no-repeat;
+									background: image-url('i/logo-ledge-av.png') no-repeat;
 									background-size: 54px 68px;
 								}
 								.ledge .nav-av ul ul {
@@ -584,7 +584,7 @@ LEDGE
 													text-indent: 100%;
 													white-space: nowrap;
 													overflow: hidden;
-													background: black url(i/icons-follow.png) no-repeat;
+													background: black image-url('i/icons-follow.png') no-repeat;
 													background-size: 80px 60px;
 												}
 														.ledge .nav-av .follow .fbk a		{ background-position: 0px -30px; }
@@ -643,7 +643,7 @@ WARMUP
 ##################################################################################################################### */
 
 .warmup {
-	background: url(i/structure-warmup-splice-base.png) repeat-y center top;
+	background: image-url('i/structure-warmup-splice-base.png') repeat-y center top;
 	box-shadow:
 		inset 0 6px 0 rgba(0,0,0,0.2),
 		0 7px 0 #ebebeb;
@@ -660,13 +660,13 @@ WARMUP
 			padding-bottom: 260px;
 			...Also, remove .WARMUP's bottom border
 			*/
-			background: url(i/structure-warmup-splice-inner.png) repeat-y 79.583333333333% 0;
+			background: image-url('i/structure-warmup-splice-inner.png') repeat-y 79.583333333333% 0;
 		}
 				.warmup .recent {
 					width: 68%; /* 816 / 1200 */
 					float: left;
 					padding-top: 161px;
-					background: url(i/ornament-gray-hairline-vertical.png) repeat-y 22.058823529412% top;
+					background: image-url('i/ornament-gray-hairline-vertical.png') repeat-y 22.058823529412% top;
 					box-shadow: inset 0 161px 0 white;
 				}
 						.warmup .recent figure {
@@ -692,7 +692,7 @@ WARMUP
 										.warmup .recent figcaption .meta {
 											padding-bottom: 26px;
 											margin-bottom: 23px;
-											background: url(i/ornament-hairline-gray-med.png) no-repeat left bottom;
+											background: image-url('i/ornament-hairline-gray-med.png') no-repeat left bottom;
 											background-size: 26px 1px;
 										}
 												.warmup .recent figcaption .meta,
@@ -821,7 +821,7 @@ WARMUP
 								}
 		
 		.warmup .inset-title {
-			background: url(i/structure-warmup-insettitle.png) repeat-y center top;
+			background: image-url('i/structure-warmup-insettitle.png') repeat-y center top;
 			color: white;
 			position: absolute;
 			left: 0;
@@ -1074,7 +1074,7 @@ FEEDGRID
 													width: 16.049382716049%; /* 78 / 486 */
 													font-size: 0.625em; /* 10 / 16 */
 													padding-bottom: 20px;
-													background: url(i/ornament-hairline-gray-med.png) no-repeat left bottom;
+													background: image-url('i/ornament-hairline-gray-med.png') no-repeat left bottom;
 													background-size: 26px 1px;
 												}
 												.feedgrid .desc {
@@ -1150,7 +1150,7 @@ MEMBERSHIP PLUG
 ##################################################################################################################### */
 
 .membership {
-	background: #60c8eb url(i/ephemera-membership-logos-melange.jpg) no-repeat -30px 24px;
+	background: #60c8eb image-url('i/ephemera-membership-logos-melange.jpg') no-repeat -30px 24px;
 	background-size: 335px 234px;
 	margin: 90px 0 140px;
 	box-shadow: inset 0 24px 0 white;
@@ -1162,7 +1162,7 @@ MEMBERSHIP PLUG
 			color: white;
 		}
 		.membership-inner {
-			background: url(i/ephemera-membership-diecut.png) no-repeat right top;
+			background: image-url('i/ephemera-membership-diecut.png') no-repeat right top;
 			background-size: 48px 48px;
 			padding: 82px 0 34px;
 		}
@@ -1180,7 +1180,7 @@ MEMBERSHIP PLUG
 				}
 						.membership .secondary p {
 							padding-bottom: 23px;
-							background: url(i/ornament-hairline-aqua.png) no-repeat right bottom;
+							background: image-url('i/ornament-hairline-aqua.png') no-repeat right bottom;
 							margin-bottom: 16px;
 						}
 								.membership .secondary p span,
@@ -1195,12 +1195,12 @@ MEMBERSHIP PLUG
 								.membership .secondary p em {
 									text-shadow: 0 1px 2px rgba(0,0,0,0.4);
 									padding: 0 12px 0 0;
-									background: url(i/ephemera-triangle-shadowed.png) no-repeat right 5px;
+									background: image-url('i/ephemera-triangle-shadowed.png') no-repeat right 5px;
 									background-size: 6px 10px;
 								}
 						
 						.membership h2 {
-							background: url(i/logo-kpcc-white.png) no-repeat;
+							background: image-url('i/logo-kpcc-white.png') no-repeat;
 							background-size: 100%;
 							text-indent: 100%;
 							white-space: nowrap;
@@ -1293,7 +1293,7 @@ FOOTER
 ##################################################################################################################### */
 
 .epilogue {
-	background: black url(i/ephemera-footer-scanlines.png) repeat-x left top;
+	background: black image-url('i/ephemera-footer-scanlines.png') repeat-x left top;
 	background-size: 15px 30px;
 	color: #595959;
 	overflow: hidden;
@@ -1318,7 +1318,7 @@ FOOTER
 				.epilogue .branding {
 					width: 90%;
 					max-width: 506px;
-					background: url(i/logo-av-lightningbolt-fullcolor.png) no-repeat center top;
+					background: image-url('i/logo-av-lightningbolt-fullcolor.png') no-repeat center top;
 					background-size: 22px 22px;
 					margin: 0 auto;
 					overflow: hidden;
@@ -1328,12 +1328,12 @@ FOOTER
 						}
 								.epilogue .branding h1 {
 									float: right;
-									background: url(i/logo-av-wordmark-white.png) no-repeat;
+									background: image-url('i/logo-av-wordmark-white.png') no-repeat;
 									width: 38.723404255319%; /* 182 / 470 */
 								}
 								.epilogue .branding h2 {
 									float: left;
-									background: url(i/logo-kpcc-white.png) no-repeat;
+									background: image-url('i/logo-kpcc-white.png') no-repeat;
 									width: 31.276595744681%; /* 147 / 470 */
 								}
 								.epilogue .branding h1,
