@@ -1,0 +1,67 @@
+// Set column widths
+$datetimeWidth: 140px;
+$booleanWidth: 60px;
+$integerWidth: 50px;
+$statusWidth: 105px;
+
+@mixin url-cell { 
+    width: 250px;
+    word-break: break-all;
+}
+
+table {
+    ///////////////////
+    // Global
+    .column-manage {
+        width: 60px;
+        white-space: nowrap;
+    }
+
+    .column-status {
+        width: $statusWidth;
+    }
+    
+    .column-datetime, .column-date {
+        width: $datetimeWidth;
+    }
+
+    .column-boolean {
+        width: $booleanWidth;
+    }
+
+    .column-id {
+        width: $integerWidth;
+    }
+
+    ///////////////////
+    // Post
+    &.list-posts {
+        .column-title { // post.title
+            width: 320px;
+        }
+    }
+
+    ///////////////////
+    // Flatppage
+    &.list-flatpages {
+    }
+
+    ///////////////////
+    // User
+    &.list-users {
+        .column-name {
+            width: 300px;
+        }
+        .column-can_login {
+            width: $booleanWidth + 20;
+        }
+        .column-last_login {
+            width: 200px;
+        }
+    }
+
+    ///////////////////
+    // Reporter
+    &.list-reporters {
+    }
+}
