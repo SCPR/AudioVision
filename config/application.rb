@@ -26,7 +26,11 @@ module AudioVision
     config.assethost.token  = "droQQ2LcESKeGPzldQr7" 
     config.assethost.prefix = "/api"
 
-    config.assets.precompile += %w( outpost/outpost.css outpost/outpost.js )
     config.autoload_paths += %W( #{config.root}/lib )
+
+    # Precompile additional assets.
+    # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+    config.assets.precompile += %w( outpost/application.css outpost/application.js *.png *.jpg *.jpeg *.gif )
+
   end
 end
