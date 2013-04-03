@@ -143,7 +143,8 @@ MASTHEAD
 		.masthead .av-brand {
 			padding: 40px 0 57px;
 		}
-				body.landing .masthead .av-brand {
+				body.landing .masthead .av-brand,
+				body.single .masthead .av-brand {
 					padding: 22px 0 28px;
 				}
 				.masthead .av-brand h1 {
@@ -161,7 +162,8 @@ MASTHEAD
 							background-size: 100%;
 							height: 100%;
 						}
-						body.landing .masthead .av-brand h1 {
+						body.landing .masthead .av-brand h1,
+						body.single .masthead .av-brand h1 {
 							width: 232px;
 							height: 37px;
 						}
@@ -172,7 +174,8 @@ MASTHEAD
 					color: #404040;
 					padding: 17px 0 0 13px;
 				}
-				body.landing .masthead .av-brand h2 {
+				body.landing .masthead .av-brand h2,
+				body.single .masthead .av-brand h2 {
 					color: #848484;
 					font-size: 0.8125em; /* 13 / 16 */
 					padding-top: 13px;
@@ -306,8 +309,11 @@ MASTHEAD
 															float: none;
 															margin: 0 auto 20px auto;
 														}
-														.masthead .av-brand h2 {
+														.masthead .av-brand h2,
+														body.landing .masthead .av-brand h2,
+														body.single .masthead .av-brand h2 {
 															float: none;
+															font-style: normal;
 															padding: 0 0 0 0;
 															margin-bottom: 10px;
 															text-align: center;
@@ -661,7 +667,7 @@ LANDING-WELCOME
 	border-top: 1px solid #aaaaaa;
 	border-bottom: 1px solid #e6e6e6;
 	margin-top: -1px;
-	margin-bottom: 80px;
+	margin-bottom: 67px;
 }
 		.landing-welcome .bound {
 			color: #3f9ebe;
@@ -676,6 +682,184 @@ LANDING-WELCOME
 				.landing-welcome h2 {
 					font-size: 0.75em;
 				}
+
+
+
+
+/*
+#####################################################################################################################
+#####################################################################################################################
+LANDING-RECENTS
+#####################################################################################################################
+##################################################################################################################### */
+
+.landing-recents {
+	padding-bottom: 80px;
+	border-bottom: 1px solid #d9d9d9;
+	margin-bottom: 80px;
+}
+		.landing-recents-inner {
+		}
+				.landing-recents .img,
+				.landing-recents .img a,
+				.landing-recents .img img,
+				.landing-recents figcaption .date,
+				.landing-recents figcaption mark {
+					display: block;
+				}
+						.landing-recents .img a,
+						.landing-recents .img img {
+							width: 100%;
+						}
+						.landing-recents figcaption mark {
+							background: none;
+							text-transform: uppercase;
+							font-weight: 700;
+							font-family: "proxima-nova", Avenir, Arial, sans-serif;
+						}
+						.landing-recents mark a {
+							display: block;
+							color: black;
+						}
+						.landing-recents mark a:hover {
+							text-decoration: underline;
+						}
+
+				.landing-recents .primary {
+					width: 74.5%; /* 894 / 1200 */
+					float: left;
+				}
+						.landing-recents .primary figure {
+						}
+								.landing-recents .primary .img {
+									width: 77.181208053691%; /* 690 / 894 */
+									float: right;
+								}
+								.landing-recents .primary figcaption {
+									width: 20.134228187919%; /* 180 / 894 */
+									float: left;
+									padding-top: 33px;
+								}
+								.landing-recents .primary figcaption .date {
+									color: #696868;
+									font-size: 0.5625em; /* 9 / 16 */
+									padding-bottom: 26px;
+									background: image-url('i/ornament-hairline-gray-med.png') no-repeat left bottom;
+									background-size: 20px 1px;
+									margin-bottom: 14px;
+								}
+								.landing-recents .primary figcaption mark {
+									font-size: 1.125em; /* 18 / 16 */
+									margin-bottom: 12px;
+								}
+								.landing-recents .primary .desc {
+									font-size: 0.6875em; /* 11 / 16 */
+									line-height: 1.3;
+									color: #696868;
+									font-style: italic;
+								}
+
+				.landing-recents .secondary {
+					width: 23.5%; /* 282 / 1200 */
+					float: right;
+				}
+						.landing-recents .secondary figcaption mark {
+							font-size: 0.8125em; /* 13 / 16 */
+							text-align: right;
+						}
+						.landing-recents .secondary figure:first-child {
+							margin-bottom: 36px; /* arbitrary */
+						}
+						.landing-recents .secondary .img {
+							margin-bottom: 9px;
+						}
+						
+						
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (max-width: 906px) {
+
+								.landing-recents .primary figcaption {
+									padding-top: 10px;
+								}
+										.landing-recents .primary figcaption .date {
+											padding-bottom: 10px;
+											margin-bottom: 12px;
+										}
+										.landing-recents .primary figcaption mark {
+											font-size: 1em;
+											line-height: 1.05;
+										}
+										.landing-recents .primary .desc {
+											font-size: 0.625em; /* 10 / 16 */
+										}
+								
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (max-width: 767px) {
+
+								.landing-recents .primary {
+									width: 66%; /* 792 / 1200 */
+								}
+								.landing-recents .secondary {
+									width: 32%; /* 384 / 1200 */
+								}
+								.landing-recents .primary figure {
+								}
+										.landing-recents .primary .img {
+											width: 100%;
+											float: none;
+											margin-bottom: 15px;
+										}
+										.landing-recents .primary figcaption {
+											width: 100%;
+											float: none;
+											padding-top: 0;
+										}
+										.landing-recents .primary figcaption .date {
+											padding-bottom: 13px;
+										}
+
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (max-width: 500px) {
+
+								.landing-recents .primary {
+									width: 100%;
+									float: none;
+									margin-bottom: 40px;
+								}
+								.landing-recents .secondary {
+									width: 100%;
+									float: none;
+								}
+										.landing-recents .secondary figure {
+											width: 47%;
+											float: right;
+										}
+										.landing-recents .secondary figure:first-child {
+											float: left;
+											margin-bottom: 0;
+										}
+
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+
+
+
 
 
 
