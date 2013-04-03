@@ -4,7 +4,7 @@
   <% add_to_page_title "Outpost" %>
   <title><%= page_title %></title>
   <%= stylesheet_link_tag "outpost/application" %>
-  <%= javascript_include_tag "shared", "outpost/outpost" %>
+  <%= javascript_include_tag "outpost/application" %>
   
   <link rel="shortcut icon" href="/favicon.ico" />
   <%= csrf_meta_tags %>
@@ -14,7 +14,7 @@
 <div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <a href="<%=outpost_root_path%>" class="brand"><img src="/assets/outpost/outpost-audiovision.png" alt="Outpost AudioVision"></a>
+      <a href="<%=outpost_root_path%>" class="brand"><%= image_tag "outpost/outpost-audiovision.png" %></a>
       
       <% if current_user %>
         <ul class="nav">
