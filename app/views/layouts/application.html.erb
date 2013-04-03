@@ -43,7 +43,7 @@
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 </head>
-<body>
+<body<% if request.path =~ /slideshows/ %> class="landing"<% end %>>
 
 
 
@@ -69,7 +69,7 @@
                         <li class="pledge"><mark><a href="https://scprcontribute.publicradio.org/contribute.php">Pledge Now</a></mark></li>
                     </ul>
                 </nav>
-            </div>
+            </div><!--/ .global-inner -->
         </div><!--/ .global -->
         <hgroup class="av-brand bound clearfix">
             <h1><a href="/">AudioVision</a></h1>
@@ -97,6 +97,8 @@
             </nav>
         </div>
     </header><!--/ .masthead -->
+
+
 
 
     <header class="ledge" aria-hidden="true">
@@ -150,12 +152,12 @@
 
         </div>
     </header><!--/ .ledge -->
+
+
+
     <%= yield :section_bar %>
 
-    
     <%= yield %>
-
-
 
 
     <aside class="membership">

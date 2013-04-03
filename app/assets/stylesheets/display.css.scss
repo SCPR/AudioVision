@@ -42,7 +42,6 @@ MASTHEAD
 .masthead {
 	border-bottom: 1px solid #bcbcbc;
 	box-shadow: 0 0 2px 3px rgba(0,0,0,0.07);
-	margin-bottom: 61px;
 }
 		.masthead .global {
 			border-bottom: 1px solid #efefef;
@@ -144,6 +143,9 @@ MASTHEAD
 		.masthead .av-brand {
 			padding: 40px 0 57px;
 		}
+				body.landing .masthead .av-brand {
+					padding: 22px 0 28px;
+				}
 				.masthead .av-brand h1 {
 					float: left;
 					width: 296px; /* ~48.7% of source raster by default */
@@ -159,12 +161,23 @@ MASTHEAD
 							background-size: 100%;
 							height: 100%;
 						}
+						body.landing .masthead .av-brand h1 {
+							width: 232px;
+							height: 37px;
+						}
 
 				.masthead .av-brand h2 {
 					float: left;
 					font-weight: 100;
 					color: #404040;
 					padding: 17px 0 0 13px;
+				}
+				body.landing .masthead .av-brand h2 {
+					color: #848484;
+					font-size: 0.8125em; /* 13 / 16 */
+					padding-top: 13px;
+					float: right;
+					font-style: italic;
 				}
 
 				/*	===================================================================================
@@ -403,7 +416,7 @@ LEDGE
 
 .ledge {
 	background: black;
-	height: 47px;
+	height: 0;
 	width: 100%;
 	box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
 	color: white;
@@ -418,6 +431,7 @@ LEDGE
 			display: block;
 			top: 0;
 			left: 0;
+			height: 47px;
 		}
 		.ledge-inner {
 			position: relative;
@@ -627,11 +641,41 @@ BILLBOARD
 ##################################################################################################################### */
 
 .billboard {
+	padding-top: 70px;
 	padding-bottom: 90px;
 }
 
 
 
+
+/*
+#####################################################################################################################
+#####################################################################################################################
+LANDING-WELCOME
+#####################################################################################################################
+##################################################################################################################### */
+
+.landing-welcome {
+	background: #f4f4f4;
+	box-shadow: inset 0 40px 40px -30px rgba(0,0,0,0.15);
+	border-top: 1px solid #aaaaaa;
+	border-bottom: 1px solid #e6e6e6;
+	margin-top: -1px;
+	margin-bottom: 80px;
+}
+		.landing-welcome .bound {
+			color: #3f9ebe;
+			padding-top: 31px;
+			padding-bottom: 34px;
+		}
+				.landing-welcome h1 {
+					font: normal 100 2em/1.05 "proxima-nova", Avenir, Arial, sans-serif; /* 32 / 16 */ /* JPW: Go get another weight of Proxima from TK */
+					text-transform: capitalize;
+					margin-bottom: 17px;
+				}
+				.landing-welcome h2 {
+					font-size: 0.75em;
+				}
 
 
 
