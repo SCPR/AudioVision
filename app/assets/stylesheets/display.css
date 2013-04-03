@@ -627,10 +627,115 @@ BILLBOARD
 ##################################################################################################################### */
 
 .billboard {
-	margin-bottom: 83px;
+	padding-bottom: 90px;
 }
 
 
+
+
+
+
+/*
+#####################################################################################################################
+#####################################################################################################################
+ROUNDUP (Instagram contests, etc., etc.)
+#####################################################################################################################
+##################################################################################################################### */
+
+.roundup {
+	color: white;
+	background: #6b6b6b;
+	margin-bottom: 95px;
+	box-shadow: inset 0 15px 0 white;
+}
+		.roundup-ephemera {
+			background: url(i/structure-roundup-splice-base.png) repeat-y center top;
+		}
+				.roundup-ephemera .bound {
+					background: url(i/structure-roundup-splice-title.png) no-repeat 25.5% 0;
+				}
+				.roundup-title {
+					outline: 1px dotted lime;
+					width: 23.5%; /* 282 / 1200 */
+					padding: 18px 0 17px;
+					text-transform: uppercase;
+					font: italic 100 1.5em/1.05 "proxima-nova", Avenir, Arial, sans-serif; /* 24 / 16 */
+				}
+				.roundup-title mark {
+					background: none;
+					color: #6beafd;
+				}
+				.roundup-inner {
+					padding: 25px 0 35px;
+				}
+						.roundup-inner .intro {
+							float: left;
+							width: 23.5%; /* 282 / 1200 */
+							font-size: 0.875em; /* 14 / 16 */
+							font-weight: 100;
+							line-height: 1.3;
+							text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+							padding-bottom: 50px;
+							background: url(i/ornament-lightningbolt-darkgray.png) no-repeat left bottom;
+							background-size: 21px 25px;
+						}
+								.roundup-inner .intro a {
+									color: #82e1fc;
+									font-weight: 400;
+								}
+								.roundup-inner .intro a:hover {
+									text-decoration: underline;
+								}
+						
+						.roundup-inner nav {
+							float: right;
+							width: 66%; /* 792 / 1200 */
+							margin-top: -60px;
+						}
+								.roundup-inner nav a {
+									display: block;
+									float: left;
+									width: 20.075757575758%; /* 159 / 792 */
+									margin-right: 6.186868686869%; /* 49 / 792 */
+								}
+										.roundup-inner nav a:last-child {
+											margin-right: 0;
+											float: right;
+										}
+										.roundup-inner .img,
+										.roundup-inner .img img {
+											display: block;
+											width: 100%;
+										}
+										.roundup-inner .img {
+											margin-bottom: 11px;
+										}
+										.roundup-inner img {
+											box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+										}
+										.roundup figcaption {
+										}
+												.roundup figcaption span,
+												.roundup figcaption mark {
+													text-transform: uppercase;
+													display: block;
+													font-family: "proxima-nova", Avenir, Arial, sans-serif;
+													font-weight: 700;
+												}
+												.roundup figcaption span {
+													font-size: 0.625em;  /* 10 / 16 */
+													color: white;
+													margin-bottom: 2px;
+												}
+												.roundup figcaption mark {
+													background: none;
+													color: #6beafd;
+												}
+												.roundup a:hover figcaption mark {
+													color: white;
+													text-decoration: underline;
+												}
+												
 
 
 
