@@ -420,25 +420,26 @@ LEDGE
 #####################################################################################################################
 ##################################################################################################################### */
 
-.ledge {
-	background: black;
-	height: 0;
-	width: 100%;
-	box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
-	color: white;
-	position: relative;
-	z-index: 10; /* don't ever let anything get higher than 10 mmkay */
-	text-transform: uppercase;
-	font-family: "proxima-nova", Avenir, Arial, sans-serif;
-	display: none;
-}
-		.ledge.stuck {
+		.ledge {
+			background: black;
+			height: 0;
+			width: 100%;
+			box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
+			color: white;
 			position: fixed;
-			display: block;
-			top: 0;
-			left: 0;
-			height: 47px;
+			z-index: 10; /* don't ever let anything get higher than 10 mmkay */
+			text-transform: uppercase;
+			font-family: "proxima-nova", Avenir, Arial, sans-serif;
+			display: none;
 		}
+				.ledge.stuck {
+					position: fixed;
+					display: block;
+					top: 0;
+					left: 0;
+					height: 47px;
+				}
+
 		.ledge-inner {
 			position: relative;
 		}
