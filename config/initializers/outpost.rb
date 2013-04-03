@@ -2,7 +2,8 @@ Outpost::Config.configure do |config|
   config.registered_models = [
     "Post",
     "Flatpage",
-    "Reporter"
+    "Reporter",
+    "User"
   ]
   
   config.authentication_attribute   = :username

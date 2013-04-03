@@ -17,6 +17,7 @@ AudioVision::Application.routes.draw do
     resources :posts
     resources :flatpages
     resources :reporters
+    resources :users
   end
 
 
