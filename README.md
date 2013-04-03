@@ -23,7 +23,8 @@ Then xecute `bin/setup`. This does a few things:
 3. Generates a `secret_token` and stores it in `config/app_config.yml`
 4. Runs `bundle install`
 5. Creates and loads the schema into the databases (development and test)
-6. Finally, runs all of the tests to ensure you're setup properly.
+6. Runs `rake outpost:permissions` to add all the necessary permissions to the database.
+7. Finally, runs all of the tests to ensure you're setup properly.
 
 If your database information is different than what's in the `database.yml` template file, then copy it in `config/` manually prior to running `bin/setup`, and modify the information as necessary. Then run `bin/setup` to perform the rest of the steps (your custom `database.yml` will not be overwritten).
 
