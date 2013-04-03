@@ -26,6 +26,12 @@ AudioVision::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
 
+  config.dbsync = ActiveSupport::OrderedOptions.new
+  config.dbsync.filename    = "audio_vision_production.dump"
+  config.dbsync.local_dir   = "#{Rails.root}/../dbsync" # No trailing slash
+  config.dbsync.remote_host = "66.226.4.229"
+  config.dbsync.remote_dir  = "~scprdb"
+
   # Uncomment to use Pry instead of IRB
   # silence_warnings { IRB = Pry }
 end
