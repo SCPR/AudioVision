@@ -1,14 +1,9 @@
 
-
 <div class="exhibit">
     <div class="exhibit-inner bound clearfix">
-        <div class="primary">
-            <img src="http://placekitten.com/900/600" alt="" style="display: block; width: 100%;">
-            <p>I'm a caption!</p>
-        </div><!--/ .primary -->
-        <div class="secondary">
-            <h1 class="title">Make my way back home when I learn to fly</h1>
-        </div><!--/ .secondary -->
+
+        <%= render "posts/media_types/#{@post.media_type}" %>
+
     </div><!--/ .exhibit-inner -->
 </div><!--/ .exhibit -->
 
