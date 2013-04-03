@@ -36,6 +36,7 @@ end
 group :development do
   gem 'capistrano'
   gem 'pry'
+  gem 'dbsync'
 end
 
 group :test, :development do
