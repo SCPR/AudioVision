@@ -1,1 +1,11 @@
-<h1>A post, yo</h1>
+<h2>Code common to all post types goes here...</h2>
+
+<%= render "posts/media_types/#{@post.media_type}" %>
+
+<h2>And Here.</h2>
+
+<% if @post.related_articles.present? %>
+  <h3>Show related Articles</h3>
+<% else %>
+  <h3>Show Popular KPCC articles</h3>
+<% end %>
