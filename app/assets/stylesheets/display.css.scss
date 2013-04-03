@@ -1570,6 +1570,33 @@ FEEDGRID
 														/*	===================================================================================
 														    =================================================================================== */
 														
+/*
+#####################################################################################################################
+#####################################################################################################################
+PROSE (anywhere it shows up) (reset its parent's contextual em to 1.0, first, if need be)
+#####################################################################################################################
+##################################################################################################################### */
+
+.prose {
+	color: #3a3a3a;
+	font-size: 0.875em; /* 14 / 16 */
+}
+		.prose h3,
+		.prose h4,
+		.prose p,
+		.prose ul,
+		.prose ol,
+		.prose dl,
+		.prose table,
+		.prose img,
+		.prose blockquote,
+		.prose object,
+		.prose embed,
+		.prose figure,
+		.prose iframe {
+			display: block;
+			margin-bottom: 1.2em;
+		}
 
 
 
@@ -1586,7 +1613,7 @@ EXHIBIT (the main part of a single node)
 	background: image-url('i/structure-exhibit-splice-base.png') no-repeat center top;
 }
 		.exhibit-inner {
-			background: rgba(0,0,0,0.2) image-url('i/structure-exhibit-splice-inner.png') repeat-y 32% top;
+			background: image-url('i/structure-exhibit-splice-inner.png') repeat-y 32% top;
 		}
 				.exhibit .primary {
 					float: right;
@@ -1594,8 +1621,95 @@ EXHIBIT (the main part of a single node)
 				}
 				.exhibit .secondary {
 					float: left;
-					width: 32%; /* 384 / 1200 */ 
+					width: 32%; /* 384 / 1200 */
+					border-bottom: 1px solid #d6d6d6;
+					padding-bottom: 30px;
 				}
+						.exhibit .essay {
+							background: image-url('i/ornament-lightningbolt-stroked.png') no-repeat center bottom;
+							background-size: 24px 21px;
+							padding-bottom: 40px;
+							margin-bottom: -41px;
+						}
+						.exhibit .intro {
+							background: url(i/ornament-lightningbolt-black.png) no-repeat left 26px;
+							background-size: 16px 18px;
+							padding-top: 89px;
+							height: 312px; /* 401 */
+							position: relative;
+						}
+								.exhibit .intro h1 {
+									text-transform: uppercase;
+									color: black;
+									font: normal 900 2em/1 "proxima-nova", Avenir, Arial, sans-serif;
+								}
+
+								/*	===================================================================================
+								    =================================================================================== */
+
+								    @media screen and (max-width: 950px) {
+
+										.exhibit .intro h1 {
+											font-size: 1.6em;
+										}
+
+								    }
+
+								/*	===================================================================================
+								    =================================================================================== */
+
+								.exhibit .intro .share {
+									outline: 1px solid red;
+									overflow: hidden;
+									position: absolute;
+									top: 252px;
+								}
+										.exhibit .intro .share ul {
+										}
+												.exhibit .intro .share li {
+													display: inline;
+												}
+														.exhibit .intro .share a {
+															display: block;
+															width: 16px;
+															height: 15px;
+															background: green;
+															white-space: nowrap;
+															text-indent: 100%;
+															overflow: hidden;
+															float: left;
+															margin-left: 16px;
+														}
+														.exhibit .intro .share li:first-child a {
+															margin-left: 0;
+														}
+
+								.exhibit .intro .byline {
+									position: absolute;
+									top: 325px;
+								}
+										.exhibit .intro .byline h2 {
+											color: #838383;
+											font-size: 0.6875em; /* 11 / 16 */
+											margin-bottom: 14px;
+										}
+										.exhibit .intro .byline .date {
+											display: block;
+											background: none;
+											text-transform: uppercase;
+											font: normal 700 0.625em/1.2 "proxima-nova", Avenir, Arial, sans-serif;
+											color: #b2b2b2;
+										}
+								
+						.exhibit .prose {
+							background: image-url('i/ephemera-essay-prose-shadow.png') no-repeat left top;
+							margin-left: -13.5%;
+							background-size: 10px 82px;
+							background-color: white;
+							padding: 25px 0 0 13.5%;
+							box-shadow: 5px 0 0 white; /* I hate myself */
+						}
+
 
 
 
