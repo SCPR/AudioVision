@@ -1,12 +1,12 @@
 GIT
   remote: git://github.com/SCPR/outpost-asset_host.git
-  revision: 19556708ea27c3e08ccb6103b40748c3245f1098
+  revision: 0935ac138d533ea1993c06469edd5e69674989b7
   specs:
     outpost-asset_host (1.0.0)
 
 GIT
   remote: git://github.com/SCPR/outpost.git
-  revision: 3650eadb08b9bfe7dc61e4706bed3cfa5b82ddec
+  revision: c2d1380e755bab4704a94e8710364bcc90a84e92
   specs:
     outpost (0.0.2)
       bcrypt-ruby (~> 3.0)
