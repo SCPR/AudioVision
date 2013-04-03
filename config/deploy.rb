@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 require 'net/http'
+require 'new_relic/recipes'
 
 # --------------
 # Universal Variables
@@ -37,6 +38,7 @@ role :db,       media, :primary => true
 before "deploy:update_code", "deploy:notify"
 before "deploy:assets:precompile", "deploy:symlink_config"
 after "deploy:update", "deploy:cleanup"
+after "deploy:restart", "newrelic:notice_deployment"
 
 
 namespace :deploy do
