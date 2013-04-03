@@ -649,10 +649,10 @@ ROUNDUP (Instagram contests, etc., etc.)
 	box-shadow: inset 0 15px 0 white;
 }
 		.roundup-ephemera {
-			background: url(i/structure-roundup-splice-base.png) repeat-y center top;
+			background: image-url('i/structure-roundup-splice-base.png') repeat-y center top;
 		}
 				.roundup-ephemera .bound {
-					background: url(i/structure-roundup-splice-title.png) no-repeat 25.5% 0;
+					background: image-url('i/structure-roundup-splice-title.png') no-repeat 25.5% 0;
 				}
 				.roundup-title {
 					width: 23.5%; /* 282 / 1200 */
