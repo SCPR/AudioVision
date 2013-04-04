@@ -667,6 +667,7 @@ BILLBOARD
 			display: block;
 			color: black;
 			position: relative;
+			z-index: 1;
 		}
 
 		.billboard.layout-4 .row.primary .component:first-child,
@@ -683,7 +684,6 @@ BILLBOARD
 			float: right;
 			outline: 1px solid blue;
 		}
-
 		.billboard .row.secondary .component {
 			float: left;
 		}
@@ -741,6 +741,52 @@ BILLBOARD
 
 
 
+/*		^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+		.billboard .caption {
+			position: absolute;
+			z-index: 3;
+			bottom: 10px;
+			left: 0;
+		}
+				.billboard .caption .title {
+					color: white;
+					background: black;
+					font-weight: 700;
+					padding: 8px 15px;
+					font-size: 1.4em;
+					line-height: 0.95;
+					display: inline-block;
+					margin-bottom: 5px;
+				}
+				.billboard .caption .subtitle {
+					color: black;
+					background: white;
+					font-size: 0.8em;
+					line-height: 1.1;
+					padding: 5px 15px;
+					display: inline-block;
+				}
+
+		.billboard .imagery {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 2;
+		}
+		.billboard img {
+			display: block;
+		}
+		.billboard .row.secondary img,
+		.billboard.layout-4 .row.primary img,
+		.billboard.layout-5 .row.primary img,
+		.billboard.layout-6 .row.primary img,
+		.billboard.layout-7 .row.primary img {
+			width: 100%;
+		}
 
 
 
