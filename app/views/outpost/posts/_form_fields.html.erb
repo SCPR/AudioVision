@@ -1,5 +1,5 @@
 <%= form_block "Details" do %>
-  <%= f.input :media_type, collection: Post.media_types_collection %>
+  <%= f.association :category %>
   <%= f.input :title, input_html: { class: "wide sluggable" } %>
   <%= f.input :body, input_html: { class: "ckeditor" } %>
   <%= f.input :teaser, input_html: { class: "tiny" }, wrapper_html: { class: "field-counter", data: { target: 145, fuzziness: 20} } %>
@@ -7,7 +7,9 @@
 <% end %>
 
 
-<%= form_block "Asset Management" do %>  
+<%= form_block "Asset Management" do %>
+  <%= f.input :media_type, collection: Post.media_types_collection %>
+
   <div id="asset_bucket" class="clearfix"></div>
   <%= f.input :asset_json, as: :hidden, input_html: { id: "asset_json" } %>
   
