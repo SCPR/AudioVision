@@ -2,11 +2,19 @@ class Post < ActiveRecord::Base
   outpost_model
   
   MEDIA_TYPES = {
-    :image        => "image",
-    :slideshow    => "slideshow",
-    :gallery      => "gallery",
-    :video        => "video"
+    :image        => 0,
+    :slideshow    => 1,
+    :gallery      => 2,
+    :video        => 3
   }
+
+  MEDIA_TYPES_TEXT = {
+    MEDIA_TYPES[:image]       => "Image",
+    MEDIA_TYPES[:slideshow]   => "Slideshow",
+    MEDIA_TYPES[:gallery]     => "Gallery",
+    MEDIA_TYPES[:video]       => "Video",
+  }
+
 
   STATUS = {
     :killed    => -1,
@@ -95,11 +103,11 @@ class Post < ActiveRecord::Base
 
   class << self
     def media_types_collection
-      MEDIA_TYPES.map { |_, v| [v.titleize, v] }
+      MEDIA_TYPES_TEXT.map { |k, v| [v, k] }
     end
 
     def status_collection
-      STATUS.map { |k, v| [k.to_s.titleize, v] }
+      STATUS_TEXT.map { |k, v| [v, k] }
     end
   end
 
