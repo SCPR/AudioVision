@@ -648,21 +648,17 @@ BILLBOARD
 ##################################################################################################################### */
 
 .billboard {
-	background: yellow;
 	margin-top: 80px;
 	margin-bottom: 90px;
 	font-family: "proxima-nova", Avenir, Arial, sans-serif;
 	text-transform: uppercase;
 }
 		.billboard .row {
-			background: rgba(0,0,0,0.2);
 		}
 		.billboard .row.primary {
-			margin-bottom: 35px;
+			margin-bottom: 40px;
 		}
-
 		.billboard .component {
-			outline: 1px solid red;
 			overflow: hidden;
 			display: block;
 			color: black;
@@ -675,14 +671,12 @@ BILLBOARD
 		.billboard.layout-6 .row.primary .component:first-child,
 		.billboard.layout-7 .row.primary .component:first-child {
 			float: left;
-			outline: 1px solid green;
 		}
 		.billboard.layout-4 .row.primary .component:last-child,
 		.billboard.layout-5 .row.primary .component:last-child,
 		.billboard.layout-6 .row.primary .component:last-child,
 		.billboard.layout-7 .row.primary .component:last-child {
 			float: right;
-			outline: 1px solid blue;
 		}
 		.billboard .row.secondary .component {
 			float: left;
@@ -691,7 +685,7 @@ BILLBOARD
 			float: right;
 		}
 
-
+		/* ------------------------------------------------------------------------------------------------------------------ */
 		/* Define widths */
 		.billboard .component.slideshow			{ width: 100%;										}
 
@@ -717,6 +711,7 @@ BILLBOARD
 		.billboard.layout-6 .component.image,
 		.billboard.layout-7 .component.image	{ width: 57.5%; /* 690 / 1200 */					}
 
+		/* ------------------------------------------------------------------------------------------------------------------ */
 		/* Define aspect ratios */
 		.billboard .component.slideshow			{ padding-bottom: 41.7%;							}
 
@@ -734,6 +729,7 @@ BILLBOARD
 		.billboard.layout-6 .component.image,
 		.billboard.layout-7 .component.image	{ padding-bottom: 38.2%;					}
 
+		/* ------------------------------------------------------------------------------------------------------------------ */
 		/* Define margins (infrequent) */
 		.billboard.layout-2 .component.image:first-child,
 		.billboard.layout-4 .component.image:first-child,
@@ -741,20 +737,84 @@ BILLBOARD
 
 
 
+		/*	===================================================================================
+		    =================================================================================== */
+
+		    @media screen and (max-width: 700px) {
+
+				.billboard .component,
+				.billboard.layout-2 .component.image:first-child,
+				.billboard.layout-4 .component.image:first-child,
+				.billboard.layout-5 .component.image:first-child {
+					max-width: 450px;
+					margin: 0 auto 30px auto;
+				}
+
+				.billboard.layout-4 .row.primary .component:first-child,
+				.billboard.layout-5 .row.primary .component:first-child,
+				.billboard.layout-6 .row.primary .component:first-child,
+				.billboard.layout-7 .row.primary .component:first-child,
+				.billboard.layout-4 .row.primary .component:last-child,
+				.billboard.layout-5 .row.primary .component:last-child,
+				.billboard.layout-6 .row.primary .component:last-child,
+				.billboard.layout-7 .row.primary .component:last-child,
+				.billboard .row.secondary .component,
+				.billboard .row.secondary .component:last-child { float: none; }
+
+				.billboard.layout-1 .component.video,
+				.billboard.layout-4 .component.video,
+				.billboard.layout-5 .component.video,
+				.billboard.layout-3 .component.video,
+				.billboard.layout-6 .component.video,
+				.billboard.layout-7 .component.video,
+				.billboard.layout-1 .component.mobile,
+				.billboard.layout-4 .component.mobile,
+				.billboard.layout-5 .component.mobile,
+				.billboard.layout-6 .component.mobile,
+				.billboard.layout-7 .component.mobile,
+				.billboard.layout-2 .component.image,
+				.billboard.layout-4 .component.image,
+				.billboard.layout-5 .component.image,
+				.billboard.layout-6 .component.image,
+				.billboard.layout-7 .component.image	{ width: 100%; }
+				
+				.billboard .component.slideshow,
+				.billboard .component.video,
+				.billboard .component.mobile,
+				.billboard.layout-3 .component.video,
+				.billboard.layout-6 .component.video,
+				.billboard.layout-7 .component.video,
+				.billboard .component.image,
+				.billboard.layout-6 .component.mobile,
+				.billboard.layout-7 .component.mobile,
+				.billboard.layout-6 .component.image,
+				.billboard.layout-7 .component.image	{ padding-bottom: 0; }
+
+		    }
+
+		/*	===================================================================================
+		    =================================================================================== */
+
+
+
+
+
 /*		^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
 
 		.billboard .caption {
 			position: absolute;
 			z-index: 3;
-			bottom: 10px;
+			bottom: 20px;
 			left: 0;
+			max-width: 90%;
 		}
 				.billboard .caption .title {
 					color: white;
 					background: black;
 					font-weight: 700;
 					padding: 8px 15px;
-					font-size: 1.4em;
+					font-size: 1.6em;
 					line-height: 0.95;
 					display: inline-block;
 					margin-bottom: 5px;
@@ -788,6 +848,127 @@ BILLBOARD
 			width: 100%;
 		}
 
+		.billboard .component.slideshow .imagery {
+			height: 100%;
+		}
+				.billboard .component.slideshow .caption .title {
+					padding: 0.5em 40px 0.5em 5%;
+					font-size: 2.5em;
+				}
+				.billboard .component.slideshow .caption .subtitle {
+					padding: 12px 30px 12px 5%;
+					font-size: 1.2em;
+				}
+				.billboard .filmstrip {
+					height: 100%;
+					width: 300%;
+					position: absolute;
+					top: 0;
+					left: -43.8%;
+				}
+						.billboard .filmstrip img {
+							float: left;
+							height: 100%;
+						}
+
+
+						
+		/*	===================================================================================
+		    =================================================================================== */
+
+		    @media screen and (max-width: 1023px) {
+
+				.billboard .caption {
+					bottom: 10px;
+				}
+						.billboard .caption .title {
+							font-size: 1.1em;
+							margin-bottom: 5px;
+						}
+						.billboard .caption .subtitle {
+							font-size: 0.7em;
+							line-height: 1.1;
+							padding: 5px 15px;
+						}
+						.billboard .component.slideshow .caption .title {
+							font-size: 2.0em;
+						}
+						.billboard .component.slideshow .caption .subtitle {
+							font-size: 0.9em;
+						}
+				
+
+		    }
+
+		/*	===================================================================================
+		    =================================================================================== */
+
+		    @media screen and (max-width: 875px) {
+
+				.billboard .component.slideshow .caption .title {
+					font-size: 1.6em;
+				}
+				.billboard .component.slideshow .caption .subtitle {
+					font-size: 0.75em;
+				}
+
+		    }
+
+		/*	===================================================================================
+		    =================================================================================== */
+
+
+		    @media screen and (max-width: 700px) {
+
+				.billboard .imagery {
+					position: relative;
+					margin: 0 auto;
+				}
+				.billboard .caption {
+					position: relative;
+					width: 100%;
+					max-width: 100%;
+					margin-top: -1px;
+				}
+						.billboard .caption .title {
+							font-size: 0.9em;
+							margin-bottom: 0px;
+						}
+						.billboard .caption .subtitle {
+							font-size: 0.7em;
+							line-height: 1.1;
+							padding: 5px 15px;
+						}
+			
+			/* Filmstrip (slideshow) type */
+			.billboard .component.slideshow .imagery {
+				height: auto;
+			}
+					.billboard .component.slideshow .caption .title {
+						font-size: 1.2em;
+					}
+					.billboard .component.slideshow .caption .subtitle {
+					}
+					.billboard .filmstrip {
+						position: relative;
+						width: 100%;
+						left: 0;
+					}
+							.billboard .filmstrip img {
+								float: none;
+								height: auto;
+								width: 100%;
+							}
+							.billboard .filmstrip img:first-child,
+							.billboard .filmstrip img:last-child {
+								display: none;
+							}
+
+
+		    }
+
+		/*	===================================================================================
+		    =================================================================================== */
 
 
 /*
