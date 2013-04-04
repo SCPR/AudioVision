@@ -1987,6 +1987,20 @@ EXHIBIT (the main part of a single node)
 							padding-bottom: 40px;
 							margin-bottom: -41px;
 						}
+						
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (min-width: 941px) and (max-width: 1140px) {
+
+								.exhibit .essay		{ font-size: 0.9em; }
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+						
+						
 						.exhibit .intro {
 							background: url(i/ornament-lightningbolt-black.png) no-repeat left 26px;
 							background-size: 16px 18px;
@@ -2003,11 +2017,9 @@ EXHIBIT (the main part of a single node)
 								/*	===================================================================================
 								    =================================================================================== */
 
-								    @media screen and (max-width: 950px) {
+								    @media screen and (min-width: 941px) and (max-width: 1000px) {
 
-										.exhibit .intro h1 {
-											font-size: 1.6em;
-										}
+										.exhibit .intro h1		{ font-size: 1.6em; }
 
 								    }
 
@@ -2084,6 +2096,42 @@ EXHIBIT (the main part of a single node)
 
 
 
+/*	===================================================================================
+    Okay, let's collapse some floats. =================================================
+	=================================================================================== */
+
+    @media screen and (max-width: 940px) {
+
+		.exhibit {
+			background: none;
+		}
+				.exhibit-inner {
+					background: none;
+				}
+
+		.exhibit .primary {
+			float: none;
+			width: 100%;
+		}
+		.exhibit .secondary {
+			float: none;
+			width: 100%;
+			padding-left: 10%;
+			margin-left: -10%;
+			background: image-url('i/structure-exhibit-splice-base.png') no-repeat left top;
+		}
+				.exhibit .intro {
+				}
+		
+
+    }
+
+/*	===================================================================================
+    =================================================================================== */
+
+
+
+
 .newsbox {
 	background: #e7e7e7;
 	width: 60.504201680672%; /* 432 / 714 */
@@ -2151,7 +2199,8 @@ EXHIBIT (the main part of a single node)
 				}
 		
 		.newsbox .preview {
-			margin: 5%;
+			margin: 0 5%;
+			padding: 0 0 20px;
 		}
 				.newsbox .preview .img,
 				.newsbox .preview a,
@@ -2196,7 +2245,34 @@ EXHIBIT (the main part of a single node)
 							color: white;
 						}
 
+						/*	===================================================================================
+						    =================================================================================== */
 
+						    @media screen and (min-width: 540px) {
+
+								.newsbox		{ min-width: 432px; } /* we can afford it */
+
+						    }
+						    @media screen and (max-width: 539px) {
+
+								.newsbox		{ width: 100%; font-size: 0.8em; }
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (max-width: 940px) {
+
+								.newsbox {
+									float: none;
+									margin: 80px auto 50px;
+								}
+
+						    }
+
+						/*	===================================================================================
+						    =================================================================================== */
 
 
 
