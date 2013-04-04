@@ -18,7 +18,8 @@ AudioVision::Application.routes.draw do
     resources :reporters
     resources :users
     resources :categories
-
+    resources :billboards
+    
     get "*path" => 'errors#not_found'
   end
 
