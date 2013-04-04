@@ -3,8 +3,13 @@ AudioVision::Application.routes.draw do
   
   get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }, as: :post
 
-  get '/about'      => 'reporters#index', as: :reporters
-  get '/about/:slug' => 'reporters#show', as: :reporter
+  get '/about'          => 'reporters#index', as: :reporters
+  get '/about/:slug'    => 'reporters#show', as: :reporter
+
+  get '/archive'    => 'posts#archive'
+  get '/feed'       => 'posts#archive', defaults: { format: "xml" }
+
+
 
   namespace :outpost do
     root to: 'home#dashboard'
@@ -23,5 +28,5 @@ AudioVision::Application.routes.draw do
     get "*path" => 'errors#not_found'
   end
 
-  get '*path' => 'root_path#handle_path'
+  get '*path' => 'root_path#handle_path', as: :root_slug
 end
