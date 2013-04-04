@@ -5,7 +5,21 @@
     </aside>
 
     <% if @post.related_articles.present? %>
-      <h3>Show related Articles</h3>
+
+    <aside class="newsbox related">
+        <header>
+            <p>Hey read this related article</p>
+            <span class="logo"><a href="#">89.3 KPCC</a></span>
+        </header>
+        <ul class="popular-links">
+            <ul>
+                <li><a href="#">POLL: Public Radio Bracket Madness Rd 3: Vote for your favorite public radio show</a></li>
+                <li><a href="#">Beverly Center evacuated due to suspicious package in garage (Updated)</a></li>
+                <li><a href="#">After teen's death, hikers say Eaton Canyon should have better warnings</a></li>
+            </ul>
+        </ul>
+    </aside><!--/ .newsbox -->
+
     <% else %>
 
     <aside class="newsbox unrelated">
