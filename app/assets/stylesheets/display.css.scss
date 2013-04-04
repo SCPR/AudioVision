@@ -2090,6 +2090,9 @@ EXHIBIT (the main part of a single node)
 	float: right;
 	margin-top: 80px; /* just for now -- will fix on thursday */
 }
+		.newsbox.related {
+			background: #8a8a8a;
+		}
 		.newsbox header {
 			color: white;
 			background: #acacac;
@@ -2121,6 +2124,18 @@ EXHIBIT (the main part of a single node)
 							overflow: hidden;
 						}
 				
+				.newsbox.related header {
+					background: #60c8eb;
+				}
+				.newsbox.related header p {
+					font-style: italic;
+					font-weight: 400;
+					line-height: 1.15
+				}
+				.newsbox header .logo {
+					top: 16px;
+				}
+				
 		.newsbox .popular-links {
 			font-size: 0.9375em; /* 15 / 16 */
 			margin: 0 5% 20px;
@@ -2134,6 +2149,54 @@ EXHIBIT (the main part of a single node)
 				.newsbox .popular-links a:hover {
 					text-decoration: underline;
 				}
+		
+		.newsbox .preview {
+			margin: 5%;
+		}
+				.newsbox .preview .img,
+				.newsbox .preview a,
+				.newsbox .preview .img img {
+					display: block;
+				}
+				.newsbox .preview a,
+				.newsbox .preview img {
+					width: 100%;
+				}
+				.newsbox .preview .img {
+					float: left;
+					width: 46.875%; /* 180 / 384 */
+					box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+				}
+				.newsbox .preview p {
+					float: right;
+					width: 46.875%; /* 180 / 384 */
+					text-align: right;
+				}
+						.newsbox .preview .title,
+						.newsbox .preview .date {
+							display: block;
+						}
+						.newsbox .preview a .title {
+							font: normal 400 1.125em/1.15 "proxima-nova", Avenir, Arial, sans-serif; /* 18 / 16 */
+							margin-bottom: 16px;
+							background: none;
+							color: white;
+						}
+						.newsbox .preview a:hover .title {
+							text-decoration: underline;
+						}
+						.newsbox .preview a .date {
+							color: #d0d0d0;
+							font-size: 0.6875em; /* 11 / 16 */
+							background: image-url('i/ornament-hairline-gray-med.png') no-repeat right top;
+							background-size: 20px 1px;
+							padding-top: 10px;
+						}
+						.newsbox .preview a:hover .date {
+							color: white;
+						}
+
+
 
 
 
