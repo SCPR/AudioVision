@@ -29,8 +29,8 @@ AudioVision::Application.configure do
   config.dbsync = ActiveSupport::OrderedOptions.new
   config.dbsync.filename    = "audio_vision_production.dump"
   config.dbsync.local_dir   = "#{Rails.root}/../dbsync" # No trailing slash
-  config.dbsync.remote_host = "66.226.4.229"
-  config.dbsync.remote_dir  = "~scprdb"
+  config.dbsync.remote_host = "12.345.678.9"
+  config.dbsync.remote_dir  = "~username"
 
   # Uncomment to use Pry instead of IRB
   # silence_warnings { IRB = Pry }
