@@ -648,9 +648,98 @@ BILLBOARD
 ##################################################################################################################### */
 
 .billboard {
-	padding-top: 70px;
-	padding-bottom: 90px;
+	background: yellow;
+	margin-top: 80px;
+	margin-bottom: 90px;
+	font-family: "proxima-nova", Avenir, Arial, sans-serif;
+	text-transform: uppercase;
 }
+		.billboard .row {
+			background: rgba(0,0,0,0.2);
+		}
+		.billboard .row.primary {
+			margin-bottom: 35px;
+		}
+
+		.billboard .component {
+			outline: 1px solid red;
+			overflow: hidden;
+			display: block;
+			color: black;
+			position: relative;
+		}
+
+		.billboard.layout-4 .row.primary .component:first-child,
+		.billboard.layout-5 .row.primary .component:first-child,
+		.billboard.layout-6 .row.primary .component:first-child,
+		.billboard.layout-7 .row.primary .component:first-child {
+			float: left;
+			outline: 1px solid green;
+		}
+		.billboard.layout-4 .row.primary .component:last-child,
+		.billboard.layout-5 .row.primary .component:last-child,
+		.billboard.layout-6 .row.primary .component:last-child,
+		.billboard.layout-7 .row.primary .component:last-child {
+			float: right;
+			outline: 1px solid blue;
+		}
+
+		.billboard .row.secondary .component {
+			float: left;
+		}
+		.billboard .row.secondary .component:last-child {
+			float: right;
+		}
+
+
+		/* Define widths */
+		.billboard .component.slideshow			{ width: 100%;										}
+
+		.billboard.layout-1 .component.video,
+		.billboard.layout-4 .component.video,
+		.billboard.layout-5 .component.video	{ width: 61.166666666667%; /* 734 / 1200 */			}
+
+		.billboard.layout-3 .component.video,
+		.billboard.layout-6 .component.video,
+		.billboard.layout-7 .component.video	{ width: 49%; /* 588 / 1200 */						} /* pairs of videos */
+
+		.billboard.layout-1 .component.mobile,
+		.billboard.layout-4 .component.mobile,
+		.billboard.layout-5 .component.mobile	{ width: 34.416666666667%; /* 413 / 1200 */			}
+
+		.billboard.layout-6 .component.mobile,
+		.billboard.layout-7 .component.mobile	{ width: 38.333333333333%; /* 460 / 1200 */			}
+
+		.billboard.layout-2 .component.image,
+		.billboard.layout-4 .component.image,
+		.billboard.layout-5 .component.image	{ width: 32%; /* 384 / 1200 */						} /* triptychs of images */
+
+		.billboard.layout-6 .component.image,
+		.billboard.layout-7 .component.image	{ width: 57.5%; /* 690 / 1200 */					}
+
+		/* Define aspect ratios */
+		.billboard .component.slideshow			{ padding-bottom: 41.7%;							}
+
+		.billboard .component.video,
+		.billboard .component.mobile			{ padding-bottom: 34.5%;							}
+
+		.billboard.layout-3 .component.video,
+		.billboard.layout-6 .component.video,
+		.billboard.layout-7 .component.video	{ padding-bottom: 27.5%;							} /* pair of videos */
+
+		.billboard .component.image				{ padding-bottom: 21.3%;							} /* triptychs of images */
+
+		.billboard.layout-6 .component.mobile,
+		.billboard.layout-7 .component.mobile,
+		.billboard.layout-6 .component.image,
+		.billboard.layout-7 .component.image	{ padding-bottom: 38.2%;					}
+
+		/* Define margins (infrequent) */
+		.billboard.layout-2 .component.image:first-child,
+		.billboard.layout-4 .component.image:first-child,
+		.billboard.layout-5 .component.image:first-child	{ margin-right: 2%; /* 24 / 1200 */ }
+
+
 
 
 
