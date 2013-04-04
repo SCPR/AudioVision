@@ -1,10 +1,10 @@
 AudioVision::Application.routes.draw do
   root to: 'home#homepage'
   
-  get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }
+  get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }, as: :post
 
-  get '/reporters'       => 'reporters#index'
-  get '/reporters/:slug' => 'reporters#show'
+  get '/reporters'       => 'reporters#index', as: :reporters
+  get '/reporters/:slug' => 'reporters#show', as: :reporter
 
   namespace :outpost do
     root to: 'home#dashboard'
