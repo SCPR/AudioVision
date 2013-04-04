@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130403234948) do
+ActiveRecord::Schema.define(version: 20130404184245) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 20130403234948) do
 
   add_index "attributions", ["post_id", "role"], name: "index_attributions_on_post_id_and_role"
   add_index "attributions", ["reporter_id"], name: "index_attributions_on_reporter_id"
+
+  create_table "billboard_posts", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "billboard_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "billboards", force: true do |t|
+    t.integer  "layout"
+    t.integer  "status"
+    t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "title"
