@@ -1,1 +1,10 @@
-<h1>Reporters, yo</h1>
+<h1>About AudioVision</h1>
+<p>Some text about AudioVision</p>
+
+
+<h1>Reporters</h1>
+<ul>
+  <% @reporters.each do |reporter| %>
+    <li><%= link_to reporter.name, reporter_path(reporter.slug) %></li>
+  <% end %>
+</ul>
