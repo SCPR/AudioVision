@@ -1,12 +1,12 @@
 class Billboard < ActiveRecord::Base
   LAYOUTS = {
-    1 => "Description for layout 1",
-    2 => "Description for layout 2",
-    3 => "Description for layout 3",
-    4 => "Description for layout 4",
-    5 => "Description for layout 5",
-    6 => "Description for layout 6",
-    7 => "Description for layout 7"
+    1 => "TOP: Slideshow / BOTTOM: Video (16:9), Mobile (1:1)",
+    2 => "TOP: Slideshow / BOTTOM: Triptych of Images (3:2)",
+    3 => "TOP: Slideshow / BOTTOM: Pair of Videos (16:9)",
+    4 => "TOP: Video (16:9) + Mobile (1:1) / BOTTOM: Triptych of Images (3:2)",
+    5 => "TOP: Mobile (1:1) + Video (16:9) / BOTTOM: Triptych of Images (3:2)",
+    6 => "TOP: Mobile (1:1) + Image (3:2) / BOTTOM: Pair of Videos (16:9)",
+    7 => "TOP: Image (3:2) + Mobile (1:1) / BOTTOM: Pair of Videos (16:9)"
   }
 
   STATUS = {
