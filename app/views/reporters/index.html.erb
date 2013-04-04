@@ -5,6 +5,6 @@
 <h1>Reporters</h1>
 <ul>
   <% @reporters.each do |reporter| %>
-    <li><%= link_to reporter.name, reporter_path(reporter.slug) %></li>
+    <li><%= link_to reporter.name, reporter.link_path %></li>
   <% end %>
 </ul>

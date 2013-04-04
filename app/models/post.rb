@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   outpost_model
-  
+  ROUTE_KEY = "post"
+
   MEDIA_TYPES = {
     :image        => 0,
     :slideshow    => 1,
@@ -125,6 +126,13 @@ class Post < ActiveRecord::Base
 
 
 
+  def route_hash
+    return {} if !self.persisted? || !self.persisted_record.published?
+    {
+      :id     => self.id,
+      :slug   => self.persisted_record.slug
+    }
+  end
 
   # Asset Handling
   # Define these methods manually since Rails uses a cache (not method_missing 
