@@ -13,7 +13,7 @@ module CategoryHandler
 
     respond_with @posts do |format|
       format.html { render "posts/category" }
-      format.xml { render "posts/feed" }
+      format.xml { render "posts/archive" }
     end
   end
 end
