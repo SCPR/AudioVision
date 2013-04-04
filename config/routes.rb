@@ -3,8 +3,8 @@ AudioVision::Application.routes.draw do
   
   get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }, as: :post
 
-  get '/reporters'       => 'reporters#index', as: :reporters
-  get '/reporters/:slug' => 'reporters#show', as: :reporter
+  get '/about'      => 'reporters#index', as: :reporters
+  get '/about/:slug' => 'reporters#show', as: :reporter
 
   namespace :outpost do
     root to: 'home#dashboard'
