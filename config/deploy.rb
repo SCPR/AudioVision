@@ -60,7 +60,12 @@ namespace :deploy do
     
     url = "http://www.scpr.org/api/private/utility/notify"
     logger.info "Sending notification to #{url}"
-    Net::HTTP.post_form(URI.parse(URI.encode(url)), data)
+
+    begin
+      Net::HTTP.post_form(URI.parse(URI.encode(url)), data)
+    rescue Errno::ETIMEDOUT => e
+      logger.info "Timed out while trying to notify. Moving forward."
+    end
   end
 
   # --------------
