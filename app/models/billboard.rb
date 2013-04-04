@@ -1,4 +1,6 @@
 class Billboard < ActiveRecord::Base
+  outpost_model
+
   LAYOUTS = {
     1 => "(1) TOP: Slideshow / BOTTOM: Video (16:9), Mobile (1:1)",
     2 => "(2) TOP: Slideshow / BOTTOM: Triptych of Images (3:2)",
@@ -24,6 +26,18 @@ class Billboard < ActiveRecord::Base
   scope :published, -> { where(status: STATUS[:published]) }
 
   validates :layout, presence: true, inclusion: { in: LAYOUTS.keys }
+  validates :status, presence: true
+  
   has_many :billboard_posts
   has_many :posts, through: :billboard_posts
+
+  class << self
+    def layouts_collection
+      LAYOUTS.map { |k, v| [v, k] }
+    end
+
+    def status_collection
+      STATUS_TEXT.map { |k, v| [v, k] }
+    end
+  end
 end

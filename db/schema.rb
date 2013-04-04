@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130404184245) do
+ActiveRecord::Schema.define(version: 20130404192129) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20130404184245) do
     t.datetime "updated_at"
   end
 
+  add_index "billboard_posts", ["billboard_id"], name: "index_billboard_posts_on_billboard_id"
+  add_index "billboard_posts", ["post_id"], name: "index_billboard_posts_on_post_id"
+
   create_table "billboards", force: true do |t|
     t.integer  "layout"
     t.integer  "status"
@@ -40,6 +43,8 @@ ActiveRecord::Schema.define(version: 20130404184245) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "billboards", ["status"], name: "index_billboards_on_status"
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -91,7 +96,7 @@ ActiveRecord::Schema.define(version: 20130404184245) do
     t.text     "body"
     t.datetime "published_at"
     t.text     "teaser"
-    t.string   "media_type"
+    t.integer  "media_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
