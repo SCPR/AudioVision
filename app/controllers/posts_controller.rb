@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def show
     @post = FakePost.new(params[:media_type] || "image", params[:related_articles])
   end
-  
+
   def archive
     @posts = Post.published.order("published_at desc")
       .page(params[:page]).per(15)
@@ -19,9 +19,6 @@ class PostsController < ApplicationController
       }
     end
 
-    respond_with @posts do |format|
-      format.html { render "posts/archive" }
-      format.xml { render "posts/feed" }
-    end
+    respond_with @posts
   end
 end
