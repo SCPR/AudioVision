@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130403165353) do
+ActiveRecord::Schema.define(version: 20130403234948) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20130403165353) do
 
   add_index "attributions", ["post_id", "role"], name: "index_attributions_on_post_id_and_role"
   add_index "attributions", ["reporter_id"], name: "index_attributions_on_reporter_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug"
 
   create_table "flatpages", force: true do |t|
     t.string   "path"
@@ -69,8 +79,10 @@ ActiveRecord::Schema.define(version: 20130403165353) do
     t.string   "media_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
 
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id"
   add_index "posts", ["media_type"], name: "index_posts_on_media_type"
   add_index "posts", ["status", "published_at"], name: "index_posts_on_status_and_published_at"
 

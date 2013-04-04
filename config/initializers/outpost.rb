@@ -1,5 +1,6 @@
 Outpost::Config.configure do |config|
   config.registered_models = [
+    "Category",
     "Post",
     "Flatpage",
     "Reporter",

@@ -1,7 +1,5 @@
 AudioVision::Application.routes.draw do
-  root to: 'home#index'
-
-  get '/slideshows'  => 'posts#index', defaults: { media_type: "slideshow" }
+  root to: 'posts#index'
   get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }
 
   get '/reporters'       => 'reporters#index'
@@ -18,8 +16,9 @@ AudioVision::Application.routes.draw do
     resources :flatpages
     resources :reporters
     resources :users
+    resources :categories
   end
 
 
-  #get '*path' => 'flatpages#show'
+  get '*path' => 'root_path#handle_path'
 end
