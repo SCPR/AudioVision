@@ -2002,7 +2002,7 @@ EXHIBIT (the main part of a single node)
 						
 						
 						.exhibit .intro {
-							background: url(i/ornament-lightningbolt-black.png) no-repeat left 26px;
+							background: image-url('i/ornament-lightningbolt-black.png') no-repeat left 26px;
 							background-size: 16px 18px;
 							padding-top: 89px;
 							height: 312px; /* 401 */
@@ -2120,7 +2120,20 @@ EXHIBIT (the main part of a single node)
 			margin-left: -10%;
 			background: image-url('i/structure-exhibit-splice-base.png') no-repeat left top;
 		}
-				.exhibit .intro {
+				.exhibit .prose {
+					max-width: 650px;
+				}
+				.exhibit .prose {
+					/*
+					background: image-url('i/ephemera-essay-prose-shadow.png') no-repeat left top;
+					margin-left: -13.5%;
+					background-size: 10px 82px;
+					background-color: white;
+					padding: 25px 0 0 13.5%;
+					box-shadow: 5px 0 0 white; /* I hate myself */
+					background-position: right top;
+					box-shadow: none;
+					padding-right: 25px;
 				}
 		
 
@@ -2186,7 +2199,8 @@ EXHIBIT (the main part of a single node)
 				
 		.newsbox .popular-links {
 			font-size: 0.9375em; /* 15 / 16 */
-			margin: 0 5% 20px;
+			margin: 0 5% 0;
+			padding-bottom: 17px;
 		}
 				.newsbox .popular-links li {
 					margin-bottom: 0.7em;
