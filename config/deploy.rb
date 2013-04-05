@@ -16,12 +16,6 @@ set :keep_releases, 5
 set :user, "audiovision"
 set :use_sudo, false
 set :group_writable, false
-  
-# Pass these in with -s to override: 
-#    cap deploy -s force_assets=true
-set :force_assets,  false # If assets wouldn't normally be precompiled, force them to be
-set :skip_assets,   false # If assets are going to be precompiled, force them NOT to be
-
 
 
 media = "66.226.4.228"
@@ -69,25 +63,6 @@ namespace :deploy do
   end
 
   # --------------
-  # Skip asset precompile if no assets were changed
-  namespace :assets do
-    task :precompile, roles: :web do
-      from = source.next_revision(current_revision) rescue nil
-      
-      # Previous revision is blank or git log doesn't 
-      # have any new lines mentioning assets
-      if [true, 1].include?(force_assets) || from.nil? || 
-          capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
-          if ![true, 1].include? skip_assets
-            run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile"
-          else
-            logger.info "SKIPPING asset pre-compilation (skip_assets true)"
-          end
-      else
-        logger.info "No changes in assets. SKIPPING asset pre-compilation"
-      end
-    end
-  end
 
   task :symlink_config do
     %w{ database.yml app_config.yml newrelic.yml }.each do |file|
