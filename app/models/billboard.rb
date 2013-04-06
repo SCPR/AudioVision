@@ -25,7 +25,7 @@ class Billboard < ActiveRecord::Base
 
   scope :published, -> { where(status: STATUS[:published]) }
 
-  validates :layout, presence: true, inclusion: { in: LAYOUTS.keys }
+  validates :layout, presence: true, inclusion: { in: LAYOUTS.keys.map(&:to_s) }
   validates :status, presence: true
   
   has_many :billboard_posts
