@@ -67,7 +67,7 @@ class Post < ActiveRecord::Base
 
   # We want to really enforce that the media types are correct, because they
   # get mapped directly to partial names.
-  validates :media_type, presence: true, inclusion: { in: MEDIA_TYPES.values.map(&:to_s) }
+  validates :media_type, presence: true, inclusion: { in: MEDIA_TYPES.values }
 
   validates :body, presence: true, if: :should_validate?
   validates :published_at, presence: true, if: :published?
