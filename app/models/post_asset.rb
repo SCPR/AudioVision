@@ -3,7 +3,8 @@ class PostAsset < ActiveRecord::Base
 
   delegate :title, :size, 
     :taken_at, :owner, :url, :api_url, 
-    :native, :image_file_size, to: :asset
+    :native, :image_file_size,
+    :thumb, :small, :eight, :full, to: :asset
 
 
   def as_json(options={})

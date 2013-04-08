@@ -30,7 +30,7 @@ module AssetHost
           if !GOOD_STATUS.include? resp.status
             # A last-resort fallback - assethost not responding and outputs not in cache
             # Should we just use this every time?
-            outputs = JSON.parse(File.read(File.join(__FILE__, "fallback", "outputs.json")))
+            outputs = JSON.parse(File.read(File.join(File.dirname(__FILE__), "fallback", "outputs.json")))
           else
             outputs = resp.body
             Rails.cache.write(key, outputs)
@@ -96,9 +96,13 @@ module AssetHost
     def initialize(json)
       @json = json
       @_sizes = {}
-      
+
       # define some attributes
-      [:caption,:title,:id,:size,:taken_at,:owner,:url,:api_url,:native, :image_file_size].each { |key| self.send("#{key}=",@json[key.to_s]) }
+      [
+        :caption, :title, :id, :size,
+        :taken_at, :owner, :url, :api_url,
+        :native, :image_file_size
+      ].each { |key| self.send("#{key}=", @json[key.to_s]) }
     end
     
     #----------
