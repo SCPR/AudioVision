@@ -90,12 +90,12 @@
             </nav>
             <nav class="wayfinder">
                 <ul>
-                    <li class="selected"><a href="/">Home</a></li>
-                    <li><a href="/images">Images</a></li>
-                    <li><a href="/video">Video</a></li>
-                    <li><a href="/mobile-photography">Mobile Photography</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/archive">Archives</a></li>
+                    <%= nav_link "Home", "/", key: "home" %>
+                    <%= nav_link "Images", "/images", key: "images" %>
+                    <%= nav_link "Mobile Photography", "/mobile-photography", key: "mobile-photography" %>
+                    <%= nav_link "Video", "/video", key: "video" %>
+                    <%= nav_link "About", "/about", key: "about" %>
+                    <%= nav_link "Archives", "/archive", key: "archive" %>
                 </ul>
             </nav>
         </div>
@@ -112,12 +112,13 @@
                     <li class="menu">
                         <mark>AudioVision</mark>
                         <ul>
-                            <li class="selected"><a href="/">AudioVision Home</a></li>
-                            <li><a href="/images">Images</a></li>
-                            <li><a href="/video">Video</a></li>
-                            <li><a href="/mobile-photography">Mobile Photography</a></li>
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/archive">Archives</a></li>
+                            <%= nav_link "AudioVision Home", "/", key: "home" %>
+                            <%= nav_link "Images", "/images", key: "images" %>
+                            <%= nav_link "Mobile Photography", "/mobile-photography", key: "mobile-photography" %>
+                            <%= nav_link "Video", "/video", key: "video" %>
+                            <%= nav_link "About", "/about", key: "about" %>
+                            <%= nav_link "Archives", "/archive", key: "archive" %>
+                            
                             <li>
                                 <span class="follow clearfix">
                                     <b class="fbk"><a href="https://www.facebook.com/Audiovision" title="AudioVision on Facebook">Facebook</a></b>
