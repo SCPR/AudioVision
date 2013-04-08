@@ -14,202 +14,43 @@
 <section class="landing-recents">
     <div class="landing-recents-inner bound clearfix">
         <div class="primary clearfix">
+            <% post = @posts[0] %>
             <figure class="clearfix">
                 <b class="img">
-                    <a href="#"><img src="http://placekitten.com/1400/933" alt="" /></a>
+                    <%= link_to post.asset.eight.tag, post.link_path %>
                 </b>
                 <figcaption>
-                    <span class="date">28 April 2013</span>
-                    <mark><a href="#">The Brothers Karamazov</a></mark>
-                    <p class="desc">Suspendisse at enim erat, id dictum felis. Vivamus in bibendum tortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare.</p>
+                    <span class="date"><%= format_date post.published_at %></span>
+                    <mark><%= link_to post.title, post.link_path %></mark>
+                    <p class="desc"><%= post.teaser.html_safe %></p>
                 </figcaption>
             </figure>
         </div>
         <div class="secondary clearfix">
+            <% @posts[1..2].each do |post| %>
             <figure>
                 <b class="img">
-                    <a href="#"><img src="http://placekitten.com/1000/666" alt="" /></a>
+                    <%= link_to post.asset.small.tag, post.link_path %>
                 </b>
                 <figcaption>
-                    <mark><a href="#">The Cherry Orchard</a></mark>
+                    <mark><%= link_to post.title, post.link_path %></mark>
                 </figcaption>
             </figure>
-            <figure>
-                <b class="img">
-                    <a href="#"><img src="http://placekitten.com/900/600" alt="" /></a>
-                </b>
-                <figcaption>
-                    <mark><a href="#">Notes From the Underground</a></mark>
-                </figcaption>
-            </figure>
+            <% end %>
         </div>
     </div>
 </section>
 
 
-
-
-
 <section class="feedgrid med bound">
-    <div class="pair clearfix">
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/800/534" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>Timing and Grace and Poise</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/800/534" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>The Title of the Second Post, Going In Reverse Chron, In This Feed</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-    </div>
-    <div class="pair clearfix">
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/650/650" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>I'm a Square-Ratio'd Image! Seriously!</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/800/534" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>The Title of the Fourth Post, Going In Reverse Chron, In This Feed</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-    </div>
-</section><!-- feedgrid (4 nodes) -->
-
+    <%= render "/posts/collection", posts: @posts[3..6] %>
+</section>
 
 
 <div style="width: 100%; margin-bottom: 90px; padding: 60px 0; color: white; text-align: center; background: #eb592a;">Sponsorship, if it was happening, which it isn't (but is here for now, because it breaks up the page)</div>
 
 
-
-
 <section class="feedgrid small bound">
-    <div class="pair clearfix">
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/800/534" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>Timing and Grace and Poise</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/800/534" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>The Title of the Second Post, Going In Reverse Chron, In This Feed</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-    </div>
-    <div class="pair clearfix">
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/650/650" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>I'm a Square-Ratio'd Image! Seriously!</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/800/534" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>The Title of the Fourth Post, Going In Reverse Chron, In This Feed</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-    </div>
-    <div class="pair clearfix">
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/800/534" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>I Am The Fifth Post, So You Best Watch Yo'self</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-        <article>
-            <a href="#">
-                <figure class="clearfix">
-                    <div class="img"><b><img src="http://placekitten.com/800/534" alt="" /></b></div>
-                    <figcaption class="clearfix">
-                        <div class="desc">
-                            <h1>The Title of the Sixth Post, Going In Reverse Chron, In This Feed</h1>
-                            <p>Curabitur non mi eu dui congue malesuada eget sit amet felistortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare. <mark>Read More</mark></p>
-                        </div>
-                        <span class="date">19 April 2013</span>
-                    </figcaption>
-                </figure>
-            </a>
-        </article>
-    </div>
-</section><!-- feedgrid (4 nodes) -->
+    <%= render "/posts/collection", posts: @posts[7..12] %>
+</section>
 
