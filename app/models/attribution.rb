@@ -17,4 +17,12 @@ class Attribution < ActiveRecord::Base
       ROLE_TEXT.map { |k, v| [v, k] }
     end
   end
+
+  def to_s
+    if self.reporter.present?
+      self.reporter.name
+    else
+      self.name
+    end
+  end
 end
