@@ -3,12 +3,13 @@ class Outpost::PostsController < Outpost::ResourceController
 
   define_list do |l|
     l.column :title
-    l.column :status
     l.column :media_type, display: ->(r) { Post::MEDIA_TYPES_TEXT[r.media_type] }
+    l.column :status
     l.column :published_at
     l.column :updated_at
 
     l.filter :media_type, collection: -> { Post.media_types_collection }
+    l.filter :status, collection: -> { Post.status_collection }
   end
 
 
