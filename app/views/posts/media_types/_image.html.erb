@@ -1,50 +1,19 @@
 <div class="primary">
-    <img src="http://placekitten.com/900/600" alt="" style="display: block; width: 100%;">
-    <aside class="caption">
-        <p>Charlie Wells of Sarens checks to make sure the Space Shuttle Endeavour can clear a tree on Crenshaw Boulevard on Saturday evening.</p>
-    </aside>
+    <% if post.asset.present? %>
+        <%= post.asset.eight.tag %>
 
-    <% if @post.related_articles.present? %>
-
-    <aside class="newsbox related">
-        <header>
-            <p>This AudioVision post is related to an article at KPCC. Follow the link to read more.</p>
-            <span class="logo"><a href="#">89.3 KPCC</a></span>
-        </header>
-        <div class="preview clearfix">
-            <b class="img"><a href="#"><img src="http://placekitten.com/1000/667" alt="" /></a></b>
-            <p class="desc">
-                <a href="#">
-                    <mark class="title">Photos: Endeavour arrives at California Science Center after many hours of delay</mark>
-                    <span class="date">October 12th, 2012</span>
-                </a>
-            </p>
-        </div>
-    </aside><!--/ .newsbox -->
-
-    <% else %>
-
-    <aside class="newsbox unrelated">
-        <header>
-            <p>Explore what’s popular now on KPCC.</p>
-            <span class="logo"><a href="#">89.3 KPCC</a></span>
-        </header>
-        <ul class="popular-links">
-            <ul>
-                <li><a href="#">POLL: Public Radio Bracket Madness Rd 3: Vote for your favorite public radio show</a></li>
-                <li><a href="#">Beverly Center evacuated due to suspicious package in garage (Updated)</a></li>
-                <li><a href="#">After teen's death, hikers say Eaton Canyon should have better warnings</a></li>
-            </ul>
-        </ul>
-    </aside><!--/ .newsbox -->
-
+        <aside class="caption">
+            <p><%= post.asset.caption %></p>
+        </aside>
     <% end %>
+
+    <%= render "/shared/related_kpcc_article", post: post %>
 
 </div><!--/ .primary -->
 <div class="secondary">
     <article class="essay">
         <header class="intro">
-            <h1 class="title">Make my way back home when I learn to fly</h1>
+            <h1 class="title"><%= post.title %></h1>
             <aside class="share">
                 <ul class="clearfix">
                     <li class="fbk"><a href="#">Share this on Facebook</a></li>
@@ -53,28 +22,12 @@
                 </ul>
             </aside>
             <hgroup class="byline">
-                <h2>Photographs by Mae Ryan</h2>
-                <mark class="date">27 June 2013</mark>
+                <h2><%= post.byline %></h2>
+                <mark class="date"><%= format_date(post.published_at) %></mark>
             </hgroup>
         </header>
         <div class="prose">
-            <p>When airline pilots sit amet, consectetur adipiscing elit. Mauris at purus diam. Morbi eleifend commodo mi, ut cursus arcu consectetur.</p>
-            <p>There was <em>little doubt in the young Bryan’s mind</em> that he would grow up to become a Rails developer. Nulla mauris, tincidunt sed lacinia ac, cursus at sem. Praesent vitae nunc non ligula laoreet rutrum. <a href="#">Duis molestie</a> elit vitae odio ultricies convallis. Aliquam sit amet sapien purus, at scelerisque dolor. Nulla et elementum urna. Aliquam accumsan sollicitudin condimentum. Cras nec mi neque, at placerat quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut lorem enim, vulputate sagittis congue quis, convallis aliquet nunc. Nam fermentum odio at magna laoreet sit amet egestas turpis volutpat.</p>
-            <p>Duis posuere malesuada pretium. Phasellus vitae congue nunc. Quisque vestibulum hendrerit augue sit amet lobortis. Proin ullamcorper commodo augue ac fringilla. Proin urna nisi, placerat id accumsan at, congue nec purus. Aliquam fringilla consectetur ipsum, in cursus orci rhoncus eu. Integer ultrices ullamcorper metus, et imperdiet sem tempor vel. Praesent mattis elit non arcu sodales egestas. Aliquam erat volutpat. Nulla eu nisi a nulla cursus cursus. Nulla commodo scelerisque aliquet.</p>
-            <h3>Checking Altitude</h3>
-            <p>Sed semper scelerisque orci, vitae rutrum erat sagittis eget. Nulla quis tellus nulla, dictum iaculis:</p>
-            <ul>
-                <li><strong>Nam faucibus.</strong> Mauris eu mollis iaculis, tortor felis tincidunt arcu, aliquet laoreet quam enim nec</li>
-                <li><strong>Facilisi.</strong> Pellentesque semper est in diam vestibulum dignissim. Fusce et justo a est accumsan rhoncus. Integer egestas est at lacus.</li>
-                <li><strong>Eleifend suscipit eget ultrices eros.</strong> Integer facilisis, lorem nec imperdiet feugiat, eros sem tempus justo, quis interdum ligula odio at nibh.</li>
-                <li><strong>Aenean at.</strong> Nunc sit amet ipsum dapibus sagittis.</li>
-            </ul>
-            <p>Integer eros lorem, varius quis blandit vitae, commodo a erat. Cras tincidunt pulvinar feugiat. Sed condimentum lorem placerat lacus luctus nec lacinia felis ullamcorper. Curabitur congue vulputate orci:</p>
-            <blockquote>
-                <p>Fusce quis risus libero. Duis a elit libero, ut consectetur ante. Sed hendrerit malesuada elementum. Nullam vitae diam erat, sit amet.</p>
-            </blockquote>
-            <p>Donec non auctor odio. Nulla urna lacus, pellentesque id consectetur non, euismod eu velit.</p>
-            <p>Donec imperdiet sagittis nisi, consectetur mattis est tincidunt sit amet. Nunc fringilla tincidunt lorem, vitae pretium dolor laoreet in. Nulla et leo a leo viverra aliquam. Fusce vitae sollicitudin magna. Maecenas sed quam nibh, non sagittis tellus. Nullam venenatis, tortor vitae cursus aliquet, metus ligula fermentum risus, eget egestas tellus orci in lorem. Nulla sodales augue ac felis dignissim vel faucibus sapien blandit. Maecenas egestas euismod augue a interdum. Etiam tristique dapibus accumsan.</p>
+            <%= post.body.html_safe %>
         </div>
     </article>
 </div><!--/ .secondary -->

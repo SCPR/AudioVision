@@ -1,0 +1,7 @@
+<% if posts.present? %>
+    <% posts.compact.each_with_index do |post, i| %>
+        <% if i % 2 == 0 %><div class="pair clearfix"><% end %>
+            <%= render "/posts/teaser", post: post %>
+        <% if i % 2 == 1 %></div><% end %>
+    <% end %>
+<% end %>

@@ -16,6 +16,12 @@ class Post < ActiveRecord::Base
     MEDIA_TYPES[:video]       => "Video",
   }
 
+  # Keys for templates
+  # Just reverses the MEDIA_TYPES hash.
+  #
+  #   MEDIA_TYPES_KEYS[0] => "image"
+  MEDIA_TYPES_KEYS = Hash[MEDIA_TYPES.map { |k, v| [v, k.to_s] }]
+
 
   STATUS = {
     :killed    => -1,
@@ -48,6 +54,10 @@ class Post < ActiveRecord::Base
   def should_reject_attributions?(attributes)
     attributes['reporter_id'].blank? &&
     attributes['name'].blank?
+  end
+
+  def asset
+    @asset ||= self.assets.first || AssetHost::Fallback.new
   end
 
 
@@ -112,6 +122,23 @@ class Post < ActiveRecord::Base
     end
   end
 
+
+  def related_kpcc_article
+    @related_kpcc_article ||= begin
+      if json = Rails.cache.fetch("#{self.obj_key}/related_article_json")
+        Kpcc::Article.new(JSON.parse(json))
+      end
+    end
+  end
+
+
+  def byline
+    self.attributions.map(&:to_s).join(" | ")
+  end
+
+  def media_type_key
+    MEDIA_TYPES_KEYS[self.media_type]
+  end
 
 
 
