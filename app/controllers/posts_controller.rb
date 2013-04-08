@@ -1,13 +1,14 @@
-class PostsController < ApplicationController
-  FakePost = Struct.new(:media_type, :related_articles)
-  
+class PostsController < ApplicationController  
   respond_to :html, :xml
 
   def show
-    @post = FakePost.new(params[:media_type] || "image", params[:related_articles])
+    @post = Post.find(params[:id])
+    @nav_highlight = @post.category.slug
   end
 
   def archive
+    @nav_highlight = "archive"
+
     @posts = Post.published.order("published_at desc")
       .page(params[:page]).per(15)
     
