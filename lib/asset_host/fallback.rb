@@ -9,7 +9,7 @@ module AssetHost
     end
 
     def initialize
-      json = JSON.parse(File.read(File.join(__FILE__, "fallback", "outputs.json")))
+      json = JSON.parse(File.read(File.join(File.dirname(__FILE__), "fallback", "asset_fallback.json")))
       super(json)
     end
   end
