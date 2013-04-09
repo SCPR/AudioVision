@@ -2308,16 +2308,43 @@ SINGLE-PLUGS
 	color: orange;
 	outline: 1px solid purple;
 	overflow: hidden;
+	position: relative;
+	z-index: 1;
 }
 		.single-plugs-ephemera {
 			background: image-url('i/structure-roundup-splice-base.png') repeat-y center top;
+			background-color: rgba(0,0,0,0.2);
 			outline: 1px solid orange;
+			color: white;
+			text-transform: uppercase;
+			position: relative;
+			z-index: 3;
 		}
+				.single-plugs-ephemera .bound {
+					background:
+						image-url('i/structure-singleplug-headline.png') repeat-y 40.5% 0,
+						image-url('i/structure-singleplug-inner.png') repeat-y 71.666666666667% 0;
+					padding: 20px 0;
+				}
+
 		.single-plugs-inner {
 			background: image-url('i/structure-singleplug-inner.png') repeat-y 71.666666666667% 0;
 			outline: 1px solid red;
+			position: relative;
+			z-index: 2;
+			margin-top: -12px; /* arbitrary */
+			padding-top: 30px;
 		}
-
+				.single-plugs .recently {
+					width: 66%; /* 792 / 1200 */
+					float: left;
+					background: yellow;
+				}
+				.single-plugs .featured {
+					width: 23.5%; /* 282 / 1200 */
+					float: right;
+					background: pink;
+				}
 
 
 
