@@ -1963,7 +1963,6 @@ EXHIBIT (the main part of a single node)
 					width: 59.5%; /* 714 / 1200 */
 				}
 						.exhibit .primary .media-wrapper {
-							outline: 1px solid orange;
 							width: 100%;
 						}
 								.exhibit .primary .media-wrapper img {
@@ -2305,8 +2304,19 @@ SINGLE-PLUGS
 ##################################################################################################################### */
 
 .single-plugs {
-	background: tan;
+	background: aqua image-url('i/structure-singleplug-base.png') repeat-y center top;
+	color: orange;
+	outline: 1px solid purple;
+	overflow: hidden;
 }
+		.single-plugs-ephemera {
+			background: image-url('i/structure-roundup-splice-base.png') repeat-y center top;
+			outline: 1px solid orange;
+		}
+		.single-plugs-inner {
+			background: image-url('i/structure-singleplug-inner.png') repeat-y 71.666666666667% 0;
+			outline: 1px solid red;
+		}
 
 
 
