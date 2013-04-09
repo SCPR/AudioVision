@@ -1,9 +1,10 @@
 class PostsController < ApplicationController  
-  respond_to :html, :xml
+  respond_to :html, :xml, :json
 
   def show
     @post = Post.find(params[:id])
     @nav_highlight = @post.category.slug
+    respond_with @post
   end
 
   def archive
