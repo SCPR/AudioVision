@@ -14,7 +14,7 @@
 <section class="landing-recents">
     <div class="landing-recents-inner bound clearfix">
         <div class="primary clearfix">
-            <% post = @posts[0] %>
+            <% if post = @posts[0] %>
             <figure class="clearfix">
                 <b class="img">
                     <%= link_to post.asset.eight.tag, post.link_path %>
@@ -25,6 +25,7 @@
                     <p class="desc"><%= post.teaser.html_safe %></p>
                 </figcaption>
             </figure>
+            <% end %>
         </div>
         <div class="secondary clearfix">
             <% @posts[1..2].each do |post| %>
