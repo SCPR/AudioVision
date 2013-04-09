@@ -1,7 +1,9 @@
 <% if posts.present? %>
-    <% posts.compact.each_with_index do |post, i| %>
-        <% if i % 2 == 0 %><div class="pair clearfix"><% end %>
+    <% posts.compact.each_slice(2) do |group| %>
+        <div class="pair clearfix">
+          <% group.each do |post| %>
             <%= render "/posts/teaser", post: post %>
-        <% if i % 2 == 1 %></div><% end %>
+          <% end %>
+        </div>
     <% end %>
 <% end %>
