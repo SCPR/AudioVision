@@ -2,7 +2,7 @@ class RootPathController < ApplicationController
   include FlatpageHandler
   include CategoryHandler
 
-  respond_to :html, :xml, :rss
+  respond_to :html, :xml, :json
 
   def handle_path
     path = URI.encode(params[:path].to_s)

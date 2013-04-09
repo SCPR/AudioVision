@@ -15,6 +15,7 @@ module CategoryHandler
     respond_with @posts do |format|
       format.html { render "posts/category" }
       format.xml { render "posts/archive" }
+      format.json
     end
   end
 end
