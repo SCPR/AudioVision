@@ -31,38 +31,22 @@
                 <p>AudioVision is public radio, visualized. We bring you the best in visual journalism and culture from Southern California, the undisputed global capital of eye candy. We help you stay informed about the world around you through the eyes of your fellow community members. We ask you to show us how your view of the world.</p>
                 <p>Have you seen something great? Have you made something great? Want to share something great? Tell us about it. Email us at <a href="mailto:photos@kpcc.org">photos@kpcc.org</a>.</p>
 
-                <h2>Showing &amp; Telling: Start Here</h2>
-                <figure>
-                    <b class="img"><a href="#"><img src="http://placekitten.com/800/533" alt="" /></a></b>
-                    <figcaption>
-                        <mark><a href="#">Striking Up The Band</a></mark>
-                        <ul class="meta">
-                            <li class="type">Slideshow</li>
-                            <li class="date">Apr 2, 2013</li>
-                        </ul>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <b class="img"><a href="#"><img src="http://placekitten.com/700/467" alt="" /></a></b>
-                    <figcaption>
-                        <mark><a href="#">The Multilingual Mind</a></mark>
-                        <ul class="meta">
-                            <li class="type">Video</li>
-                            <li class="date">Apr 2, 2013</li>
-                        </ul>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <b class="img"><a href="#"><img src="http://placekitten.com/500/333" alt="" /></a></b>
-                    <figcaption>
-                        <mark><a href="#">Bases Loaded</a></mark>
-                        <ul class="meta">
-                            <li class="type">Slideshow</li>
-                            <li class="date">Apr 2, 2013</li>
-                        </ul>
-                    </figcaption>
-                </figure>
+                <% if @right_bar_bucket.present? && @right_bar_bucket.posts.present? %>
+                    <h2>Showing &amp; Telling: Start Here</h2>
 
+                    <% @right_bar_bucket.posts.each do |post| %>
+                    <figure>
+                        <b class="img"><%= link_to post.asset.lsquare.tag, post.link_path %></b>
+                        <figcaption>
+                            <mark><%= link_to post.title, post.link_path %></mark>
+                            <ul class="meta">
+                                <li class="type"><%= post.category.title %></li>
+                                <li class="date"><%= format_date(post.published_at) %></li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                    <% end %>
+                <% end %>
             </section>
         </div><!--/ .primer -->
     </div><!--/ .warmup-inner -->
@@ -75,6 +59,7 @@
 
 
 
+<% if @midway_bucket.present? && @midway_bucket.posts.present? %>
 <aside class="roundup">
     <div class="roundup-ephemera">
         <div class="bound">
@@ -82,47 +67,24 @@
         </div>
     </div>
     <div class="roundup-inner clearfix bound">
-        <p class="intro">Each month, we hold a themed Instagram contest for our readers to submit their best takes on bibendum tortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. <a href="#">See all contest winners.</a></p>
+        <p class="intro"><%= @midway_bucket.description.html_safe %></p>
         <nav class="clearfix">
-            <a href="#">
+
+            <% @midway_bucket.posts.each do |post| %>
+            <a href="<%=post.link_path%>">
                 <figure>
-                    <b class="img"><img src="http://placekitten.com/500/500" alt="" /></b>
+                    <b class="img"><%= post.asset.lsquare.tag %></b>
                     <figcaption>
-                        <span class="meta">Week of Apr 28</span>
-                        <mark>Sculpture</mark>
+                        <span class="meta"><%= post.title %></span>
+                        <mark>????</mark>
                     </figcaption>
                 </figure>
             </a>
-            <a href="#">
-                <figure>
-                    <b class="img"><img src="http://placekitten.com/400/400" alt="" /></b>
-                    <figcaption>
-                        <span class="meta">Week of Apr 28</span>
-                        <mark>Sculpture</mark>
-                    </figcaption>
-                </figure>
-            </a>
-            <a href="#">
-                <figure>
-                    <b class="img"><img src="http://placekitten.com/700/700" alt="" /></b>
-                    <figcaption>
-                        <span class="meta">Week of Apr 28</span>
-                        <mark>Sculpture</mark>
-                    </figcaption>
-                </figure>
-            </a>
-            <a href="#">
-                <figure>
-                    <b class="img"><img src="http://placekitten.com/600/600" alt="" /></b>
-                    <figcaption>
-                        <span class="meta">Week of Apr 28</span>
-                        <mark>Sculpture</mark>
-                    </figcaption>
-                </figure>
-            </a>
+            <% end %>
         </nav>
     </div>
 </aside><!--/ .roundup -->
+<% end %>
 
 
 

@@ -5,7 +5,8 @@ Outpost::Config.configure do |config|
     "Flatpage",
     "Reporter",
     "User",
-    "Billboard"
+    "Billboard",
+    "Bucket"
   ]
   
   config.authentication_attribute   = :username
