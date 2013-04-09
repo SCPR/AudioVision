@@ -41,13 +41,14 @@ class Post < ActiveRecord::Base
 
   # Associations
   has_many :assets, -> { order("position") }, class_name: "PostAsset", dependent: :destroy
+
   has_many :attributions, dependent: :destroy
   has_many :authors, -> { where(role: Attribution::ROLE_AUTHOR) }, class_name: "Attribution"
   has_many :contributors, -> { where(role: Attribution::ROLE_CONTRIBUTOR) }, class_name: "Attribution"
+
   belongs_to :category
 
-  has_many :billboard_posts
-  has_many :billboards, through: :billboard_posts
+  has_many :post_references, dependent: :destroy
 
   accepts_nested_attributes_for :attributions, allow_destroy: true, reject_if: :should_reject_attributions?
 

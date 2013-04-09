@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe BillboardPost do
+describe PostReference do
 end
