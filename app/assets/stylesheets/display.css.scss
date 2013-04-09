@@ -2010,8 +2010,11 @@ EXHIBIT (the main part of a single node)
 						}
 								.exhibit .intro h1 {
 									text-transform: uppercase;
-									color: black;
 									font: normal 900 2em/1 "proxima-nova", Avenir, Arial, sans-serif;
+								}
+								.exhibit .intro h1,
+								.exhibit .intro h1 a {
+									color: black;
 								}
 
 								/*	===================================================================================
