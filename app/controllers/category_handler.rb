@@ -2,8 +2,7 @@ module CategoryHandler
   def handle_category
     @nav_highlight = @category.slug
 
-    @posts = @category.posts.published
-      .order("published_at desc").page(params[:page]).per(13)
+    @posts = @category.posts.published.page(params[:page]).per(13)
 
     if request.format.xml?
       @feed = {

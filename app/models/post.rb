@@ -37,7 +37,7 @@ class Post < ActiveRecord::Base
     STATUS[:published] => "Published"
   }
 
-  scope :published, -> { where(status: STATUS[:published]) }
+  scope :published, -> { where(status: STATUS[:published]).order("published_at desc") }
 
   # Associations
   has_many :assets, -> { order("position") }, class_name: "PostAsset", dependent: :destroy
