@@ -26,8 +26,8 @@ class Billboard < ActiveRecord::Base
   validates :layout, presence: true, inclusion: { in: LAYOUTS.keys }
   validates :status, presence: true
   
-  has_many :billboard_posts
-  has_many :posts, through: :billboard_posts
+  has_many :post_references, as: :referrer
+  has_many :posts, through: :post_references
 
   class << self
     def current

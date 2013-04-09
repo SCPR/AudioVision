@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130408212907) do
+ActiveRecord::Schema.define(version: 20130409002851) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -26,16 +26,6 @@ ActiveRecord::Schema.define(version: 20130408212907) do
   add_index "attributions", ["post_id", "role"], name: "index_attributions_on_post_id_and_role"
   add_index "attributions", ["reporter_id"], name: "index_attributions_on_reporter_id"
 
-  create_table "billboard_posts", force: true do |t|
-    t.integer  "post_id"
-    t.integer  "billboard_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "billboard_posts", ["billboard_id"], name: "index_billboard_posts_on_billboard_id"
-  add_index "billboard_posts", ["post_id"], name: "index_billboard_posts_on_post_id"
-
   create_table "billboards", force: true do |t|
     t.integer  "layout"
     t.integer  "status"
@@ -45,6 +35,16 @@ ActiveRecord::Schema.define(version: 20130408212907) do
   end
 
   add_index "billboards", ["status"], name: "index_billboards_on_status"
+
+  create_table "buckets", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "buckets", ["key"], name: "index_buckets_on_key"
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -88,6 +88,19 @@ ActiveRecord::Schema.define(version: 20130408212907) do
   end
 
   add_index "post_assets", ["post_id", "position"], name: "index_post_assets_on_post_id_and_position"
+
+  create_table "post_references", force: true do |t|
+    t.string   "referrer_type"
+    t.integer  "referrer_id"
+    t.integer  "post_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "post_references", ["position"], name: "index_post_references_on_position"
+  add_index "post_references", ["post_id"], name: "index_post_references_on_post_id"
+  add_index "post_references", ["referrer_type", "referrer_id"], name: "index_post_references_on_referrer_type_and_referrer_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"
