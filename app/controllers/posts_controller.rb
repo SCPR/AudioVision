@@ -9,8 +9,7 @@ class PostsController < ApplicationController
   def archive
     @nav_highlight = "archive"
 
-    @posts = Post.published.order("published_at desc")
-      .page(params[:page]).per(15)
+    @posts = Post.published.page(params[:page]).per(15)
     
     if request.format.xml?
       @feed = {
