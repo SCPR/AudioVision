@@ -1,0 +1,5 @@
+<%= form_block "Details" do %>
+  <%= f.input :key, disabled: record.persisted?, hint: "The key we use to find this bucket in the code. Don't change it." %>
+  <%= f.input :title %>
+  <%= f.input :description, input_html: { class: "tiny" } %>
+<% end %>
