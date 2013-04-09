@@ -23,8 +23,6 @@ class Billboard < ActiveRecord::Base
     STATUS[:published] => "Published"
   }
 
-  scope :published, -> { where(status: STATUS[:published]) }
-
   validates :layout, presence: true, inclusion: { in: LAYOUTS.keys }
   validates :status, presence: true
   
@@ -32,6 +30,10 @@ class Billboard < ActiveRecord::Base
   has_many :posts, through: :billboard_posts
 
   class << self
+    def current
+      self.where(status: STATUS[:published]).order("published_at desc").first
+    end
+
     def layouts_collection
       LAYOUTS.map { |k, v| [v, k] }
     end
