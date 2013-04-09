@@ -1,6 +1,9 @@
 <div class="primary">
     <% if post.asset.present? %>
-        <%= post.asset.eight.tag %>
+
+        <div class="media-wrapper">
+            <%= post.asset.eight.tag %>
+        </div><!--/ .media-wrapper -->
 
         <aside class="caption">
             <p><%= post.asset.caption %></p>

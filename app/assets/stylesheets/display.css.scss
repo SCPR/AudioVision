@@ -1961,6 +1961,16 @@ EXHIBIT (the main part of a single node)
 					float: right;
 					width: 59.5%; /* 714 / 1200 */
 				}
+						.exhibit .primary .media-wrapper {
+							outline: 1px solid orange;
+							width: 100%;
+						}
+								.exhibit .primary .media-wrapper img {
+									display: block;
+									width: 100%;
+									height: auto;
+								}
+
 						.exhibit .primary .caption {
 							font-style: italic;
 							text-align: right;
