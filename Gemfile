@@ -5,12 +5,19 @@ gem 'mysql2'
 gem 'jquery-rails'
 gem 'newrelic_rpm'
 
-gem 'outpost', github: 'SCPR/outpost'
+
+## Outpost
 #gem 'outpost', path: '/Users/bryan/projects/outpost'
 #gem 'outpost', path: '/Users/bricker/websites/kpcc/outpost'
+gem 'outpost', github: 'SCPR/outpost'
 
 #gem 'outpost-asset_host', path: "/Users/bryan/projects/outpost-asset_host"
 gem 'outpost-asset_host', github: "SCPR/outpost-asset_host"
+
+#gem 'outpost-aggregator', path: "/Users/bryan/projects/outpost-aggregator"
+gem 'outpost-aggregator', github: "SCPR/outpost-aggregator"
+
+
 
 gem 'kaminari', github: "amatsuda/kaminari"
 gem 'simple_form', '~> 3.0.0.beta1'
