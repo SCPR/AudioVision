@@ -2372,21 +2372,61 @@ SINGLE-PLUGS
 				.single-plugs .featured {
 					width: 23.5%; /* 282 / 1200 */
 					float: right;
-					background: pink;
-					margin-top: -80px;
+					margin-top: -89px;
 					text-align: center;
 				}
 						.single-plugs .featured h2 {
-							background: aqua;
-							margin-bottom: 30px;
-							padding: 64px 0 0;
+							box-shadow:
+								inset 0 8px 0 white,
+								inset 0 9px 0 #80d3ef;
+							margin-bottom: 48px;
 							text-transform: uppercase;
 						}
+								.single-plugs .featured h2 span {
+									display: block;
+									background: image-url('i/ornament-lightningbolt-lightblue.png') no-repeat center top;
+									background-size: 19px 17px; /* 48 42 */
+									padding-top: 33px;
+									color: black;
+									font: italic normal 100 0.875em/1.1 "proxima-nova", Avenir, Arial, sans-serif; /* 14 / 16 */
+								}
+
 						.single-plugs .featured .preview {
 							display: block;
 							outline: 3px solid red;
-							margin-bottom: 50px;
+							margin-bottom: 58px;
+							color: #4e4e4e;
 						}
+								.single-plugs .featured .preview h3 {
+									text-transform: uppercase;
+									font: normal 900 0.75em/1.1 "proxima-nova", Avenir, Arial, sans-serif; /* 14 / 16 */
+									color: black;
+									margin-bottom: 8px;
+									padding-bottom: 9px;
+									background: image-url('i/ornament-hairline-gray-med.png') no-repeat center bottom;
+									background-size: 20px 1px;
+								}
+								.single-plugs .featured .preview p {
+									font-size: 0.6875em; /* 11 / 16 */
+									line-height: 1.35;
+								}
+								.single-plugs .featured .preview:hover {
+									color: black;
+								}
+								.single-plugs .featured .preview:hover h3 {
+									text-decoration: underline;
+								}
+						
+						.single-plugs .featured footer {
+							text-align: right;
+						}
+								.single-plugs .featured footer a {
+									display: inline-block;
+									background: orange;
+									color: #4a4a4a;
+									font-size: 0.875em; /* 14 / 16 */
+									font-weight: bold;
+								}
 
 
 
@@ -2395,7 +2435,7 @@ SINGLE-PLUGS
 	width: 100%;
 	padding-bottom: 66%; /* 3:2 aspect ratio */
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 16px;
 }
 		.single-plugs .img b {
 			position: absolute;
