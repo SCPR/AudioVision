@@ -1,10 +1,12 @@
 class PostAsset < ActiveRecord::Base
+  include Outpost::AssetHost::JoinModelJson
+
   belongs_to :post
 
   delegate :title, :size, 
     :taken_at, :owner, :url, :api_url, 
     :native, :image_file_size,
-    :thumb, :small, :eight, :full, to: :asset
+    :lsquare, :small, :eight, :full, to: :asset
 
 
   def asset
