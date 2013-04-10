@@ -11,7 +11,7 @@ AudioVision::Application.routes.draw do
 
 
   ## API
-  namespace :api, defaults: { format: :json } do
+  namespace :api, defaults: { format: "json" } do
     scope module: "public" do
       namespace :v1 do  
         get '/posts'        => 'posts#index'

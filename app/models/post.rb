@@ -63,6 +63,13 @@ class Post < ActiveRecord::Base
   end
 
 
+  def json
+    {
+      :asset  => self.asset.lsquare.tag,
+      :byline => self.byline
+    }
+  end
+
   # Validations
   validates :slug, {
     :if       => :should_validate?,
