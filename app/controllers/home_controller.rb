@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 
     # If we have a billboard, then don't show any of its posts in "Recent"
     if @billboard.present?
-      @recent_posts.where!("id not in ?", @billboard.post_references.map(&:post_id))
+      @recent_posts.where!("id not in (?)", @billboard.post_references.map(&:post_id))
     end
   end
 end
