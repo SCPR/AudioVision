@@ -65,8 +65,15 @@ class Post < ActiveRecord::Base
 
   def json
     {
-      :asset  => self.asset.lsquare.tag,
-      :byline => self.byline
+      :id           => self.obj_key,
+      :title        => self.to_title,
+      :published_at => self.published_at,
+      :teaser       => self.teaser,
+      :body         => self.body,
+      :permalink    => self.remote_link_path,
+      :asset        => self.asset.lsquare.tag,
+      :byline       => self.byline,
+      :edit_link    => self.admin_edit_path
     }
   end
 
@@ -128,6 +135,18 @@ class Post < ActiveRecord::Base
 
     def status_collection
       STATUS_TEXT.map { |k, v| [v, k] }
+    end
+
+    def by_url(url)
+      begin
+        u = URI.parse(url)
+      rescue URI::InvalidURIError
+        return nil
+      end
+      
+      u.path.match(%r{\A/(\d+)}) do |match|
+        Post.find_by_id(match[1])
+      end
     end
   end
 

@@ -12,6 +12,11 @@ module Api::Public::V1
       respond_with post_json(@post)
     end
 
+    def by_url
+      @post = Post.by_url(params[:url])
+      respond_with post_json(@post)
+    end
+
     private
 
     def post_json(post)
