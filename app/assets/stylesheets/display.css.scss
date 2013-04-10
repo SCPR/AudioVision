@@ -2304,8 +2304,9 @@ SINGLE-PLUGS
 ##################################################################################################################### */
 
 .single-plugs {
-	background: aqua image-url('i/structure-singleplug-base.png') repeat-y center top;
-	color: orange;
+	background:
+		image-url('i/structure-singleplug-footer.png') no-repeat center bottom,
+		image-url('i/structure-singleplug-base.png') repeat-y center top;
 	outline: 1px solid purple;
 	overflow: hidden;
 	position: relative;
@@ -2313,7 +2314,6 @@ SINGLE-PLUGS
 }
 		.single-plugs-ephemera {
 			background: image-url('i/structure-roundup-splice-base.png') repeat-y center top;
-			background-color: rgba(0,0,0,0.2);
 			outline: 1px solid orange;
 			color: white;
 			text-transform: uppercase;
@@ -2323,30 +2323,94 @@ SINGLE-PLUGS
 				.single-plugs-ephemera .bound {
 					background:
 						image-url('i/structure-singleplug-headline.png') repeat-y 40.5% 0,
-						image-url('i/structure-singleplug-inner.png') repeat-y 71.666666666667% 0;
-					padding: 20px 0;
+						image-url('i/structure-singleplug-inner.png') repeat-y 71.666666666667% 0; /* 860 / 1200 */
+
 				}
+						.single-plugs-ephemera h1 {
+							background: green;
+							padding: 20px 0;
+							display: inline-block;
+							width: 40.5%;
+						}
 
 		.single-plugs-inner {
-			background: image-url('i/structure-singleplug-inner.png') repeat-y 71.666666666667% 0;
+			background:
+				image-url('i/structure-singleplug-footer-inner.png') no-repeat 71.666666666667% bottom,
+				image-url('i/structure-singleplug-inner.png') repeat-y 71.666666666667% 0;
 			outline: 1px solid red;
 			position: relative;
 			z-index: 2;
-			margin-top: -12px; /* arbitrary */
-			padding-top: 30px;
+			padding: 30px 0 0;
 		}
 				.single-plugs .recently {
 					width: 66%; /* 792 / 1200 */
 					float: left;
-					background: yellow;
+					outline: 1px solid aqua;
+					padding-bottom: 80px;
+					position: relative;
+					height: 100%;
 				}
+						.single-plugs .recently footer {
+							text-align: right;
+							position: absolute;
+							right: 0;
+							bottom: 8px;
+						}
+								.single-plugs .recently footer a {
+									display: inline-block;
+									color: white;
+									background: green;
+									font-size: 0.875em; /* 14 / 16 */
+									padding-right: 12px;
+									background: image-url('i/ephemera-triangle-shadowed.png') no-repeat right 3px;
+									background-size: 6px 10px;
+								}
+								.single-plugs .recently footer a:hover {
+									text-decoration: underline;
+								}
+
 				.single-plugs .featured {
 					width: 23.5%; /* 282 / 1200 */
 					float: right;
 					background: pink;
+					margin-top: -80px;
+					text-align: center;
 				}
+						.single-plugs .featured h2 {
+							background: aqua;
+							margin-bottom: 30px;
+							padding: 64px 0 0;
+							text-transform: uppercase;
+						}
+						.single-plugs .featured .preview {
+							display: block;
+							outline: 3px solid red;
+							margin-bottom: 50px;
+						}
 
 
+
+.single-plugs .img {
+	display: block;
+	width: 100%;
+	padding-bottom: 66%; /* 3:2 aspect ratio */
+	position: relative;
+	margin-bottom: 20px;
+}
+		.single-plugs .img b {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			display: block;
+		}
+		.single-plugs img {
+			display: block;
+			height: 100%;
+			max-width: 100%;
+			margin: 0 auto;
+		}
 
 
 
