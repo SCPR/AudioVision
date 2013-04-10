@@ -10,7 +10,27 @@ AudioVision::Application.routes.draw do
   get '/feed'       => 'posts#archive', defaults: { format: "xml" }
 
 
+  ## API
+  namespace :api, defaults: { format: :json } do
+    scope module: "public" do
+      namespace :v1 do  
+        get '/posts'        => 'posts#index'
+        get '/posts/by_url' => 'posts#by_url'
+        get '/posts/:id'    => 'posts#show'
+      end
+    end
+    
+    namespace :private do      
+      namespace :v1 do
+        get '/posts'        => 'posts#index'
+        get '/posts/by_url' => 'posts#by_url'
+        get '/posts/:id'    => 'posts#show'
+      end
+    end
+  end
 
+
+  ## OUTPOST
   namespace :outpost do
     root to: 'home#dashboard'
     
@@ -28,6 +48,7 @@ AudioVision::Application.routes.draw do
     
     get "*path" => 'errors#not_found'
   end
+
 
   get '*path' => 'root_path#handle_path', as: :root_slug
 end
