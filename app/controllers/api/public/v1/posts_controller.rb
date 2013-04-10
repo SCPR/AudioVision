@@ -4,6 +4,11 @@ module Api::Public::V1
 
     def index
       @posts = Post.published.page(params[:page]).per(params[:limit])
+      
+      if params[:query].present?
+        @posts = @posts.where("title like ?", "%#{params[:query]}%")
+      end
+
       respond_with @posts.map { |post| post_json(post) }
     end
 
