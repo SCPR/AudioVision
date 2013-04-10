@@ -1,18 +1,18 @@
 GIT
   remote: git://github.com/SCPR/outpost-aggregator.git
-  revision: 4a81696a86f9b3bafba9c4d6556bea3b9b996f6a
+  revision: 475d882078a76e0e95448c415c6abea175898b7e
   specs:
     outpost-aggregator (0.1.0)
 
 GIT
   remote: git://github.com/SCPR/outpost-asset_host.git
-  revision: 02d3351d438cfa1ba9c2df4aa34dcdd5144cfb01
+  revision: e3c797c68b1097ee175aecc4cb44de51f3399470
   specs:
     outpost-asset_host (1.0.0)
 
 GIT
   remote: git://github.com/SCPR/outpost.git
-  revision: 522f00bd1c019d4bcdb746db0755a80f238b6977
+  revision: e186e3d3ddf8e6cdc2a7bfb36e3e30554f28b7fa
   specs:
     outpost (0.0.2)
       bcrypt-ruby (~> 3.0)
@@ -144,7 +144,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.22)
-    minitest (4.7.0)
+    minitest (4.7.1)
     multi_json (1.7.2)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
@@ -155,7 +155,7 @@ GEM
     net-ssh (2.6.6)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    newrelic_rpm (3.6.0.78)
+    newrelic_rpm (3.6.0.83)
     nokogiri (1.5.9)
     polyglot (0.3.3)
     pry (0.9.12)
