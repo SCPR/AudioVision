@@ -20,7 +20,7 @@ AudioVision::Application.routes.draw do
       end
     end
     
-    namespace :private do      
+    namespace :private do
       namespace :v1 do
         get '/posts'        => 'posts#index'
         get '/posts/by_url' => 'posts#by_url'
