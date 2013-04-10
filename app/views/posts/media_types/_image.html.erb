@@ -1,4 +1,4 @@
-<div class="primary">
+
     <% if post.asset.present? %>
 
         <div class="media-wrapper">
@@ -9,28 +9,3 @@
             <p><%= post.asset.caption %></p>
         </aside>
     <% end %>
-
-    <%= render "/shared/related_kpcc_article", post: post %>
-
-</div><!--/ .primary -->
-<div class="secondary">
-    <article class="essay">
-        <header class="intro">
-            <h1 class="title"><%= link_to post.title, post.link_path %></h1>
-            <aside class="share">
-                <ul class="clearfix">
-                    <li class="fbk"><a href="#">Share this on Facebook</a></li>
-                    <li class="twi"><a href="#">Share this on Twitter</a></li>
-                    <li class="tum"><a href="#">Share this on Tumblr</a></li>
-                </ul>
-            </aside>
-            <hgroup class="byline">
-                <h2><%= post.byline %></h2>
-                <mark class="date"><%= format_date(post.published_at) %></mark>
-            </hgroup>
-        </header>
-        <div class="prose">
-            <%= post.body.html_safe %>
-        </div>
-    </article>
-</div><!--/ .secondary -->
