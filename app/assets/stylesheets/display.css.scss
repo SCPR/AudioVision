@@ -2323,21 +2323,31 @@ SINGLE-PLUGS
 				.single-plugs-ephemera .bound {
 					background:
 						image-url('i/structure-singleplug-headline.png') repeat-y 40.5% 0,
+						image-url('i/structure-singleplug-white-inner.png') no-repeat 71.666666666667% -22px,
 						image-url('i/structure-singleplug-inner.png') repeat-y 71.666666666667% 0; /* 860 / 1200 */
-
 				}
 						.single-plugs-ephemera h1 {
-							background: green;
-							padding: 20px 0;
+							background: black;
+							padding: 22px 0 24px;
 							display: inline-block;
 							width: 40.5%;
 						}
+								.single-plugs-ephemera h1 span {
+									display: block;
+									width: 282px;
+									height: 16px;
+									background: image-url('i/logo-phrase-recentlyonav.png') no-repeat;
+									background-size: 282px 16px;
+									text-indent: 100%;
+									white-space: nowrap;
+									overflow: hidden;
+								}
 
 		.single-plugs-inner {
 			background:
 				image-url('i/structure-singleplug-footer-inner.png') no-repeat 71.666666666667% bottom,
 				image-url('i/structure-singleplug-inner.png') repeat-y 71.666666666667% 0;
-			outline: 1px solid red;
+
 			position: relative;
 			z-index: 2;
 			padding: 30px 0 0;
@@ -2359,7 +2369,7 @@ SINGLE-PLUGS
 								.single-plugs .recently footer a {
 									display: inline-block;
 									color: white;
-									background: green;
+									outline: 2px solid blue;
 									font-size: 0.875em; /* 14 / 16 */
 									padding-right: 12px;
 									background: image-url('i/ephemera-triangle-shadowed.png') no-repeat right 3px;
@@ -2372,7 +2382,7 @@ SINGLE-PLUGS
 				.single-plugs .featured {
 					width: 23.5%; /* 282 / 1200 */
 					float: right;
-					margin-top: -89px;
+					margin-top: -86px;
 					text-align: center;
 				}
 						.single-plugs .featured h2 {
@@ -2393,7 +2403,6 @@ SINGLE-PLUGS
 
 						.single-plugs .featured .preview {
 							display: block;
-							outline: 3px solid red;
 							margin-bottom: 58px;
 							color: #4e4e4e;
 						}
@@ -2410,10 +2419,11 @@ SINGLE-PLUGS
 									font-size: 0.6875em; /* 11 / 16 */
 									line-height: 1.35;
 								}
-								.single-plugs .featured .preview:hover {
+								.single-plugs .featured a:hover {
 									color: black;
 								}
-								.single-plugs .featured .preview:hover h3 {
+								.single-plugs .featured a:hover h3,
+								.single-plugs .featured footer a:hover {
 									text-decoration: underline;
 								}
 						
@@ -2426,8 +2436,10 @@ SINGLE-PLUGS
 									color: #4a4a4a;
 									font-size: 0.875em; /* 14 / 16 */
 									font-weight: bold;
+									background: image-url('i/ephemera-triangle-darkgray.png') no-repeat right 3px;
+									padding-right: 12px;
+									background-size: 6px 10px;
 								}
-
 
 
 .single-plugs .img {
@@ -2451,6 +2463,25 @@ SINGLE-PLUGS
 			max-width: 100%;
 			margin: 0 auto;
 		}
+
+
+
+
+								/*	===================================================================================
+								    =================================================================================== */
+
+								    @media screen and (max-width: 875px) {
+
+										.single-plugs-ephemera .bound {
+										}
+												.single-plugs-ephemera h1 {
+													width: 58%; /* had been 40.5% */
+												}
+
+								    }
+
+								/*	===================================================================================
+								    =================================================================================== */
 
 
 
