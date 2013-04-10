@@ -3,8 +3,36 @@
 <!-- Common code for all single posts -->
 <div class="exhibit">
     <div class="exhibit-inner bound clearfix">
+        
+        <div class="primary">
 
-        <%= render "posts/media_types/#{@post.media_type_key}", post: @post %>
+            <%= render "posts/media_types/#{@post.media_type_key}", post: @post %>
+
+            <%= render "/shared/related_kpcc_article", post: @post %>
+
+        </div><!--/ .primary -->
+
+        <div class="secondary">
+            <article class="essay">
+                <header class="intro">
+                    <h1 class="title"><%= link_to @post.title, @post.link_path %></h1>
+                    <aside class="share">
+                        <ul class="clearfix">
+                            <li class="fbk"><a href="#">Share this on Facebook</a></li>
+                            <li class="twi"><a href="#">Share this on Twitter</a></li>
+                            <li class="tum"><a href="#">Share this on Tumblr</a></li>
+                        </ul>
+                    </aside>
+                    <hgroup class="byline">
+                        <h2><%= @post.byline %></h2>
+                        <mark class="date"><%= format_date(@post.published_at) %></mark>
+                    </hgroup>
+                </header>
+                <div class="prose">
+                    <%= @post.body.html_safe %>
+                </div>
+            </article>
+        </div><!--/ .secondary -->
 
     </div><!--/ .exhibit-inner -->
 </div><!--/ .exhibit -->
@@ -23,14 +51,63 @@
     </div><!--/ .single-plugs-ephemera -->
     <div class="single-plugs-inner clearfix bound">
         <section class="recently">
-            <p>a post</p>
-            <p>a second post</p>
-            <p>a third post</p>
-            <p>a fourth post</p>
-            <footer>
-                <a href="/archive">Browse Everything</a>
-            </footer>
+            
+            <div class="pair clearfix">
+                    <article>
+                        <a href="#">
+                            <figure>
+                                <div class="img"><b><img src="/assets/fpo-inline-image-rect.jpg" alt="" /></b></div>
+                                <figcaption>
+                                    <span class="date">June 8</span>
+                                    <mark class="title">Fusce Vitae Sollicitudin</mark>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#">
+                            <figure>
+                                <div class="img"><b><img src="/assets/fpo-inline-image-rect.jpg" alt="" /></b></div>
+                                <figcaption>
+                                    <span class="date">June 8</span>
+                                    <mark class="title">Fusce Vitae Sollicitudin</mark>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
+            </div><!--/ .pair -->
+
+            <div class="pair clearfix">
+                    <article>
+                        <a href="#">
+                            <figure>
+                                <div class="img"><b><img src="/assets/fpo-inline-image-square.jpg" alt="" /></b></div>
+                                <figcaption>
+                                    <span class="date">June 8</span>
+                                    <mark class="title">Fusce Vitae Sollicitudin</mark>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#">
+                            <figure>
+                                <div class="img"><b><img src="/assets/fpo-inline-image-rect.jpg" alt="" /></b></div>
+                                <figcaption>
+                                    <span class="date">June 8</span>
+                                    <mark class="title">Fusce Vitae Sollicitudin</mark>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
+            </div><!--/ .pair -->     
+
         </section>
+
+        <aside class="recently-jump">
+            <a href="/archive">Browse Everything</a>
+        </aside>
+
         <section class="featured">
             <h2><span>Featured Slideshows</span></h2>
             <a href="#" class="preview">
@@ -51,9 +128,11 @@
                     </figcaption>
                 </figure>
             </a>
-            <footer>
-                <a href="/archive">See All Mobile Photography</a>
-            </footer>
         </section>
+
+        <aside class="featured-jump">
+            <a href="/archive">See All THIS_TYPE</a>
+        </aside>
+
     </div>
 </div><!--/ .single-plugs -->
