@@ -1,13 +1,13 @@
 AudioVision::Application.routes.draw do
-  root to: 'home#homepage'
+  root to: 'posts#homepage'
   
   get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }, as: :post
 
   get '/about'          => 'reporters#index', as: :reporters
   get '/about/:slug'    => 'reporters#show', as: :reporter
 
-  get '/archive'    => 'posts#archive'
-  get '/feed'       => 'posts#archive', defaults: { format: "xml" }
+  get '/archive(/:category)'    => 'feed#index', as: :archive
+  get '/feed(/:category)'       => 'feed#index', as: :feed, defaults: { format: "xml" }
 
 
   ## API
