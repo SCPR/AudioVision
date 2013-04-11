@@ -2295,8 +2295,9 @@ EXHIBIT: GALLERY-GRID
 
 .gallery-grid {
 }
-		.gallery-grid figure {
-			width: 46.218487394958%; /* 330 / 714 */ /* Let's start by assuming grids of 2-across. */
+		.gallery-grid .figure {
+			display: block;
+			width: 46.218487394958%; /* 330 / 714 *//* Let's start by assuming grids of 2-across. */
 			float: left;
 			margin-bottom: 50px;
 		}
@@ -2343,10 +2344,10 @@ EXHIBIT: GALLERY-GRID
 
 				    @media screen and (min-width: 941px) {
 
-						.gallery-grid figure:nth-child(even) {
+						.gallery-grid .figure:nth-child(even) {
 							float: right;
 						}
-						.gallery-grid figure:nth-child(odd) {
+						.gallery-grid .figure:nth-child(odd) {
 							clear: both;
 						}
 
@@ -2357,15 +2358,15 @@ EXHIBIT: GALLERY-GRID
 
 				    @media screen and (min-width: 540px) and (max-width: 940px) {
 
-						.gallery-grid figure {
+						.gallery-grid .figure {
 							width: 30%;
 							margin: 0 5% 25px 0;
 						}
-						.gallery-grid figure:nth-child(3n) {
+						.gallery-grid .figure:nth-child(3n) {
 							float: right;
 							margin-right: 0;
 						}
-						.gallery-grid figure:nth-child(3n+1) {
+						.gallery-grid .figure:nth-child(3n+1) {
 							clear: both;
 						}
 
@@ -2387,10 +2388,10 @@ EXHIBIT: GALLERY-GRID
 
 				    @media screen and (max-width: 539px) {
 
-						.gallery-grid figure:nth-child(even) {
+						.gallery-grid .figure:nth-child(even) {
 							float: right;
 						}
-						.gallery-grid figure:nth-child(odd) {
+						.gallery-grid .figure:nth-child(odd) {
 							clear: both;
 						}
 
