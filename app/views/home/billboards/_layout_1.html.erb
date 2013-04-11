@@ -1,48 +1,13 @@
 <div class="billboard layout-1 bound">
-    <% if post = billboard.posts[0] %>
+
     <div class="row primary">
-        <a href="<%= post.link_path %>" class="component slideshow">
-            <div class="imagery">
-                <div class="filmstrip clearfix">
-                    <% post.assets.first(3).each do |asset| %>
-                        <%= asset.eight.tag %>
-                    <% end %>
-                </div>
-            </div>
-            <hgroup class="caption">
-                <h2 class="title"><%= post.title %></h2>
-                <h3 class="subtitle"><%= post.teaser %></h3>
-            </hgroup>
-        </a><!--/ .component (slideshow) -->
+        <%= render "home/billboards/components/slideshow", post: billboard.posts[0] %>
     </div><!--/ .row-primary -->
-    <% end %>
 
 
     <div class="row secondary clearfix">
-        <% if post = billboard.posts[1] %>
-            <a href="<%=post.link_path%>" class="component video">
-                <div class="imagery">
-                    <%= post.asset.eight.tag %>
-                </div>
-                <hgroup class="caption">
-                    <h2 class="title"><%= post.title %></h2>
-                    <h3 class="subtitle"><%= post.teaser %></h3>
-                </hgroup>
-            </a><!--/ .component (video) -->
-        <% end %>
-
-
-        <% if post = billboard.posts[2] %>
-            <a href="<%=post.link_path%>" class="component mobile">
-                <div class="imagery">
-                    <%= post.asset.eight.tag %>
-                </div>
-                <hgroup class="caption">
-                    <h2 class="title"><%= post.title %></h2>
-                    <h3 class="subtitle"><%= post.teaser %></h3>
-                </hgroup>
-            </a><!--/ .component (mobile) -->
-        <% end %>
+        <%= render "home/billboards/components/video", post: billboard.posts[1] %>
+        <%= render "home/billboards/components/mobile", post: billboard.posts[2] %>
     </div><!--/ .row-secondary -->
 
 </div><!--/ .billboard -->

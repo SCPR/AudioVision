@@ -1,0 +1,14 @@
+<% size ||= :eight %>
+<% if post.present? %>
+
+<a href="<%=post.link_path%>" class="component image">
+    <div class="imagery">
+        <%= post.asset.send(size).tag %>
+    </div>
+    <hgroup class="caption">
+        <h2 class="title"><%= post.title %></h2>
+        <h3 class="subtitle"><%= post.teaser %></h3>
+    </hgroup>
+</a><!--/ .component (image) -->
+
+<% end %>
