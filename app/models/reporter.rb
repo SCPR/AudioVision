@@ -4,6 +4,9 @@ class Reporter < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :attributions
+  has_many :posts, through: :attributions
+  
   validates :name, presence: true
   validates :slug, presence: true
   validates :user, presence: true
