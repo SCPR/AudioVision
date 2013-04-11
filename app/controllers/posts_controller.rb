@@ -1,25 +1,32 @@
-class PostsController < ApplicationController  
-  respond_to :html, :xml, :json
-
+class PostsController < ApplicationController
   def show
-    @post = Post.find(params[:id])
-    @nav_highlight = @post.category.slug
-    respond_with @post
+    @post       = Post.find(params[:id])
+    @category   = @post.category
+
+    @nav_highlight = @category.slug
+    
+    @recent_posts_this_type      = Post.published.where("category_id = ?", @category.id).where('id != ?', @post.id).limit(2)
+    @recent_posts_not_this_type  = Post.published.where("category_id != ?", @category.id).limit(4)
+
+    respond_to do |format|
+      format.html
+      format.xml
+      format.json
+    end
   end
 
-  def archive
-    @nav_highlight = "archive"
+  def homepage
+    @nav_highlight = "home"
 
-    @posts = Post.published.page(params[:page]).per(15)
+    @recent_posts   = Post.published.limit(11)
+    @billboard      = Billboard.current
     
-    if request.format.xml?
-      @feed = {
-        :title          => "Recent Posts",
-        :href           => "http://audiovision.scpr.org/archive",
-        :description    => "The most recent posts from AudioVision."
-      }
-    end
+    @midway_bucket    = Bucket.where(key: "instagram").first
+    @right_bar_bucket = Bucket.where(key: "featured-posts").first
 
-    respond_with @posts
+    # If we have a billboard, then don't show any of its posts in "Recent"
+    if @billboard.present?
+      @recent_posts.where!("id not in (?)", @billboard.post_references.map(&:post_id))
+    end
   end
 end
