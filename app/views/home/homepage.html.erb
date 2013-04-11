@@ -95,12 +95,11 @@
 
 <aside class="envoy">
     <div class="envoy-inner clearfix bound">
-        <h1><a href="#">See More AudioVision</a></h1>
+        <h1><a href="/archive">See More AudioVision</a></h1>
         <ul class="thumbnails clearfix">
-            <li><a href="#"><img src="http://placekitten.com/900/600" alt="" /></a></li>
-            <li><a href="#"><img src="http://placekitten.com/500/333" alt="" /></a></li>
-            <li><a href="#"><img src="http://placekitten.com/700/467" alt="" /></a></li>
-            <li><a href="#"><img src="http://placekitten.com/800/533" alt="" /></a></li>
+            <% @recent_posts[11..14].each do |post| %>
+                <li><a href="<%=post.link_path%>"><%= post.asset.lsquare.tag %></a></li>
+            <% end %>
         </ul>
     </div>
 </aside><!--/ .envoy -->

@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def homepage
     @nav_highlight = "home"
 
-    @recent_posts   = Post.published.limit(11)
+    @recent_posts   = Post.published.limit(15)
     @billboard      = Billboard.current
     
     @midway_bucket    = Bucket.where(key: "instagram").first
