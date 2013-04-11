@@ -950,6 +950,9 @@ BILLBOARD
 			.billboard .component.slideshow .imagery {
 				height: auto;
 			}
+					.billboard.aspect-ratio-square .component.slideshow .imagery {
+					}
+
 					.billboard .component.slideshow .caption .title {
 						font-size: 1.2em;
 					}
@@ -968,6 +971,13 @@ BILLBOARD
 							.billboard .filmstrip img:first-child,
 							.billboard .filmstrip img:last-child {
 								display: none;
+							}
+							.billboard.aspect-ratio-square .filmstrip {
+								left: 0;
+							}
+							.billboard.aspect-ratio-square .filmstrip img {
+								width: 100%;
+								height: auto;
 							}
 
 
