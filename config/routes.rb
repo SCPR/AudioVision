@@ -1,5 +1,5 @@
 AudioVision::Application.routes.draw do
-  root to: 'posts#homepage'
+  root to: 'home#homepage'
   
   get '/:id(/:slug)' => 'posts#show', constraints: { id: /\d+/ }, as: :post
 
