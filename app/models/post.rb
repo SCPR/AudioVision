@@ -97,7 +97,7 @@ class Post < ActiveRecord::Base
 
   validates :body, presence: true, if: :should_validate?
   validates :published_at, presence: true, if: :published?
-  validates :teaser, presence: true, if: :should_validate?
+  validates :teaser, :subtitle, presence: true, if: :should_validate?
 
   def should_validate?
     self.pending? || self.published?

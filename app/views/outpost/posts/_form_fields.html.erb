@@ -1,6 +1,7 @@
 <%= form_block "Details" do %>
   <%= f.association :category %>
   <%= f.input :title, input_html: { class: "wide sluggable" } %>
+  <%= f.input :subtitle, input_html: { class: "wide" } %>
   <%= f.input :body, input_html: { class: "ckeditor" } %>
   <%= f.input :teaser, input_html: { class: "tiny" }, wrapper_html: { class: "field-counter", data: { target: 145, fuzziness: 20} } %>
   <%= f.input :slug, label: "URL Slug", input_html: { class: "span5" } %>

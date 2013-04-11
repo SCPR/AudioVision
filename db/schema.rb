@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130409002851) do
+ActiveRecord::Schema.define(version: 20130411011821) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20130409002851) do
     t.datetime "updated_at"
     t.integer  "category_id"
     t.string   "related_kpcc_article_url"
+    t.string   "subtitle"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
