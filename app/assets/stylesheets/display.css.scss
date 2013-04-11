@@ -1018,6 +1018,10 @@ ENVOY
 							float: left;
 							width: 22.727272727273%; /* 180 / 792 */
 							margin-right: 3.030303030303%; /* 24 / 792 */
+							overflow: hidden;
+							padding-bottom: 14%; /* maintaining aspect ratio */
+							height: 0;
+							position: relative;
 						}
 						.envoy ul li:last-child a {
 							float: right;
@@ -1027,6 +1031,9 @@ ENVOY
 							display: block;
 							width: 100%;
 							height: auto;
+							position: absolute;
+							top: 0;
+							left: 0;
 						}
 
 						/*	===================================================================================
