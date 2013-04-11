@@ -1,45 +1,44 @@
 <div class="billboard layout-7 bound">
 
     <div class="row primary clearfix">
-        <a href="#" class="component image">
+
+        <% if post = billboard.posts[0] %>
+        <a href="<%=post.link_path%>" class="component image">
             <div class="imagery">
-                <img src="http://placekitten.com/700/467" alt="" />
+                <%= post.asset.eight.tag %>
             </div>
             <hgroup class="caption">
-                <h2 class="title">Daphne Guinness: Undressed</h2>
-                <h3 class="subtitle">Director Brennan Stasiewicz Captures Fashion’s Enigma At Home and On Display</h3>
+                <h2 class="title"><%= post.title %></h2>
+                <h3 class="subtitle"><%= post.teaser %></h3>
             </hgroup>
         </a><!--/ .component (image) -->
-        <a href="#" class="component mobile">
+        <% end %>
+
+        <% if post = billboard.posts[1] %>
+        <a href="<%= post.link_path %>" class="component mobile">
             <div class="imagery">
-                <img src="http://placekitten.com/1200/1200" alt="" />
+                <%= post.asset.eight.tag %>
             </div>
             <hgroup class="caption">
-                <h2 class="title">The View From Mars: Part One</h2>
-                <h3 class="subtitle">A Poetic New Film Celebrates the Launch of a Galactic Telescope in Chile</h3>
+                <h2 class="title"><%= post.title %></h2>
+                <h3 class="subtitle"><%= post.teaser %></h3>
             </hgroup>
         </a><!--/ .component (mobile) -->
+        <% end %>
     </div><!--/ .row-primary -->
 
     <div class="row secondary clearfix">
-        <a href="#" class="component video">
+        <% billboard.posts[2..3].each do |post| %>
+        <a href="<%=post.link_path%>" class="component video">
             <div class="imagery">
-                <img src="http://placekitten.com/1500/844" alt="" />
+                <%= post.asset.eight.tag %>
             </div>
             <hgroup class="caption">
-                <h2 class="title">Will You Direct OK Go’s Next Big Video?</h2>
-                <h3 class="subtitle">The Viral Sensations Take a Rare Back Seat in a Groundbreaking New Competition</h3>
+                <h2 class="title"><%= post.title %></h2>
+                <h3 class="subtitle"><%= post.teaser %></h3>
             </hgroup>
         </a><!--/ .component (video) -->
-        <a href="#" class="component video">
-            <div class="imagery">
-                <img src="http://placekitten.com/1500/844" alt="" />
-            </div>
-            <hgroup class="caption">
-                <h2 class="title">Will You Direct OK Go’s Next Big Video?</h2>
-                <h3 class="subtitle">The Viral Sensations Take a Rare Back Seat in a Groundbreaking New Competition</h3>
-            </hgroup>
-        </a><!--/ .component (video) -->
+        <% end %>
     </div><!--/ .row-secondary -->
 
 </div><!--/ .billboard -->

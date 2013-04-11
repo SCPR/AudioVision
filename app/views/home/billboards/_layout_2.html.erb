@@ -1,49 +1,36 @@
 <div class="billboard layout-2 bound">
 
     <div class="row primary">
-        <a href="#" class="component slideshow">
+
+        <% if post = billboard.posts[0] %>
+        <a href="<%=post.link_path%>" class="component slideshow">
             <div class="imagery">
                 <div class="filmstrip clearfix">
-                    <img src="http://placekitten.com/850/566" alt="I am the first image" />
-                    <img src="http://placekitten.com/700/467" alt="I am the second image" />
-                    <img src="http://placekitten.com/1050/700" alt="I am the third image" />
+                    <% post.assets.first(3).each do |asset| %>
+                        <%= asset.eight.tag %>
+                    <% end %>
                 </div>
             </div>
             <hgroup class="caption">
-                <h2 class="title">Chloë Sevigny's 90s Throwback: Part Two</h2>
-                <h3 class="subtitle">The Indie Darling's NOWNESS Takeover Continues with Kim Gordon's Posse and a Marc Jacobs "Situation"</h3>
+                <h2 class="title"><%= post.title %></h2>
+                <h3 class="subtitle"><%= post.teaser %></h3>
             </hgroup>
         </a><!--/ .component (slideshow) -->
+        <% end %>
     </div><!--/ .row-primary -->
 
     <div class="row secondary clearfix">
-        <a href="#" class="component image">
+        <% billboard.posts[1..3].each do |post| %>
+        <a href="<%=post.link_path%>" class="component image">
             <div class="imagery">
-                <img src="http://placekitten.com/700/467" alt="" />
+                <%= post.asset.small.tag %>
             </div>
             <hgroup class="caption">
-                <h2 class="title">Daphne Guinness: Undressed</h2>
-                <h3 class="subtitle">Director Brennan Stasiewicz Captures Fashion’s Enigma At Home and On Display</h3>
+                <h2 class="title"><%= post.title %></h2>
+                <h3 class="subtitle"><%= post.teaser %></h3>
             </hgroup>
         </a><!--/ .component (image) -->
-        <a href="#" class="component image">
-            <div class="imagery">
-                <img src="http://placekitten.com/700/467" alt="" />
-            </div>
-            <hgroup class="caption">
-                <h2 class="title">Daphne Guinness: Undressed</h2>
-                <h3 class="subtitle">Director Brennan Stasiewicz Captures Fashion’s Enigma At Home and On Display</h3>
-            </hgroup>
-        </a><!--/ .component (image) -->
-        <a href="#" class="component image">
-            <div class="imagery">
-                <img src="http://placekitten.com/700/467" alt="" />
-            </div>
-            <hgroup class="caption">
-                <h2 class="title">Daphne Guinness: Undressed</h2>
-                <h3 class="subtitle">Director Brennan Stasiewicz Captures Fashion’s Enigma At Home and On Display</h3>
-            </hgroup>
-        </a><!--/ .component (image) -->
+        <% end %>
     </div><!--/ .row-secondary -->
 
 </div><!--/ .billboard -->
