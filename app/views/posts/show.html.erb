@@ -52,55 +52,23 @@
     <div class="single-plugs-inner clearfix bound">
         <section class="recently">
             
-            <div class="pair clearfix">
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <div class="img"><b><img src="/assets/fpo-inline-image-rect.jpg" alt="" /></b></div>
-                                <figcaption>
-                                    <span class="date">June 8</span>
-                                    <mark class="title">Fusce Vitae Sollicitudin</mark>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <div class="img"><b><img src="/assets/fpo-inline-image-rect.jpg" alt="" /></b></div>
-                                <figcaption>
-                                    <span class="date">June 8</span>
-                                    <mark class="title">Fusce Vitae Sollicitudin</mark>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-            </div><!--/ .pair -->
-
-            <div class="pair clearfix">
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <div class="img"><b><img src="/assets/fpo-inline-image-square.jpg" alt="" /></b></div>
-                                <figcaption>
-                                    <span class="date">June 8</span>
-                                    <mark class="title">Fusce Vitae Sollicitudin</mark>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <div class="img"><b><img src="/assets/fpo-inline-image-rect.jpg" alt="" /></b></div>
-                                <figcaption>
-                                    <span class="date">June 8</span>
-                                    <mark class="title">Fusce Vitae Sollicitudin</mark>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-            </div><!--/ .pair -->     
+            <% @recent_posts_not_this_type.each_slice(2) do |group| %>
+                <div class="pair clearfix">
+                    <% group.each do |post| %>
+                        <article>
+                            <a href="<%=post.link_path%>">
+                                <figure>
+                                    <div class="img"><b><%= post.asset.small.tag %></b></div>
+                                    <figcaption>
+                                        <span class="date"><%= format_date(post.published_at) %></span>
+                                        <mark class="title"><%= post.title %></mark>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </article>
+                    <% end %>
+                </div><!--/ .pair -->
+            <% end %>
 
         </section>
 
@@ -109,29 +77,23 @@
         </aside>
 
         <section class="featured">
-            <h2><span>Featured Slideshows</span></h2>
-            <a href="#" class="preview">
-                <figure>
-                    <div class="img"><b><img src="/assets/fpo-inline-image-rect.jpg" alt="" /></b></div>
-                    <figcaption>
-                        <h3>Dos Por Cuatro</h3>
-                        <p>Morbi justo erat, pretium at dapibus quis, malesuada id quam tortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare.</p>
-                    </figcaption>
-                </figure>
-            </a>
-            <a href="#" class="preview">
-                <figure>
-                    <div class="img"><b><img src="/assets/fpo-inline-image-square.jpg" alt="" /></b></div>
-                    <figcaption>
-                        <h3>A Tale of Two Cities</h3>
-                        <p>Morbi justo erat, pretium at dapibus quis, malesuada id quam tortor tempor eu. Nam eros lorem, pharetra eu mattis id, sollicitudin sit amet leo. Quisque ornare.</p>
-                    </figcaption>
-                </figure>
-            </a>
+            <h2><span>Featured <%= @category.title.pluralize %></span></h2>
+            
+            <% @recent_posts_this_type.each do |post| %>
+                <a href="<%=post.link_path%>" class="preview">
+                    <figure>
+                        <div class="img"><b><%= post.asset.small.tag %></b></div>
+                        <figcaption>
+                            <h3><%= post.title %></h3>
+                            <p><%= post.teaser %></p>
+                        </figcaption>
+                    </figure>
+                </a>
+            <% end %>
         </section>
 
         <aside class="featured-jump">
-            <a href="/archive">See All THIS_TYPE</a>
+            <a href="<%=archive_path(category: @category.slug)%>">See All <%= @category.title.pluralize %></a>
         </aside>
 
     </div>
