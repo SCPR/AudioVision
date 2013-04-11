@@ -75,8 +75,8 @@
                 <figure>
                     <b class="img"><%= post.asset.lsquare.tag %></b>
                     <figcaption>
-                        <span class="meta"><%= post.title %></span>
-                        <mark></mark>
+                        <span class="meta"><%= format_date(post.published_at) %></span>
+                        <mark><%= post.title %></mark>
                     </figcaption>
                 </figure>
             </a>
