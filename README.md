@@ -16,22 +16,29 @@ Run the following command from the root of the app:
 
     rvm gemset use 1.9.3@audio_vision --create && echo "rvm $(rvm current)" > .rvmrc
 
-Then xecute `bin/setup`. This does a few things:
+Then execute `bin/setup`. This does a few things:
 
 1. Copies `config/templates/development.rb` to `config/environments/`
 2. Copies `config/templates/database.yml` to `config/`
 3. Generates a `secret_token` and stores it in `config/app_config.yml`
 4. Runs `bundle install`
-5. Creates and loads the schema into the databases (development and test)
-6. Runs `rake outpost:permissions` to add all the necessary permissions to the database.
+5. Creates the database
+6. Syncs your local database with the production database using `dbsync` 
 7. Finally, runs all of the tests to ensure you're setup properly.
 
-If your database information is different than what's in the `database.yml` template file, then copy it in `config/` manually prior to running `bin/setup`, and modify the information as necessary. Then run `bin/setup` to perform the rest of the steps (your custom `database.yml` will not be overwritten).
+If your database information is different than what's in the `database.yml`
+template file, then copy it in `config/` manually prior to running `bin/setup`,
+and modify the information as necessary. Then run `bin/setup` to perform the
+rest of the steps (your custom `database.yml` will not be overwritten).
 
 ## Running Tests
 Run `rake` to run the test suite.
 
 ## Deployment
-This application deploys to media via [capistrano](http://rubygems.org/gems/capistrano). To deploy to production:
+This application deploys to media via [capistrano](http://rubygems.org/gems/capistrano). 
+Capistrano isn't officially compatible with Rails 4 yet, so this app 
+requires a different repository that contains a proposed fix.
+
+To deploy to production:
 
     cap deploy
