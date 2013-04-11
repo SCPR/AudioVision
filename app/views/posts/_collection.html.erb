@@ -2,7 +2,20 @@
     <% posts.compact.each_slice(2) do |group| %>
         <div class="pair clearfix">
           <% group.each do |post| %>
-            <%= render "/posts/teaser", post: post %>
+              <article>
+                  <a href="<%=post.link_path%>">
+                      <figure class="clearfix">
+                          <div class="img"><b><%= post.asset.small.tag %></b></div> 
+                          <figcaption class="clearfix">
+                              <div class="desc">
+                                  <h1><%= post.title %></h1>
+                                  <p><%= post.teaser %> <mark>Read More</mark></p>
+                              </div>
+                              <span class="date"><%= format_date(post.published_at) %></span>
+                          </figcaption>
+                      </figure>
+                  </a>
+              </article>
           <% end %>
         </div>
     <% end %>
