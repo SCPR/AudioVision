@@ -873,6 +873,9 @@ BILLBOARD
 							float: left;
 							height: 100%;
 						}
+						.billboard.aspect-ratio-square .filmstrip img {
+							width: auto;
+						}
 
 
 						
