@@ -1,1 +1,35 @@
-<h2>This is a slideshow post.</h2>
+<% if post.asset.present? %>
+
+    <div class="media-wrapper">
+        <div id="asset_slideshow_<%= post.id %>" class="slideview"></div>
+        <br/>
+        <script type="text/javascript">
+          var query, keyval;
+          var params = {};
+          query = _(window.location.search.substring(1).split("&")).each(function(pair) { keyval = pair.split("="); params[keyval[0]] = keyval[1]; });
+          
+            ahSlides = new audiovision.Slideshow({
+        <% if params[:id].present? %>
+                start: params["slide"],
+            deeplink: true,
+        <% end %>
+
+                el: "#asset_slideshow_<%= post.id %>",
+                assets: <%= raw post.assets.to_json %>
+            });
+            
+            // add slide change listener for analytics
+            ahSlides.bind("switch",function(idx) {
+            if(typeof(_gaq) != 'undefined') {
+                  _gaq.push(['_trackPageview',window.location.pathname + 'photos/' + (Number(idx) + 1)]);
+                  dcsMultiTrack(
+                      'DCS.dcsuri', window.location.pathname + 'photos/' + (Number(idx) + 1),
+                      'WT.ti', 'SlideShow PageView'
+                  );
+            }
+            });
+        </script>
+
+    </div><!--/ .media-wrapper -->
+
+<% end %>

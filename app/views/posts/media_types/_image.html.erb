@@ -1,11 +1,11 @@
+<% if post.asset.present? %>
 
-    <% if post.asset.present? %>
+    <div class="media-wrapper">
+        <%= post.asset.eight.tag %>
+    </div><!--/ .media-wrapper -->
 
-        <div class="media-wrapper">
-            <%= post.asset.eight.tag %>
-        </div><!--/ .media-wrapper -->
+    <aside class="caption">
+        <p><%= post.asset.caption %></p>
+    </aside>
 
-        <aside class="caption">
-            <p><%= post.asset.caption %></p>
-        </aside>
-    <% end %>
+<% end %>

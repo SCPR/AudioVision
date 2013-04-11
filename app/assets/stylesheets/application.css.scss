@@ -1,6 +1,13 @@
+$baseLineHeight: 1.2;
+
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
 @import "reset";
 @import "display";
 @import "ckeditor";
+@import "slideshow";
+
 @import "fancybox";
 @import "fancybox-buttons";
-@import "fancybox-thumbs"
+@import "fancybox-thumbs";
