@@ -12,7 +12,7 @@ json.subtitle post.subtitle
 json.byline post.byline
 json.attributions post.attributions
 
-json.teaser post.teaser
-json.body post.body
+json.teaser post.teaser.html_safe
+json.body post.body.html_safe
 
 json.assets post.assets
