@@ -36,7 +36,7 @@
 
                     <% @right_bar_bucket.posts.each do |post| %>
                     <figure>
-                        <b class="img"><%= link_to post.asset.lsquare.tag, post.link_path %></b>
+                        <b class="img"><%= link_to post.asset.small.tag, post.link_path %></b>
                         <figcaption>
                             <mark><%= link_to post.title, post.link_path %></mark>
                             <ul class="meta">
@@ -70,10 +70,10 @@
         <p class="intro"><%= @midway_bucket.description.html_safe %></p>
         <nav class="clearfix">
 
-            <% @midway_bucket.posts.each do |post| %>
+            <% @midway_bucket.posts.limit(4).each do |post| %>
                 <a href="<%=post.link_path%>">
                     <figure>
-                        <b class="img"><%= post.asset.lsquare.tag %></b>
+                        <b class="img"><%= post.asset.small.tag %></b>
                         <figcaption>
                             <span class="meta"><%= format_date(post.published_at) %></span>
                             <mark><%= post.title %></mark>
