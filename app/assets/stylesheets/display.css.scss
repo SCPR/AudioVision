@@ -2161,10 +2161,8 @@ EXHIBIT: GALLERY-GRID
 ##################################################################################################################### */
 
 .gallery-grid {
-	background: yellow;
 }
 		.gallery-grid figure {
-			outline: 3px solid green;
 			width: 46.218487394958%; /* 330 / 714 */ /* Let's start by assuming grids of 2-across. */
 			float: left;
 			margin-bottom: 50px;
@@ -2226,19 +2224,15 @@ EXHIBIT: GALLERY-GRID
 
 				    @media screen and (min-width: 540px) and (max-width: 940px) {
 
-						.gallery-grid							{ background: pink; }
-
 						.gallery-grid figure {
 							width: 30%;
-							margin: 0 5% 40px 0;
+							margin: 0 5% 25px 0;
 						}
 						.gallery-grid figure:nth-child(3n) {
-							outline: 3px solid red;
 							float: right;
 							margin-right: 0;
 						}
-						.gallery-grid figure:nth-child(4n) { /* ararggasgaslhgasflkjgadflkjasdf */
-							outline: 3px solid blue;
+						.gallery-grid figure:nth-child(3n+1) {
 							clear: both;
 						}
 
@@ -2246,7 +2240,31 @@ EXHIBIT: GALLERY-GRID
 
 				/*	===================================================================================
 				    =================================================================================== */
-		
+
+				    @media screen and (max-width: 940px) {
+
+						.gallery-grid figcaption {
+							font-size: 0.625em; /* 11 / 16 */
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */
+
+				    @media screen and (max-width: 539px) {
+
+						.gallery-grid figure:nth-child(even) {
+							float: right;
+						}
+						.gallery-grid figure:nth-child(odd) {
+							clear: both;
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */		
 
 
 
