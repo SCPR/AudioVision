@@ -1,43 +1,14 @@
 <div class="billboard layout-7 bound">
 
     <div class="row primary clearfix">
-
-        <% if post = billboard.posts[0] %>
-        <a href="<%=post.link_path%>" class="component image">
-            <div class="imagery">
-                <%= post.asset.eight.tag %>
-            </div>
-            <hgroup class="caption">
-                <h2 class="title"><%= post.title %></h2>
-                <h3 class="subtitle"><%= post.teaser %></h3>
-            </hgroup>
-        </a><!--/ .component (image) -->
-        <% end %>
-
-        <% if post = billboard.posts[1] %>
-        <a href="<%= post.link_path %>" class="component mobile">
-            <div class="imagery">
-                <%= post.asset.eight.tag %>
-            </div>
-            <hgroup class="caption">
-                <h2 class="title"><%= post.title %></h2>
-                <h3 class="subtitle"><%= post.teaser %></h3>
-            </hgroup>
-        </a><!--/ .component (mobile) -->
-        <% end %>
+        <%= render "home/billboards/components/image", post: billboard.posts[0], size: :eight %>
+        <%= render "home/billboards/components/mobile", post: billboard.posts[1] %>
     </div><!--/ .row-primary -->
+
 
     <div class="row secondary clearfix">
         <% billboard.posts[2..3].each do |post| %>
-        <a href="<%=post.link_path%>" class="component video">
-            <div class="imagery">
-                <%= post.asset.eight.tag %>
-            </div>
-            <hgroup class="caption">
-                <h2 class="title"><%= post.title %></h2>
-                <h3 class="subtitle"><%= post.teaser %></h3>
-            </hgroup>
-        </a><!--/ .component (video) -->
+            <%= render "home/billboards/components/video", post: post %>
         <% end %>
     </div><!--/ .row-secondary -->
 
