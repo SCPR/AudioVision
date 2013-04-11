@@ -1616,36 +1616,40 @@ WARMUP
 											border: 1px solid #696969;
 											box-shadow: 0 1px 3px black;
 										}
+												.warmup .pamphlet figure .img img {
+													height: auto;
+												}
+
 										.warmup .pamphlet figcaption {
 											text-align: right;
 											text-transform: uppercase;
 											font-family: "proxima-nova", Avenir, Arial, sans-serif;
 										}
-										.warmup .pamphlet figcaption mark {
-											background: none;
-											font-weight: 700;
-											font-size: 0.8125em; /* 13 / 16 */
-											line-height: 1.0;
-											margin-bottom: 6px;
-										}
-										.warmup .pamphlet figcaption mark a {
-											color: #e6e6e6;
-										}
-										.warmup .pamphlet figcaption mark a:hover {
-											color: white;
-											text-decoration: underline;
-										}
-										.warmup .pamphlet figcaption .meta {
-											font-size: 0.625em; /* 10 / 16 */
-											color: #747474;
-										}
-												.warmup .pamphlet figcaption .meta li {
-													display: inline;
+												.warmup .pamphlet figcaption mark {
+													background: none;
+													font-weight: 700;
+													font-size: 0.8125em; /* 13 / 16 */
+													line-height: 1.0;
+													margin-bottom: 6px;
 												}
-												.warmup .pamphlet figcaption .meta .date {
-													color: #a8a8a8;
-													padding-left: 8px;
+												.warmup .pamphlet figcaption mark a {
+													color: #e6e6e6;
 												}
+												.warmup .pamphlet figcaption mark a:hover {
+													color: white;
+													text-decoration: underline;
+												}
+												.warmup .pamphlet figcaption .meta {
+													font-size: 0.625em; /* 10 / 16 */
+													color: #747474;
+												}
+														.warmup .pamphlet figcaption .meta li {
+															display: inline;
+														}
+														.warmup .pamphlet figcaption .meta .date {
+															color: #a8a8a8;
+															padding-left: 8px;
+														}
 										
 
 						.warmup .partnership-tease {
