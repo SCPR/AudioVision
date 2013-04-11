@@ -41,12 +41,12 @@ system "bundle install"
 
 # Setup database
 puts "\n***Setting up databases (development, test)"
-system "bundle exec rake db:setup"
+system "bundle exec rake db:create"
 
-# Build Permissions
-puts "\n*** Adding necessary Permissions"
-system "bundle exec rake outpost:permissions"
+# dbsync
+puts "\n*** Syncing local database with production database"
+system "bundle exec rake dbsync"
 
 # Run tests
 puts "\n*** Running tests"
-system "rspec"
+system "rake db:test:prepare && rspec"
