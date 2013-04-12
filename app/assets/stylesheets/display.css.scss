@@ -2234,12 +2234,22 @@ EXHIBIT (the main part of a single node)
 										.exhibit .intro .byline h2 {
 											color: #838383;
 											font-size: 0.6875em; /* 11 / 16 */
-											margin-bottom: 14px;
+											margin-bottom: 7px;
 										}
+												.exhibit .intro .byline h2 a {
+													color: #565656;
+													font-weight: bold;
+												}
+												.exhibit .intro .byline h2 a:hover {
+													text-decoration: underline;
+													color: black;
+												}
+
 										.exhibit .intro .byline .date {
 											display: block;
 											background: none;
 											text-transform: uppercase;
+											padding-top: 4px;
 											font: normal 700 0.625em/1.2 "proxima-nova", Avenir, Arial, sans-serif;
 											color: #b2b2b2;
 										}
