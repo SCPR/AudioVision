@@ -1,12 +1,12 @@
 <% if post.asset.present? %>
 
-    <div class="media-wrapper">
-        <img src="<%=post.asset.eight.url%>" alt="" />
-    </div><!--/ .media-wrapper -->
+<div class="media-wrapper">
+    <img src="<%=post.asset.eight.url%>" alt="" />
+</div><!--/ .media-wrapper -->
 
-    <aside class="caption">
-        <h3 class="credit">Bryan Ricker</h3>
-        <p><%= post.asset.caption %></p>
-    </aside>
+<aside class="caption">
+    <h3 class="credit"><%= post.asset.owner %></h3>
+    <p><%= post.asset.caption %></p>
+</aside>
 
 <% end %>
