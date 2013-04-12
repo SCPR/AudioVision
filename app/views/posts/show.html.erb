@@ -58,7 +58,8 @@
                         <article>
                             <a href="<%=post.link_path%>">
                                 <figure>
-                                    <div class="img"><b><%= post.asset.small.tag %></b></div>
+                                    <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" />
+</b></div>
                                     <figcaption>
                                         <span class="date"><%= format_date(post.published_at) %></span>
                                         <mark class="title"><%= post.title %></mark>
@@ -82,7 +83,7 @@
             <% @recent_posts_this_type.each do |post| %>
                 <a href="<%=post.link_path%>" class="preview">
                     <figure>
-                        <div class="img"><b><%= post.asset.small.tag %></b></div>
+                        <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
                         <figcaption>
                             <h3><%= post.title %></h3>
                             <p><%= post.teaser.html_safe %></p>

@@ -10,7 +10,7 @@
         <div class="recent">
             <% Array(@recent_posts[0..2]).each do |post| %>
             <figure class="clearfix">
-                <b class="img"><%= link_to post.asset.eight.tag, post.link_path %></b>
+                <b class="img"><a href="<%=post.link_path%>"><img src="<%=post.asset.eight.url%>" alt="" /></a></b>
                 <figcaption>
                     <ul class="meta">
                         <li class="date"><%= format_date(post.published_at) %></li>
@@ -36,7 +36,7 @@
 
                     <% @right_bar_bucket.posts.each do |post| %>
                     <figure>
-                        <b class="img"><%= link_to post.asset.small.tag, post.link_path %></b>
+                        <b class="img"><a href="<%=post.link_path%>"><img src="<%=post.asset.small.url%>" alt="" /></a></b>
                         <figcaption>
                             <mark><%= link_to post.title, post.link_path %></mark>
                             <ul class="meta">
@@ -73,7 +73,7 @@
             <% @midway_bucket.posts.limit(4).each do |post| %>
                 <a href="<%=post.link_path%>">
                     <figure>
-                        <b class="img"><%= post.asset.small.tag %></b>
+                        <b class="img"><img src="<%=post.asset.small.url%>" alt="" /></b>
                         <figcaption>
                             <span class="meta"><%= format_date(post.published_at) %></span>
                             <mark><%= post.title %></mark>
