@@ -4,7 +4,7 @@
 //      .slide: 5
 //      .overlay-nav: 10
 
-.slideview {    
+.slideview {
     position: relative;
     
     .slideshow-header {
@@ -14,15 +14,34 @@
         h6 {
             display: inline;
             line-height: 21px;
-            font-family:'Helvetica Neue', Helvetica, Arial, sans-serif
         }
     
         .pager-nav {
             padding: 0 5px;
+            float: right;
         
             a { 
                 float: left;
-                margin-top: 0;
+                cursor: pointer;
+                background: image-url('carousel-btns.png') no-repeat;
+                display: inline-block;
+                width:22px;
+                height:22px;
+
+                &.disabled { 
+                    @include opacity(50);
+                    cursor: default;
+                }
+                &.prev {
+                    background-position:0 0;
+                    &:hover { background-position:-62px 0; }
+                    &.disabled { background-position:0 0; }
+                }
+                &.next {
+                    background-position:-32px 0;
+                    &:hover { background-position:-94px 0; }
+                    &.disabled { background-position:-32px 0; }
+                }
             }
         
             .page-count {
@@ -32,9 +51,10 @@
                 height: 20px;
                 width: 60px;
                 text-align: center;
+                padding-top: 4px;
             }
         }
-    
+
         .thumbtray-toggler {
             float: right;
             cursor: pointer;
@@ -55,10 +75,9 @@
         margin: 10px 0;
         text-align: center;
         display: none;
-        @extend .well;
         padding: 5px 0 0 0 ;
-        @include border-radius(0px);
-        
+        background-color: #efefef;
+
         .nav {
             position: absolute;
             top: 0;
@@ -82,30 +101,40 @@
             }
 
             &.disabled {
-                 @include opacity(0.1);
+                 @include opacity(10);
              }
          
              &.active {
                  cursor: pointer;
-                 @include opacity(0.5);
+                 @include opacity(50);
                  &:hover {
-                     @include opacity(0.7);
+                     @include opacity(70);
                  }
              }
         }
         
         .thumbnails {
-            @include opacity(1);
+            @include opacity(100);
             width: 86%;
             margin: 0 auto;
+            padding-bottom: 2px;
+
             .thumbnail {
                 cursor: pointer;
                 margin: 0 5px;
                 display: none;
                 width: 13%;
-                
+                border: 1px solid #ccc;
+                padding: 2px;
+                line-height: 0;
+
+                img {
+                    width: 100%;
+                }
+
                 &.current-set {
                     display: inline-block;
+                    zoom: 1;
                 }
                 
                 &.active, &:hover {
@@ -152,7 +181,7 @@
                 display: block;
                 background-color: transparent;
                 background-repeat: no-repeat;
-                @include opacity(1);
+                @include opacity(100);
         
                 &.prev {
                     left: 0;
@@ -169,14 +198,14 @@
                 }
             
                 &.disabled {
-                    @include opacity(0.1);
+                    @include opacity(10);
                 }
             
                 &.active {
                     cursor: pointer;
-                    @include opacity(0.5);
+                    @include opacity(50);
                     &:hover {
-                        @include opacity(0.7);
+                        @include opacity(70);
                     }
                 }
             }
