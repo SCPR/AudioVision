@@ -2122,6 +2122,10 @@ EXHIBIT (the main part of a single node)
 								.exhibit .primary .caption p {
 									margin-left: 30%;
 								}
+								.exhibit .primary .caption .credit {
+									font-weight: bold;
+									margin-bottom: 0.5em;
+								}
 								/*
 								.slideview .slides .slide .text {
 									text-align: right;
