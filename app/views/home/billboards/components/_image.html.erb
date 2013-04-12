@@ -3,7 +3,7 @@
 
 <a href="<%=post.link_path%>" class="component image">
     <div class="imagery">
-        <%= post.asset.send(size).tag %>
+        <img src="<%=post.asset.send(size).url%>" alt="" />
     </div>
     <hgroup class="caption">
         <h2 class="title"><%= post.title %></h2>

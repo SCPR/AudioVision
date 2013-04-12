@@ -4,7 +4,7 @@
     <div class="imagery">
         <div class="filmstrip clearfix">
             <% post.assets.first(3).each do |asset| %>
-                <%= asset.eight.tag %>
+                <img src="<%=asset.eight.url%>" alt="" />
             <% end %>
         </div>
     </div>
