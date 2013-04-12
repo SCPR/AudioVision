@@ -14,30 +14,34 @@
 <section class="landing-recents">
     <div class="landing-recents-inner bound clearfix">
         <div class="primary clearfix">
-            <% if post = @posts[0] %>
-                <figure class="clearfix">
-                    <b class="img">
-                        <a href="<%=post.link_path%>"><img src="<%=post.asset.eight.url%>" alt="" /></a>
-                    </b>
-                    <figcaption>
-                        <span class="date"><%= format_date post.published_at %></span>
-                        <mark><%= link_to post.title, post.link_path %></mark>
-                        <p class="desc"><%= post.teaser.html_safe %></p>
-                    </figcaption>
-                </figure>
-            <% end %>
+
+        <% if post = @posts[0] %>
+            <figure class="clearfix">
+                <b class="img">
+                    <a href="<%=post.link_path%>"><img src="<%=post.asset.eight.url%>" alt="" /></a>
+                </b>
+                <figcaption>
+                    <span class="date"><%= format_date post.published_at %></span>
+                    <mark><%= link_to post.title, post.link_path %></mark>
+                    <p class="desc"><%= post.teaser.html_safe %></p>
+                </figcaption>
+            </figure>
+        <% end %>
+
         </div>
         <div class="secondary clearfix">
-            <% Array(@posts[1..2]).each do |post| %>
-                <figure>
-                    <b class="img">
-                        <a href="<%=post.link_path%>"><img src="<%=post.asset.small.url%>" alt="" /></a>
-                    </b>
-                    <figcaption>
-                        <mark><%= link_to post.title, post.link_path %></mark>
-                    </figcaption>
-                </figure>
-            <% end %>
+
+        <% Array(@posts[1..2]).each do |post| %>
+            <figure>
+                <b class="img">
+                    <a href="<%=post.link_path%>"><img src="<%=post.asset.small.url%>" alt="" /></a>
+                </b>
+                <figcaption>
+                    <mark><%= link_to post.title, post.link_path %></mark>
+                </figcaption>
+            </figure>
+        <% end %>
+        
         </div>
     </div>
 </section>

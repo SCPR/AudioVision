@@ -2,10 +2,11 @@
 <p><%= @reporter.bio.html_safe %></p>
 
 <h2>Posts by <%= @reporter.name %></h2>
+
 <ul>
-    <% @posts.each do |post| %>
-        <li><%= link_to post.title, post.link_path %></li>
-    <% end %>
+<% @posts.each do |post| %>
+    <li><%= link_to post.title, post.link_path %></li>
+<% end %>
 </ul>
 
 <%= paginate @posts %>

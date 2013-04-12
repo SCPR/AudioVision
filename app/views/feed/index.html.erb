@@ -1,9 +1,9 @@
 <h2>Archive</h2>
 
 <ul>
-    <% @posts.each do |post| %>
-        <li><%= link_to post.title, post.link_path %></li>
-    <% end %>
+<% @posts.each do |post| %>
+  <li><%= link_to post.title, post.link_path %></li>
+<% end %>
 </ul>
 
 <%= paginate @posts %>

@@ -7,7 +7,6 @@
         <div class="primary">
 
             <%= render "posts/media_types/#{@post.media_type_key}", post: @post %>
-
             <%= render "/shared/related_kpcc_article", post: @post %>
 
         </div><!--/ .primary -->
@@ -52,24 +51,24 @@
     <div class="single-plugs-inner clearfix bound">
         <section class="recently">
             
-            <% @recent_posts_not_this_type.each_slice(2) do |group| %>
-                <div class="pair clearfix">
-                    <% group.each do |post| %>
-                        <article>
-                            <a href="<%=post.link_path%>">
-                                <figure>
-                                    <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" />
+        <% @recent_posts_not_this_type.each_slice(2) do |group| %>
+            <div class="pair clearfix">
+            <% group.each do |post| %>
+                <article>
+                    <a href="<%=post.link_path%>">
+                        <figure>
+                            <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" />
 </b></div>
-                                    <figcaption>
-                                        <span class="date"><%= format_date(post.published_at) %></span>
-                                        <mark class="title"><%= post.title %></mark>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </article>
-                    <% end %>
-                </div><!--/ .pair -->
+                            <figcaption>
+                                <span class="date"><%= format_date(post.published_at) %></span>
+                                <mark class="title"><%= post.title %></mark>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </article>
             <% end %>
+            </div><!--/ .pair -->
+        <% end %>
 
         </section>
 
