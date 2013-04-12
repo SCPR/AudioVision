@@ -21,8 +21,8 @@ module AudioVision
     # config.i18n.default_locale = :de
 
     config.secrets = YAML.load_file("#{Rails.root}/config/app_config.yml")
-    config.assethost = ActiveSupport::OrderedOptions.new
 
+    config.assethost = ActiveSupport::OrderedOptions.new
     config.assethost.server = "a.scpr.org"
     config.assethost.token  = "droQQ2LcESKeGPzldQr7" 
     config.assethost.prefix = "/api"
