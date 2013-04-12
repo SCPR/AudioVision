@@ -1,23 +1,25 @@
 <% if posts.present? %>
-    <% posts.compact.each_slice(2) do |group| %>
-        <div class="pair clearfix">
-          <% group.each do |post| %>
-              <article>
-                  <a href="<%=post.link_path%>">
-                      <figure class="clearfix">
-                          <div class="img"><b><img src="<%=post.asset.eight.url%>" alt="" />
+
+<% posts.compact.each_slice(2) do |group| %>
+    <div class="pair clearfix">
+    <% group.each do |post| %>
+        <article>
+            <a href="<%=post.link_path%>">
+                <figure class="clearfix">
+                    <div class="img"><b><img src="<%=post.asset.eight.url%>" alt="" />
 </b></div> 
-                          <figcaption class="clearfix">
-                              <div class="desc">
-                                  <h1><%= post.title %></h1>
-                                  <p><%= post.teaser.html_safe %> <mark>Read More</mark></p>
-                              </div>
-                              <span class="date"><%= format_date(post.published_at) %></span>
-                          </figcaption>
-                      </figure>
-                  </a>
-              </article>
-          <% end %>
-        </div>
+                    <figcaption class="clearfix">
+                        <div class="desc">
+                            <h1><%= post.title %></h1>
+                            <p><%= post.teaser.html_safe %> <mark>Read More</mark></p>
+                        </div>
+                        <span class="date"><%= format_date(post.published_at) %></span>
+                    </figcaption>
+                </figure>
+            </a>
+        </article>
     <% end %>
+    </div>
+<% end %>
+
 <% end %>

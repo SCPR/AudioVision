@@ -70,17 +70,18 @@
         <p class="intro"><%= @midway_bucket.description.html_safe %></p>
         <nav class="clearfix">
 
-            <% @midway_bucket.posts.limit(4).each do |post| %>
-                <a href="<%=post.link_path%>">
-                    <figure>
-                        <b class="img"><img src="<%=post.asset.small.url%>" alt="" /></b>
-                        <figcaption>
-                            <span class="meta"><%= format_date(post.published_at) %></span>
-                            <mark><%= post.title %></mark>
-                        </figcaption>
-                    </figure>
-                </a>
-            <% end %>
+        <% @midway_bucket.posts.limit(4).each do |post| %>
+            <a href="<%=post.link_path%>">
+                <figure>
+                    <b class="img"><img src="<%=post.asset.small.url%>" alt="" /></b>
+                    <figcaption>
+                        <span class="meta"><%= format_date(post.published_at) %></span>
+                        <mark><%= post.title %></mark>
+                    </figcaption>
+                </figure>
+            </a>
+        <% end %>
+        
         </nav>
     </div>
 </aside><!--/ .roundup -->
