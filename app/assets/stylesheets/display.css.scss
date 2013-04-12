@@ -2109,7 +2109,8 @@ EXHIBIT (the main part of a single node)
 									height: auto;
 								}
 
-						.exhibit .primary .caption {
+						.exhibit .primary .caption,
+						.slideview .text {
 							font-style: italic;
 							text-align: right;
 							color: #909090;
@@ -2119,8 +2120,21 @@ EXHIBIT (the main part of a single node)
 							background: image-url('i/ornament-hairline-gray-med.png') no-repeat right top;
 							background-size: 20px 1px;
 						}
-								.exhibit .primary .caption p {
+								.exhibit .primary .caption p,
+								.slideview .text {
 									margin-left: 30%;
+								}
+								.slideview .slides .slide .text {
+									text-align: right;
+								}
+								.slideview h4 {
+									font-weight: bold;
+									margin-bottom: 0.4em;
+								}
+								.slideview .slideshow-header h6 {
+									text-transform: uppercase;
+									font: normal 700 0.6875em/1 "proxima-nova", Avenir, Arial, sans-serif;
+									color: rgba(0,0,0,0.25);
 								}
 
 				.exhibit .secondary {
