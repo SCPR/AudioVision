@@ -227,8 +227,8 @@ class audiovision.Slideshow
         #----------
 
         setCurrent: (idx) ->
-               @current = idx
-               @render()
+           @current = idx
+           @render()
 
         #----------
 
