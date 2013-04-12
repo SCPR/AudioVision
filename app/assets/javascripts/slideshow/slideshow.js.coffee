@@ -1,3 +1,10 @@
+$ -> 
+    $(".slideshow-fullscreen").on
+        click: (event) ->
+            el = $($(@).data('target'))[0]
+            el.mozRequestFullScreen?() or el.webkitRequestFullScreen?()
+
+
 class audiovision.Slideshow
     @TemplatePath = "slideshow/templates/"
 
