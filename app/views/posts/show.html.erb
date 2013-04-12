@@ -23,13 +23,29 @@
                         </ul>
                     </aside>
                     <hgroup class="byline">
-                        <h2><%= @post.byline %></h2>
-                        <h2>Here comes <a href="#">a second H2, which includes a link</a></h2>
+                        <h2><%= render_byline(@post) %></h2>
                         <mark class="date"><%= format_date(@post.published_at) %></mark>
                     </hgroup>
                 </header>
                 <div class="prose">
                     <%= @post.body.html_safe %>
+
+                    <% if @post.contributors.present? %>
+                    <h3>Contributors</h3>
+                    <ul class="contributors">
+                    <% @post.contributors.each do |attribution| %>
+                        <li>
+                        <% if attribution.name.present? %>
+                        <% if attribution.url.present? %>
+                            <%= link_to attribution.name, attribution.url %>
+                        <% else %>
+                            <%= attribution.name %>
+                        <% end %>
+                        <% end %>
+                        </li>
+                    <% end %>
+                    </ul>
+                    <% end %>
                 </div>
             </article>
         </div><!--/ .secondary -->
