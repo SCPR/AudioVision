@@ -6,9 +6,8 @@ $baseLineHeight: 1.2;
 @import "reset";
 @import "ckeditor";
 @import "slideshow";
-
-@import "fancybox";
-@import "fancybox-buttons";
-@import "fancybox-thumbs";
-
 @import "display";
+
+@import "fancybox/fancybox";
+@import "fancybox/fancybox-buttons";
+@import "fancybox/fancybox-thumbs";
