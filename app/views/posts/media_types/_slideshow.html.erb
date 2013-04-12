@@ -8,7 +8,7 @@
           var params = {};
           query = _(window.location.search.substring(1).split("&")).each(function(pair) { keyval = pair.split("="); params[keyval[0]] = keyval[1]; });
           
-            ahSlides = new AssetHost.Slideshow({
+            ahSlides = new audiovision.Slideshow({
         <% if params[:id].present? %>
                 start: params["slide"],
             deeplink: true,

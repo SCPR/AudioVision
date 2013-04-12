@@ -1,0 +1,7 @@
+<div class="media-wrapper">
+    <img src="<%= @url %>" />
+</div><!--/ .media-wrapper -->
+
+<aside class="caption">
+    <p><%= @caption %></p>
+</aside>
