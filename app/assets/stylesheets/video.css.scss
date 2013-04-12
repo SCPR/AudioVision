@@ -1,0 +1,25 @@
+.media-wrapper.video {
+    position:relative;
+    height:auto;
+    
+    > div:first-child { 
+        position: static !important; // So the overlay looks to .video
+        width: 100% !important; // So the video expands to 100% rather than a fixed width.
+    }
+}
+.BrightcoveVideoOverlay {
+    @include opacity(50);
+    background: image-url('videoplayer-play.png') bottom left no-repeat;
+    cursor: pointer;
+    @include transition(opacity linear 0.2s);
+    width: 100% !important; // So it doesn't use the fixed width
+    position: absolute !important; // So we can tell it to sit at the bottom of the .video div
+    top: 0 !important;
+    left: 0 !important;
+    height: 99% !important; // So it doesn't used the fixed height
+    margin: 0 !important; // IE7 sets margin: auto by default?
+    &:hover {
+        @include opacity(90);
+        @include transition(opacity linear 0.2s);
+    }
+}

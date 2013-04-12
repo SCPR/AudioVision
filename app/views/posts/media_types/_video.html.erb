@@ -1,1 +1,7 @@
-<h2>This is a video post.</h2>
+<div class="media-wrapper video">
+    <%= post.asset.eight.tag %>
+</div>
+
+<% content_for :footer do %>
+<script>ahClient = new AssetHost.Client()</script>
+<% end %>
