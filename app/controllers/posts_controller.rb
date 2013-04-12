@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def show
-    @post       = Post.find(params[:id])
+    @post       = Post.includes(:attributions).find(params[:id])
     @category   = @post.category
 
     @nav_highlight = @category.slug
