@@ -1,8 +1,45 @@
-<h1>About AudioVision</h1>
-<p>Some text about AudioVision</p>
+<header class="landing-welcome">
+    <hgroup class="bound">
+        <h1>About AudioVision</h1>
+        <h2>Who we are and what we're about.</h2>
+    </hgroup>
+</header>
+
+<div class="novella">
+    <div class="novella-inner clearfix bound">
+        
+        <section class="prose">
+            <p>Cras tincidunt mi at augue vehicula at condimentum mi consectetur. Sed aliquet elit sed lacus molestie in rutrum ante placerat. Donec a fermentum magna. Nulla facilisi. Duis non posuere leo. Vestibulum odio velit, mollis at pellentesque non, aliquet sit amet enim. Nulla facilisi. Nulla suscipit aliquam sem, eu mollis urna rhoncus id. Proin in metus urna, luctus tristique ipsum. Duis a consequat felis. Donec ut massa felis. Vivamus scelerisque pharetra lectus. Mauris massa augue, faucibus at ultricies eget, interdum vitae justo. Etiam ut varius risus.</p>
+            <p>Donec lacinia mi non nulla euismod sed aliquet dolor iaculis. Ut orci tortor, fermentum quis semper sit amet, imperdiet tristique quam. Sed convallis, lorem quis accumsan placerat, mi velit vehicula neque, a commodo tortor lacus luctus ipsum. Etiam blandit arcu et nisi luctus at eleifend nulla dapibus. Mauris suscipit nisi et diam feugiat ac tincidunt orci hendrerit. Proin purus tellus, egestas eu tristique in, commodo quis ipsum. Maecenas sem sem, semper vel condimentum non, congue non nisl. Morbi volutpat, diam eu vestibulum blandit, dui tortor iaculis justo, quis mattis urna neque sit amet quam. Morbi at mauris non neque tempor ultricies. Duis mattis feugiat viverra.</p>
+            <ol>
+                <li>Be the best we can be.</li>
+                <li>Showcase the unheralded greatness in Southern California photography and videography.</li>
+                <li>Pellentesque sagittis dui vehicula massa viverra semper.</li>
+                <li>Nunc vulputate viverra cursus.</li>
+                <li>Ut tempus, nulla eu ornare elementum, orci libero convallis nisl, ut porttitor sapien ante eget enim.</li>
+            </ol>
+            <p>Quisque eu risus dolor. Pellentesque sagittis dui vehicula massa viverra semper. Nunc vulputate viverra cursus. Ut tempus, nulla eu ornare elementum, orci libero convallis nisl, ut porttitor sapien ante eget enim. Donec enim purus, scelerisque sed vehicula tempus, adipiscing luctus ante. Sed commodo dolor non neque porta ullamcorper. In et est in tellus commodo volutpat. Duis elementum pellentesque tellus, sed interdum tortor fringilla in. Donec eu fringilla tellus. Suspendisse malesuada gravida nibh eget venenatis. Nam in mauris a felis posuere auctor. Nulla consectetur lobortis sagittis. Ut ac leo vel dui ullamcorper scelerisque at sed justo. Aliquam auctor massa vel nulla vulputate mollis. Nunc arcu lacus, sodales ac posuere quis, imperdiet commodo urna.</p>
+            <p>Morbi mollis lorem sit amet odio aliquam ultricies. Nullam sit amet felis in purus aliquam consequat ac vitae eros. Aliquam consectetur lacus at arcu tincidunt viverra. Fusce sit amet pulvinar purus. Sed at ligula nisi. Etiam bibendum, dolor dictum rhoncus faucibus, odio elit posuere est, sed porta neque nibh vel metus. Praesent luctus, diam id sagittis pharetra, ante massa ultricies odio, vel ultricies dolor nisl sed mi. Donec luctus, metus sed lacinia posuere, elit leo rhoncus quam, eget feugiat nisl sapien ullamcorper mi.</p>
+        </section><!--/ .prose -->
+        
+        <section class="staff">
+            <article>
+                Hi, I'm Grant
+            </article>
+            <article>
+                Hi, I'm Mae
+            </article>
+            <article>
+                Hi, I'm Maya
+            </article>
+        </section>
+        
+        
+    </div>
+</div><!--/ novella -->
 
 
-<h1>Reporters</h1>
+<h1 style="margin-top: 300px;">Reporters</h1>
 <ul>
 <% @reporters.each do |reporter| %>
     <li><%= link_to reporter.name, reporter.link_path %></li>
