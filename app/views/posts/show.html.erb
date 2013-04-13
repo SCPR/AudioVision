@@ -22,10 +22,10 @@
                             <li class="tum"><a href="#">Share this on Tumblr</a></li>
                         </ul>
                     </aside>
-                    <hgroup class="byline">
-                        <h2><%= render_byline(@post) %></h2>
+                    <aside class="byline">
+                        <%= render_byline(@post) %>
                         <mark class="date"><%= format_date(@post.published_at) %></mark>
-                    </hgroup>
+                    </aside>
                 </header>
                 <div class="prose">
                     <%= @post.body.html_safe %>
