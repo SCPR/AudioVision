@@ -24,6 +24,10 @@ module ApplicationHelper
       end
     end
 
-    byline_elements.join(" / ").html_safe
+    list = byline_elements.map do |element|
+      content_tag(:li, element)
+    end
+
+    content_tag(:ul, list.join.html_safe)
   end
 end
