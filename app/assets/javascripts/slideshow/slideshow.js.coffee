@@ -34,8 +34,8 @@ class audiovision.Slideshow
             #----------
             # Create the elements we need for the complete slideshow
             
-            @header = $("<div/>", class: "slideshow-header")
-            @title = $("<h6/>").html "Slideshow"
+            @header = $(JST[Slideshow.TemplatePath + "header"]())
+
             @fullscreen_button = JST[Slideshow.TemplatePath + "fullscreen_button"](
                 target: "#" + @el.attr('id')
             )
@@ -142,8 +142,7 @@ class audiovision.Slideshow
     #----------
 
     class @Asset extends Backbone.Model
-        initialize: ->
-            # do something
+        #
 
     class @Assets extends Backbone.Collection
         url: "/"
@@ -167,7 +166,7 @@ class audiovision.Slideshow
             $(@el).html(@template
                 credit:     @model.get("credit")
                 caption:    @model.get("caption")
-                url:        @model.get("urls")['eight']
+                url:        @model.get("urls")['full']
             )
 
             if @index is @start
