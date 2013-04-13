@@ -1,10 +1,3 @@
-$ -> 
-    $(".slideshow-fullscreen").on
-        click: (event) ->
-            el = $($(@).data('target'))[0]
-            el.mozRequestFullScreen?() or el.webkitRequestFullScreen?()
-
-
 class audiovision.Slideshow
     @TemplatePath = "slideshow/templates/"
 
@@ -43,7 +36,10 @@ class audiovision.Slideshow
             
             @header = $("<div/>", class: "slideshow-header")
             @title = $("<h6/>").html "Slideshow"
-            
+            @fullscreen_button = JST[Slideshow.TemplatePath + "fullscreen_button"](
+                target: "#" + @el.attr('id')
+            )
+
             @nav = new Slideshow.NavigationLinks 
                 start:  @start
                 total:  @total
@@ -70,6 +66,7 @@ class audiovision.Slideshow
             # Fill in the main element with all the pieces
             @el.html        @header
             @header.append  @title
+            @header.append  @fullscreen_button
             @header.append  @nav.el
             @header.append  @traytoggler.el
             
@@ -104,7 +101,9 @@ class audiovision.Slideshow
                 @thumbtray.setCurrent  idx
                 @trigger "switch",     idx
 
-                if @deeplink and window.history.replaceState
+                # Chrome won't let you change the history while in fullscreen mode,
+                # so we'll just have to disable it in that case.
+                if @deeplink and window.history.replaceState and !(screen.width == window.innerWidth && screen.height == window.innerHeight)
                     slideNum = idx + 1
                     window.history.replaceState { slide: slideNum }, document.title + ": Slide #{slideNum}", window.location.pathname + "?slide=#{slideNum}"
 
@@ -133,6 +132,13 @@ class audiovision.Slideshow
                     if @hasmouse is true
                         @hasmouse = false
 
+            $("button.slideshow-fullscreen").on
+                click: (event) ->
+                    el = $($(@).data('target'))[0]
+
+                    el.requestFullScreen?() or 
+                    el.mozRequestFullScreen?() or 
+                    el.webkitRequestFullScreen?()
     #----------
 
     class @Asset extends Backbone.Model
