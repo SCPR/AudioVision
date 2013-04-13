@@ -24,10 +24,6 @@ module ApplicationHelper
       end
     end
 
-    list = byline_elements.map do |element|
-      content_tag(:li, element)
-    end
-
-    content_tag(:ul, list.join.html_safe)
+    render "shared/byline", elements: byline_elements
   end
 end
