@@ -6,32 +6,34 @@
 //      .slideshow-header: 7 (fullscreen only)
 
 @mixin fullscreen-slideshow {
+    background-color: #000;
+    height: 100%;
+
+    // Hide some stuff
+    .thumbtray-toggler, 
+    .thumbtray, 
+    .slideshow-fullscreen {
+        display: none;
+    }
+
     .slides.asset-block {
         height: 100%;
-        background-color: #000;
 
         .overlay-nav {
             height: 100% !important;
         }
 
         .slide {
-            text-align: center;
             width: 100%;
             height: 100%;
+
+            .media-wrapper {
+                height: 87%;
+            }
 
             .caption {
                 padding-right: 20px;
                 padding-left: 20px;
-            }
-
-            .media-wrapper {
-                height: 90%;
-            }
-            
-            img {
-                margin: 0 auto;
-                width: auto;
-                height: 100%;
             }
         }
     }
@@ -41,32 +43,6 @@
 .slideview {
     &:-webkit-full-screen {
         @include fullscreen-slideshow();
-
-        .slideshow-header {
-            position: relative;
-            top: 50px;
-            z-index: 7;
-        }
-
-        .slides.asset-block {
-            .overlay-nav {
-                height: 95% !important;
-                bottom: 0;
-                top: auto;
-            }
-
-            .slide {
-                .media-wrapper {
-                    height: 90%;
-                }
-
-                .caption {
-                    z-index: 7;
-                    position: relative;
-                    bottom: 50px;
-                }
-            }
-        }
     }
 
     &:-moz-full-screen {
@@ -77,6 +53,8 @@
         @include fullscreen-slideshow();
     }
 }
+
+
 
 .slideview {
     width: 100%;
@@ -240,6 +218,18 @@
             width: 100%;
             display: none;
             
+            .media-wrapper {
+                position: relative;
+
+                img {
+                    margin: auto;
+                    width: auto;
+                    height: auto;
+                    max-height: 100%;
+                    max-width: 100%;
+                }
+            }
+
             &.active {
                 display: block;
             }
