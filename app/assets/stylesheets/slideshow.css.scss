@@ -2,9 +2,84 @@
 //  .slideview: auto
 //    .slides: auto
 //      .slide: 5
-//      .overlay-nav: 9 (needs to be under fixed header)
+//      .overlay-nav: 6 (needs to be under fixed header)
+//      .slideshow-header: 7 (fullscreen only)
+
+@mixin fullscreen-slideshow {
+    .slides.asset-block {
+        height: 100%;
+        background-color: #000;
+
+        .overlay-nav {
+            height: 100% !important;
+        }
+
+        .slide {
+            text-align: center;
+            width: 100%;
+            height: 100%;
+
+            .caption {
+                padding-right: 20px;
+                padding-left: 20px;
+            }
+
+            .media-wrapper {
+                height: 90%;
+            }
+            
+            img {
+                margin: 0 auto;
+                width: auto;
+                height: 100%;
+            }
+        }
+    }
+}
+
 
 .slideview {
+    &:-webkit-full-screen {
+        @include fullscreen-slideshow();
+
+        .slideshow-header {
+            position: relative;
+            top: 50px;
+            z-index: 7;
+        }
+
+        .slides.asset-block {
+            .overlay-nav {
+                height: 95% !important;
+                bottom: 0;
+                top: auto;
+            }
+
+            .slide {
+                .media-wrapper {
+                    height: 90%;
+                }
+
+                .caption {
+                    z-index: 7;
+                    position: relative;
+                    bottom: 50px;
+                }
+            }
+        }
+    }
+
+    &:-moz-full-screen {
+        @include fullscreen-slideshow();
+    }
+
+    &:full-screen {
+        @include fullscreen-slideshow();
+    }
+}
+
+.slideview {
+    width: 100%;
     position: relative;
     
     .slideshow-header {
@@ -14,8 +89,14 @@
         h6 {
             display: inline;
             line-height: 21px;
+            color: #c2c2c2;
         }
-    
+        
+        button.slideshow-fullscreen {
+            padding: 5px;
+            float: right;
+        }
+
         .pager-nav {
             padding: 0 5px;
             float: right;
@@ -76,7 +157,9 @@
         text-align: center;
         display: none;
         padding: 5px 0 0 0 ;
-        background-color: #efefef;
+        background: #e6e5e5;
+        box-shadow: inset -4px 3px 0px rgba(0,0,0,0.06);
+        outline: 1px solid rgba(0,0,0,0.2);
 
         .nav {
             position: absolute;
@@ -127,6 +210,7 @@
                 border: 1px solid #ccc;
                 padding: 2px;
                 line-height: 0;
+                box-shadow: -3px 3px 0 rgba(0,0,0,0.1);
 
                 img {
                     width: 100%;
@@ -212,23 +296,3 @@
         }
     }
 }
-
-
-
-/* ############################################# */
-/* Cosmetic styling. ########################### */
-/* ############################################# */
-
-.slideview .slideshow-header h6 {
-	color: #c2c2c2;
-}
-.slideview .thumbtray {
-	background: #e6e5e5;
-	box-shadow: inset -4px 3px 0px rgba(0,0,0,0.06);
-	outline: 1px solid rgba(0,0,0,0.2);
-}
-.slideview .thumbtray .thumbnails .thumbnail {
-	box-shadow: -3px 3px 0 rgba(0,0,0,0.1);
-}
-
-

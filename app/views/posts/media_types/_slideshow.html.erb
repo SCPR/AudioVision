@@ -1,9 +1,6 @@
 <% if post.assets.present? %>
 
-<div class="media-wrapper">
-    <button class="slideshow-fullscreen" data-target="#asset_slideshow_<%= post.id %> .slides.asset-block">Fullscreen</button>
-    <div id="asset_slideshow_<%= post.id %>" class="slideview"></div>
-</div><!--/ .media-wrapper -->
+<div id="asset_slideshow_<%= post.id %>" class="slideview"></div>
 
 <% content_for :footer do %>
 <script type="text/javascript">
