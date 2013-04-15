@@ -26,7 +26,7 @@ class Billboard < ActiveRecord::Base
   validates :layout, presence: true, inclusion: { in: LAYOUTS.keys }
   validates :status, presence: true
   
-  has_many :post_references, as: :referrer, order: "position", dependent: :destroy
+  has_many :post_references, -> { order("position") }, as: :referrer, dependent: :destroy
   has_many :posts, through: :post_references
 
   accepts_json_input_for_content(name: :post_references)
