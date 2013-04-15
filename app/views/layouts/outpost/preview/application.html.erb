@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <% add_to_page_title "AudioVision", "89.3 KPCC" %>
+    <title><%= page_title %></title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <script type="text/javascript" src="http://<%= Rails.application.config.assethost.server %>/assets/client.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/ypz5aii.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <%= content_for :head %>
+
+</head>
+<body class="<%=@BODY_CLASS%>">
+
+
+    <%= yield %>
+
+
+    <%= content_for :footer %>
+
+</body>
+</html>

@@ -38,7 +38,11 @@ AudioVision::Application.routes.draw do
     get 'login'  => "sessions#new", as: :login
     get 'logout' => "sessions#destroy", as: :logout
 
-    resources :posts
+    resources :posts do
+      patch "preview", on: :member
+      post "preview", on: :collection
+    end
+
     resources :flatpages
     resources :reporters
     resources :users
