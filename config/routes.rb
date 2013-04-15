@@ -30,6 +30,11 @@ AudioVision::Application.routes.draw do
   end
 
 
+  concern :previewable do
+    patch "preview", on: :member
+    post "preview", on: :collection
+  end
+
   ## OUTPOST
   namespace :outpost do
     root to: 'home#dashboard'
@@ -38,16 +43,14 @@ AudioVision::Application.routes.draw do
     get 'login'  => "sessions#new", as: :login
     get 'logout' => "sessions#destroy", as: :logout
 
-    resources :posts do
-      patch "preview", on: :member
-      post "preview", on: :collection
-    end
+    resources :posts, concerns: [:previewable]
+    resources :billboards, concerns: [:previewable]
 
     resources :flatpages
     resources :reporters
     resources :users
     resources :categories
-    resources :billboards
+
     resources :buckets
     
     get "*path" => 'errors#not_found'
