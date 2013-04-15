@@ -2,6 +2,7 @@
 //= require underscore
 //= require backbone
 //= require jquery_ujs
+//= require selectivizr-min
 
 //= require base
 //= require scripts
