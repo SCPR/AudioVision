@@ -1,0 +1,54 @@
+<% @BODY_CLASS = "single" %>
+
+<!-- Common code for all single posts -->
+<div class="exhibit">
+    <div class="exhibit-inner bound clearfix">
+        
+        <div class="primary">
+
+            <%= render "posts/media_types/#{post.media_type_key}", post: post %>
+            <%= render "/shared/related_kpcc_article", post: post %>
+
+        </div><!--/ .primary -->
+
+        <div class="secondary">
+            <article class="essay">
+                <header class="intro">
+                    <h1 class="title"><%= link_to post.title, post.link_path %></h1>
+                    <aside class="share">
+                        <ul class="clearfix">
+                            <li class="fbk"><a href="#">Share this on Facebook</a></li>
+                            <li class="twi"><a href="#">Share this on Twitter</a></li>
+                            <li class="tum"><a href="#">Share this on Tumblr</a></li>
+                        </ul>
+                    </aside>
+                    <aside class="byline">
+                        <%= render_byline(post) %>
+                        <mark class="date"><%= format_date(post.published_at) %></mark>
+                    </aside>
+                </header>
+                <div class="prose">
+                    <%= post.body.html_safe %>
+
+                    <% if post.contributors.present? %>
+                    <h3>Contributors</h3>
+                    <ul class="contributors">
+                    <% post.contributors.each do |attribution| %>
+                        <li>
+                        <% if attribution.name.present? %>
+                        <% if attribution.url.present? %>
+                            <%= link_to attribution.name, attribution.url %>
+                        <% else %>
+                            <%= attribution.name %>
+                        <% end %>
+                        <% end %>
+                        </li>
+                    <% end %>
+                    </ul>
+                    <% end %>
+                </div>
+            </article>
+        </div><!--/ .secondary -->
+
+    </div><!--/ .exhibit-inner -->
+</div><!--/ .exhibit -->

@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   outpost_model
   ROUTE_KEY = "post"
 
+  include ConditionalValidation
+  
   MEDIA_TYPES = {
     :image        => 0,
     :slideshow    => 1,
@@ -99,7 +101,7 @@ class Post < ActiveRecord::Base
   validates :published_at, presence: true, if: :published?
   validates :teaser, :subtitle, presence: true, if: :should_validate?
 
-  def should_validate?
+  def needs_validation?
     self.pending? || self.published?
   end
 
