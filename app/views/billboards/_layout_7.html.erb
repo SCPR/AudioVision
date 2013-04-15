@@ -1,14 +1,14 @@
 <div class="billboard layout-7 bound">
 
     <div class="row primary clearfix">
-        <%= render "home/billboards/components/image", post: billboard.posts[0], size: :eight %>
-        <%= render "home/billboards/components/mobile", post: billboard.posts[1] %>
+        <%= render "billboards/components/image", post: billboard.posts[0], size: :eight %>
+        <%= render "billboards/components/mobile", post: billboard.posts[1] %>
     </div><!--/ .row-primary -->
 
 
     <div class="row secondary clearfix">
     <% billboard.posts[2..3].each do |post| %>
-        <%= render "home/billboards/components/video", post: post %>
+        <%= render "billboards/components/video", post: post %>
     <% end %>
     </div><!--/ .row-secondary -->
 

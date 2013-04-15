@@ -1,5 +1,4 @@
-<%= render("/home/billboards/layout_#{@billboard.layout}", billboard: @billboard) if @billboard.present? %>
-
+<%= render @billboard if @billboard.present? %>
 
 <div class="warmup">
 
