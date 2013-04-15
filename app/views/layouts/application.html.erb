@@ -34,18 +34,7 @@
     <link rel="apple-touch-icon-precomposed" href="!!!!!!!!!!!!!!!!!!!!!/apple-touch-icon-144x144-precomposed.png" />
     <link href="http://media.scpr.org/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
-
-    <!--[if lt IE 9]>
-        <%= stylesheet_link_tag "display-ie" %>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <script type="text/javascript" src="http://<%= Rails.application.config.assethost.server %>/assets/client.js"></script>
-    <script type="text/javascript" src="//use.typekit.net/ypz5aii.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
+    <%= render "shared/header/core_includes" %>
     <%= content_for :head %>
 
 </head>
