@@ -66,7 +66,7 @@ class audiovision.Slideshow
             # Fill in the main element with all the pieces
             @el.html        @header
             @header.append  @title
-            @header.append  @fullscreen_button
+            @header.append(@fullscreen_button) if @canGoFullScreen()
             @header.append  @nav.el
             @header.append  @traytoggler.el
             
@@ -135,10 +135,20 @@ class audiovision.Slideshow
             $("button.slideshow-fullscreen").on
                 click: (event) ->
                     el = $($(@).data('target'))[0]
-
+            
                     el.requestFullScreen?() or 
                     el.mozRequestFullScreen?() or 
                     el.webkitRequestFullScreen?()
+                    
+    # Make a fake element and see if it would be able to go fullscreen
+    canGoFullScreen: ->
+        el = $('<div />')[0]
+
+        el.requestFullScreen or 
+        el.mozRequestFullScreen or 
+        el.webkitRequestFullScreen
+
+
     #----------
 
     class @Asset extends Backbone.Model
