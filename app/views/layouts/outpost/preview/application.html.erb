@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
-
-    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-    <script type="text/javascript" src="http://<%= Rails.application.config.assethost.server %>/assets/client.js"></script>
-    <script type="text/javascript" src="//use.typekit.net/ypz5aii.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
+    <%= render "shared/header/core_includes" %>
     <%= content_for :head %>
 
 </head>
