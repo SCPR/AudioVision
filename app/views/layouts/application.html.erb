@@ -38,7 +38,10 @@
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
 
-    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+        <%= stylesheet_link_tag "display-ie" %>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
     <script type="text/javascript" src="http://<%= Rails.application.config.assethost.server %>/assets/client.js"></script>
     <script type="text/javascript" src="//use.typekit.net/ypz5aii.js"></script>

@@ -2976,10 +2976,24 @@ NOVELLA (a standalone, text-heavy page)
 			float: left;
 		}
 		.novella .staff {
-			width: 40.5%; /* 486 / 1200 */
-			background: aqua;
+			width: 44.5%; /* 534 / 1200 */
 			float: right;
 		}
+				.novella .staff h1 {
+					text-transform: uppercase;
+					color: #e0495b;
+					font: normal 900 0.92857142857143em/1 "proxima-nova", Avenir, Arial, sans-serif; /* 13 / 14 */
+					margin-bottom: 20px;
+					padding-left: 4.494382022472%; /* 24 / 534 */
+				}
+				.novella .staff article {
+					background: #ededed;
+					box-shadow: inset 0 8px 0 #d5d5d5;
+					margin-bottom: 38px;
+				}
+				.novella .staff article:last-child {
+					margin-bottom: 0;
+				}
 
 
 
