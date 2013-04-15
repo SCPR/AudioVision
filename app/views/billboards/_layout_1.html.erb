@@ -1,0 +1,13 @@
+<div class="billboard layout-1 bound">
+
+    <div class="row primary">
+        <%= render "billboards/billboards/components/slideshow", post: billboard.posts[0] %>
+    </div><!--/ .row-primary -->
+
+
+    <div class="row secondary clearfix">
+        <%= render "billboards/components/video", post: billboard.posts[1] %>
+        <%= render "billboards/components/mobile", post: billboard.posts[2] %>
+    </div><!--/ .row-secondary -->
+
+</div><!--/ .billboard -->

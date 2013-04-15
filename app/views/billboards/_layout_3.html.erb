@@ -1,13 +1,13 @@
 <div class="billboard layout-3 bound">
 
     <div class="row primary">
-        <%= render "home/billboards/components/slideshow", post: billboard.posts[0] %>
+        <%= render "billboards/components/slideshow", post: billboard.posts[0] %>
     </div><!--/ .row-primary -->
 
 
     <div class="row secondary clearfix">
     <% billboard.posts[1..2].each do |post| %>
-        <%= render "home/billboards/components/video", post: post %>
+        <%= render "billboards/components/video", post: post %>
     <% end %>
     </div><!--/ .row-secondary -->
 
