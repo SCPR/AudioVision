@@ -1,48 +1,89 @@
-.membership										{ background: #60c8eb image-url('i/1x/ephemera-membership-logos-melange.jpg') no-repeat -30px 24px; }
-.membership-inner								{ background: image-url('i/1x/ephemera-membership-diecut.png') no-repeat right top; }
-.membership .secondary p						{ background: image-url('i/1x/ornament-hairline-aqua.png') no-repeat right bottom; }
-.membership .secondary p em						{ background: image-url('i/1x/ephemera-triangle-shadowed.png') no-repeat right 5px; }
-.membership h2									{ background: image-url('i/1x/logo-kpcc-white.png') no-repeat; }
-.epilogue										{ background: black image-url('i/1x/ephemera-footer-scanlines.png') repeat-x left top; }
-.epilogue .branding								{ background: image-url('i/1x/logo-av-lightningbolt-fullcolor.png') no-repeat center top; }
-.epilogue .branding h1							{ background: image-url('i/1x/logo-av-wordmark-white.png') no-repeat; }
-.epilogue .branding h2							{ background: image-url('i/1x/logo-kpcc-white.png') no-repeat; }
-.masthead .kpcc-nav .inside span				{ background: image-url('i/1x/ephemera-triangle-inverted-orange.png') no-repeat right 4px; }
-.masthead .kpcc-brand a							{ background: image-url('i/1x/logo-kpcc-fullcolor.png') no-repeat; }
-.masthead .av-brand h1 a						{ background: image-url('i/1x/logo-av-fullcolor.png') no-repeat; }
-.masthead .wayfinder .selected					{ background: image-url('i/1x/ephemera-indicator-dot.png') no-repeat center bottom; }
-.masthead .follow a								{ background: image-url('i/1x/icons-follow.png') no-repeat; }
-.ledge .nav-kpcc mark span						{ background: image-url('i/1x/logo-kpcc-dropdown.png') no-repeat; }
-.ledge .nav-av mark								{ background: image-url('i/1x/logo-ledge-av.png') no-repeat; }
-.ledge .nav-av .follow a						{ background: black image-url('i/1x/icons-follow.png') no-repeat; }
-.envoy h1 a										{ background: image-url('i/1x/ephemera-triangle-leftward.png') no-repeat left 8px; }
-.landing-recents .primary figcaption .date		{ background: image-url('i/1x/ornament-hairline-gray-med.png') no-repeat left bottom; }
-.roundup-inner .intro							{ background: image-url('i/1x/ornament-lightningbolt-darkgray.png') no-repeat left bottom; }
-.warmup .recent									{ background: image-url('i/1x/ornament-gray-hairline-vertical.png') repeat-y 22.058823529412% top; }
-.warmup .recent figcaption .meta				{ background: image-url('i/1x/ornament-hairline-gray-med.png') no-repeat left bottom; }
-.feedgrid .date									{ background: image-url('i/1x/ornament-hairline-gray-med.png') no-repeat left bottom; }
-.exhibit .primary .caption						{ background: image-url('i/1x/ornament-hairline-gray-med.png') no-repeat right top; }
-.exhibit .essay									{ background: image-url('i/1x/ornament-lightningbolt-stroked.png') no-repeat center bottom; }
-.exhibit .intro									{ background: image-url('i/1x/ornament-lightningbolt-black.png') no-repeat left 26px; }
-.exhibit .intro .share a						{ background: image-url('i/1x/icons-follow.png') no-repeat; }
-.exhibit .prose									{ background: image-url('i/1x/ephemera-essay-prose-shadow.png') no-repeat left top; }
+
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* You don't understand media queries. //////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.bound {
+	width: 1030px;
+}
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* You don't understand background-size. ////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.membership										{ background-image: image-url('i/1x/ephemera-membership-logos-melange.jpg'); }
+.membership-inner								{ background-image: image-url('i/1x/ephemera-membership-diecut.png'); }
+.membership .secondary p						{ background-image: image-url('i/1x/ornament-hairline-aqua.png'); }
+.membership .secondary p em						{ background-image: image-url('i/1x/ephemera-triangle-shadowed.png'); }
+.membership h2									{ background-image: image-url('i/1x/logo-kpcc-white.png'); }
+.epilogue										{ background-image: image-url('i/1x/ephemera-footer-scanlines.png'); }
+.epilogue .branding								{ background-image: image-url('i/1x/logo-av-lightningbolt-fullcolor.png'); }
+.epilogue .branding h1							{ background-image: image-url('i/1x/logo-av-wordmark-white.png'); }
+.epilogue .branding h2							{ background-image: image-url('i/1x/logo-kpcc-white.png'); }
+.masthead .kpcc-nav .inside span				{ background-image: image-url('i/1x/ephemera-triangle-inverted-orange.png'); }
+.masthead .kpcc-brand a							{ background-image: image-url('i/1x/logo-kpcc-fullcolor.png'); }
+.masthead .av-brand h1 a						{ background-image: image-url('i/1x/logo-av-fullcolor.png'); }
+.masthead .wayfinder .selected					{ background-image: image-url('i/1x/ephemera-indicator-dot.png'); }
+.masthead .follow a								{ background-image: image-url('i/1x/icons-follow.png'); }
+.ledge .nav-kpcc mark span						{ background-image: image-url('i/1x/logo-kpcc-dropdown.png'); }
+.ledge .nav-av mark								{ background-image: image-url('i/1x/logo-ledge-av.png'); }
+.ledge .nav-av .follow a						{ background-image: image-url('i/1x/icons-follow.png'); }
+.envoy h1 a										{ background-image: image-url('i/1x/ephemera-triangle-leftward.png'); }
+.landing-recents .primary figcaption .date		{ background-image: image-url('i/1x/ornament-hairline-gray-med.png'); }
+.roundup-inner .intro							{ background-image: image-url('i/1x/ornament-lightningbolt-darkgray.png'); }
+.warmup .recent									{ background-image: image-url('i/1x/ornament-gray-hairline-vertical.png'); }
+.warmup .recent figcaption .meta				{ background-image: image-url('i/1x/ornament-hairline-gray-med.png'); }
+.feedgrid .date									{ background-image: image-url('i/1x/ornament-hairline-gray-med.png'); }
+.exhibit .primary .caption						{ background-image: image-url('i/1x/ornament-hairline-gray-med.png'); }
+.exhibit .essay									{ background-image: image-url('i/1x/ornament-lightningbolt-stroked.png'); }
+.exhibit .intro									{ background-image: image-url('i/1x/ornament-lightningbolt-black.png'); }
+.exhibit .intro .share a						{ background-image: image-url('i/1x/icons-follow.png'); }
+.exhibit .prose									{ background-image: image-url('i/1x/ephemera-essay-prose-shadow.png'); }
 .exhibit .prose .first,
-.novella .prose .first							{ background: image-url('i/1x/ornament-hairline-gray-med.png') no-repeat left bottom; }
-.newsbox header .logo a							{ background: image-url('i/1x/logo-kpcc-white.png') no-repeat; }
-.newsbox .preview a .date						{ background: image-url('i/1x/ornament-hairline-gray-med.png') no-repeat right top; }
-.single-plugs-ephemera h1 span					{ background: image-url('i/1x/logo-phrase-recentlyonav.png') no-repeat; }
-.single-plugs .recently-jump a					{ background: image-url('i/1x/ephemera-triangle-shadowed.png') no-repeat right 5px; }
-.single-plugs .featured h2 span					{ background: image-url('i/1x/ornament-lightningbolt-lightblue.png') no-repeat center top; }
-.single-plugs .featured .preview h3				{ background: image-url('i/1x/ornament-hairline-gray-med.png') no-repeat center bottom; }
-.single-plugs .featured-jump a					{ background: image-url('i/1x/ephemera-triangle-darkgray.png') no-repeat right 3px; }
-.membership										{ background: #60c8eb image-url('i/1x/ephemera-membership-logos-melange.jpg') no-repeat -30px 24px; }
-.membership-inner								{ background: image-url('i/1x/ephemera-membership-diecut.png') no-repeat right top; }
-.membership .secondary p						{ background: image-url('i/1x/ornament-hairline-aqua.png') no-repeat right bottom; }
-.membership .secondary p em						{ background: image-url('i/1x/ephemera-triangle-shadowed.png') no-repeat right 5px; }
-.membership h2									{ background: image-url('i/1x/logo-kpcc-white.png') no-repeat; }
-.epilogue										{ background: black image-url('i/1x/ephemera-footer-scanlines.png') repeat-x left top; }
-.epilogue .branding								{ background: image-url('i/1x/logo-av-lightningbolt-fullcolor.png') no-repeat center top; }
-.epilogue .branding h1							{ background: image-url('i/1x/logo-av-wordmark-white.png') no-repeat; }
-.epilogue .branding h2							{ background: image-url('i/1x/logo-kpcc-white.png') no-repeat; }
+.novella .prose .first							{ background-image: image-url('i/1x/ornament-hairline-gray-med.png'); }
+.newsbox header .logo a							{ background-image: image-url('i/1x/logo-kpcc-white.png'); }
+.newsbox .preview a .date						{ background-image: image-url('i/1x/ornament-hairline-gray-med.png'); }
+.single-plugs-ephemera h1 span					{ background-image: image-url('i/1x/logo-phrase-recentlyonav.png'); }
+.single-plugs .recently-jump a					{ background-image: image-url('i/1x/ephemera-triangle-shadowed.png'); }
+.single-plugs .featured h2 span					{ background-image: image-url('i/1x/ornament-lightningbolt-lightblue.png'); }
+.single-plugs .featured .preview h3				{ background-image: image-url('i/1x/ornament-hairline-gray-med.png'); }
+.single-plugs .featured-jump a					{ background-image: image-url('i/1x/ephemera-triangle-darkgray.png'); }
+.membership										{ background-image: image-url('i/1x/ephemera-membership-logos-melange.jpg'); }
+.membership-inner								{ background-image: image-url('i/1x/ephemera-membership-diecut.png'); }
+.membership .secondary p						{ background-image: image-url('i/1x/ornament-hairline-aqua.png'); }
+.membership .secondary p em						{ background-image: image-url('i/1x/ephemera-triangle-shadowed.png'); }
+.membership h2									{ background-image: image-url('i/1x/logo-kpcc-white.png'); }
+.epilogue										{ background-image: image-url('i/1x/ephemera-footer-scanlines.png'); }
+.epilogue .branding								{ background-image: image-url('i/1x/logo-av-lightningbolt-fullcolor.png'); }
+.epilogue .branding h1							{ background-image: image-url('i/1x/logo-av-wordmark-white.png'); }
+.epilogue .branding h2							{ background-image: image-url('i/1x/logo-kpcc-white.png'); }
+
+
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* You don't understand box-shadow. /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.warmup {
+	border-top: 1px solid black;
+}
+
+
+
+
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* You are generally buggy and terrible. ////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.feedgrid figure .img {
+	border: 1px solid white;
+}
+
 
 
