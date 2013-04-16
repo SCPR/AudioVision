@@ -11,17 +11,24 @@ class Reporter < ActiveRecord::Base
   validates :slug, presence: true
   validates :user, presence: true
 
+  class << self
+    def select_collection
+      self.all.map { |r| [r.name, r.id] }
+    end
+  end
+
+
+  def asset
+    if self.asset_id.present?
+      @asset ||= AssetHost::Asset.find(self.asset_id)
+    end
+  end
+
+
   def route_hash
     return {} if !self.persisted?
     {
       :slug => self.slug
     }
-  end
-
-  
-  class << self
-    def select_collection
-      self.all.map { |r| [r.name, r.id] }
-    end
   end
 end

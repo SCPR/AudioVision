@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130416010946) do
+ActiveRecord::Schema.define(version: 20130416214651) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -139,8 +139,11 @@ ActiveRecord::Schema.define(version: 20130416010946) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_listed"
+    t.integer  "asset_id"
   end
 
+  add_index "reporters", ["is_listed"], name: "index_reporters_on_is_listed"
   add_index "reporters", ["slug"], name: "index_reporters_on_slug"
   add_index "reporters", ["user_id"], name: "index_reporters_on_user_id"
 
