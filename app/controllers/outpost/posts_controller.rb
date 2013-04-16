@@ -12,6 +12,7 @@ class Outpost::PostsController < Outpost::ResourceController
     l.filter :status, collection: -> { Post.status_collection }
   end
 
+
   def preview
     @post = Outpost.obj_by_key(params[:obj_key]) || Post.new
     
@@ -35,6 +36,11 @@ class Outpost::PostsController < Outpost::ResourceController
         :media_type, :title, :subtitle, :body, :teaser, :slug, 
         :related_kpcc_article_url, :asset_json, :status, :published_at, 
         :category_id,
+
+        { publish_alarm_attributes: [
+            :fire_at, :_destroy, :id
+          ]
+        },
 
         { attributions_attributes: [
             :reporter_id, :name, :url, :role, :_destroy, :id

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130411011821) do
+ActiveRecord::Schema.define(version: 20130416010946) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -120,6 +120,17 @@ ActiveRecord::Schema.define(version: 20130411011821) do
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
   add_index "posts", ["media_type"], name: "index_posts_on_media_type"
   add_index "posts", ["status", "published_at"], name: "index_posts_on_status_and_published_at"
+
+  create_table "publish_alarms", force: true do |t|
+    t.integer  "content_id"
+    t.string   "content_type"
+    t.datetime "fire_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "publish_alarms", ["content_id", "content_type"], name: "index_publish_alarms_on_content_id_and_content_type"
+  add_index "publish_alarms", ["fire_at"], name: "index_publish_alarms_on_fire_at"
 
   create_table "reporters", force: true do |t|
     t.string   "name"
