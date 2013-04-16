@@ -50,7 +50,6 @@ AudioVision::Application.routes.draw do
     resources :reporters
     resources :users
     resources :categories
-
     resources :buckets
     
     get "*path" => 'errors#not_found'
