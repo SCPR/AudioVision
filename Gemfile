@@ -6,17 +6,22 @@ gem 'jquery-rails'
 gem 'newrelic_rpm'
 gem 'jbuilder'
 
+gem 'asset_host_client', github: "SCPR/asset_host_client"
+#gem 'asset_host_client', path: "#{ENV['PROJECT_HOME']}/asset_host_client"
+
 
 ## Outpost
-#gem 'outpost', path: '/Users/bryan/projects/outpost'
-#gem 'outpost', path: '/Users/bricker/websites/kpcc/outpost'
+#gem 'outpost', path: "#{ENV['PROJECT_HOME']}/outpost"
 gem 'outpost', github: 'SCPR/outpost'
 
-#gem 'outpost-asset_host', path: "/Users/bryan/projects/outpost-asset_host"
+#gem 'outpost-asset_host', path: "#{ENV['PROJECT_HOME']}/outpost-asset_host"
 gem 'outpost-asset_host', github: "SCPR/outpost-asset_host"
 
-#gem 'outpost-aggregator', path: "/Users/bryan/projects/outpost-aggregator"
+#gem 'outpost-aggregator', path: "#{ENV['PROJECT_HOME']}/outpost-aggregator"
 gem 'outpost-aggregator', github: "SCPR/outpost-aggregator"
+
+gem 'outpost-publishing', path: "#{ENV['PROJECT_HOME']}/outpost-publishing"
+#gem 'outpost-publishing', github: "SCPR/outpost-publishing"
 
 
 
