@@ -5,6 +5,7 @@ class Outpost::ReportersController < Outpost::ResourceController
     l.column :name
     l.column :user
     l.column :slug
+    l.column :is_listed
   end
 
 
@@ -24,7 +25,7 @@ class Outpost::ReportersController < Outpost::ResourceController
   def form_params
     params.require(model.singular_route_key)
       .permit(
-        :name, :slug, :bio, :user_id
+        :name, :slug, :bio, :user_id, :asset_id, :is_listed
       )
   end
 end
