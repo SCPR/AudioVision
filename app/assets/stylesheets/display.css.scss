@@ -2307,6 +2307,11 @@ EXHIBIT (the main part of a single node)
 									background: image-url('i/ornament-hairline-gray-med.png') no-repeat left bottom;
 									background-size: 20px 1px;
 								}
+								.exhibit .prose img {
+									display: block;
+									max-width: 100% !important;
+									height: auto !important;
+								}
 
 
 
