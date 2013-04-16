@@ -33,7 +33,7 @@
                     </ul>
                 </header>
                 <div class="bio clearfix">
-                    <p><%= reporter.bio.html_safe %></p>
+                    <%= simple_format(reporter.bio, {}, sanitize: false) %>
                     
                     <% if reporter.asset.present? %>
                     <b class="img"><img src="<%=reporter.asset.small.url%>" alt="<%=reporter.name%>" /></b>
