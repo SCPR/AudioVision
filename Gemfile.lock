@@ -19,6 +19,12 @@ GIT
     outpost-asset_host (1.0.0)
 
 GIT
+  remote: git://github.com/SCPR/outpost-publishing.git
+  revision: ce3ccf930df49a79bbc716eae8c3e63442c525b0
+  specs:
+    outpost-publishing (1.0.0)
+
+GIT
   remote: git://github.com/SCPR/outpost.git
   revision: b8ae4f90424eca35575f23ecd013d4e6abb4c649
   specs:
@@ -63,11 +69,6 @@ GIT
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-
-PATH
-  remote: /Users/bryan/projects/outpost-publishing
-  specs:
-    outpost-publishing (1.0.0)
 
 GEM
   remote: https://rubygems.org/
