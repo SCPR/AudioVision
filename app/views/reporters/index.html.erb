@@ -1,14 +1,8 @@
-<header class="landing-welcome">
-    <hgroup class="bound">
-        <h1>About AudioVision</h1>
-        <h2>Who we are and what we're about.</h2>
-    </hgroup>
-</header>
-
 <div class="novella">
     <div class="novella-inner clearfix bound">
-        
+
         <section class="prose">
+            <h1>About AudioVision</h1>
             <p>AudioVision brings you the best in visual journalism and culture from Southern California. We share the stories of our community through photography, video, audio and social media.</p>
             <p>AudioVision is edited by the visuals team for Southern California Public Radio, the second-largest public radio affiliate in the nation. We are photographers, videographers, radio journalists and writers. Our team has roamed Southern California since 2011, making  pictures for radio.</p>
             <p>Here at AudioVision, we also scour the web for visual delights from Southern California and beyond. We search for stories that tickle your brain as much as your eyes. We are public radio, visualized.</p>
@@ -22,25 +16,59 @@
         </section><!--/ .prose -->
         
         <section class="staff">
-            <h1>Editors</h1>
+            <h2>AudioVision Editors</h2>
             <article>
-                Hi, I'm Grant
+                <header>
+                    <h3>Mae Ryan</h3>
+                    <ul class="clearfix">
+                        <li class="email"><a href="mailto:mryan@scpr.org" title="Email Mae">Email Mae</a></li>
+                        <li class="twitter"><a href="https://twitter.com/MaeRyan" title="Mae on Twitter">Mae on Twitter</a></li>
+                    </ul>
+                </header>
+                <div class="bio clearfix">
+                    <p>Mae fell in love with photography in her high school’s darkroom and has been making images ever since. She took a detour to study Architectural Design and those physics classes have yet to payoff. Mae’s work has won some awards and appeared in Wired, TIME, The Wall Street Journal and other national publications. Although it’s hard to imagine now, Mae was a national rugby champion, but she hasn’t used her tackling skills on the job, yet.</p>
+                    <b class="img"><img src="http://a.scpr.org/i/acb8ba99b521bf86bbb035fab1b06e12/53686-three.jpg" alt="Mae Ryan" /></b>
+                </div>
             </article>
             <article>
-                Hi, I'm Mae
+                <header>
+                    <h3>Grant Slater</h3>
+                    <ul class="clearfix">
+                        <li class="email"><a href="mailto:gslater@scpr.org">Email Grant</a></li>
+                        <li class="twitter"><a href="https://twitter.com/grantslater">Grant on Twitter</a></li>
+                    </ul>
+                </header>
+                <div class="bio clearfix">
+                    <p>Grant is an Okie who followed his grandfather on the well-worn Dust Bowl path to seek fame and fortune in Southern California. He was a writer for various newspapers and news agencies before picking up a camera in 2010. He has reported from most countries in the former Soviet Union, Israel, Iraq and Kosovo. His work has appeared in The New York Times, The Associated Press and a lot of other places. His biggest regret is taking four years of Latin instead of Spanish in high school.</p>
+                    <b class="img"><img src="http://a.scpr.org/i/3b5869fc99cac2f21c3b05ca65699039/53664-three.jpg" alt="Grant Slater" /></b>
+                </div>
             </article>
             <article>
-                Hi, I'm Maya
+                <header>
+                    <h3>Maya Sugarman</h3>
+                    <ul class="clearfix">
+                        <li class="email"><a href="mailto:msugarman@scpr.org">Email Maya</a></li>
+                        <li class="twitter"><a href="https://twitter.com/maya_sugarman">Maya on Twitter</a></li>
+                    </ul>
+                </header>
+                <div class="bio clearfix">
+                    <p>Vestibulum mollis sapien aliquet sem congue nec porta metus euismod. Integer vitae erat sapien, non tincidunt orci. Sed mattis elit tellus. Aenean neque eros, bibendum a feugiat sit amet, ullamcorper sit amet leo. Duis sit amet venenatis ante. Quisque urna urna, sodales id fermentum sit amet, malesuada sed arcu. Maecenas sollicitudin, lacus non consectetur ultrices, elit leo lobortis purus, in fermentum enim nibh ut odio.</p>
+                    <b class="img"><img src="http://a.scpr.org/i/e650d30337ca3adb648b8ea797a8030d/52974-three.jpg" alt="Maya Sugarman" /></b>
+                </div>
             </article>
-        </section>
-        
+
+
+
+        <!--    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                Bryan's actual Rails block for fetching these for reals:
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                <% @reporters.each do |reporter| %>
+                    <li><%= link_to reporter.name, reporter.link_path %></li>
+                <% end %>
+        <!--    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+        </section><!--/ .staff -->
+    
     </div>
 </div><!--/ novella -->
-
-
-<h1 style="margin-top: 300px;">Reporters</h1>
-<ul>
-<% @reporters.each do |reporter| %>
-    <li><%= link_to reporter.name, reporter.link_path %></li>
-<% end %>
-</ul>
