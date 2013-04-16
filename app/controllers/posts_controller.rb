@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def show
-    @post       = Post.includes(:attributions).find(params[:id])
+    @post       = Post.includes(:attributions, :category).find(params[:id])
     @category   = @post.category
 
     @nav_highlight = @category.slug
@@ -10,7 +10,6 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml
       format.json
     end
   end
