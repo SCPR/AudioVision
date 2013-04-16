@@ -2975,6 +2975,17 @@ NOVELLA (a standalone, text-heavy page)
 			width: 40.5%; /* 486 / 1200 */
 			float: left;
 		}
+				.novella .addendum {
+					margin-top: 35px;
+					border-top: 1px solid rgba(0,0,0,0.2);
+					font-size: 0.875em;
+					color: gray;
+					padding: 20px 0 0 55px;
+					background: image-url('i/ornament-lightningbolt-stroked.png') no-repeat left 21px;
+					background-size: 24px 21px;
+					font-style: italic;
+				}
+
 		.novella .staff {
 			width: 44.5%; /* 534 / 1200 */
 			float: right;

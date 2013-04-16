@@ -88,19 +88,12 @@
 /* You are generally buggy and terrible. ////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-.single-plugs .recently figure {
-	border: 1px solid transparent;
-}
-.single-plugs .featured figure {
-	border: 1px solid transparent;
-}
+.single-plugs .recently figure					{ border: 1px solid transparent; }
+.single-plugs .featured figure					{ border: 1px solid transparent; }
 .feedgrid figure .img,
-.single-plugs img {
-	border: 1px solid black;
-}
-.single-plugs .recently .img {
-	margin-bottom: 13px; /* not 8 */
-}
+.single-plugs img								{ border: 1px solid black; }
+.single-plugs .recently .img					{ margin-bottom: 13px; /* not 8 */ }
+
 body.landing .masthead .av-brand h1,
 body.single .masthead .av-brand h1 {
     height: 45px;
