@@ -17,6 +17,7 @@ class Reporter < ActiveRecord::Base
     end
   end
 
+  delegate :email, to: :user
 
   def asset
     if self.asset_id.present?

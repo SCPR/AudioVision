@@ -17,58 +17,31 @@
         
         <section class="staff">
             <h2>AudioVision Editors</h2>
+
+            <% @reporters.each do |reporter| %>
             <article>
                 <header>
-                    <h3>Mae Ryan</h3>
+                    <h3><%= link_to reporter.name, reporter.link_path %></h3>
                     <ul class="clearfix">
-                        <li class="email"><a href="mailto:mryan@scpr.org" title="Email Mae">Email Mae</a></li>
-                        <li class="twitter"><a href="https://twitter.com/MaeRyan" title="Mae on Twitter">Mae on Twitter</a></li>
+                    <% if reporter.email.present? %>
+                        <li class="email"><a href="mailto:<%=reporter.email%>" title="<%=reporter.email%>"><%= reporter.email %></a></li>
+                    <% end %>
+
+                    <% if reporter.twitter_handle.present? %>
+                        <li class="twitter"><a href="https://twitter.com/<%=reporter.twitter_handle%>" title="@<%=reporter.twitter_handle%>">@<%=reporter.twitter_handle%></a></li>
+                    <% end %>
                     </ul>
                 </header>
                 <div class="bio clearfix">
-                    <p>Mae fell in love with photography in her high school’s darkroom and has been making images ever since. She took a detour to study Architectural Design and those physics classes have yet to payoff. Mae’s work has won some awards and appeared in Wired, TIME, The Wall Street Journal and other national publications. Although it’s hard to imagine now, Mae was a national rugby champion, but she hasn’t used her tackling skills on the job, yet.</p>
-                    <b class="img"><img src="http://a.scpr.org/i/acb8ba99b521bf86bbb035fab1b06e12/53686-three.jpg" alt="Mae Ryan" /></b>
+                    <p><%= reporter.bio.html_safe %></p>
+                    
+                    <% if reporter.asset.present? %>
+                    <b class="img"><img src="<%=reporter.asset.small.url%>" alt="<%=reporter.name%>" /></b>
+                    <% end %>
                 </div>
             </article>
-            <article>
-                <header>
-                    <h3>Grant Slater</h3>
-                    <ul class="clearfix">
-                        <li class="email"><a href="mailto:gslater@scpr.org">Email Grant</a></li>
-                        <li class="twitter"><a href="https://twitter.com/grantslater">Grant on Twitter</a></li>
-                    </ul>
-                </header>
-                <div class="bio clearfix">
-                    <p>Grant is an Okie who followed his grandfather on the well-worn Dust Bowl path to seek fame and fortune in Southern California. He was a writer for various newspapers and news agencies before picking up a camera in 2010. He has reported from most countries in the former Soviet Union, Israel, Iraq and Kosovo. His work has appeared in The New York Times, The Associated Press and a lot of other places. His biggest regret is taking four years of Latin instead of Spanish in high school.</p>
-                    <b class="img"><img src="http://a.scpr.org/i/3b5869fc99cac2f21c3b05ca65699039/53664-three.jpg" alt="Grant Slater" /></b>
-                </div>
-            </article>
-            <article>
-                <header>
-                    <h3>Maya Sugarman</h3>
-                    <ul class="clearfix">
-                        <li class="email"><a href="mailto:msugarman@scpr.org">Email Maya</a></li>
-                        <li class="twitter"><a href="https://twitter.com/maya_sugarman">Maya on Twitter</a></li>
-                    </ul>
-                </header>
-                <div class="bio clearfix">
-                    <p>Vestibulum mollis sapien aliquet sem congue nec porta metus euismod. Integer vitae erat sapien, non tincidunt orci. Sed mattis elit tellus. Aenean neque eros, bibendum a feugiat sit amet, ullamcorper sit amet leo. Duis sit amet venenatis ante. Quisque urna urna, sodales id fermentum sit amet, malesuada sed arcu. Maecenas sollicitudin, lacus non consectetur ultrices, elit leo lobortis purus, in fermentum enim nibh ut odio.</p>
-                    <b class="img"><img src="http://a.scpr.org/i/e650d30337ca3adb648b8ea797a8030d/52974-three.jpg" alt="Maya Sugarman" /></b>
-                </div>
-            </article>
-
-
-
-        <!--    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                Bryan's actual Rails block for fetching these for reals:
-                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-                <% @reporters.each do |reporter| %>
-                    <li><%= link_to reporter.name, reporter.link_path %></li>
-                <% end %>
-        <!--    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-
+            <% end %>
+            
         </section><!--/ .staff -->
-    
     </div>
 </div><!--/ novella -->

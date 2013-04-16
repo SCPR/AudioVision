@@ -2,7 +2,7 @@ class ReportersController < ApplicationController
   before_filter :set_nav_highlight
 
   def index
-    @reporters = Reporter.all
+    @reporters = Reporter.where(is_listed: true)
   end
 
   def show

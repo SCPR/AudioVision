@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130416214651) do
+ActiveRecord::Schema.define(version: 20130416220101) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20130416214651) do
     t.datetime "updated_at"
     t.boolean  "is_listed"
     t.integer  "asset_id"
+    t.string   "twitter_handle"
   end
 
   add_index "reporters", ["is_listed"], name: "index_reporters_on_is_listed"
