@@ -3,6 +3,7 @@
   <%= f.input :name %>
   <%= f.input :bio, input_html: { class: 'tiny' } %>
   <%= f.input :slug %>
+  <%= f.input :twitter_handle, hint: "No @ symbol" %>
   <%= f.input :asset_id, label: "Asset ID", input_html: { class: "span1" } %>
   <%= f.input :is_listed, hint: "Should this bio show up in the list of reporters on the website?" %>
 <% end %>
