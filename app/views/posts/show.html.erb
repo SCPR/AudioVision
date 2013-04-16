@@ -2,7 +2,24 @@
 
 <%= render @post %>
 
-<div style="width: 100%; margin-bottom: 90px; padding: 60px 0; color: white; text-align: center; background: #eb592a;">Sponsorship, if it was happening, which it isn't (but is here for now, because it breaks up the page)</div>
+
+
+
+<aside class="spokesman instapromo">
+    <a href="http://instagram.com/kpcc" title="Follow KPCC on Instagram">
+        <div class="instapromo-header">
+            <div class="bound">
+                <h1>Get a steady stream of KPCC in your feed.</h1>
+            </div>
+        </div>
+        <div class="instapromo-footer">
+            <div class="bound">
+                <h2>Follow @KPCC on Instagram for photos from behind the scenes and across LA.</h2>
+                <span class="brand">89.3 KPCC</span>
+            </div>
+        </div>
+    </a>
+</aside><!--/ .insta-promo -->
 
 
 
@@ -22,8 +39,7 @@
                 <article>
                     <a href="<%=post.link_path%>">
                         <figure>
-                            <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" />
-</b></div>
+                            <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
                             <figcaption>
                                 <span class="date"><%= format_date(post.published_at) %></span>
                                 <mark class="title"><%= post.title %></mark>
