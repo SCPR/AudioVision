@@ -3129,6 +3129,9 @@ SPOKESMAN: INSTAPROMO
 #####################################################################################################################
 ##################################################################################################################### */
 
+.exhibit		{ display: none; }
+.instapromo		{ margin-top: 100px; }
+
 .instapromo {
 }
 		.instapromo > a {
@@ -3153,15 +3156,16 @@ SPOKESMAN: INSTAPROMO
 		.instapromo-footer {
 			background: #b24401;
 			box-shadow: inset 0 -8px 0 #d1d1d1;
-			padding: 17px 0 21px;
+			padding: 17px 0 25px;
 		}
 				.instapromo-footer .bound {
 					position: relative;
-					background: green;
 				}
 				.instapromo-footer h2 {
-					background: purple;
-					margin-right: 110px;
+					background: image-url('i/icon-instagram-white.png') no-repeat;
+					background-size: 17px 17px;
+					padding-left: 25px;
+					margin-right: 100px;
 					font-size: 0.9375em; /* 15 / 16 */
 					font-weight: 700;
 				}
@@ -3172,12 +3176,36 @@ SPOKESMAN: INSTAPROMO
 					background: image-url('i/logo-kpcc-white.png') no-repeat;
 					background-size: 100%;
 					position: absolute;
-					top: 4px;
+					top: 3px;
 					right: 0;
 					white-space: nowrap;
 					text-indent: 100%;
 					overflow: hidden;
 				}
+
+				/*	===================================================================================
+				    =================================================================================== */
+
+				    @media screen and (max-width: 462px) {
+
+						.instapromo-footer {
+							padding-bottom: 30px;
+						}
+						.instapromo-footer h2 {
+							margin: 0 0 18px;
+							font-size: 0.8125em; /* 13 / 16 */
+							padding-bottom: 20px;
+							border-bottom: 1px solid rgba(255,255,255,0.2);
+						}
+						.instapromo-footer .brand {
+							position: static;
+							margin: 0 auto;
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */
 
 
 
