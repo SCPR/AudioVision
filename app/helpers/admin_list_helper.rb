@@ -13,4 +13,8 @@ module AdminListHelper
   def display_media_type(media_type)
     Post::MEDIA_TYPES_TEXT[media_type]
   end
+
+  def status_bootstrap_map
+    STATUS_BOOTSTRAP_MAP
+  end
 end

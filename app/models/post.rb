@@ -3,7 +3,8 @@ class Post < ActiveRecord::Base
   ROUTE_KEY = "post"
 
   include ConditionalValidation
-  
+  include Schedulable
+
   MEDIA_TYPES = {
     :image        => 0,
     :slideshow    => 1,
@@ -39,13 +40,17 @@ class Post < ActiveRecord::Base
     STATUS[:published] => "Published"
   }
 
+
+
   scope :published, -> { where(status: STATUS[:published]).order("published_at desc") }
+
 
   # Associations
   has_many :assets, -> { order("position") }, class_name: "PostAsset", dependent: :destroy
   accepts_json_input_for_assets
 
   has_many :attributions, dependent: :destroy
+  accepts_nested_attributes_for :attributions, allow_destroy: true, reject_if: :should_reject_attributions?
   has_many :authors, -> { where(role: Attribution::ROLE_AUTHOR) }, class_name: "Attribution"
   has_many :contributors, -> { where(role: Attribution::ROLE_CONTRIBUTOR) }, class_name: "Attribution"
 
@@ -53,30 +58,15 @@ class Post < ActiveRecord::Base
 
   has_many :post_references, dependent: :destroy
 
-  accepts_nested_attributes_for :attributions, allow_destroy: true, reject_if: :should_reject_attributions?
 
   def should_reject_attributions?(attributes)
     attributes['reporter_id'].blank? &&
     attributes['name'].blank?
   end
 
+
   def asset
     @asset ||= self.assets.first || AssetHost::Fallback.new
-  end
-
-
-  def json
-    {
-      :id           => self.obj_key,
-      :title        => self.to_title,
-      :published_at => self.published_at,
-      :teaser       => self.teaser,
-      :body         => self.body,
-      :permalink    => self.remote_link_path,
-      :asset        => self.asset.lsquare.tag,
-      :byline       => self.byline,
-      :edit_link    => self.admin_edit_path
-    }
   end
 
   # Validations
@@ -153,6 +143,23 @@ class Post < ActiveRecord::Base
   end
 
 
+
+  def json
+    {
+      :id           => self.obj_key,
+      :title        => self.to_title,
+      :published_at => self.published_at,
+      :teaser       => self.teaser,
+      :body         => self.body,
+      :permalink    => self.remote_link_path,
+      :asset        => self.asset.lsquare.tag,
+      :byline       => self.byline,
+      :edit_link    => self.admin_edit_path
+    }
+  end
+
+  
+
   def related_kpcc_article
     @related_kpcc_article ||= begin
       if json = Rails.cache.fetch("#{self.obj_key}/related_article_json")
@@ -170,6 +177,13 @@ class Post < ActiveRecord::Base
     MEDIA_TYPES_KEYS[self.media_type]
   end
 
+  def media_type_text
+    MEDIA_TYPES[self.media_type]
+  end
+
+  def status_text
+    STATUS_TEXT[self.status]
+  end
 
 
   # Status methods
