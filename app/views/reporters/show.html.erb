@@ -1,3 +1,6 @@
+<% meta_tags(description: @reporter.bio, image: @reporter.asset.lsquare.url, url: @reporter.remote_link_path) %>
+<% add_to_page_title @reporter.name %>
+
 <h1><%= @reporter.name %></h1>
 <p><%= @reporter.bio.html_safe %></p>
 

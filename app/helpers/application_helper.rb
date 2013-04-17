@@ -26,4 +26,13 @@ module ApplicationHelper
 
     render "shared/byline", elements: byline_elements
   end
+
+
+  def meta_information
+    @meta_hash ||= {}
+  end
+
+  def meta_tags(hash)
+    meta_information.merge!(hash)
+  end
 end
