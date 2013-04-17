@@ -1,5 +1,7 @@
 <% @BODY_CLASS = "single" %>
 
+<%= cache post do %>
+
 <!-- Common code for all single posts -->
 <div class="exhibit">
     <div class="exhibit-inner bound clearfix">
@@ -38,20 +40,22 @@
                     <%= post.body.html_safe %>
 
                     <% if post.contributors.present? %>
-                    <h3>Contributors</h3>
-                    <ul class="contributors">
-                    <% post.contributors.each do |attribution| %>
-                        <li>
-                        <% if attribution.name.present? %>
-                        <% if attribution.url.present? %>
-                            <%= link_to attribution.name, attribution.url %>
-                        <% else %>
-                            <%= attribution.name %>
+                    
+                        <h3>Contributors</h3>
+                        <ul class="contributors">
+                        <% post.contributors.each do |attribution| %>
+                            <li>
+                            <% if attribution.name.present? %>
+                                <% if attribution.url.present? %>
+                                    <%= link_to attribution.name, attribution.url %>
+                                <% else %>
+                                    <%= attribution.name %>
+                                <% end %>
+                            <% end %>
+                            </li>
                         <% end %>
-                        <% end %>
-                        </li>
-                    <% end %>
-                    </ul>
+                        </ul>
+
                     <% end %>
                 </div>
             </article>
@@ -59,3 +63,5 @@
 
     </div><!--/ .exhibit-inner -->
 </div><!--/ .exhibit -->
+
+<% end %>

@@ -5,18 +5,12 @@
     </hgroup>
 </header>
 
-<!--
-<ul>
-<% @posts.each do |post| %>
-  <li><%= link_to post.title, post.link_path %></li>
-<% end %>
-</ul>
--->
-
+<%= cache @posts do %>
 
 <section class="feedgrid med bound">
     <%= render "/posts/collection", posts: @posts %>
 </section>
 
-
 <%= paginate @posts %>
+
+<% end %>

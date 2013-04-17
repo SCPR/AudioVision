@@ -10,6 +10,7 @@
 
 
 
+<%= cache @posts do %>
 
 <section class="landing-recents">
     <div class="landing-recents-inner bound clearfix">
@@ -61,3 +62,5 @@
 
 
 <%= render "shared/archive_bar", category: @category, posts: @posts[13..16] %>
+
+<% end %>

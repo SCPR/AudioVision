@@ -1,8 +1,4 @@
-<% @BODY_CLASS = "single" %>
-
 <%= render @post %>
-
-
 
 
 <aside class="spokesman instapromo">
@@ -32,23 +28,27 @@
     </div><!--/ .single-plugs-ephemera -->
     <div class="single-plugs-inner clearfix bound">
         <section class="recently">
-            
-        <% @recent_posts_not_this_type.each_slice(2) do |group| %>
-            <div class="pair clearfix">
-            <% group.each do |post| %>
-                <article>
-                    <a href="<%=post.link_path%>">
-                        <figure>
-                            <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
-                            <figcaption>
-                                <span class="date"><%= format_date(post.published_at) %></span>
-                                <mark class="title"><%= post.title %></mark>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </article>
+        
+        <%= cache @recent_posts_not_this_type do %>
+
+            <% @recent_posts_not_this_type.each_slice(2) do |group| %>
+                <div class="pair clearfix">
+                <% group.each do |post| %>
+                    <article>
+                        <a href="<%=post.link_path%>">
+                            <figure>
+                                <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
+                                <figcaption>
+                                    <span class="date"><%= format_date(post.published_at) %></span>
+                                    <mark class="title"><%= post.title %></mark>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </article>
+                <% end %>
+                </div><!--/ .pair -->
             <% end %>
-            </div><!--/ .pair -->
+
         <% end %>
 
         </section>
@@ -57,25 +57,30 @@
             <a href="/archive">Browse Everything</a>
         </aside>
 
-        <section class="featured">
-            <h2><span>Featured <%= @category.title.pluralize %></span></h2>
-            
-            <% @recent_posts_this_type.each do |post| %>
-                <a href="<%=post.link_path%>" class="preview">
-                    <figure>
-                        <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
-                        <figcaption>
-                            <h3><%= post.title %></h3>
-                            <p><%= post.teaser.html_safe %></p>
-                        </figcaption>
-                    </figure>
-                </a>
-            <% end %>
-        </section>
+        <%= cache @recent_posts_this_type do %>
 
-        <aside class="featured-jump">
-            <a href="<%=archive_path(category: @category.slug)%>">See All <%= @category.title.pluralize %></a>
-        </aside>
+            <section class="featured">
+                <h2><span>Featured <%= @category.title.pluralize %></span></h2>
+
+                <% @recent_posts_this_type.each do |post| %>
+                    <a href="<%=post.link_path%>" class="preview">
+                        <figure>
+                            <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
+                            <figcaption>
+                                <h3><%= post.title %></h3>
+                                <p><%= post.teaser.html_safe %></p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                <% end %>
+
+            </section>
+
+            <aside class="featured-jump">
+                <a href="<%=archive_path(category: @category.slug)%>">See All <%= @category.title.pluralize %></a>
+            </aside>
+
+        <% end %>
 
     </div>
 </div><!--/ .single-plugs -->
