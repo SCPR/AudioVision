@@ -6,7 +6,7 @@ json.updated_at post.updated_at
 
 json.category post.category.title
 
-json.title post.title  
+json.title post.title
 json.subtitle post.subtitle
 
 json.byline post.byline
