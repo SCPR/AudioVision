@@ -25,7 +25,8 @@ class Outpost::ReportersController < Outpost::ResourceController
   def form_params
     params.require(model.singular_route_key)
       .permit(
-        :name, :slug, :bio, :user_id, :asset_id, :is_listed, :twitter_handle
+        :name, :slug, :bio, :user_id, :asset_id, :is_listed, 
+        :twitter_handle, :email
       )
   end
 end
