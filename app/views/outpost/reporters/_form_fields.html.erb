@@ -2,8 +2,17 @@
   <%= f.association :user %>
   <%= f.input :name %>
   <%= f.input :bio, input_html: { class: 'tiny' } %>
-  <%= f.input :slug %>
-  <%= f.input :twitter_handle, hint: "No @ symbol" %>
   <%= f.input :asset_id, label: "Asset ID", input_html: { class: "span1" } %>
+<% end %>
+
+<%= form_block "Content" do %>
+  <%= f.input :email %>
+  <%= f.input :twitter_handle, wrapper: :prepend, hint: "No @ symbol" do %>
+    <span class="add-on">@</span><%= f.input_field :email, class: 'span2' %>
+  <% end %>
+<% end %>
+
+<%= form_block "Website" do %>
+  <%= f.input :slug %>
   <%= f.input :is_listed, hint: "Should this bio show up in the list of reporters on the website?" %>
 <% end %>
