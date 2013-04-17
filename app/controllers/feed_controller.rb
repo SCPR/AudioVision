@@ -2,7 +2,7 @@ class FeedController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    @posts = Post.published.page(params[:page]).per(15)
+    @posts = Post.published.page(params[:page]).per(16)
 
     if params[:category].present?
       @category = Category.find_by_slug(params[:category])
