@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
 
   include ConditionalValidation
   include Schedulable
+  include StatusMethods
+  include PublishedScope
+  include AutoPublishedAt
 
   MEDIA_TYPES = {
     :image        => 0,
@@ -42,32 +45,20 @@ class Post < ActiveRecord::Base
 
 
 
-  scope :published, -> { where(status: STATUS[:published]).order("published_at desc") }
-
-
   # Associations
   has_many :assets, -> { order("position") }, class_name: "PostAsset", dependent: :destroy
   accepts_json_input_for_assets
 
   has_many :attributions, dependent: :destroy
-  accepts_nested_attributes_for :attributions, allow_destroy: true, reject_if: :should_reject_attributions?
   has_many :authors, -> { where(role: Attribution::ROLE_AUTHOR) }, class_name: "Attribution"
   has_many :contributors, -> { where(role: Attribution::ROLE_CONTRIBUTOR) }, class_name: "Attribution"
+  accepts_nested_attributes_for :attributions, allow_destroy: true, reject_if: :should_reject_attributions?
 
   belongs_to :category
 
   has_many :post_references, dependent: :destroy
 
 
-  def should_reject_attributions?(attributes)
-    attributes['reporter_id'].blank? &&
-    attributes['name'].blank?
-  end
-
-
-  def asset
-    @asset ||= self.assets.first || AssetHost::Fallback.new
-  end
 
   # Validations
   validates :slug, {
@@ -88,7 +79,6 @@ class Post < ActiveRecord::Base
   validates :media_type, presence: true, inclusion: { in: MEDIA_TYPES.values }
 
   validates :body, presence: true, if: :should_validate?
-  validates :published_at, presence: true, if: :published?
   validates :teaser, :subtitle, presence: true, if: :should_validate?
 
   def needs_validation?
@@ -96,26 +86,23 @@ class Post < ActiveRecord::Base
   end
 
 
+
   # Callbacks
-  before_validation :generate_slug,           if: -> { self.should_validate? && self.slug.blank? }
-  before_validation :set_published_at_to_now, if: -> { self.published? && self.published_at.blank? }
-  before_validation :set_published_at_to_nil, if: -> { !self.published? && self.published_at.present? }
+  before_validation :generate_slug, if: -> { self.should_validate? && self.slug.blank? }
 
+  after_save -> { self.touch }
+  after_save :touch_referrers
 
+  # Generate the slug based on the title.
   def generate_slug
     if self.title.present?
       self.slug = self.title.parameterize[0...50].sub(/-+\z/, "")
     end
   end
 
-  # Set published_at to Time.now
-  def set_published_at_to_now
-    self.published_at = Time.now
-  end
-
-  # Set published_at to nil
-  def set_published_at_to_nil
-    self.published_at = nil
+  # Expire the cache for these.
+  def touch_referrers
+    self.post_references.each { |r| r.touch }
   end
 
 
@@ -125,10 +112,7 @@ class Post < ActiveRecord::Base
       MEDIA_TYPES_TEXT.map { |k, v| [v, k] }
     end
 
-    def status_collection
-      STATUS_TEXT.map { |k, v| [v, k] }
-    end
-
+    # Find a post by its URL.
     def by_url(url)
       begin
         u = URI.parse(url)
@@ -137,64 +121,31 @@ class Post < ActiveRecord::Base
       end
       
       u.path.match(%r{\A/(\d+)}) do |match|
-        Post.find_by_id(match[1])
+        Post.published.find_by_id(match[1])
       end
     end
   end
 
 
-
-  def json
-    {
-      :id           => self.obj_key,
-      :title        => self.to_title,
-      :published_at => self.published_at,
-      :teaser       => self.teaser,
-      :body         => self.body,
-      :permalink    => self.remote_link_path,
-      :asset        => self.asset.lsquare.tag,
-      :byline       => self.byline,
-      :edit_link    => self.admin_edit_path
-    }
+  #------------------
+  # Grab the first asset. 
+  # If for some reason it's empty, return a Fallback asset.
+  def asset
+    @asset ||= (self.assets.first || AssetHost::Fallback.new)
   end
 
-  
-
-  def related_kpcc_article
-    @related_kpcc_article ||= begin
-      if json = Rails.cache.fetch("#{self.obj_key}/related_article_json")
-        Kpcc::Article.new(JSON.parse(json))
-      end
-    end
-  end
-
-
+  #-------------------
+  # All bylines mixed into one.
   def byline
-    self.attributions.map(&:to_s).join(" | ")
+    self.attributions.for_byline.map(&:to_s).to_sentence
   end
 
+
+  # The key for the media type.
+  # This is used for template rendering.
   def media_type_key
     MEDIA_TYPES_KEYS[self.media_type]
   end
-
-  def media_type_text
-    MEDIA_TYPES[self.media_type]
-  end
-
-  def status_text
-    STATUS_TEXT[self.status]
-  end
-
-
-  # Status methods
-  def pending?
-    self.status == STATUS[:pending]
-  end
-
-  def published?
-    self.status == STATUS[:published]
-  end
-
 
 
   def route_hash
@@ -203,5 +154,14 @@ class Post < ActiveRecord::Base
       :id     => self.id,
       :slug   => self.persisted_record.slug
     }
+  end
+
+
+
+  private
+
+  def should_reject_attributions?(attributes)
+    attributes['reporter_id'].blank? &&
+    attributes['name'].blank?
   end
 end
