@@ -26,7 +26,7 @@ AudioVision::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
 
-  default_url_options[:host] = "localhost:3000"
+  default_url_options[:host] = "localhost:3001"
 
   config.dbsync = ActiveSupport::OrderedOptions.new
   config.dbsync.filename    = "audio_vision_production.dump"
