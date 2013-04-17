@@ -8,7 +8,7 @@ module ApplicationHelper
 
 
   def render_byline(post)
-    attributions = post.attributions.where('role in (?)', [Attribution::ROLE_AUTHOR, Attribution::ROLE_SOURCE]).order('role')
+    attributions = post.attributions.for_byline
     byline_elements = []
 
     attributions.each do |attribution|
