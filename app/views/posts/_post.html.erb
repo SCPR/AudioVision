@@ -17,9 +17,16 @@
                     <h1 class="title"><%= link_to post.title, post.link_path %></h1>
                     <aside class="share">
                         <ul class="clearfix">
-                            <li class="fbk"><a href="#">Share this on Facebook</a></li>
-                            <li class="twi"><a href="#">Share this on Twitter</a></li>
-                            <li class="tum"><a href="#">Share this on Tumblr</a></li>
+
+                            <li class="fbk"><a href="https://www.facebook.com/sharer.php?u=<%= URI.escape(post.remote_link_path) %>&amp;t=<%= post.title %>">Share this on Facebook</a></li>
+                            <li class="twi"><a href="https://twitter.com/intent/tweet?url=<%= URI.escape(post.remote_link_path) %>&amp;text=<%= URI.escape(post.title) %>&amp;via=AudioVision">Share this on Twitter</a></li>
+                            <li class="tum"><a href="http://tumblr.com/share?s=&v=3&t=<%= post.title %>&u=<%= URI.escape(post.remote_link_path) %>">Share this on Tumblr</a></li>
+                            
+                            
+                            
+                            
+                            
+                            
                         </ul>
                     </aside>
                     <aside class="byline">
