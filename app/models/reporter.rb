@@ -11,13 +11,14 @@ class Reporter < ActiveRecord::Base
   validates :slug, presence: true
   validates :user, presence: true
 
+  after_save -> { self.touch }
+
   class << self
     def select_collection
       self.all.map { |r| [r.name, r.id] }
     end
   end
 
-  delegate :email, to: :user
 
   def asset
     if self.asset_id.present?

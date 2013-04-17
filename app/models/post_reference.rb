@@ -1,6 +1,6 @@
 class PostReference < ActiveRecord::Base
   belongs_to :post
-  belongs_to :referrer, polymorphic: true
+  belongs_to :referrer, polymorphic: true, touch: true
 
   def simple_json
     @simple_json ||= {

@@ -6,6 +6,8 @@ class Bucket < ActiveRecord::Base
 
   accepts_json_input_for_content(name: :post_references)
 
+  after_save -> { self.touch }
+
   def build_content_association(content_hash, content)
     PostReference.new(
       :post       => content,
