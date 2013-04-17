@@ -1,9 +1,22 @@
-<h2>Archive</h2>
+<header class="landing-welcome">
+    <hgroup class="bound">
+        <h1>Archive</h1>
+        <h2>Explore the vaults of AudioVision.</h2>
+    </hgroup>
+</header>
 
+<!--
 <ul>
 <% @posts.each do |post| %>
   <li><%= link_to post.title, post.link_path %></li>
 <% end %>
 </ul>
+-->
+
+
+<section class="feedgrid med bound">
+    <%= render "/posts/collection", posts: @posts %>
+</section>
+
 
 <%= paginate @posts %>
