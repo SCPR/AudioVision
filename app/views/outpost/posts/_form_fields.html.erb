@@ -14,12 +14,6 @@
 
   <div id="asset_bucket" class="clearfix"></div>
   <%= f.input :asset_json, as: :hidden, input_html: { id: "asset_json" } %>
-  
-  <script>
-    $(document).ready(function() {
-      new outpost.AssetManager(<%= raw record.assets.to_json %>, "#asset_bucket")
-    });
-  </script>
 <% end %>
 
 
@@ -54,15 +48,7 @@
 <%= form_block "Publishing" do %>
   <%= f.input :status, selected: record.status || Post::STATUS[:draft], collection: Post.status_collection, input_html: { id: "status-select" } %>
 
-  <div class="publish-alarm-fields">
-    <%= f.simple_fields_for :publish_alarm, record.publish_alarm || record.build_publish_alarm do |a| %>
-      <%= a.input :fire_at, wrapper_html: { class: "fire_at", style: "display: inline-block;"}, label: "Publish At", required: false, hint: "Schedule this record to publish on a future date. (optional) <br />Time is in 24-hour format. Example: 2013-01-10 16:45" %>
-
-      <% if record.publish_alarm.persisted? %>
-        <%= a.input :_destroy, as: :boolean, label: false, inline_label: "Clear Scheduled Publishing?", wrapper_html: { class: "inline destroy-bool" } %>
-      <% end %>
-    <% end %>
-  </div>
+  <%= f.section "publish_alarm" %>
 
   <div class="publishing-fields">
     <%= f.input :published_at %>
@@ -90,6 +76,10 @@
       statusPending: "<%= Post::STATUS[:pending] %>",
       statusPublished: "<%= Post::STATUS[:published] %>"
     });
+
+    assetManager = new outpost.AssetManager(
+      <%= raw record.assets.to_json %>, "#asset_bucket"
+    );
   </script>
 <% end %>
 
