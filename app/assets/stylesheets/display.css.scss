@@ -3256,6 +3256,33 @@ PAGINATION
 	padding: 15px 0;
 	font: normal 700 1.5em/1.1 "proxima-nova", Avenir, Arial, sans-serif;
 }
+		.pagination-inner {
+		}
+		.pagination-inner > div {
+			outline: 1px solid red;
+		}
+		.pagination .regress,
+		.pagination .progress {
+			width: 20%;
+		}
+		.pagination .regress {
+			float: left;
+			margin-right: 2%;
+		}
+		.pagination .jumps {
+			width: 56%;
+			float: left;
+			text-align: center;
+		}
+		.pagination .progress {
+			float: right;
+			text-align: right;
+		}
+		.pagination span {
+			display: inline-block;
+			white-space: nowrap;
+		}
+		
 
 
 
