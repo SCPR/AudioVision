@@ -3129,7 +3129,7 @@ SPOKESMAN (any)
 ##################################################################################################################### */
 
 .spokesman {
-	margin-bottom: 130px;
+	margin-bottom: 115px;
 }
 
 
@@ -3156,7 +3156,8 @@ SPOKESMAN: INSTAPROMO
 			color: white;
 		}
 		.instapromo-header {
-			background: #f37a00;
+			background: #f37a00 image-url('i/instapromo-collage.jpg') no-repeat center bottom;
+			background-size: 1419px 190px; /* half of source raster's 2838 x 380 */
 			border-bottom: 3px solid white;
 			padding: 41px 0 32px;
 		}
@@ -3198,24 +3199,41 @@ SPOKESMAN: INSTAPROMO
 					overflow: hidden;
 				}
 
+
+				/*	===================================================================================
+				    =================================================================================== */
+
+				    @media screen and (max-width: 1023px) {
+
+						.instapromo h1 {
+							font-size: 2em; /* had been 2.5 */
+							margin-left: -25px;
+							padding-left: 25px;
+						}
+
+				    }
+
 				/*	===================================================================================
 				    =================================================================================== */
 
 				    @media screen and (max-width: 462px) {
 
+						.instapromo h1 {
+							font-size: 1.5em; /* had been 2 */
+						}
 						.instapromo-footer {
 							padding-bottom: 30px;
 						}
-						.instapromo-footer h2 {
-							margin: 0 0 18px;
-							font-size: 0.8125em; /* 13 / 16 */
-							padding-bottom: 20px;
-							border-bottom: 1px solid rgba(255,255,255,0.2);
-						}
-						.instapromo-footer .brand {
-							position: static;
-							margin: 0 auto;
-						}
+								.instapromo-footer h2 {
+									margin: 0 0 18px;
+									font-size: 0.8125em; /* 13 / 16 */
+									padding-bottom: 20px;
+									border-bottom: 1px solid rgba(255,255,255,0.2);
+								}
+								.instapromo-footer .brand {
+									position: static;
+									margin: 0 auto;
+								}
 
 				    }
 
