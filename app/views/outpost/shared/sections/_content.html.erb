@@ -3,11 +3,13 @@
   <%= f.input :content_json, as: :hidden, input_html: { id: "content_json" } %>
 <% end %>
 
+<% options['apiType'] = "private" %>
+
 <% content_for :footer do %>
   <script>
     aggregator = new outpost.Aggregator(
       "#aggregator", "#content_json",
-      <%= record.posts.to_json.html_safe %>, 
+      <%= raw render(partial: 'api/private/v1/posts/collection', formats: [:json], locals: { posts: record.posts }) %>, 
       <%= raw options.to_json %>);
   </script>
 <% end %>
