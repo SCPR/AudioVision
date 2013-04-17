@@ -31,7 +31,7 @@ module Schedulable
   # and there was an alarm, get rid of it.
   # Also get rid of it if we saved it with blank fire_at fields.
   def should_destroy_publish_alarm?
-    (self.publish_alarm.present? && self.status_changed? && self.status_was == Post::STATUS[:pending]) ||
+    (self.publish_alarm.present? && self.status_changed? && self.status_was == self.class::STATUS[:pending]) ||
     (self.publish_alarm.present? && self.publish_alarm.fire_at.blank?)
   end
   
