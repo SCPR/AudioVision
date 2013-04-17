@@ -18,6 +18,8 @@
         <section class="staff">
             <h2>AudioVision Editors</h2>
 
+            <%= cache @reporters do %>
+            
             <% @reporters.each do |reporter| %>
             <article>
                 <header>
@@ -41,7 +43,8 @@
                 </div>
             </article>
             <% end %>
-            
+
+            <% end %>
         </section><!--/ .staff -->
     </div>
 </div><!--/ novella -->

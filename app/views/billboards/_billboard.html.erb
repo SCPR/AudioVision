@@ -1,1 +1,7 @@
-<%= render("billboards/layout_#{billboard.layout}", billboard: billboard) if billboard.present? %>
+<% if billboard.present? %>
+
+<%= cache billboard do %>
+  <%= render("billboards/layout_#{billboard.layout}", billboard: billboard) %>
+<% end %>
+
+<% end %>

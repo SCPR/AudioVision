@@ -1,4 +1,7 @@
-<%= render @billboard if @billboard.present? %>
+<%= render @billboard %>
+
+
+<% cache(@recent_posts + [@right_bar_bucket, @missed_it_bucket]) do %>
 
 <div class="warmup">
 
@@ -7,7 +10,7 @@
         <h1 class="inset-title"><span class="bound"><b>Recently <mark>Published</mark></b></span></h1>
 
         <div class="recent">
-            <% Array(@recent_posts[0..2]).each do |post| %>
+        <% Array(@recent_posts[0..2]).each do |post| %>
             <figure class="clearfix">
                 <b class="img"><a href="<%=post.link_path%>"><img src="<%=post.asset.eight.url%>" alt="" /></a></b>
                 <figcaption>
@@ -21,7 +24,7 @@
                     </div>
                 </figcaption>
             </figure>
-            <% end %>
+        <% end %>
         </div><!--/ .recent -->
         <div class="primer">
             <section class="pamphlet">
@@ -30,10 +33,12 @@
                 <p>AudioVision is public radio, visualized. We bring you the best in visual journalism and culture from Southern California, the undisputed global capital of eye candy. We help you stay informed about the world around you through the eyes of your fellow community members. We ask you to show us how your view of the world.</p>
                 <p>Have you seen something great? Have you made something great? Want to share something great? Tell us about it. Email us at <a href="mailto:photos@kpcc.org">photos@kpcc.org</a>.</p>
 
-                <% if @right_bar_bucket.present? && @right_bar_bucket.posts.present? %>
-                    <h2>Showing &amp; Telling: Start Here</h2>
 
-                    <% @right_bar_bucket.posts.each do |post| %>
+                <% if @right_bar_bucket.present? && !@right_bar_bucket.posts.empty? %>
+
+                <h2>Showing &amp; Telling: Start Here</h2>
+
+                <% @right_bar_bucket.posts.each do |post| %>
                     <figure>
                         <b class="img"><a href="<%=post.link_path%>"><img src="<%=post.asset.small.url%>" alt="" /></a></b>
                         <figcaption>
@@ -44,12 +49,16 @@
                             </ul>
                         </figcaption>
                     </figure>
-                    <% end %>
                 <% end %>
+
+                <% end %>
+
+
             </section>
         </div><!--/ .primer -->
     </div><!--/ .warmup-inner -->
 </div><!--/ .warmup -->
+
 
 
 <section class="feedgrid med bound">
@@ -57,8 +66,8 @@
 </section>
 
 
+<% if @midway_bucket.present? && (posts = @midway_bucket.posts.limit(4)).present? %>
 
-<% if @midway_bucket.present? && @midway_bucket.posts.present? %>
 <aside class="roundup">
     <div class="roundup-ephemera">
         <div class="bound">
@@ -69,7 +78,7 @@
         <p class="intro"><%= @midway_bucket.description.html_safe %></p>
         <nav class="clearfix">
 
-        <% @midway_bucket.posts.limit(4).each do |post| %>
+        <% posts.each do |post| %>
             <a href="<%=post.link_path%>">
                 <figure>
                     <b class="img"><img src="<%=post.asset.small.url%>" alt="" /></b>
@@ -84,6 +93,7 @@
         </nav>
     </div>
 </aside><!--/ .roundup -->
+
 <% end %>
 
 
@@ -92,5 +102,6 @@
     <%= render "/posts/collection", posts: @recent_posts[7..10] %>
 </section>
 
-
 <%= render "shared/archive_bar", posts: @recent_posts[11..14] %>
+
+<% end %>
