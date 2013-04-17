@@ -15,3 +15,5 @@
 //= require fancybox/fancybox
 //= require fancybox/helpers/fancybox-buttons
 //= require fancybox/helpers/fancybox-thumbs
+
+//= require cms_popup
