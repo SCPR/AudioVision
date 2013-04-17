@@ -20,15 +20,16 @@
                     <aside class="share">
                         <ul class="clearfix">
 
-                            <li class="fbk"><a href="https://www.facebook.com/sharer.php?u=<%= URI.escape(post.remote_link_path) %>&amp;t=<%= post.title %>">Share this on Facebook</a></li>
-                            <li class="twi"><a href="https://twitter.com/intent/tweet?url=<%= URI.escape(post.remote_link_path) %>&amp;text=<%= URI.escape(post.title) %>&amp;via=AudioVision">Share this on Twitter</a></li>
-                            <li class="tum"><a href="http://tumblr.com/share?s=&v=3&t=<%= post.title %>&u=<%= URI.escape(post.remote_link_path) %>">Share this on Tumblr</a></li>
-                            
-                            
-                            
-                            
-                            
-                            
+                            <li class="fbk">
+                                <%= link_to "Share this on Facebook", URI.escape("https://www.facebook.com/sharer.php?u=#{post.remote_link_path}&amp;t=#{post.title}") %>
+                            </li>
+                            <li class="twi">
+                                <%= link_to "Share this on Twitter", URI.escape("https://twitter.com/intent/tweet?url=#{post.remote_link_path}&amp;text=#{post.title}&amp;via=AudioVision") %>
+                            </li>
+                            <li class="tum">
+                                <%= link_to "Share this on Tumblr", URI.escape("http://tumblr.com/share?s=&v=3&t=#{post.title}&u=#{post.remote_link_path}") %>
+                            </li>
+
                         </ul>
                     </aside>
                     <aside class="byline">
