@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @nav_highlight = "home"
 
     @recent_posts   = Post.published.limit(15)
-    @billboard      = Billboard.current
+    @billboard      = Billboard.published.first
     
     @midway_bucket    = Bucket.where(key: "instagram").first
     @right_bar_bucket = Bucket.where(key: "featured-posts").first

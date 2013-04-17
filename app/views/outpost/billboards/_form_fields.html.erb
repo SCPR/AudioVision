@@ -1,7 +1,45 @@
-<%= form_block "Details" do %>
+<%= form_block "Publishing" do %>
+  <%= render '/outpost/shared/help_blocks/publishing' %>
+
+  <%= f.input :status, collection: Billboard.status_collection, selected: record.status || Billboard::STATUS[:draft], input_html: { id: "status-select" } %>
+
+  <%= f.section "publish_alarm" %>
+
+  <div class="publishing-fields">
+    <%= f.input :published_at %>
+  </div>
+
+  <div id="scheduled_status" class="notification block"></div>
+<% end %>
+
+
+<%= form_block "Layout" do %>
   <%= f.input :layout, collection: Billboard.layouts_collection, input_html: { class: "span6" } %>
-  <%= f.input :status, collection: Billboard.status_collection %>
-  <%= f.input :published_at %>
+
+  <%# render '/outpost/shared/help_blocks/layout' %>
+
 <% end %>
 
 <%= f.section "content" %>
+
+<% content_for :footer do %>
+  <script type="text/javascript">
+    publishing = new outpost.Publishing({
+      form: "#<%=f.options[:html][:id]%>",
+      container: ".publishing-fields",
+      notifications: "#scheduled_status",
+      statusField: "#status-select",
+      statusPending: "<%= Billboard::STATUS[:pending] %>",
+      statusPublished: "<%= Billboard::STATUS[:published] %>"
+    });
+
+    contentAlarm = new outpost.ContentAlarm({
+      form: "#<%=f.options[:html][:id]%>",
+      container: ".publish-alarm-fields",
+      notifications: "#scheduled_status",
+      statusField: "#status-select",
+      statusPending: "<%= Billboard::STATUS[:pending] %>",
+      statusPublished: "<%= Billboard::STATUS[:published] %>"
+    });
+  </script>
+<% end %>
