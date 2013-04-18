@@ -8,7 +8,7 @@
 <%= form_block "Content" do %>
   <%= f.input :email %>
   <%= f.input :twitter_handle, wrapper: :prepend, hint: "No @ symbol" do %>
-    <span class="add-on">@</span><%= f.input_field :email, class: 'span2' %>
+    <span class="add-on">@</span><%= f.input_field :twitter_handle, class: 'span2' %>
   <% end %>
 <% end %>
 
