@@ -4,6 +4,7 @@
 
 <div class="dossier bound">
 
+    <%= cache @reporter do %>
     <article>
         <h1><%= @reporter.name %></h1>
         <div class="profile clearfix">
@@ -24,11 +25,14 @@
     </article>
 
     <h2>Posts by <%= @reporter.name %></h2>
+    <% end %>
 
+
+    <%= cache @posts do %>
     <section class="feedgrid med">
         <%= render "/posts/collection", posts: @posts %>
     </section><!--/ .feedgrid -->
-
+    <% end %>
 
 </div><!--/ .dossier -->
 
