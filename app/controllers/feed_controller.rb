@@ -3,7 +3,7 @@ class FeedController < ApplicationController
 
   def index
     @nav_highlight = "archive"
-    @posts = Post.published.includes(:attributions, :assets, :category).page(params[:page]).per(10)
+    @posts = Post.published.includes(:attributions, :assets, :category).page(params[:page]).per(16)
 
     if params[:category].present?
       @category = Category.find_by_slug(params[:category])
