@@ -3068,12 +3068,16 @@ NOVELLA (for now, just ABOUT)
 				
 				.novella .staff .bio {
 				}
-						.novella .staff .bio p {
+						.novella .staff .bio .text {
 							float: left;
 							width: 71.810699588477%; /* 349 / 486 */
 							font-size: 0.75em;
 							line-height: 1.5;
 						}
+								.novella .staff .bio .text p {
+									margin-bottom: 1em;
+								}
+
 						.novella .staff .bio .img {
 							display: block;
 							float: right;
@@ -3364,9 +3368,9 @@ DOSSIER
 	margin-top: 90px;
 }
 		.dossier > article {
-			padding-bottom: 30px;
+			padding-bottom: 40px;
 			border-bottom: 1px solid #ccc;
-			margin-bottom: 20px;
+			margin-bottom: 15px;
 		}
 		.dossier h1 {
 			text-transform: uppercase;
@@ -3374,6 +3378,24 @@ DOSSIER
 			font: normal 900 2.85714285714286em/1 "proxima-nova", Avenir, Arial, sans-serif; /* 40 / 14 (we're technically inside .prose, so baseline = 14px) */
 			margin-bottom: 43px;
 		}
+		.dossier .profile {
+		}
+				.dossier .profile .prose {
+					float: left;
+					width: 60%;
+				}
+				.dossier .profile .img {
+					display: block;
+					float: right;
+					width: 12%;
+					min-width: 120px;
+				}
+						.dossier .profile .img img {
+							display: block;
+							width: 100%;
+							height: auto;
+						}
+
 		.dossier h2 {
 			text-transform: uppercase;
 			color: #e0495b;
@@ -3381,6 +3403,36 @@ DOSSIER
 			font: normal 700 0.92857142857143em/1 "proxima-nova", Avenir, Arial, sans-serif; /* 13 / 14 */
 		}
 
+
+		/*	===================================================================================
+		    =================================================================================== */
+
+		    @media screen and (max-width: 420px) {
+
+				.dossier {
+					margin-top: 60px;
+				}
+				.dossier h1 {
+					font-size: 2em;
+					margin-bottom: 30px;
+				}
+				.dossier .profile {
+				}
+						.dossier .profile .prose {
+							float: none;
+							width: 100%;
+							margin-bottom: 30px;
+						}
+						.dossier .profile .img {
+							float: none;
+							width: 140px;
+							margin: 0 auto;
+						}
+
+		    }
+
+		/*	===================================================================================
+		    =================================================================================== */
 
 
 

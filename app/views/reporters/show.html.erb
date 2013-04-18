@@ -6,8 +6,20 @@
 
     <article>
         <h1><%= @reporter.name %></h1>
-        <div class="prose">
-            <%= simple_format(@reporter.bio, {}, sanitize: false) %>
+        <div class="profile clearfix">
+            <div class="prose">
+                <%= simple_format(@reporter.bio, {}, sanitize: false) %>
+                <ul>
+                <% if @reporter.email.present? %>
+                    <li class="email"><a href="mailto:<%=@reporter.email%>" title="<%=@reporter.email%>">Email <%= @reporter.name %></a></li>
+                <% end %>
+
+                <% if @reporter.twitter_handle.present? %>
+                    <li class="twitter">Follow <a href="https://twitter.com/<%=@reporter.twitter_handle%>" title="@<%=@reporter.twitter_handle%>">@<%=@reporter.twitter_handle%></a> on Twitter</li>
+                <% end %>
+                </ul>
+            </div>
+            <b class="img"><img src="<%=@reporter.asset.small.url%>" alt="<%=@reporter.name%>" /></b>
         </div>
     </article>
 

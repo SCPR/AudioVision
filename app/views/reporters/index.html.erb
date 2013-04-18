@@ -38,8 +38,9 @@
                     </ul>
                 </header>
                 <div class="bio clearfix">
-                    <%= simple_format(reporter.bio, {}, sanitize: false) %>
-                    
+                    <div class="text">
+                        <%= simple_format(reporter.bio, {}, sanitize: false) %>
+                    </div>
                     <% if reporter.asset.present? %>
                     <b class="img"><img src="<%=reporter.asset.small.url%>" alt="<%=reporter.name%>" /></b>
                     <% end %>
