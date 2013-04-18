@@ -3353,6 +3353,36 @@ PAGINATION
 		
 
 
+/*
+#####################################################################################################################
+#####################################################################################################################
+DOSSIER
+#####################################################################################################################
+##################################################################################################################### */
+
+.dossier {
+	margin-top: 90px;
+}
+		.dossier > article {
+			padding-bottom: 30px;
+			border-bottom: 1px solid #ccc;
+			margin-bottom: 20px;
+		}
+		.dossier h1 {
+			text-transform: uppercase;
+			color: #60c8eb;
+			font: normal 900 2.85714285714286em/1 "proxima-nova", Avenir, Arial, sans-serif; /* 40 / 14 (we're technically inside .prose, so baseline = 14px) */
+			margin-bottom: 43px;
+		}
+		.dossier h2 {
+			text-transform: uppercase;
+			color: #e0495b;
+			margin-bottom: 60px;
+			font: normal 700 0.92857142857143em/1 "proxima-nova", Avenir, Arial, sans-serif; /* 13 / 14 */
+		}
+
+
+
 
 
 /*
