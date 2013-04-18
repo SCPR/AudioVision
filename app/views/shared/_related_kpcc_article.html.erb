@@ -1,4 +1,4 @@
-<% if false %>
+<% if post.related_kpcc_article.present? %>
 
 <aside class="newsbox related">
     <header>
@@ -6,22 +6,22 @@
         <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
     </header>
     <div class="preview clearfix">
-        <b class="img"><a href="<%=post.related_kpcc_article.link_path%>"><%= post.related_kpcc_article.asset %></a></b>
+        <b class="img"><a href="<%=post.related_kpcc_article.permalink%>"><%= post.related_kpcc_article.asset %></a></b>
         <p class="desc">
             <a href="#">
-                <mark class="title"><%= post.related_kpcc_article.short_headline %></mark>
+                <mark class="title"><%= post.related_kpcc_article.short_title %></mark>
                 <span class="date"><%= post.related_kpcc_artcle.published_at %></span>
             </a>
         </p>
     </div>
 </aside><!--/ .newsbox -->
 
-<%# else %>
+<% elsif popular_kpcc_articles = Rails.cache.fetch('popular_kpcc_articles') %>
 
 <aside class="newsbox unrelated">
     <header>
         <p>Explore what’s popular now on KPCC.</p>
-        <span class="logo"><a href="#">89.3 KPCC</a></span>
+        <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
     </header>
     <ul class="popular-links">
         <ul>
