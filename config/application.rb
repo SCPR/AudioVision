@@ -32,6 +32,5 @@ module AudioVision
     # Precompile additional assets.
     # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
     config.assets.precompile += %w( outpost/application.css outpost/application.js *.png *.jpg *.jpeg *.gif display-ie.css )
-
   end
 end
