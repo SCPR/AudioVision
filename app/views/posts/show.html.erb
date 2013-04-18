@@ -30,9 +30,10 @@
         </div>
     </div><!--/ .single-plugs-ephemera -->
     <div class="single-plugs-inner clearfix bound">
+
+        <%= cache @recent_posts_not_this_type + @recent_posts_this_type do %>
+
         <section class="recently">
-        
-        <%= cache @recent_posts_not_this_type do %>
 
             <% @recent_posts_not_this_type.each_slice(2) do |group| %>
                 <div class="pair clearfix">
@@ -52,36 +53,34 @@
                 </div><!--/ .pair -->
             <% end %>
 
-        <% end %>
-
         </section>
+
 
         <aside class="recently-jump">
             <a href="/archive">Browse Everything</a>
         </aside>
 
-        <%= cache @recent_posts_this_type do %>
 
-            <section class="featured">
-                <h2><span>Featured <%= @category.title.pluralize %></span></h2>
+        <section class="featured">
+            <h2><span>Featured <%= @category.title.pluralize %></span></h2>
 
-                <% @recent_posts_this_type.each do |post| %>
-                    <a href="<%=post.link_path%>" class="preview">
-                        <figure>
-                            <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
-                            <figcaption>
-                                <h3><%= post.title %></h3>
-                                <p><%= post.teaser.html_safe %></p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                <% end %>
+            <% @recent_posts_this_type.each do |post| %>
+                <a href="<%=post.link_path%>" class="preview">
+                    <figure>
+                        <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
+                        <figcaption>
+                            <h3><%= post.title %></h3>
+                            <p><%= post.teaser.html_safe %></p>
+                        </figcaption>
+                    </figure>
+                </a>
+            <% end %>
 
-            </section>
+        </section>
 
-            <aside class="featured-jump">
-                <a href="<%=archive_path(category: @category.slug)%>">See All <%= @category.title.pluralize %></a>
-            </aside>
+        <aside class="featured-jump">
+            <a href="<%=archive_path(category: @category.slug)%>">See All <%= @category.title.pluralize %></a>
+        </aside>
 
         <% end %>
 
