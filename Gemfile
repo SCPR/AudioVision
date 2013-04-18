@@ -6,7 +6,6 @@ gem 'jquery-rails'
 gem 'newrelic_rpm'
 gem 'jbuilder'
 
-
 #gem 'asset_host_client', path: "#{ENV['PROJECT_HOME']}/asset_host_client"
 gem 'asset_host_client', github: "SCPR/asset_host_client"
 
@@ -28,6 +27,7 @@ gem 'kaminari', github: "amatsuda/kaminari"
 gem 'simple_form', '~> 3.0.0.beta1'
 gem 'select2-rails', '~> 3.3'
 gem 'bootstrap-sass', '~> 2.2'
+gem 'escape_utils'
 
 gem 'redis-store', github: "bricker/redis-store"
 gem 'redis-actionpack', github: "bricker/redis-store"
