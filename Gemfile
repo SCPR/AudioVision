@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'jquery-rails'
 gem 'newrelic_rpm'
 gem 'jbuilder'
+gem 'resque', '~> 1.24'
 
 #gem 'asset_host_client', path: "#{ENV['PROJECT_HOME']}/asset_host_client"
 gem 'asset_host_client', github: "SCPR/asset_host_client"
