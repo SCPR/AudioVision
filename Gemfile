@@ -22,7 +22,6 @@ gem 'outpost-aggregator', github: "SCPR/outpost-aggregator"
 gem 'outpost-publishing', github: "SCPR/outpost-publishing"
 
 
-
 gem 'kaminari', github: "amatsuda/kaminari"
 gem 'simple_form', '~> 3.0.0.beta1'
 gem 'select2-rails', '~> 3.3'
