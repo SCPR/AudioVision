@@ -17,9 +17,9 @@
     <meta name="author" content="89.3 KPCC" />
 
     <!-- Dynamic Tags - these will be set by the page we're on, other otherwise fallback to a default -->
-    <%= tag "meta", property: "og:title", content: page_title %>
-    <%= tag "meta", name: "description", content: meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio." %>
-    <%= tag "meta", property: "description", content: meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio." %>
+    <%= tag "meta", property: "og:title", content: h(page_title) %>
+    <%= tag "meta", name: "description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
+    <%= tag "meta", property: "description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
     <%= tag "meta", property: "og:image", content: meta_information[:image] || image_url('meta/audiovision-opengraph.png') %>
     <%= tag "meta", property: "og:url", content: meta_information[:url] || "http://audiovision.scpr.org/" %>
 
