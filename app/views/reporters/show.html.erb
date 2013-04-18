@@ -1,15 +1,31 @@
 <% meta_tags(description: @reporter.bio, image: @reporter.asset.lsquare.url, url: @reporter.remote_link_path) %>
 <% add_to_page_title @reporter.name %>
 
-<h1><%= @reporter.name %></h1>
-<p><%= @reporter.bio.html_safe %></p>
 
-<h2>Posts by <%= @reporter.name %></h2>
+<div class="dossier bound">
 
-<ul>
-<% @posts.each do |post| %>
-    <li><%= link_to post.title, post.link_path %></li>
-<% end %>
-</ul>
+    <article>
+        <h1><%= @reporter.name %></h1>
+        <div class="prose">
+            <p><%= @reporter.bio.html_safe %></p>
+        </div>
+    </article>
+
+    <h2>Posts by <%= @reporter.name %></h2>
+
+    <!--
+    <ul>
+    <% @posts.each do |post| %>
+        <li><%= link_to post.title, post.link_path %></li>
+    <% end %>
+    </ul>
+    -->
+
+    <section class="feedgrid med">
+        <%= render "/posts/collection", posts: @posts %>
+    </section><!--/ .feedgrid -->
+
+
+</div><!--/ .dossier -->
 
 <%= paginate @posts %>
