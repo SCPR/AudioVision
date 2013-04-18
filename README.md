@@ -5,7 +5,6 @@ KPCC's Media Blog
 ## Dependencies
 * Ruby (>= 1.9.3)
 * MySQL
-* Sphinx
 * Redis
 
 ## Setup
