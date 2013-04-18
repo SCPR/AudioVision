@@ -7,7 +7,7 @@
     <article>
         <h1><%= @reporter.name %></h1>
         <div class="prose">
-            <p><%= @reporter.bio.html_safe %></p>
+            <%= simple_format(@reporter.bio, {}, sanitize: false) %>
         </div>
     </article>
 
