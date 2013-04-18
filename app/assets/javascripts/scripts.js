@@ -54,12 +54,30 @@ jQuery(document).ready(function($) {
 		// 2.)	If we're dealing with squares, then let's adjust the westward positioning.
 		//		Since I'm lacking a better idea, let's go with "any ratio higher than 0.85 is a square, and anything less is a rectangle."
 		//		Only run this after our reference image loads, however.
+
+
+		$(".billboard .filmstrip").imagesLoaded(function() {
+			
+			var sampleRatio = 0.66;
+
+			var sampleWidth = $(".billboard .filmstrip img:first").width();
+			var sampleHeight = $(".billboard .filmstrip img:first").height();
+			sampleRatio = sampleHeight / sampleWidth;
+			//alert("sampleWidth is: " + sampleWidth + " ...and sampleHeight is: " + sampleHeight + " ...and sampleRatio is: " + sampleRatio);
+			if(sampleRatio > 0.85) {
+				$(".billboard").addClass("aspect-ratio-square");
+			} else if(sampleRatio > 0.78 && sampleRatio < 0.85) {
+				$(".billboard").addClass("aspect-ratio-squarish");
+			}
+
+		});
+
+		/*
 		$(".billboard .filmstrip img:first").load(function() {
 
 				var sampleWidth = $(".billboard .filmstrip img:first").width();
 				var sampleHeight = $(".billboard .filmstrip img:first").height();
 				var sampleRatio = sampleWidth / sampleHeight;
-				//alert("We're dealing with " + sampleWidth + " x " + sampleHeight + ", which calculates out to " + sampleRatio);
 				if(sampleRatio > 0.85) {
 					$(".billboard").addClass("aspect-ratio-square");
 				} else {
@@ -67,6 +85,7 @@ jQuery(document).ready(function($) {
 				}
 
 		});
+		*/
 
 	}	
 

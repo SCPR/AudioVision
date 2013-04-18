@@ -3,6 +3,7 @@
 //= require backbone
 //= require jquery_ujs
 //= require selectivizr-min
+//= require jquery.imagesloaded.min
 
 //= require base
 //= require scripts
