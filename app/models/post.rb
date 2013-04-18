@@ -90,6 +90,8 @@ class Post < ActiveRecord::Base
   # Callbacks
   before_validation :generate_slug, if: -> { self.should_validate? && self.slug.blank? }
 
+#  after_save :enqueue_related_kpcc_article_job
+
   after_save -> { self.touch }
   after_save :touch_referrers
 
@@ -123,6 +125,25 @@ class Post < ActiveRecord::Base
       u.path.match(%r{\A/(\d+)}) do |match|
         Post.published.find_by_id(match[1])
       end
+    end
+  end
+
+
+  # Related KPCC Article
+  def enqueue_related_kpcc_article_job
+    if self.related_kpcc_article_url.present?
+      Resque.enqueue(Job::RelatedKpccArticleJob, self.related_kpcc_article_url)
+    end
+  end
+
+  def related_kpcc_article
+    return nil if self.related_kpcc_article_url.blank?
+
+    if cache = Rails.cache.fetch("#{self.obj_key}/related_kpcc_article_json")
+      cache
+    else
+      self.enqueue_related_kpcc_article_job
+      nil
     end
   end
 
