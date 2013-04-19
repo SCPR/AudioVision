@@ -1,5 +1,5 @@
 <div class="media-wrapper">
-    <b><img src="<%= @url %>" /></b>
+    <img src="<%= @url %>" />
 </div><!--/ .media-wrapper -->
 
 <aside class="caption">

@@ -33,7 +33,9 @@
             // (2.) assess image dimensions
             // ------------------------------------------------------------------------------------------
             if($("body").hasClass("av-fullscreen")) {
-                // analyze dimensions here
+                var workingWidth = $(".slides .slide.active img").width();
+                var workingHeight = $(".slides .slide.active img").height();
+                alert("okay, we're dealing with a width of " + workingWidth + " and a height of " + workingHeight);
             } else {
                 // do nothing; we're in dormant mode
             }
