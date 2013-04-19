@@ -13,7 +13,7 @@ class PostAsset < ActiveRecord::Base
     @asset ||= begin
       _asset = AssetHost::Asset.find(self.asset_id)
     
-      if _asset.is_a? AssetHost::Fallback
+      if _asset.is_a? AssetHost::Asset::Fallback
         self.caption = "We encountered a problem, and this photo is currently unavailable."
       end
       

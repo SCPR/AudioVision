@@ -153,6 +153,7 @@ class Post < ActiveRecord::Base
   # If for some reason it's empty, return a Fallback asset.
   def asset
     @asset ||= (self.assets.first || AssetHost::Fallback.new)
+    @asset ||= (self.assets.first || AssetHost::Asset::Fallback.new)
   end
 
   #-------------------
