@@ -144,14 +144,16 @@ jQuery(document).ready(function($) {
 	FancyBox (for gallery-grid)
 	----------------------------------------------------------------------------------------------------------------- */
 	if ($(".gallery-grid").length) {
-
-
 		$(".figure").fancybox();
-
-
-
 	}
 
+
+/*	-----------------------------------------------------------------------------------------------------------------
+	Fullscreen: Entering and exiting
+	----------------------------------------------------------------------------------------------------------------- */
+	$(document).on("webkitfullscreenchange mozfullscreenchange fullscreenchange", function(){
+		$("body").toggleClass("av-fullscreen");
+	});
 
 
 
