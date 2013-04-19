@@ -149,11 +149,17 @@ jQuery(document).ready(function($) {
 
 
 /*	-----------------------------------------------------------------------------------------------------------------
-	Fullscreen: Entering and exiting
+	Slideshows
 	----------------------------------------------------------------------------------------------------------------- */
 	$(document).on("webkitfullscreenchange mozfullscreenchange fullscreenchange", function(){
 		$("body").toggleClass("av-fullscreen");
 	});
+
+
+
+
+
+
 
 
 
