@@ -350,19 +350,19 @@ Slideshow Header
 
 		.av-fullscreen .slideview .slides .slide .media-wrapper {
 		}
-
+		/*
 		.av-fullscreen .slideview .slides .slide .media-wrapper b {
 			display: block;
 			height: 100%;
 			width: auto;
 			margin: auto;
 		}
-
+		*/
 		.av-fullscreen .slideview .slides .slide .media-wrapper img {
+			height: 100%;
+			max-height: auto;
 			width: auto;
 			max-width: auto;
-			height: auto;
-			max-height: auto;
 		    margin: 0 auto;
 		}
 
