@@ -9,39 +9,43 @@
     var params = {};
     query = _(window.location.search.substring(1).split("&")).each(function(pair) { keyval = pair.split("="); params[keyval[0]] = keyval[1]; });
     
-      ahSlides = new audiovision.Slideshow({
-          start: params["slide"],
-          deeplink: true,
-          el: "#asset_slideshow_<%= post.id %>",
-          assets: <%= raw post.assets.to_json %>
-      });
-
-  
-      // 
-      ahSlides.bind("switch",function(idx) {
-            
-            // (1.) add slide change listener for analytics
-            // ------------------------------------------------------------------------------------------
-            if(typeof(_gaq) != 'undefined') {
-                _gaq.push(['_trackPageview',window.location.pathname + 'photos/' + (Number(idx) + 1)]);
-                dcsMultiTrack(
-                    'DCS.dcsuri', window.location.pathname + 'photos/' + (Number(idx) + 1),
-                    'WT.ti', 'SlideShow PageView'
-                );
-            }
-
-            // (2.) assess image dimensions
-            // ------------------------------------------------------------------------------------------
-            if($("body").hasClass("av-fullscreen")) {
-                var workingWidth = $(".slides .slide.active img").width();
-                var workingHeight = $(".slides .slide.active img").height();
-                alert("okay, we're dealing with a width of " + workingWidth + " and a height of " + workingHeight);
-            } else {
-                // do nothing; we're in dormant mode
-            }
-
-      });
+    ahSlides = new audiovision.Slideshow({
+        start: params["slide"],
+        deeplink: true,
+        el: "#asset_slideshow_<%= post.id %>",
+        assets: <%= raw post.assets.to_json %>
     });
+
+
+    ahSlides.bind("switch", function(idx) {
+          
+      // (1.) add slide change listener for analytics
+      // ------------------------------------------------------------------------------------------
+      if(typeof(_gaq) != 'undefined') {
+        _gaq.push(['_trackPageview',window.location.pathname + 'photos/' + (Number(idx) + 1)]);
+        dcsMultiTrack(
+            'DCS.dcsuri', window.location.pathname + 'photos/' + (Number(idx) + 1),
+            'WT.ti', 'SlideShow PageView'
+        );
+      }
+
+      // (2.) assess image dimensions
+      // ------------------------------------------------------------------------------------------
+      //if($("body").hasClass("av-fullscreen")) {
+        var nextImg, workingWidth, workingHeight;
+
+        console.log(this.slides);
+
+        // This the correct image, just at this point it hasn't been
+        // set to be visible yet so its width and height is 0.
+        nextImg         = $("img", this.slides.slides[idx].el);
+        workingWidth    = nextImg.width();
+        workingHeight   = nextImg.height();
+
+        console.log("w, h", workingWidth, workingHeight);
+      //}
+    });
+  });
 </script>
 
 <% end %>
