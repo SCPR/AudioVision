@@ -883,6 +883,17 @@ BILLBOARD
 							float: left;
 							height: 100%;
 						}
+						/* =============
+						debug
+						================
+						.warmup,
+						.spokesman,
+						.feedgrid,
+						.roundup,
+						.envoy {
+							display: none;
+						}
+						/* ============= */
 						.billboard.aspect-ratio-square .filmstrip img {
 							width: auto;
 						}
