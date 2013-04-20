@@ -103,7 +103,7 @@ class audiovision.Slideshow
 
                 # Chrome won't let you change the history while in fullscreen mode,
                 # so we'll just have to disable it in that case.
-                if @deeplink and window.history.replaceState and !(screen.width == window.innerWidth && screen.height == window.innerHeight)
+                if @deeplink and window.history.replaceState and !$('body').hasClass('av-fullscreen')
                     slideNum = idx + 1
                     window.history.replaceState { slide: slideNum }, document.title + ": Slide #{slideNum}", window.location.pathname + "?slide=#{slideNum}"
 
