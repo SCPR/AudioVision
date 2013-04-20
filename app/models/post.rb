@@ -132,7 +132,7 @@ class Post < ActiveRecord::Base
   # Related KPCC Article
   def enqueue_related_kpcc_article_job
     if self.related_kpcc_article_url.present?
-      Resque.enqueue(Job::RelatedKpccArticleJob, self.related_kpcc_article_url)
+      Resque.enqueue(Job::RelatedKpccArticleJob, self.obj_key, self.related_kpcc_article_url)
     end
   end
 
@@ -143,7 +143,7 @@ class Post < ActiveRecord::Base
       cache
     else
       self.enqueue_related_kpcc_article_job
-      nil
+      nil # Return nil so we can check presence
     end
   end
 
@@ -152,7 +152,6 @@ class Post < ActiveRecord::Base
   # Grab the first asset. 
   # If for some reason it's empty, return a Fallback asset.
   def asset
-    @asset ||= (self.assets.first || AssetHost::Fallback.new)
     @asset ||= (self.assets.first || AssetHost::Asset::Fallback.new)
   end
 

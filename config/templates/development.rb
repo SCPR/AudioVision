@@ -34,6 +34,9 @@ AudioVision::Application.configure do
   config.dbsync.remote_host = "12.345.678.9"
   config.dbsync.remote_dir  = "~username"
 
+  config.scpr.host     = "http://localhost:3000"
+  config.scpr.api_path = "/api"
+  
   # Uncomment to use Pry instead of IRB
   # silence_warnings { IRB = Pry }
 end
