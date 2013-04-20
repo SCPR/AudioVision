@@ -115,7 +115,7 @@ class Post < ActiveRecord::Base
     end
 
     # Find a post by its URL.
-    def by_url(url)
+    def find_by_url(url)
       begin
         u = URI.parse(url)
       rescue URI::InvalidURIError

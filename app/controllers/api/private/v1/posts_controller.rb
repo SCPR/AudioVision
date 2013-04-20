@@ -20,7 +20,7 @@ module Api::Private::V1
 
 
     def by_url
-      @post = Post.by_url(params[:url])
+      @post = Post.find_by_url(params[:url])
       
       respond_with @post do |format|
         format.json { render :show }
