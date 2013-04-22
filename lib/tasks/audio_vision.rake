@@ -5,4 +5,11 @@ namespace :audio_vision do
     PublishAlarm.fire_pending
     puts "Finished."
   end
+
+  desc "Enqueue cache of related KPCC articles"
+  task :cache_related_articles => [:environment] do
+    puts "*** [#{Time.now}] Enqueing KPCC Article cache."
+    Post.enqueue_cache_for_empty_related_kpcc_articles
+    puts "Finished."
+  end
 end

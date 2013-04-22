@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130417011041) do
+ActiveRecord::Schema.define(version: 20130422185311) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20130417011041) do
     t.integer  "category_id"
     t.string   "related_kpcc_article_url"
     t.string   "subtitle"
+    t.boolean  "related_kpcc_article_json_is_cached", default: false
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
