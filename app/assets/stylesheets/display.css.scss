@@ -2111,8 +2111,17 @@ PROSE (anywhere it shows up) (reset its parent's contextual em to 1.0, first, if
 		
 		.prose blockquote {
 			font-style: italic;
-			padding-left: 20px;
+			background: image-url('i/ephemera-quote-opening.png') no-repeat;
+			background-size: 71px 59px;
+			margin-top: -5px;
+			padding: 8px 0 0 15px;
 		}
+				.prose blockquote p {
+					border-left: 1px solid rgba(0,0,0,0.09);
+					padding: 3px 0 3px 10px;
+					margin-bottom: 1.45em;
+				}
+
 
 
 
@@ -2430,6 +2439,10 @@ EXHIBIT: GALLERY-GRID
 			text-align: right;
 			color: #3f3f3f;
 		}
+				.gallery-grid figcaption .credit {
+					font-weight: bold;
+					margin-bottom: 0.35em;
+				}
 				.gallery-grid figcaption a {
 					font-weight: bold;
 				}
