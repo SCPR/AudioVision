@@ -44,7 +44,7 @@ class Post < ActiveRecord::Base
   }
 
 
-  scope :with_related_kpcc_article, -> { where('related_kpcc_article_url is not null') }
+  scope :with_related_kpcc_article, -> { where('related_kpcc_article_url > ?', '') }
 
   # Associations
   has_many :assets, -> { order("position") }, class_name: "PostAsset", dependent: :destroy
