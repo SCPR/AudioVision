@@ -68,7 +68,7 @@ describe Post do
     end
 
     it 'sets the boolean to false if it thinks the cache is present but it is actually not' do
-      post.update_attribute(:related_kpcc_article_json_is_cached, true)
+      post.update_column(:related_kpcc_article_json_is_cached, true)
       Rails.cache.read(post.related_kpcc_article_cache_key).should eq nil
 
       post.related_kpcc_article.should eq nil
