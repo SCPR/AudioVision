@@ -18,6 +18,7 @@ jQuery(document).ready(function($) {
 /*	-----------------------------------------------------------------------------------------------------------------
 	Masthead & Ledge interactions
 	----------------------------------------------------------------------------------------------------------------- */
+
 	if(is_touch_device() == true) {
 
 			$(".masthead .inside, .ledge .nav-av .menu, .ledge .nav-kpcc .inside").each(function(){
@@ -55,9 +56,8 @@ jQuery(document).ready(function($) {
 		//		Since I'm lacking a better idea, let's go with "any ratio higher than 0.85 is a square, and anything less is a rectangle."
 		//		Only run this after our reference image loads, however.
 
-
 		$(".billboard .filmstrip").imagesLoaded(function() {
-			
+
 			var sampleRatio = 0.66;
 
 			var sampleWidth = $(".billboard .filmstrip img:first").width();
@@ -71,21 +71,6 @@ jQuery(document).ready(function($) {
 			}
 
 		});
-
-		/*
-		$(".billboard .filmstrip img:first").load(function() {
-
-				var sampleWidth = $(".billboard .filmstrip img:first").width();
-				var sampleHeight = $(".billboard .filmstrip img:first").height();
-				var sampleRatio = sampleWidth / sampleHeight;
-				if(sampleRatio > 0.85) {
-					$(".billboard").addClass("aspect-ratio-square");
-				} else {
-					$(".billboard").addClass("aspect-ratio-rect");
-				}
-
-		});
-		*/
 
 	}	
 
