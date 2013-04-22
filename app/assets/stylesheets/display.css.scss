@@ -833,7 +833,6 @@ BILLBOARD
 			z-index: 3;
 			bottom: 20px;
 			left: 0;
-/*			max-width: 90%; */
 			width: 100%;
 		}
 				.billboard .caption .title {
@@ -898,6 +897,7 @@ BILLBOARD
 					position: absolute;
 					top: 0;
 					left: -43.8%;
+					overflow: hidden;
 				}
 						.billboard.aspect-ratio-square .filmstrip {
 							left: -13%;
@@ -906,25 +906,30 @@ BILLBOARD
 							left: -31%;
 						}
 						.billboard .filmstrip img {
+							display: block;
 							float: left;
 							height: 100%;
+							width: auto;
 						}
-						/* =============
-						debug
-						================
-						.warmup,
-						.spokesman,
-						.feedgrid,
-						.roundup,
-						.envoy {
-							display: none;
-						}
-						/* ============= */
 						.billboard.aspect-ratio-square .filmstrip img {
 							width: auto;
 						}
 
 
+		/*	===================================================================================
+		    ===================================================================================
+
+			The next 6 lines of code are shameful, but such is the struggle of life.
+			There's a bug wherein iPad-Safari can't handle height: 100%; on an <img>.
+			Instead of scaling to 100% of its container's height, it scales to 100% of the *page*'s height.
+			This is evil. But it's only slightly more evil than the following hack to correct for it. */
+
+		    @media screen and (width: 1024px) {
+				.billboard .filmstrip img	{ height: 384px; }
+		    }
+		    @media screen and (width: 768px) {
+				.billboard .filmstrip img	{ height: 300px; }
+		    }
 						
 		/*	===================================================================================
 		    =================================================================================== */
@@ -2901,7 +2906,6 @@ SINGLE-PLUGS
 						}
 								.single-plugs .featured-jump a {
 									display: inline-block;
-									background: orange;
 									color: #4a4a4a;
 									font-size: 0.875em; /* 14 / 16 */
 									white-space: nowrap;
