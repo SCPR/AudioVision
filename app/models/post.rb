@@ -139,7 +139,7 @@ class Post < ActiveRecord::Base
   def related_kpcc_article
     return nil if self.related_kpcc_article_url.blank?
 
-    if cache = Rails.cache.fetch("#{self.obj_key}/related_kpcc_article_json")
+    if cache = Rails.cache.read("#{self.obj_key}/related_kpcc_article_json")
       cache
     else
       self.enqueue_related_kpcc_article_job
@@ -162,6 +162,7 @@ class Post < ActiveRecord::Base
   end
 
 
+  #-------------------
   # The key for the media type.
   # This is used for template rendering.
   def media_type_key
