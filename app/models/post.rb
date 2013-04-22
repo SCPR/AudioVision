@@ -189,11 +189,11 @@ class Post < ActiveRecord::Base
   def related_kpcc_article
     return nil if !self.related_kpcc_article_json_is_cached? || 
     self.related_kpcc_article_url.blank?
-    
+  
     if cache = Rails.cache.read(related_kpcc_article_cache_key)
       cache
     else
-      self.update_attribute(:related_kpcc_article_json_is_cached, false)
+      self.update_column(:related_kpcc_article_json_is_cached, false)
       nil
     end
   end
@@ -207,7 +207,7 @@ class Post < ActiveRecord::Base
     return false if self.related_kpcc_article_url.blank?
 
     if article = Kpcc::Article.find_by_url(self.related_kpcc_article_url)
-      self.update_attribute(:related_kpcc_article_json_is_cached, true)
+      self.update_column(:related_kpcc_article_json_is_cached, true)
       Rails.cache.write(related_kpcc_article_cache_key, article)
       true
     else
@@ -217,7 +217,7 @@ class Post < ActiveRecord::Base
 
   def clear_related_kpcc_article_cache
     Rails.cache.delete(related_kpcc_article_cache_key)
-    self.update_attribute(:related_kpcc_article_json_is_cached, false)
+    self.update_column(:related_kpcc_article_json_is_cached, false)
   end
 
 
