@@ -208,6 +208,7 @@ class Post < ActiveRecord::Base
 
     if article = Kpcc::Article.find_by_url(self.related_kpcc_article_url)
       self.update_column(:related_kpcc_article_json_is_cached, true)
+      self.touch
       Rails.cache.write(related_kpcc_article_cache_key, article)
       true
     else
