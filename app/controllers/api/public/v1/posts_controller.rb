@@ -23,7 +23,7 @@ module Api::Public::V1
     #-------------------------
 
     def show
-      @post = Post.published.where(id: @id)
+      @post = Post.published.where(id: @id).first
 
       if !@post
         render_not_found and return false
