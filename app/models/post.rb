@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
+
   outpost_model
   ROUTE_KEY = "post"
 
@@ -215,6 +217,8 @@ class Post < ActiveRecord::Base
       false
     end
   end
+
+  add_transaction_tracer :cache_related_kpcc_article_json, category: :task
 
   def clear_related_kpcc_article_cache
     Rails.cache.delete(related_kpcc_article_cache_key)
