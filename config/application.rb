@@ -20,6 +20,8 @@ module AudioVision
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.scpr = ActiveSupport::OrderedOptions.new
+    
     config.secrets = YAML.load_file("#{Rails.root}/config/app_config.yml")
 
     config.assethost = ActiveSupport::OrderedOptions.new
