@@ -1,6 +1,17 @@
 require 'spec_helper'
 
 describe Post do
+  describe '::with_related_kpcc_article' do
+    it 'returns any posts whose related_kpcc_article_url is not blank or null' do
+      create :post, related_kpcc_article_url: ""
+      create :post, related_kpcc_article_url: nil
+      post = create :post, related_kpcc_article_url: "http://scpr.org"
+      
+      Post.with_related_kpcc_article.should eq [post]
+    end
+  end
+
+
   describe '::enqueue_cache_for_empty_related_kpcc_articles' do
     it "enqueues a cache for any article with a url that it thinks isn't cached yet" do
       uncached_posts = create_list :post, 2, related_kpcc_article_url: "http://scpr.org", related_kpcc_article_json_is_cached: false
