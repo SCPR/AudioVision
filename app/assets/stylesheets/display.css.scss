@@ -143,10 +143,6 @@ MASTHEAD
 		.masthead .av-brand {
 			padding: 40px 0 57px;
 		}
-				body.landing .masthead .av-brand,
-				body.single .masthead .av-brand {
-					padding: 22px 0 28px;
-				}
 				.masthead .av-brand h1 {
 					float: left;
 					width: 296px; /* ~48.7% of source raster by default */
@@ -162,11 +158,6 @@ MASTHEAD
 							background-size: 100%;
 							height: 100%;
 						}
-						body.landing .masthead .av-brand h1,
-						body.single .masthead .av-brand h1 {
-							width: 232px;
-							height: 37px;
-						}
 
 				.masthead .av-brand h2 {
 					float: left;
@@ -174,20 +165,32 @@ MASTHEAD
 					color: #404040;
 					padding: 17px 0 0 13px;
 				}
-				body.landing .masthead .av-brand h2,
-				body.single .masthead .av-brand h2 {
-					color: #848484;
-					font-size: 0.8125em; /* 13 / 16 */
-					padding-top: 13px;
-					float: right;
-					font-style: italic;
-				}
+
 
 				/*	===================================================================================
 				    =================================================================================== */
 
+				    @media screen and (min-width: 401px) {
+						body.landing .masthead .av-brand,
+						body.single .masthead .av-brand {
+							padding: 22px 0 28px;
+						}
+						body.landing .masthead .av-brand h1,
+						body.single .masthead .av-brand h1 {
+							width: 232px;
+							height: 37px;
+						}
+						body.landing .masthead .av-brand h2,
+						body.single .masthead .av-brand h2 {
+							color: #848484;
+							font-size: 0.8125em; /* 13 / 16 */
+							padding-top: 13px;
+							float: right;
+							font-style: italic;
+						}
+				    }
+
 				    @media screen and (max-width: 930px) {
-						
 						.masthead .av-brand h1 {
 							width: 231px; /* 38% */
 							height: 37px;
@@ -196,7 +199,6 @@ MASTHEAD
 							padding-top: 15px;
 							font-size: 0.75em;
 						}
-
 				    }
 
 				/*	===================================================================================
@@ -394,13 +396,21 @@ MASTHEAD
 										/*	===================================================================================
 										    =================================================================================== */
 
-										    @media screen and (max-width: 355px) {
+										    @media screen and (max-width: 400px) {
 
-												.masthead .kpcc-nav .pledge {
+												.masthead {
+													padding-top: 42px;
+													margin-bottom: 30px;
+												}
+												body.landing .masthead {
+													margin-bottom: 0;
+												}
+												.masthead .atlas,
+												.masthead .global {
 													display: none;
 												}
-												.masthead .kpcc-nav .inside .conditional {
-													display: list-item;
+												.sticky-wrapper {
+													height: 0 !important;
 												}
 
 										    }
@@ -420,25 +430,25 @@ LEDGE
 #####################################################################################################################
 ##################################################################################################################### */
 
-		.ledge {
-			background: black;
-			height: 0;
-			width: 100%;
-			box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
-			color: white;
+.ledge {
+	background: black;
+	height: 0;
+	width: 100%;
+	box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
+	color: white;
+	position: fixed;
+	z-index: 10; /* don't ever let anything get higher than 10 mmkay */
+	text-transform: uppercase;
+	font-family: "proxima-nova", Avenir, Arial, sans-serif;
+	display: none;
+}
+		.ledge.stuck {
 			position: fixed;
-			z-index: 10; /* don't ever let anything get higher than 10 mmkay */
-			text-transform: uppercase;
-			font-family: "proxima-nova", Avenir, Arial, sans-serif;
-			display: none;
+			display: block;
+			top: 0;
+			left: 0;
+			height: 47px;
 		}
-				.ledge.stuck {
-					position: fixed;
-					display: block;
-					top: 0;
-					left: 0;
-					height: 47px;
-				}
 
 		.ledge-inner {
 			position: relative;
@@ -630,6 +640,22 @@ LEDGE
 																}
 																.ledge .nav-kpcc ul ul .conditional {
 																	display: list-item;
+																}
+
+														    }
+
+														/*	===================================================================================
+														    =================================================================================== */
+
+														    @media screen and (max-width: 400px) {
+
+																/* Basically, I'm just universally assigining it the same visibility that *everyone* gets after passing the critical scroll length. */
+																.ledge {
+																	position: fixed;
+																	display: block;
+																	top: 0;
+																	left: 0;
+																	height: 47px;
 																}
 
 														    }
@@ -1002,6 +1028,18 @@ BILLBOARD
 								height: auto;
 							}
 
+
+		    }
+
+		/*	===================================================================================
+		    =================================================================================== */
+
+		    @media screen and (max-width: 400px) {
+
+				.billboard {
+					margin-top: 0;
+					margin-bottom: 20px; /* not 90px */
+				}
 
 		    }
 
@@ -1514,22 +1552,11 @@ WARMUP
 	background: image-url('i/structure-warmup-splice-base.png') repeat-y center top;
 	box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
 	border-top: 1px solid rgba(0,0,0,0.7);
-/*
-	border-bottom: 1px solid #525252;
-	margin-bottom: 100px;
-*/
 	position: relative;
 }
 		.warmup-inner {
 			box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
-			padding: 30px 0 120px;
-			/*
-			WHEN PARTNERHSIP BANNER IS IN EFFECT:
-			*/
-			padding-bottom: 260px;
-			/*
-			...Also, remove .WARMUP's bottom border
-			*/
+			padding: 30px 0 180px;
 			background: image-url('i/structure-warmup-splice-inner.png') repeat-y 79.583333333333% 0;
 		}
 				.warmup .recent {
@@ -1882,6 +1909,18 @@ WARMUP
 				/*	===================================================================================
 				    =================================================================================== */
 
+				    @media screen and (max-width: 580px) {
+
+						.warmup-inner {
+							padding-bottom: 60px; /* instead of 180px */
+						}
+
+				    }
+
+				/*	===================================================================================
+				    =================================================================================== */
+
+
 
 
 
@@ -2048,6 +2087,23 @@ FEEDGRID
 
 														/*	===================================================================================
 														    =================================================================================== */
+
+
+														    @media screen and (max-width: 580px) {
+
+																.feedgrid {
+																	margin-bottom: 45px;
+																}
+
+														    }
+
+												/*			===================================================================================
+														    =================================================================================== */
+
+
+
+
+
 														
 /*
 #####################################################################################################################
@@ -2170,20 +2226,6 @@ EXHIBIT (the main part of a single node)
 									font-weight: bold;
 									margin-bottom: 0.5em;
 								}
-								/*
-								.slideview .slides .slide .text {
-									text-align: right;
-								}
-								.slideview h4 {
-									font-weight: bold;
-									margin-bottom: 0.4em;
-								}
-								.slideview .slideshow-header h6 {
-									text-transform: uppercase;
-									font: normal 700 0.6875em/1 "proxima-nova", Avenir, Arial, sans-serif;
-									color: rgba(0,0,0,0.25);
-								}
-								*/
 
 				.exhibit .secondary {
 					float: left;
@@ -2202,11 +2244,18 @@ EXHIBIT (the main part of a single node)
 						    =================================================================================== */
 
 						    @media screen and (min-width: 941px) and (max-width: 1140px) {
-
-								.exhibit .essay		{ font-size: 0.9em; }
-
+								.exhibit .essay {
+									font-size: 0.9em;
+								}
 						    }
 
+						    @media screen and (max-width: 400px) {
+								.exhibit {
+									margin-top: 30px; /* not 70px */
+
+								}
+						    }
+						
 						/*	===================================================================================
 						    =================================================================================== */
 						
@@ -3152,6 +3201,19 @@ NOVELLA (for now, just ABOUT)
 								/*	===================================================================================
 								    =================================================================================== */
 
+								    @media screen and (max-width: 400px) {
+
+										.novella-inner {
+											padding-top: 15px;
+										}
+
+								    }
+
+								/*	===================================================================================
+								    =================================================================================== */
+
+
+
 
 
 /*
@@ -3164,6 +3226,18 @@ SPOKESMAN (any)
 .spokesman {
 	margin-bottom: 115px;
 }
+
+/*			===================================================================================
+		    =================================================================================== */
+
+		    @media screen and (max-width: 400px) {
+				.spokesman {
+					margin-bottom: 75px;
+				}
+		    }
+
+/*			===================================================================================
+		    =================================================================================== */
 
 
 
@@ -3576,6 +3650,9 @@ MEMBERSHIP PLUG
 
 						    @media screen and (max-width: 460px) {
 
+								.membership {
+									margin-bottom: 80px;
+								}
 								.membership-inner {
 									padding-bottom: 5px;
 								}
