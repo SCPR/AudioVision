@@ -36,5 +36,4 @@ AudioVision::Application.configure do
 
   config.scpr.host     = "http://scpr.org"
   config.scpr.api_path = "/api/v2"
-
 end
