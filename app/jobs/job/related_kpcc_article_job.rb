@@ -2,8 +2,12 @@ module Job
   class RelatedKpccArticleJob
     @queue = "audiovision"
 
-    def self.perform(related_kpcc_article_url)
-      return
+    # Pass in the obj_key of the post that this is for, 
+    # and the URL we want to fetch.
+    def self.perform(id)
+      puts "Performing RelatedKpccArticleJob"
+      post = Post.find(id)
+      post.cache_related_kpcc_article_json
     end
   end
 end

@@ -33,4 +33,8 @@ AudioVision::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  config.scpr.host     = "http://scpr.org"
+  config.scpr.api_path = "/api/v2"
+
 end
