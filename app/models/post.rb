@@ -44,6 +44,7 @@ class Post < ActiveRecord::Base
   }
 
 
+  scope :with_related_kpcc_article, -> { where('related_kpcc_article_url is not null') }
 
   # Associations
   has_many :assets, -> { order("position") }, class_name: "PostAsset", dependent: :destroy
@@ -90,8 +91,13 @@ class Post < ActiveRecord::Base
   # Callbacks
   before_validation :generate_slug, if: -> { self.should_validate? && self.slug.blank? }
 
-#  after_save :enqueue_related_kpcc_article_job
+  # Every save will trigger an API request to fetch the related KPCC article.
+  # This also serves as a way to refresh the cached article, if it has changed.
+  after_save :enqueue_related_kpcc_article_job, if: -> { self.related_kpcc_article_url.present? }
+  after_save :clear_related_kpcc_article_cache, if: -> { self.related_kpcc_article_url_changed? && self.related_kpcc_article_url.blank? }
 
+  # Always update the updated_at attribute, 
+  # even if nothing was actually changed.
   after_save -> { self.touch }
   after_save :touch_referrers
 
@@ -102,7 +108,7 @@ class Post < ActiveRecord::Base
     end
   end
 
-  # Expire the cache for these.
+  # In order to expire the cache for referrers.
   def touch_referrers
     self.post_references.each { |r| r.touch }
   end
@@ -126,26 +132,94 @@ class Post < ActiveRecord::Base
         Post.published.find_by_id(match[1])
       end
     end
-  end
 
+    # Enqueue a cache job for any article whose kpcc article is present,
+    # but not the cache. This method is run from a rake task periodically,
+    # and is only meant to be a safety net for if the cache is 
+    # cleared but the related KPCC articles aren't manually recached.
+    #
+    # If the cache is cleared, ::force_recache_of_related_kpcc_articles
+    # should be run manually.
+    #
+    # This method depends on the idea that if the Rails cache is cleared,
+    # eventually the system will see the discrepancy between the "is_cached"
+    # boolean, and the actual state of the cache. Then the next time this 
+    # gets run, its cache will be rebuilt.
+    def enqueue_cache_for_empty_related_kpcc_articles
+      self.with_related_kpcc_article
+        .where(related_kpcc_article_json_is_cached: false)
+        .find_in_batches do |group|
+        group.each do |post|
+          if !Rails.cache.read(post.related_kpcc_article_cache_key)
+            post.enqueue_related_kpcc_article_job
+          end
+        end
+      end
+    end
 
-  # Related KPCC Article
-  def enqueue_related_kpcc_article_job
-    if self.related_kpcc_article_url.present?
-      Resque.enqueue(Job::RelatedKpccArticleJob, self.obj_key, self.related_kpcc_article_url)
+    # This method should only be run when a brute-force recache of all
+    # related kpcc articles is necessary.
+    # It will force a recache of the related KPCC article for any post
+    # that has a related_kpcc_article_url set.
+    def force_recache_of_related_kpcc_articles
+      self.with_related_kpcc_article.find_in_batches do |group|
+        group.each do |post|
+          post.enqueue_related_kpcc_article_job
+        end
+      end
     end
   end
 
-  def related_kpcc_article
-    return nil if self.related_kpcc_article_url.blank?
 
-    if cache = Rails.cache.read("#{self.obj_key}/related_kpcc_article_json")
+  #-------------------
+  # Related KPCC Article
+  def related_kpcc_article_cache_key
+    return nil if !self.persisted?
+    @related_kpcc_article_cache_key ||= "#{self.obj_key}/related_kpcc_article_json"
+  end
+
+  # If the boolean is false, just return nil.
+  # If it's true, then we check the cache. If the article is indeed
+  # cached, then return it. If it's not cached, then we need to set
+  # the boolean to false.
+  #
+  # Don't enqueue a job here to cache the article - this will be 
+  # susceptible to problems caused by race conditions. The cache needs
+  # happen manually from the server.
+  def related_kpcc_article
+    return nil if !self.related_kpcc_article_json_is_cached? || 
+    self.related_kpcc_article_url.blank?
+    
+    if cache = Rails.cache.read(related_kpcc_article_cache_key)
       cache
     else
-      self.enqueue_related_kpcc_article_job
-      nil # Return nil so we can check presence
+      self.update_attribute(:related_kpcc_article_json_is_cached, false)
+      nil
     end
   end
+
+  def enqueue_related_kpcc_article_job
+    return false if self.related_kpcc_article_url.blank?
+    Resque.enqueue(Job::RelatedKpccArticleJob, self.id)
+  end
+
+  def cache_related_kpcc_article_json
+    return false if self.related_kpcc_article_url.blank?
+
+    if article = Kpcc::Article.find_by_url(self.related_kpcc_article_url)
+      self.update_attribute(:related_kpcc_article_json_is_cached, true)
+      Rails.cache.write(related_kpcc_article_cache_key, article)
+      true
+    else
+      false
+    end
+  end
+
+  def clear_related_kpcc_article_cache
+    Rails.cache.delete(related_kpcc_article_cache_key)
+    self.update_attribute(:related_kpcc_article_json_is_cached, false)
+  end
+
 
 
   #------------------

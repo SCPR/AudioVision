@@ -47,7 +47,19 @@ module Kpcc
       @thumbnail    = attributes["thumbnail"]
       @byline       = attributes["byline"]
       @permalink    = attributes["permalink"]
-      @published_at = Time.parse(attributes["published_at"])
+      @published_at = Time.parse(attributes["published_at"].to_s)
     end
+
+    # Steal the ActiveRecord behavior for object comparison.
+    # If they're the same class and the ID is the same, then it's "same"
+    # enough for us.
+    def ==(comparison_object)
+      super ||
+        comparison_object.instance_of?(Kpcc::Article) &&
+        self.id.present? &&
+        self.id == comparison_object.id
+    end
+    alias :eql? :==
+
   end
 end
