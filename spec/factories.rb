@@ -45,6 +45,7 @@ FactoryGirl.define do
   end
 
   factory :reporter do
+    user
     name "Hermes Conrad"
     bio "Hermes likes to relax the traditional Jamaican way: A warm glass of milk and a good night's sleep."
     slug { name.parameterize }
@@ -54,5 +55,13 @@ FactoryGirl.define do
   end
 
   factory :user do
+    name "Scruffy"
+    username "scruffy"
+    email "scruffy@planetexpress.com"
+    can_login true
+    is_superuser false
+    
+    password "secret"
+    password_confirmation "secret"
   end
 end
