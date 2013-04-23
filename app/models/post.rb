@@ -10,25 +10,27 @@ class Post < ActiveRecord::Base
   include PublishedScope
   include AutoPublishedAt
 
-  MEDIA_TYPES = {
+  POST_TYPES = {
     :image        => 0,
     :slideshow    => 1,
     :gallery      => 2,
-    :video        => 3
+    :video        => 3,
+    :text         => 4
   }
 
-  MEDIA_TYPES_TEXT = {
-    MEDIA_TYPES[:image]       => "Image",
-    MEDIA_TYPES[:slideshow]   => "Slideshow",
-    MEDIA_TYPES[:gallery]     => "Gallery",
-    MEDIA_TYPES[:video]       => "Video",
+  POST_TYPES_TEXT = {
+    POST_TYPES[:image]       => "Image",
+    POST_TYPES[:slideshow]   => "Slideshow",
+    POST_TYPES[:gallery]     => "Gallery",
+    POST_TYPES[:video]       => "Video",
+    POST_TYPES[:text]        => "Text"
   }
 
   # Keys for templates
-  # Just reverses the MEDIA_TYPES hash.
+  # Just reverses the POST_TYPES hash.
   #
-  #   MEDIA_TYPES_KEYS[0] => "image"
-  MEDIA_TYPES_KEYS = Hash[MEDIA_TYPES.map { |k, v| [v, k.to_s] }]
+  #   POST_TYPES_KEYS[0] => "image"
+  POST_TYPES_KEYS = Hash[POST_TYPES.map { |k, v| [v, k.to_s] }]
 
 
   STATUS = {
@@ -79,7 +81,7 @@ class Post < ActiveRecord::Base
 
   # We want to really enforce that the media types are correct, because they
   # get mapped directly to partial names.
-  validates :media_type, presence: true, inclusion: { in: MEDIA_TYPES.values }
+  validates :post_type, presence: true, inclusion: { in: POST_TYPES.values }
 
   validates :body, presence: true, if: :should_validate?
   validates :teaser, :subtitle, presence: true, if: :should_validate?
@@ -118,8 +120,8 @@ class Post < ActiveRecord::Base
 
 
   class << self
-    def media_types_collection
-      MEDIA_TYPES_TEXT.map { |k, v| [v, k] }
+    def post_types_collection
+      POST_TYPES_TEXT.map { |k, v| [v, k] }
     end
 
     # Find a post by its URL.
@@ -239,15 +241,15 @@ class Post < ActiveRecord::Base
   #-------------------
   # All bylines mixed into one.
   def byline
-    self.attributions.for_byline.map(&:display_name).to_sentence
+    @byline ||= self.attributions.for_byline.map(&:display_name).to_sentence
   end
 
 
   #-------------------
   # The key for the media type.
   # This is used for template rendering.
-  def media_type_key
-    MEDIA_TYPES_KEYS[self.media_type]
+  def post_type_key
+    POST_TYPES_KEYS[self.post_type]
   end
 
 

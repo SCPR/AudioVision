@@ -10,8 +10,8 @@ module AdminListHelper
     content_tag :div, Post::STATUS_TEXT[status], class: STATUS_BOOTSTRAP_MAP[status]
   end
   
-  def display_media_type(media_type)
-    Post::MEDIA_TYPES_TEXT[media_type]
+  def display_post_type(post_type)
+    Post::POST_TYPES_TEXT[post_type]
   end
 
   def status_bootstrap_map
