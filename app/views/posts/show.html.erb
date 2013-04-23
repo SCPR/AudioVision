@@ -14,11 +14,11 @@
     </div><!--/ .single-plugs-ephemera -->
     <div class="single-plugs-inner clearfix bound">
 
-        <%= cache @recent_posts_not_this_type + @recent_posts_this_type do %>
+        <%= cache @recent_posts_not_this_category + @recent_posts_this_category do %>
 
         <section class="recently">
 
-            <% @recent_posts_not_this_type.each_slice(2) do |group| %>
+            <% @recent_posts_not_this_category.each_slice(2) do |group| %>
                 <div class="pair clearfix">
                 <% group.each do |post| %>
                     <article>
@@ -47,7 +47,7 @@
         <section class="featured">
             <h2><span>Featured <%= @category.title.pluralize %></span></h2>
 
-            <% @recent_posts_this_type.each do |post| %>
+            <% @recent_posts_this_category.each do |post| %>
                 <a href="<%=post.link_path%>" class="preview">
                     <figure>
                         <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
