@@ -34,7 +34,7 @@ describe PostsController do
         create_list :post_asset, 3, post: post
         get :show, post.route_hash
 
-        response.should render_template partial: 'posts/post_types/_image'
+        response.should render_template partial: 'posts/assets/_image'
       end
     end
 
@@ -44,7 +44,7 @@ describe PostsController do
         create_list :post_asset, 3, post: post
         get :show, post.route_hash
 
-        response.should render_template partial: 'posts/post_types/_slideshow'
+        response.should render_template partial: 'posts/assets/_slideshow'
       end
     end
 
@@ -54,7 +54,7 @@ describe PostsController do
         create_list :post_asset, 3, post: post
         get :show, post.route_hash
 
-        response.should render_template partial: 'posts/post_types/_video'
+        response.should render_template partial: 'posts/assets/_video'
       end
     end
 
@@ -64,7 +64,7 @@ describe PostsController do
         create_list :post_asset, 3, post: post
         get :show, post.route_hash
 
-        response.should render_template partial: 'posts/post_types/_gallery'
+        response.should render_template partial: 'posts/assets/_gallery'
       end
     end
   end
