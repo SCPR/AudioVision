@@ -239,7 +239,7 @@ class Post < ActiveRecord::Base
   #-------------------
   # All bylines mixed into one.
   def byline
-    self.attributions.for_byline.map(&:to_s).to_sentence
+    self.attributions.for_byline.map(&:display_name).to_sentence
   end
 
 
