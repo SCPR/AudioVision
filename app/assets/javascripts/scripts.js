@@ -76,23 +76,6 @@ jQuery(document).ready(function($) {
 
 
 
-/*	-----------------------------------------------------------------------------------------------------------------
-	Sometimes letterboxing needs to go vertically, not just horizontally
-	----------------------------------------------------------------------------------------------------------------- */
-	if ($(".feedgrid").length) {
-		var feedimgWidth;
-		var feedimgHeight;
-		var feedimgRatio;
-		$(".feedgrid article").each(function(){
-			feedimgWidth = $(this).find("img").width();
-			feedimgHeight = $(this).find("img").height();
-			feedimgRatio = feedimgWidth / feedimgHeight;
-//			$(this).prepend("<p style=\"color: red;\">" + feedimgRatio + "</p>");
-		});
-	}
-
-
-
 
 /*	-----------------------------------------------------------------------------------------------------------------
 	If any video embed(s) show up inside a single post
