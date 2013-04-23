@@ -14,13 +14,13 @@ describe Attribution do
 
   describe '#display_name' do
     it "is the reporter name if available" do
-      attribution = create :attribution, :with_reporter, name: "Dr. Farnsworth"
+      attribution = build :attribution, :with_reporter, name: "Dr. Farnsworth"
       attribution.display_name.should eq attribution.reporter.name
       attribution.display_name.should_not eq "Dr. Farnsworth"
     end
 
     it "is the passed-in name if no reporter is present" do
-      attribution = create :attribution, :without_reporter, name: "Turanga Leela"
+      attribution = build :attribution, :without_reporter, name: "Turanga Leela"
       attribution.display_name.should eq "Turanga Leela"
     end
   end
@@ -28,29 +28,29 @@ describe Attribution do
 
   describe '#display_url' do
     it 'prefers the passed-in url over the reporter URL' do
-      attribution = create :attribution, :with_reporter, url: "http://kpcc.org"
+      attribution = build :attribution, :with_reporter, url: "http://kpcc.org"
       attribution.display_url.should eq "http://kpcc.org"
     end
 
     it 'uses the reporter url if available' do
-      attribution = create :attribution, :with_reporter, url: nil
+      attribution = build :attribution, :with_reporter, url: nil
       attribution.display_url.should eq attribution.reporter.remote_link_path
     end
 
     it 'is the passed in URL if no reporter is available' do
-      attribution = create :attribution, :without_reporter, url: "http://scpr.org"
+      attribution = build :attribution, :without_reporter, url: "http://scpr.org"
       attribution.display_url.should eq "http://scpr.org"
     end
 
     it 'is nothing if no URL and no reporter are available' do
-      attribution = create :attribution, :without_reporter, url: nil
+      attribution = build :attribution, :without_reporter, url: nil
       attribution.display_url.should eq nil
     end
   end
 
   describe '#role_text' do
     it "returns the role text" do
-      attribution = create :attribution, role: Attribution::ROLE_SOURCE
+      attribution = build :attribution, role: Attribution::ROLE_SOURCE
       attribution.role_text.should eq "Source"
     end
   end

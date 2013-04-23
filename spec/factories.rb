@@ -13,9 +13,12 @@ FactoryGirl.define do
   end
 
   factory :attribution do
-    post
     role 1
 
+    trait :with_post do
+      post
+    end
+    
     trait :with_reporter do
       reporter
     end
