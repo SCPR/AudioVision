@@ -12,7 +12,7 @@
                 <%= simple_format(@reporter.bio, {}, sanitize: false) %>
                 <ul>
                 <% if @reporter.email.present? %>
-                    <li class="email"><a href="mailto:<%=@reporter.email%>" title="<%=@reporter.email%>">Email <%= @reporter.name %></a></li>
+                    <li class="email">Email <a href="mailto:<%=@reporter.email%>" title="<%=@reporter.email%>"><%= @reporter.email %></a></li>
                 <% end %>
 
                 <% if @reporter.twitter_handle.present? %>
