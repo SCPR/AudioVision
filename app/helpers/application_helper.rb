@@ -24,6 +24,7 @@ module ApplicationHelper
     render "shared/byline", elements: byline_elements
   end
 
+
   # These two methods are taken from EscapeUtils
   def html_escape(string)
     EscapeUtils.escape_html(string.to_s).html_safe
