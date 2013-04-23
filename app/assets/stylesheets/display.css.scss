@@ -496,13 +496,13 @@ LEDGE
 										
 										.ledge .nav-kpcc ul ul {
 											font-weight: 900;
-											font-size: 0.875em; /* 14 / 16 */
+											font-size: 1.125em;
 											background: black;
 											padding: 0 0 13px;
 											display: none;
 										}
 												.ledge .nav-kpcc ul ul li {
-													margin-bottom: 2px;
+													margin-bottom: 7px;
 												}
 												.ledge .nav-kpcc ul ul .conditional {
 													display: none;
@@ -635,6 +635,12 @@ LEDGE
 
 														    @media screen and (max-width: 479px) {
 
+																.ledge .nav-av {
+																	font-size: 1.125em;
+																}
+																.ledge .nav-av ul ul li {
+																	margin-bottom: 10px;
+																}
 																.ledge .nav-kpcc .pledge {
 																	display: none;
 																}
@@ -1187,12 +1193,15 @@ LANDING-WELCOME
 			padding-bottom: 34px;
 		}
 				.landing-welcome h1 {
-					font: normal 100 2em/1.05 "proxima-nova", Avenir, Arial, sans-serif; /* 32 / 16 */ /* JPW: Go get another weight of Proxima from TK */
-					text-transform: capitalize;
-					margin-bottom: 17px;
+					font: normal 400 1.5em/1.1 "proxima-nova", Avenir, Arial, sans-serif;
+					text-transform: uppercase;
+					margin-bottom: 14px;
+					text-shadow: 0 1px 0 white;
+					color: rgba(0,0,0,0.65);
 				}
 				.landing-welcome h2 {
 					font-size: 0.75em;
+					color: rgba(0,0,0,0.4);
 				}
 
 
@@ -1206,9 +1215,9 @@ LANDING-RECENTS
 ##################################################################################################################### */
 
 .landing-recents {
-	padding-bottom: 80px;
+	padding-bottom: 65px;
 	border-bottom: 1px solid #d9d9d9;
-	margin-bottom: 80px;
+	margin-bottom: 65px;
 }
 		.landing-recents-inner {
 		}
@@ -1572,7 +1581,7 @@ WARMUP
 					box-shadow: inset 0 161px 0 white;
 				}
 						.warmup .recent figure {
-							margin-bottom: 185px;
+							margin-bottom: 150px;
 						}
 						.warmup .recent figure:last-child {
 							margin-bottom: 0;
@@ -1601,6 +1610,7 @@ WARMUP
 												.warmup .recent figcaption .meta,
 												.warmup .recent figcaption .desc {
 													font-size: 0.625em; /* 10 / 16 */
+													font-size: 0.6875em; /* 11 / 16 */
 												}
 												.warmup .recent figcaption .meta .date {
 													margin-bottom: 10px;
@@ -1882,6 +1892,9 @@ WARMUP
 							position: absolute;
 							width: 100%;
 						}
+						.warmup .inset-title b {
+							font-weight: 400;
+						}
 						.warmup-inner {
 							background: none;
 							box-shadow: none;
@@ -1907,6 +1920,9 @@ WARMUP
 							margin: 0 auto 30px;
 							width: 80%;
 							max-width: 300px;
+						}
+						.warmup .pamphlet h2 {
+							color: white;
 						}
 
 				    }
@@ -2032,7 +2048,8 @@ FEEDGRID
 															margin-bottom: 8px;
 														}
 														.feedgrid .desc p {
-															font-size: 0.625em; /* 10 / 16 */
+															font-size: 0.6875em; /* 11 / 16 */
+															line-height: 1.4;
 														}
 														.feedgrid .desc p mark {
 															background: none;
@@ -2478,7 +2495,8 @@ EXHIBIT (the main part of a single node)
 			width: 100%;
 			padding-left: 10%;
 			margin-left: -10%;
-			background: image-url('i/structure-exhibit-splice-base.png') no-repeat left top;
+			background: image-url('i/structure-exhibit-splice-base-hd-half.png') no-repeat left top;
+			background-size: 1500px 483px;
 		}
 				.exhibit .prose {
 					max-width: 650px;
