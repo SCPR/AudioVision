@@ -3,7 +3,7 @@
 <% posts.compact.each_slice(2) do |group| %>
     <div class="pair clearfix">
     <% group.each do |post| %>
-        <article>
+        <article class="type-<%= post.media_type_key %>">
             <a href="<%=post.link_path%>">
                 <figure class="clearfix">
                     <div class="img"><b><img src="<%=post.asset.eight.url%>" alt="" />
