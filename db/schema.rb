@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130422185311) do
+ActiveRecord::Schema.define(version: 20130423011645) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 20130422185311) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_listed"
+    t.boolean  "is_listed",      default: false
     t.integer  "asset_id"
     t.string   "twitter_handle"
     t.string   "email"
