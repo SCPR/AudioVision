@@ -28,20 +28,28 @@ describe ApplicationHelper do
       rendered.should match /Leela/
       rendered.should_not match /Bender/
     end
+  end
 
+
+  describe '#byline_elements' do
     it "makes it a link if the URL is present" do
-      author = create :attribution, :without_reporter, url: "http://marsu.edu", post: post, role: Attribution::ROLE_AUTHOR
+      attribution = build :attribution, :without_reporter, url: "http://marsu.edu",role: Attribution::ROLE_AUTHOR
 
-      rendered = helper.render_byline(post)
-      rendered.should match /<a href/
-      rendered.should match /marsu\.edu/
+      array = helper.byline_elements(attribution)
+      array.first.should match /<a href/
+      array.first.should match /marsu\.edu/
     end
 
     it "is not a link if no URL present" do
-      author = create :attribution, name: "Amy", post: post, role: Attribution::ROLE_AUTHOR
+      attribution = build :attribution, name: "Amy", role: Attribution::ROLE_AUTHOR
       
-      rendered = helper.render_byline(post)
-      rendered.should_not match /<a href/
+      array = helper.byline_elements(attribution)
+      array.first.should_not match /<a href/
+    end
+
+    it "takes multiple attributions too!" do
+      attributions = build_list :attribution, 2, :without_reporter
+      helper.byline_elements(attributions).size.should eq 2
     end
   end
 end

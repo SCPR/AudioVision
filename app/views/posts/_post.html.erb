@@ -1,13 +1,15 @@
+<%# Keep this separate so that we can use it for preview! %>
+
 <% @BODY_CLASS = "single" %>
 
 <%= cache post do %>
 
 <!-- Common code for all single posts -->
-<div class="exhibit exhibit-type-<%= post.media_type_key %>">
+<div class="exhibit exhibit-type-<%= post.post_type_key %>">
     <div class="exhibit-inner bound clearfix">
         
         <div class="primary">
-            <%= render "posts/post_types/#{post.post_type_key}", post: post %>
+            <%= render "posts/assets/#{post.post_type_key}", post: post %>
 
 
         <% if (article = @post.related_kpcc_article).present? %>
@@ -73,24 +75,14 @@
                 <div class="prose">
                     <%= post.body.html_safe %>
 
-                    <% if post.contributors.present? %>
-                    
-                        <h3>Contributors</h3>
-                        <ul class="contributors">
-                        <% post.contributors.each do |attribution| %>
-                            <li>
-                            <% if attribution.name.present? %>
-                                <% if attribution.url.present? %>
-                                    <%= link_to attribution.name, attribution.url %>
-                                <% else %>
-                                    <%= attribution.name %>
-                                <% end %>
-                            <% end %>
-                            </li>
-                        <% end %>
-                        </ul>
-
+                <% if post.contributors.present? %>
+                    <h3>Contributors</h3>
+                    <ul class="contributors">
+                    <% byline_elements(post.contributors).each do |attribution| %>
+                        <li><%= attribution %></li>
                     <% end %>
+                <% end %>
+
                 </div>
             </article>
         </div><!--/ .secondary -->
