@@ -5,12 +5,16 @@ FactoryGirl.define do
     status 5
     body "This is a post about something."
     teaser "Teaser"
-    media_type 0
+    post_type 0
     category
   end
 
+  #---------------
+
   factory :billboard do
   end
+
+  #---------------
 
   factory :attribution do
     role 1
@@ -29,11 +33,20 @@ FactoryGirl.define do
     end
   end
 
+  #---------------
+
   factory :post_asset do
+    post
+    asset_id 999
+    sequence(:position)
   end
+
+  #---------------
 
   factory :bucket do
   end
+
+  #---------------
 
   factory :category do
     title "Images"
@@ -41,11 +54,17 @@ FactoryGirl.define do
     description "These are some images"
   end
 
+  #---------------
+
   factory :post_reference do
   end
 
+  #---------------
+
   factory :publish_alarm do
   end
+
+  #---------------
 
   factory :reporter do
     user
@@ -57,9 +76,11 @@ FactoryGirl.define do
     email "hconrd@planetexpress.com"
   end
 
+  #---------------
+
   factory :user do
     name "Scruffy"
-    username "scruffy"
+    sequence(:username) { |n| "scruffy#{n}" }
     email "scruffy@planetexpress.com"
     can_login true
     is_superuser false
