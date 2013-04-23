@@ -7,7 +7,7 @@ class ReportersController < ApplicationController
 
   def show
     @reporter = Reporter.includes(:posts).find_by_slug!(params[:slug])
-    @posts = @reporter.posts.page(params[:page]).per(16)
+    @posts = @reporter.posts.published.page(params[:page]).per(16)
   end
 
 
