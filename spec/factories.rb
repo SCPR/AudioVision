@@ -13,6 +13,17 @@ FactoryGirl.define do
   end
 
   factory :attribution do
+    post
+    role 1
+
+    trait :with_reporter do
+      reporter
+    end
+
+    trait :without_reporter do
+      name "Phillip J. Fry"
+      url "http://marsuniversity.edu"
+    end
   end
 
   factory :post_asset do
@@ -34,6 +45,12 @@ FactoryGirl.define do
   end
 
   factory :reporter do
+    name "Hermes Conrad"
+    bio "Hermes likes to relax the traditional Jamaican way: A warm glass of milk and a good night's sleep."
+    slug { name.parameterize }
+    asset_id 999
+    twitter_handle "hconrad"
+    email "hconrd@planetexpress.com"
   end
 
   factory :user do
