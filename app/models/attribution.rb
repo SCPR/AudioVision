@@ -25,11 +25,17 @@ class Attribution < ActiveRecord::Base
     end
   end
 
-  def to_s
-    if self.reporter.present?
-      self.reporter.name
-    else
-      self.name
-    end
+
+  def role_text
+    ROLE_TEXT[self.role]
+  end
+
+
+  def display_name
+    @display_name ||= self.reporter.try(:name) || self.name
+  end
+
+  def display_url
+    @display_url ||= self.reporter.try(:remote_link_path) || self.url
   end
 end
