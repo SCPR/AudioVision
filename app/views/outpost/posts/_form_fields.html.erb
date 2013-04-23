@@ -24,7 +24,7 @@
 <% end %>
 
 <%= form_block "Asset Management" do %>
-  <%= f.input :media_type, collection: Post.media_types_collection %>
+  <%= f.input :post_type, collection: Post.post_types_collection %>
 
   <div id="asset_bucket" class="clearfix"></div>
   <%= f.input :asset_json, as: :hidden, input_html: { id: "asset_json" } %>

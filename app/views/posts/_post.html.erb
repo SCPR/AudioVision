@@ -7,7 +7,7 @@
     <div class="exhibit-inner bound clearfix">
         
         <div class="primary">
-            <%= render "posts/media_types/#{post.media_type_key}", post: post %>
+            <%= render "posts/post_types/#{post.post_type_key}", post: post %>
 
 
         <% if (article = @post.related_kpcc_article).present? %>

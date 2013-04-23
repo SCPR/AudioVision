@@ -1,3 +1,5 @@
+<% if post.assets.present? %>
+
 <div class="media-wrapper video">
     <%= post.asset.eight.tag %>
 </div>
@@ -8,3 +10,5 @@
     ahClient = new AssetHost.Client();
   });
 </script>
+
+<% end %>
