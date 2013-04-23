@@ -12,14 +12,11 @@ module ApplicationHelper
     byline_elements = []
 
     attributions.each do |attribution|
-      if (reporter = attribution.reporter)
-        byline_elements << link_to(reporter.name, reporter.link_path)
-
-      elsif attribution.name.present?
-        if attribution.url.present?
-          byline_elements << link_to(attribution.name, attribution.url)
+      if attribution.display_name.present?
+        if attribution.display_url.present?
+          byline_elements << link_to(attribution.display_name, attribution.display_url)
         else
-          byline_elements << attribution.name
+          byline_elements << attribution.display_name
         end
       end
     end
