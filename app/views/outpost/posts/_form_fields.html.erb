@@ -5,9 +5,23 @@
   <%= f.input :body, input_html: { class: "ckeditor" } %>
   <%= f.input :teaser, input_html: { class: "tiny" }, wrapper_html: { class: "field-counter", data: { target: 145, fuzziness: 20} } %>
   <%= f.input :slug, label: "URL Slug", input_html: { class: "span5" } %>
-  <%= f.input :related_kpcc_article_url, input_html: { class: "wide" } %>
 <% end %>
 
+<%= form_block "Related Article" do %>
+  <% if record.related_kpcc_article.present? %>
+    <div class="alert alert-success alert-block clearfix">
+      <div class="pull-left" style="max-width:80px;padding-right:10px;">
+        <%= record.related_kpcc_article.thumbnail.html_safe %>
+      </div>
+      <p><strong><%= link_to record.related_kpcc_article.short_title, record.related_kpcc_article.permalink %></strong></p>
+      <p><em>You can update the cached article by saving this post.</em></p>
+    </div>
+  <% elsif record.related_kpcc_article_url.present? %>
+    <div class="alert alert-error"><strong>The KPCC Article isn't associated yet.</strong> Double-check the URL, or check again in a few minutes.</div>
+  <% end %>
+
+  <%= f.input :related_kpcc_article_url, input_html: { class: "wide" } %>
+<% end %>
 
 <%= form_block "Asset Management" do %>
   <%= f.input :media_type, collection: Post.media_types_collection %>
