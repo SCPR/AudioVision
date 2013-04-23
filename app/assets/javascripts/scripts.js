@@ -18,7 +18,6 @@ jQuery(document).ready(function($) {
 /*	-----------------------------------------------------------------------------------------------------------------
 	Masthead & Ledge interactions
 	----------------------------------------------------------------------------------------------------------------- */
-
 	if(is_touch_device() == true) {
 
 			$(".masthead .inside, .ledge .nav-av .menu, .ledge .nav-kpcc .inside").each(function(){
@@ -73,6 +72,20 @@ jQuery(document).ready(function($) {
 		});
 
 	}	
+
+
+
+
+/*	-----------------------------------------------------------------------------------------------------------------
+	If any video embed(s) show up inside a single post
+	----------------------------------------------------------------------------------------------------------------- */
+	if ($(".single .essay .prose iframe").length) {
+		$(".single .essay .prose iframe").each(function(){
+			$(this)
+				.removeAttr("width height")
+				.wrap("<div class=\"media-scaler\"></div>");
+		});
+	}
 
 
 
