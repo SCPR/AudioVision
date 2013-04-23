@@ -14,16 +14,14 @@ class Post < ActiveRecord::Base
     :image        => 0,
     :slideshow    => 1,
     :gallery      => 2,
-    :video        => 3,
-    :text         => 4
+    :video        => 3
   }
 
   POST_TYPES_TEXT = {
     POST_TYPES[:image]       => "Image",
     POST_TYPES[:slideshow]   => "Slideshow",
     POST_TYPES[:gallery]     => "Gallery",
-    POST_TYPES[:video]       => "Video",
-    POST_TYPES[:text]        => "Text"
+    POST_TYPES[:video]       => "Video"
   }
 
   # Keys for templates
