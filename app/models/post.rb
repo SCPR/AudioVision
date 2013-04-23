@@ -189,14 +189,16 @@ class Post < ActiveRecord::Base
   # susceptible to problems caused by race conditions. The cache needs
   # happen manually from the server.
   def related_kpcc_article
-    return nil if !self.related_kpcc_article_json_is_cached? || 
-    self.related_kpcc_article_url.blank?
-  
-    if cache = Rails.cache.read(related_kpcc_article_cache_key)
-      cache
-    else
-      self.update_column(:related_kpcc_article_json_is_cached, false)
-      nil
+    @related_kpcc_article ||= begin
+      return nil if !self.related_kpcc_article_json_is_cached? || 
+      self.related_kpcc_article_url.blank?
+    
+      if cache = Rails.cache.read(related_kpcc_article_cache_key)
+        cache
+      else
+        self.update_column(:related_kpcc_article_json_is_cached, false)
+        nil
+      end
     end
   end
 

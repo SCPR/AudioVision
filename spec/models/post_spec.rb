@@ -178,6 +178,7 @@ describe Post do
       post.related_kpcc_article_json_is_cached.should eq true
       
       post.clear_related_kpcc_article_cache
+      post = Post.find(post.id)
       post.related_kpcc_article_json_is_cached.should eq false
       post.related_kpcc_article.should eq nil
     end
