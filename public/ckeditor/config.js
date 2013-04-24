@@ -18,7 +18,8 @@ CKEDITOR.editorConfig = function(config) {
     showCommentButton: false,
     showUncommentButton: false
   };
-  config.toolbar = [['Bold', 'Italic', 'Underline', "RemoveFormat"], ['NumberedList', 'BulletedList', 'Blockquote'], ['Link', 'Unlink', 'Image', 'MediaEmbed'], ['Find', 'Paste'], ['Source', 'Maximize']];
+  config.format_tags = 'p;h3;h4';
+  config.toolbar = [['Bold', 'Italic', 'Underline', 'Format', "RemoveFormat"], ['NumberedList', 'BulletedList', 'Blockquote'], ['Link', 'Unlink', 'Image', 'MediaEmbed'], ['Find', 'Paste'], ['Source', 'Maximize']];
   config.language = 'en';
   config.height = "400px";
   config.width = "635px";
