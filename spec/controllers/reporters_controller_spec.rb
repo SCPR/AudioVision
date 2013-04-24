@@ -13,6 +13,7 @@ describe ReportersController do
     end
   end
 
+
   describe 'GET show' do
     render_views
 
