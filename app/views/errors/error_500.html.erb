@@ -6,8 +6,12 @@
         <section class="prose">
             <h1>Server Error (500)</h1>
             <p>Well, this is unfortunate.</p>
-            <p>It looks like what you were searching for isn't here, or maybe has been moved. Perhaps you can try <a href="/archive">our archives</a>, or <a href="/">the AudioVision home page</a>.</p>
+            <p>We've run into an error. This is our fault. Don't feel bad. We've been notified and are already fixing it.</p>
         </section><!--/ .prose -->
 
     </div>
 </div><!--/ novella -->
+
+<script>
+    console.log("<%= error.class.name %>: <%= j error.message %>");
+</script>
