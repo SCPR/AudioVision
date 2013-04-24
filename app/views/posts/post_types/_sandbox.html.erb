@@ -1,13 +1,13 @@
-<div class="primary">
+<div class="secondary">
 
     <%= render "posts/shared/header", post: post %>
 
     <%= render "posts/shared/kpcc_reference_box", post: post %>
 
-</div><!--/ .primary -->
+</div><!--/ .secondary -->
 
 
-<div class="secondary">
+<div class="primary">
     <article class="essay">
 
         <% if post.assets.present? %>
@@ -27,4 +27,4 @@
         <%= render "posts/shared/body", post: post %>
 
     </article>
-</div><!--/ .secondary -->
+</div><!--/ .primary -->

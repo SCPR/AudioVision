@@ -2307,9 +2307,15 @@ EXHIBIT (the main part of a single node)
 				.exhibit .secondary {
 					float: left;
 					width: 32%; /* 384 / 1200 */
-					border-bottom: 1px solid #d6d6d6;
-					padding-bottom: 30px;
 				}
+						.exhibit-type-sandbox .secondary {
+							border-bottom: none;
+							padding-bottom: 0;
+						}
+						.exhibit-type-sandbox .primary {
+							border-bottom: 1px solid #d6d6d6;
+							padding-bottom: 30px;
+						}
 						.exhibit .essay {
 							background: image-url('i/ornament-lightningbolt-stroked.png') no-repeat center bottom;
 							background-size: 24px 21px;
