@@ -9,7 +9,6 @@ class Reporter < ActiveRecord::Base
   
   validates :name, presence: true
   validates :slug, presence: true
-  validates :user, presence: true
 
   after_save -> { self.touch }
 
@@ -29,8 +28,6 @@ class Reporter < ActiveRecord::Base
 
   def route_hash
     return {} if !self.persisted?
-    {
-      :slug => self.slug
-    }
+    { :slug => self.slug }
   end
 end
