@@ -1,5 +1,5 @@
 
-<%= render @billboard %>
+<%= render @billboard if @billboard %>
 
 
 <% cache(@recent_posts + [@right_bar_bucket, @missed_it_bucket]) do %>
