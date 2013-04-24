@@ -1,11 +1,10 @@
 <%= form_block "Details" do %>
-  <%= f.association :user %>
   <%= f.input :name %>
   <%= f.input :bio, input_html: { class: 'tiny' } %>
   <%= f.input :asset_id, label: "Asset ID", input_html: { class: "span1" } %>
 <% end %>
 
-<%= form_block "Content" do %>
+<%= form_block "Contact" do %>
   <%= f.input :email %>
   <%= f.input :twitter_handle, wrapper: :prepend, hint: "No @ symbol" do %>
     <span class="add-on">@</span><%= f.input_field :twitter_handle, class: 'span2' %>
@@ -13,6 +12,7 @@
 <% end %>
 
 <%= form_block "Website" do %>
-  <%= f.input :slug %>
+  <%= f.association :user, hint: "Only for Outpost - lets this user edit his/her profile. If this field is blank, only a superuser can edit this profile." %>
+  <%= f.input :slug, hint: "This is *not* automatically generated." %>
   <%= f.input :is_listed, hint: "Should this bio show up in the list of reporters on the website?" %>
 <% end %>
