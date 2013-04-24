@@ -37,6 +37,7 @@ module ApplicationHelper
     elements
   end
 
+
   #---------------
   # These two methods are taken from EscapeUtils
   def html_escape(string)
