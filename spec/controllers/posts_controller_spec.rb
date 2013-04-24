@@ -34,7 +34,7 @@ describe PostsController do
         create_list :post_asset, 3, post: post
         get :show, post.route_hash
 
-        response.should render_template partial: 'posts/assets/_image'
+        response.should render_template partial: 'posts/post_types/_image'
       end
     end
 
@@ -44,7 +44,7 @@ describe PostsController do
         create_list :post_asset, 3, post: post
         get :show, post.route_hash
 
-        response.should render_template partial: 'posts/assets/_slideshow'
+        response.should render_template partial: 'posts/post_types/_slideshow'
       end
     end
 
@@ -54,7 +54,7 @@ describe PostsController do
         create_list :post_asset, 3, post: post
         get :show, post.route_hash
 
-        response.should render_template partial: 'posts/assets/_video'
+        response.should render_template partial: 'posts/post_types/_video'
       end
     end
 
@@ -64,7 +64,17 @@ describe PostsController do
         create_list :post_asset, 3, post: post
         get :show, post.route_hash
 
-        response.should render_template partial: 'posts/assets/_gallery'
+        response.should render_template partial: 'posts/post_types/_gallery'
+      end
+    end
+
+    context "for sandbox" do
+      it "renders properly" do
+        post = create :post, post_type: Post::POST_TYPES[:sandbox]
+        create_list :post_asset, 3, post: post
+        get :show, post.route_hash
+
+        response.should render_template partial: 'posts/post_types/_sandbox'
       end
     end
   end
