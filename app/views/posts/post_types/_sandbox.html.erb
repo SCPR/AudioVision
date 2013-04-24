@@ -1,0 +1,30 @@
+<div class="primary">
+
+    <%= render "posts/shared/header", post: post %>
+
+    <%= render "posts/shared/kpcc_reference_box", post: post %>
+
+</div><!--/ .primary -->
+
+
+<div class="secondary">
+    <article class="essay">
+
+        <% if post.assets.present? %>
+
+        <div class="media-wrapper">
+            <img src="<%=post.asset.eight.url%>" alt="" />
+        </div><!--/ .media-wrapper -->
+
+        <aside class="caption">
+            <h3 class="credit"><%= post.asset.owner %></h3>
+            <p><%= post.asset.caption %></p>
+        </aside>
+
+        <% end %>
+
+
+        <%= render "posts/shared/body", post: post %>
+
+    </article>
+</div><!--/ .secondary -->

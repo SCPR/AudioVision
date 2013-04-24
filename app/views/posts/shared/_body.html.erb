@@ -1,0 +1,12 @@
+<div class="prose">
+    <%= post.body.html_safe %>
+
+<% if post.contributors.present? %>
+    <h3>Contributors</h3>
+    <ul class="contributors">
+    <% byline_elements(post.contributors).each do |attribution| %>
+        <li><%= attribution %></li>
+    <% end %>
+<% end %>
+
+</div>

@@ -1,0 +1,22 @@
+<header class="intro">
+    <h1 class="title"><%= link_to post.title, post.link_path %></h1>
+    <aside class="share">
+        <ul class="clearfix">
+
+            <li class="fbk">
+                <a href="https://www.facebook.com/sharer.php?u=<%=u(post.remote_link_path)%>&amp;t=<%=u(post.title)%>">Share this on Facebook</a>
+            </li>
+            <li class="twi">
+                <a href="https://twitter.com/intent/tweet?url=<%=u(post.remote_link_path)%>&amp;text=<%=u(post.title)%>&amp;via=AudioVision">Share this on Twitter</a>
+            </li>
+            <li class="tum">
+                <a href="http://tumblr.com/share?s=&amp;v=3&amp;t=<%=u(post.title)%>&amp;u=<%=u(post.remote_link_path)%>">Share this on Tumblr</a>
+            </li>
+
+        </ul>
+    </aside>
+    <aside class="byline">
+        <%= render_byline(post) %>
+        <mark class="date"><%= format_date(post.published_at) %></mark>
+    </aside>
+</header>
