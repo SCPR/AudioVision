@@ -1,0 +1,32 @@
+<% if (article = post.related_kpcc_article).present? %>
+    <aside class="newsbox related">
+        <header>
+            <p>This AudioVision post is related to an article at KPCC. Follow the link to read more.</p>
+            <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
+        </header>
+        <div class="preview clearfix">
+            <b class="img"><a href="<%=article.permalink%>"><%= article.thumbnail.html_safe %></a></b>
+            <p class="desc">
+                <a href="<%=article.permalink%>">
+                    <mark class="title"><%= article.short_title %></mark>
+                    <span class="date"><%= format_date(article.published_at) %></span>
+                </a>
+            </p>
+        </div>
+    </aside><!--/ .newsbox -->
+
+<% elsif popular_kpcc_articles = Rails.cache.read('popular_kpcc_articles') %>
+    <aside class="newsbox unrelated">
+        <header>
+            <p>Explore what’s popular now on KPCC.</p>
+            <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
+        </header>
+        <ul class="popular-links">
+            <ul>
+                <li><a href="#">POLL: Public Radio Bracket Madness Rd 3: Vote for your favorite public radio show</a></li>
+                <li><a href="#">Beverly Center evacuated due to suspicious package in garage (Updated)</a></li>
+                <li><a href="#">After teen's death, hikers say Eaton Canyon should have better warnings</a></li>
+            </ul>
+        </ul>
+    </aside><!--/ .newsbox -->
+<% end %>

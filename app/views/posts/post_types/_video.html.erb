@@ -1,0 +1,32 @@
+<div class="primary">
+
+    <% if post.assets.present? %>
+
+    <div class="media-wrapper video">
+        <%= post.asset.eight.tag %>
+    </div>
+
+    <%# Don't put this in content_for :footer, because it's wrapped in cache. %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        ahClient = new AssetHost.Client();
+      });
+    </script>
+
+    <% end %>
+
+
+    <%= render "posts/shared/kpcc_reference_box", post: post %>
+
+</div><!--/ .primary -->
+
+
+<div class="secondary">
+    <article class="essay">
+
+        <%= render "posts/shared/header", post: post %>
+
+        <%= render "posts/shared/body", post: post %>
+
+    </article>
+</div><!--/ .secondary -->

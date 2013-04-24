@@ -14,14 +14,16 @@ class Post < ActiveRecord::Base
     :image        => 0,
     :slideshow    => 1,
     :gallery      => 2,
-    :video        => 3
+    :video        => 3,
+    :sandbox      => 4
   }
 
   POST_TYPES_TEXT = {
     POST_TYPES[:image]       => "Image",
     POST_TYPES[:slideshow]   => "Slideshow",
     POST_TYPES[:gallery]     => "Gallery",
-    POST_TYPES[:video]       => "Video"
+    POST_TYPES[:video]       => "Video",
+    POST_TYPES[:sandbox]     => "Sandbox"
   }
 
   # Keys for templates
@@ -246,8 +248,11 @@ class Post < ActiveRecord::Base
   #-------------------
   # The key for the media type.
   # This is used for template rendering.
+  #
+  # Fallback to "image" in case something goes
+  # horribly wrong.
   def post_type_key
-    POST_TYPES_KEYS[self.post_type]
+    POST_TYPES_KEYS[self.post_type] || 'image'
   end
 
 

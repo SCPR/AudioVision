@@ -1,0 +1,69 @@
+<div class="primary">
+
+    <% if post.assets.present? %>
+
+    <div id="asset_slideshow_<%= post.id %>" class="slideview"></div>
+
+    <%# Don't put this in content_for :footer, because it's wrapped in cache. %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var query, keyval;
+        var params = {};
+        query = _(window.location.search.substring(1).split("&")).each(function(pair) { keyval = pair.split("="); params[keyval[0]] = keyval[1]; });
+        
+        ahSlides = new audiovision.Slideshow({
+            start: params["slide"],
+            deeplink: true,
+            el: "#asset_slideshow_<%= post.id %>",
+            assets: <%= raw post.assets.to_json %>
+        });
+
+
+        ahSlides.bind("switch", function(idx) {
+              
+          // (1.) add slide change listener for analytics
+          // ------------------------------------------------------------------------------------------
+          if(typeof(_gaq) != 'undefined') {
+            _gaq.push(['_trackPageview',window.location.pathname + 'photos/' + (Number(idx) + 1)]);
+            dcsMultiTrack(
+                'DCS.dcsuri', window.location.pathname + 'photos/' + (Number(idx) + 1),
+                'WT.ti', 'SlideShow PageView'
+            );
+          }
+
+          // (2.) assess image dimensions
+          // ------------------------------------------------------------------------------------------
+          //if($("body").hasClass("av-fullscreen")) {
+            var nextImg, workingWidth, workingHeight;
+
+            console.log(this.slides);
+
+            // This the correct image, just at this point it hasn't been
+            // set to be visible yet so its width and height is 0.
+            nextImg         = $("img", this.slides.slides[idx].el);
+            workingWidth    = nextImg.width();
+            workingHeight   = nextImg.height();
+
+            console.log("w, h", workingWidth, workingHeight);
+          //}
+        });
+      });
+    </script>
+
+    <% end %>
+
+
+    <%= render "posts/shared/kpcc_reference_box", post: post %>
+
+</div><!--/ .primary -->
+
+
+<div class="secondary">
+    <article class="essay">
+
+        <%= render "posts/shared/header", post: post %>
+
+        <%= render "posts/shared/body", post: post %>
+
+    </article>
+</div><!--/ .secondary -->
