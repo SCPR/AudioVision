@@ -120,20 +120,27 @@ jQuery(document).ready(function($) {
 	Fakin' media queries
 	----------------------------------------------------------------------------------------------------------------- */
 	if ($(".newsbox").length) {
-		
-		// 1.) on load
-		if ($("body").innerWidth() <= 940){	
-			$(".newsbox").appendTo(".exhibit .secondary");
-		}
+		if(!$(".exhibit").hasClass("exhibit-type-sandbox")){
 
-		// 2.) on resize
-		$(window).resize(function(){
-			if ($("body").innerWidth() <= 940){	
-				$(".newsbox").appendTo(".exhibit .secondary");
-			} else {
-				$(".newsbox").appendTo(".exhibit .primary");
-			}
-		});
+				// 1.) on load
+				if ($("body").innerWidth() <= 940){	
+					$(".newsbox").appendTo(".exhibit .secondary");
+				}
+
+				// 2.) on resize
+				$(window).resize(function(){
+					if ($("body").innerWidth() <= 940){	
+						$(".newsbox").appendTo(".exhibit .secondary");
+					} else {
+						$(".newsbox").appendTo(".exhibit .primary");
+					}
+				});
+
+		} else {
+
+			// alert("you're a sandbox post.");
+
+		}
 
 	}
 	
