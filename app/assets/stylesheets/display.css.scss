@@ -3158,6 +3158,13 @@ NOVELLA (for now, just ABOUT)
 					background-size: 24px 21px;
 					font-style: italic;
 				}
+		
+		.novella.onecol .novella-inner {
+			padding-top: 60px;
+		}
+				.novella.onecol .prose {
+					width: 100%;
+				}
 
 		.novella .staff {
 			width: 42.5%; /* 510 / 1200 *//* the R-side overhang will come from dimensions below... */
