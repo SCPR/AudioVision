@@ -2215,12 +2215,14 @@ PROSE (anywhere it shows up) (reset its parent's contextual em to 1.0, first, if
 				    height: 100%;
 				}
 		
-		.prose h3 {
+		.prose h3, body.cke_ltr h3 {
 			text-transform: uppercase;
 			color: #e0495b;
 			padding-top: 16px;
 			font: normal 700 0.92857142857143em/1 "proxima-nova", Avenir, Arial, sans-serif; /* 13 / 14 */
 		}
+		body.cke_ltr h3 { padding-top: 0; }
+		
 		.prose ul,
 		.prose ul li {
 			list-style: disc outside;
