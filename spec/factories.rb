@@ -12,6 +12,9 @@ FactoryGirl.define do
   #---------------
 
   factory :billboard do
+    layout 1
+    status 5
+    # lol sweet factory bro
   end
 
   #---------------
@@ -44,6 +47,9 @@ FactoryGirl.define do
   #---------------
 
   factory :bucket do
+    title "Instant Grams"
+    sequence(:key) { |n| "instant-grams#{n}" }
+    description "All the instant-grams you can handle."
   end
 
   #---------------
