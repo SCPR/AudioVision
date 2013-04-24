@@ -6,7 +6,7 @@
 
 
     <div class="row secondary clearfix">
-    <% billboard.posts[1..2].each do |post| %>
+    <% Array(billboard.posts[1..2]).each do |post| %>
         <%= render "billboards/components/video", post: post %>
     <% end %>
     </div><!--/ .row-secondary -->
