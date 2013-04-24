@@ -2270,6 +2270,9 @@ EXHIBIT (the main part of a single node)
 	margin: 70px 0 90px;
 	background: image-url('i/structure-exhibit-splice-base.png') no-repeat center top;
 }
+		.exhibit-type-sandbox {
+			margin-top: 41px;
+		}
 		.exhibit-inner {
 			background: image-url('i/structure-exhibit-splice-inner.png') repeat-y 32% top;
 		}
@@ -2307,20 +2310,23 @@ EXHIBIT (the main part of a single node)
 				.exhibit .secondary {
 					float: left;
 					width: 32%; /* 384 / 1200 */
+					padding-bottom: 30px;
+					border-bottom: 1px solid #d6d6d6;
 				}
 						.exhibit-type-sandbox .secondary {
 							border-bottom: none;
 							padding-bottom: 0;
-						}
-						.exhibit-type-sandbox .primary {
-							border-bottom: 1px solid #d6d6d6;
-							padding-bottom: 30px;
 						}
 						.exhibit .essay {
 							background: image-url('i/ornament-lightningbolt-stroked.png') no-repeat center bottom;
 							background-size: 24px 21px;
 							padding-bottom: 40px;
 							margin-bottom: -41px;
+						}
+						.exhibit-type-sandbox .essay {
+							padding-bottom: 40px;
+							border-bottom: 1px solid #d6d6d6;
+							background: none;
 						}
 						
 						/*	===================================================================================
@@ -2462,6 +2468,13 @@ EXHIBIT (the main part of a single node)
 							padding: 25px 0 0 13.5%;
 							box-shadow: 5px 0 0 white; /* I hate myself */
 						}
+								.exhibit-type-sandbox .prose {
+									background: none;
+									padding: 0 0 40px 0;
+									margin: 80px 0 -51px 0;
+									background: image-url('i/ornament-lightningbolt-stroked.png') no-repeat center bottom;
+									background-size: 24px 21px;
+								}
 								.exhibit .prose .first,
 								.novella .prose .first {
 									font-size: 1.78571428571429em; /* 25 / 14 */
