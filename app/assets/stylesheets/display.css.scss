@@ -2327,6 +2327,7 @@ EXHIBIT (the main part of a single node)
 							padding-bottom: 40px;
 							border-bottom: 1px solid #d6d6d6;
 							background: none;
+							margin-bottom: 55px;
 						}
 						
 						/*	===================================================================================
@@ -2471,9 +2472,14 @@ EXHIBIT (the main part of a single node)
 								.exhibit-type-sandbox .prose {
 									background: none;
 									padding: 0 0 40px 0;
+									max-width: 600px; /* Left to its own devices, it'll fluidly grow out to 714px */
 									margin: 80px 0 -51px 0;
 									background: image-url('i/ornament-lightningbolt-stroked.png') no-repeat center bottom;
 									background-size: 24px 21px;
+									box-shadow: none;
+								}
+								.exhibit-type-sandbox.includes-feature .prose {
+									margin-top: 15px; /* not 80 */
 								}
 								.exhibit .prose .first,
 								.novella .prose .first {
@@ -2490,6 +2496,7 @@ EXHIBIT (the main part of a single node)
 									max-width: 100% !important;
 									height: auto !important;
 								}
+
 
 
 
@@ -2526,6 +2533,9 @@ EXHIBIT (the main part of a single node)
 					background-position: right top;
 					box-shadow: none;
 					padding-right: 25px;
+				}
+				.exhibit-type-sandbox .prose {
+					background-position: center bottom;
 				}
 		
 
@@ -2676,6 +2686,9 @@ EXHIBIT: NEWSBOX
 	float: right;
 	margin-top: 80px; /* just for now -- will fix on thursday */
 }
+		.exhibit-type-sandbox .newsbox {
+			margin-top: 0;
+		}
 		.newsbox.related {
 			background: #8a8a8a;
 		}
