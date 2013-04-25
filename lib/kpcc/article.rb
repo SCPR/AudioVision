@@ -12,6 +12,8 @@ module Kpcc
         end
       end
 
+      #-----------------
+
       def find_by_url(url)
         response = client.get("content/by_url", url: url)
         
@@ -22,6 +24,26 @@ module Kpcc
         end
       end
 
+      #-----------------
+
+      def most_viewed
+        response = client.get("content/most_viewed")
+
+        if response.success?
+          articles = []
+
+          Array(response.body).each do |article_json|
+            articles << new(article_json)
+          end
+
+          articles
+          
+        else
+          nil
+        end
+      end
+
+      #-----------------
 
       private
 
