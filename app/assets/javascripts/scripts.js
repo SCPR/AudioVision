@@ -104,7 +104,7 @@ jQuery(document).ready(function($) {
 
 
 /*	-----------------------------------------------------------------------------------------------------------------
-	If any video embed(s) show up inside a single post
+	If any video embeds show up in a post, wrap them in a flexible container
 	----------------------------------------------------------------------------------------------------------------- */
 	if ($(".single .essay .prose iframe").length) {
 		$(".single .essay .prose iframe").each(function(){
@@ -148,8 +148,19 @@ jQuery(document).ready(function($) {
 
 		} else {
 
-			// alert("you're a sandbox post.");
+				// 1.) on load
+				if ($("body").innerWidth() >= 940){	
+					$(".newsbox").appendTo(".exhibit .secondary");
+				}
 
+				// 2.) on resize
+				$(window).resize(function(){
+					if ($("body").innerWidth() <= 940){	
+						$(".newsbox").appendTo(".exhibit .primary");
+					} else {
+						$(".newsbox").appendTo(".exhibit .secondary");
+					}
+				});
 		}
 
 	}
