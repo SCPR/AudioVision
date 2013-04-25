@@ -1,5 +1,5 @@
 CKEDITOR.editorConfig = function(config) {
-  config.extraPlugins = 'oembed,codemirror';
+  config.extraPlugins = 'codemirror';
   config.codemirror = {
     theme: 'monokai',
     lineNumbers: true,
@@ -20,7 +20,7 @@ CKEDITOR.editorConfig = function(config) {
   };
   config.format_tags = 'p;h3;h4';
   config.allowedContent = true; // Disable Advanced Content Filter for oembed
-  config.toolbar = [['Bold', 'Italic', 'Underline', 'Format', "RemoveFormat"], ['NumberedList', 'BulletedList', 'Blockquote'], ['Link', 'Unlink', 'Image', 'oembed'], ['Find', 'Paste'], ['Source', 'Maximize']];
+  config.toolbar = [['Bold', 'Italic', 'Underline', 'Format', "RemoveFormat"], ['NumberedList', 'BulletedList', 'Blockquote'], ['Link', 'Unlink', 'Image'], ['Find', 'Paste'], ['Source', 'Maximize']];
   config.language = 'en';
   config.height = "400px";
   config.width = "635px";
