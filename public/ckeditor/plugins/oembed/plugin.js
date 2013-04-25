@@ -97,7 +97,7 @@
                         var maxHeight = null;
                         var responsiveResize = false;
                         
-                        var wrapperHtml = jQuery('<div />').append(editor.config.oembed_WrapperClass != null ? '<div class="' + editor.config.oembed_WrapperClass + '" />' : '<div />');
+                        var wrapperHtml = jQuery('<p />').append(editor.config.oembed_WrapperClass != null ? '<div class="' + editor.config.oembed_WrapperClass + '" />' : '<div />');
 
                         if (resizetype == "noresize") {
                             responsiveResize = false;
