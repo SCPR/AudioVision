@@ -30,7 +30,7 @@
                              elements :[{
                                 id : 'embedArea',
                                 type : 'textarea',
-                                label : 'Paste Embed Code Here',
+                                label : 'Paste Embed Code Here (Allowed: iframe, div, object, embed)',
                                 'autofocus':'autofocus',
                                 setup: function(element){
                                 },
@@ -46,7 +46,7 @@
                             }
                         }
                         // console.log(this.getContentElement( 'iframe', 'embedArea' ).getValue());
-                        div = instance.document.createElement('div');
+                        div = instance.document.createElement('p');
                         div.setHtml(this.getContentElement('iframe', 'embedArea').getValue());
                         instance.insertElement(div);
                   }

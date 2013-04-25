@@ -18,7 +18,7 @@ CKEDITOR.editorConfig = function(config) {
     showCommentButton: false,
     showUncommentButton: false
   };
-  config.extraAllowedContent = 'div;iframe[*];embed[*];object[*];cite;mark;time;dd;dl;dt;table;th;tr;td;tbody;thead;tfoot';
+  config.extraAllowedContent = 'script[src];div;iframe[*];embed[*];object[*];cite;mark;time;dd;dl;dt;table;th;tr;td;tbody;thead;tfoot';
   config.format_tags = 'p;h3;h4';
   config.toolbar = [['Bold', 'Italic', 'Underline', 'Format', "RemoveFormat"], ['NumberedList', 'BulletedList', 'Blockquote'], ['Link', 'Unlink', 'Image', 'MediaEmbed'], ['Find', 'Paste'], ['Source', 'Maximize']];
   config.language = 'en';
