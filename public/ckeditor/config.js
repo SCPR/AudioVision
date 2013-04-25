@@ -19,7 +19,6 @@ CKEDITOR.editorConfig = function(config) {
     showUncommentButton: false
   };
   config.format_tags = 'p;h3;h4';
-  config.allowedContent = true; // Disable Advanced Content Filter for oembed
   config.toolbar = [['Bold', 'Italic', 'Underline', 'Format', "RemoveFormat"], ['NumberedList', 'BulletedList', 'Blockquote'], ['Link', 'Unlink', 'Image'], ['Find', 'Paste'], ['Source', 'Maximize']];
   config.language = 'en';
   config.height = "400px";
