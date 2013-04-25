@@ -1,5 +1,5 @@
 module Job
-  class RelatedKpccArticleJob
+  class RelatedKpccArticleJob < Base
     @queue = "audiovision"
 
     # Pass in the obj_key of the post that this is for, 
