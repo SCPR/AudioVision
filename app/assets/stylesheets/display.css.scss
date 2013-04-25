@@ -2190,6 +2190,11 @@ PROSE (anywhere it shows up) (reset its parent's contextual em to 1.0, first, if
 			display: block;
 			margin-bottom: 1.3em;
 		}
+		.prose img,
+		.prose blockquote,
+		.prose iframe {
+			margin-bottom: 1.6em;
+		}
 		.prose a {
 			font-weight: 700;
 		}
@@ -2215,13 +2220,21 @@ PROSE (anywhere it shows up) (reset its parent's contextual em to 1.0, first, if
 				    height: 100%;
 				}
 		
-		.prose h3, body.cke_ltr h3 {
+		.prose h3,
+		body.cke_ltr h3,
+		.prose h4 {
 			text-transform: uppercase;
 			color: #e0495b;
-			padding-top: 16px;
+			padding-top: 14px;
 			font: normal 700 0.92857142857143em/1 "proxima-nova", Avenir, Arial, sans-serif; /* 13 / 14 */
 		}
-		body.cke_ltr h3 { padding-top: 0; }
+		body.cke_ltr h3 {
+			padding-top: 0;
+		}
+		.prose h4 {
+			color: black;
+			font-size: 0.8125em;
+		}
 		
 		.prose ul,
 		.prose ul li {
