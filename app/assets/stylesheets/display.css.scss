@@ -2485,11 +2485,14 @@ EXHIBIT (the main part of a single node)
 								.exhibit-type-sandbox .prose {
 									background: none;
 									padding: 0 0 40px 0;
-									max-width: 600px; /* Left to its own devices, it'll fluidly grow out to 714px */
 									margin: 80px 0 -51px 0;
 									background: image-url('i/ornament-lightningbolt-stroked.png') no-repeat center bottom;
 									background-size: 24px 21px;
 									box-shadow: none;
+								}
+								.exhibit-type-sandbox .prose,
+								.exhibit-type-sandbox .newsbox {
+									max-width: 600px; /* Left to its own devices, it'll fluidly grow out to 714px */
 								}
 								.exhibit-type-sandbox.includes-feature .prose {
 									margin-top: 15px; /* not 80 */
@@ -2696,11 +2699,15 @@ EXHIBIT: NEWSBOX
 .newsbox {
 	background: #e7e7e7;
 	width: 60.504201680672%; /* 432 / 714 */
-	float: right;
+	width: 100%;
+/*	float: right;*/
 	margin-top: 80px; /* just for now -- will fix on thursday */
 }
 		.exhibit-type-sandbox .newsbox {
 			margin-top: 0;
+		}
+		.exhibit-type-sandbox .secondary .newsbox {
+			margin-top: 100px;
 		}
 		.newsbox.related {
 			background: #8a8a8a;
@@ -2744,6 +2751,9 @@ EXHIBIT: NEWSBOX
 					font-weight: 400;
 					line-height: 1.15
 				}
+				.secondary .newsbox.related header p {
+					font-size: 0.6em;
+				}
 				.newsbox header .logo {
 					top: 16px;
 				}
@@ -2772,18 +2782,21 @@ EXHIBIT: NEWSBOX
 				.newsbox .preview .img img {
 					display: block;
 				}
-				.newsbox .preview a,
-				.newsbox .preview img {
+				.newsbox .preview a {
 					width: 100%;
+				}
+				.newsbox .preview img {
+					max-width: 100%;
+					height: auto;
+					box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 				}
 				.newsbox .preview .img {
 					float: left;
-					width: 46.875%; /* 180 / 384 */
-					box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+					width: 36.875%;
 				}
 				.newsbox .preview p {
 					float: right;
-					width: 46.875%; /* 180 / 384 */
+					width: 56.875%;
 					text-align: right;
 				}
 						.newsbox .preview .title,
@@ -2795,6 +2808,9 @@ EXHIBIT: NEWSBOX
 							margin-bottom: 16px;
 							background: none;
 							color: white;
+						}
+						.secondary .newsbox .preview a .title {
+							font-size: 0.875em;
 						}
 						.newsbox .preview a:hover .title {
 							text-decoration: underline;
@@ -2815,7 +2831,7 @@ EXHIBIT: NEWSBOX
 
 						    @media screen and (min-width: 540px) {
 
-								.newsbox		{ min-width: 432px; } /* we can afford it */
+								/* .newsbox		{ min-width: 432px; } /* we can afford it */
 
 						    }
 						    @media screen and (max-width: 539px) {
@@ -2828,11 +2844,13 @@ EXHIBIT: NEWSBOX
 						    =================================================================================== */
 
 						    @media screen and (max-width: 940px) {
-
+								
+								/*
 								.newsbox {
 									float: none;
 									margin: 80px auto 50px;
 								}
+								*/
 
 						    }
 
