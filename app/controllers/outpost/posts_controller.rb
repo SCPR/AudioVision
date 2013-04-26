@@ -3,7 +3,8 @@ class Outpost::PostsController < Outpost::ResourceController
 
   define_list do |l|
     l.column :title
-    l.column :post_type, display: ->(r) { Post::POST_TYPES_TEXT[r.post_type] }
+    l.column :post_type, header: "Type", display: ->(r) { Post::POST_TYPES_TEXT[r.post_type] }
+    l.column :byline
     l.column :status
     l.column :published_at
     l.column :updated_at
