@@ -2696,18 +2696,27 @@ EXHIBIT: NEWSBOX
 #####################################################################################################################
 ##################################################################################################################### */
 
+.newsboxes {
+	margin-top: 80px;
+}
+		.primary .newsboxes {
+			margin-top: 50px;
+		}
+		.newsboxes .newsbox:first-child {
+			margin-bottom: 25px;
+		}
+		.exhibit-type-sandbox .primary .newsboxes {
+			margin-top: 0;
+		}
+		.exhibit-type-sandbox .secondary .newsboxes {
+			margin-top: 110px;
+		}
+
 .newsbox {
 	background: #e7e7e7;
 	width: 60.504201680672%; /* 432 / 714 */
 	width: 100%;
-	margin-top: 80px;
 }
-		.exhibit-type-sandbox .newsbox {
-			margin-top: 0;
-		}
-		.exhibit-type-sandbox .secondary .newsbox {
-			margin-top: 100px;
-		}
 		.newsbox.related {
 			background: #8a8a8a;
 		}
