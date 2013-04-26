@@ -5,6 +5,7 @@
 //= require selectivizr-min
 //= require jquery.imagesloaded.min
 //= require spin
+//= require moment
 
 //= require base
 
