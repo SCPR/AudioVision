@@ -8,6 +8,7 @@
     <%= render @post %>
 <% end %>
 
+
 <%= render "shared/promos/promo_1" %>
 
 
@@ -76,7 +77,7 @@
 </div><!--/ .single-plugs -->
 
 <% if popular_kpcc_articles = Rails.cache.read('popular_kpcc_articles') %>
-<aside class="newsbox unrelated">
+<aside class="kpcc-popular-articles">
     <header>
         <p>Explore what’s popular now on KPCC.</p>
         <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
