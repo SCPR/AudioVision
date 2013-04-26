@@ -50,6 +50,9 @@ class Post < ActiveRecord::Base
 
   scope :with_related_kpcc_article, -> { where('related_kpcc_article_url > ?', '') }
 
+  scope :filtered_by_attributions, ->(reporter_id) { 
+    self.includes(:attributions).where(Attribution.table_name => { reporter_id: reporter_id }) 
+  }
   # Associations
   has_many :assets, -> { order("position") }, class_name: "PostAsset", dependent: :destroy
   accepts_json_input_for_assets
