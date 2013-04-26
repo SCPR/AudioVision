@@ -2,14 +2,19 @@ class Outpost::PostsController < Outpost::ResourceController
   outpost_controller
 
   define_list do |l|
+    l.default_order = "updated_at"
+    l.default_sort_mode = "desc"
+
     l.column :title
-    l.column :post_type, display: ->(r) { Post::POST_TYPES_TEXT[r.post_type] }
+    l.column :post_type, header: "Type", display: ->(r) { Post::POST_TYPES_TEXT[r.post_type] }
+    l.column :byline
     l.column :status
-    l.column :published_at
-    l.column :updated_at
+    l.column :published_at, sortable: true, default_sort_mode: "desc"
+    l.column :updated_at, sortable: true, default_sort_mode: "desc"
 
     l.filter :post_type, collection: -> { Post.post_types_collection }
     l.filter :status, collection: -> { Post.status_collection }
+    l.filter :attributions, collection: -> { Reporter.select_collection }
   end
 
 
