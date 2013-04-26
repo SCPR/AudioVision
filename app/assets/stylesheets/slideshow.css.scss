@@ -326,7 +326,10 @@ Slideshow Header
 			text-transform: uppercase;
 			font: normal 900 0.75em/1.0 "proxima-nova", Avenir, Arial, sans-serif;
 		}
-				.slideshow-header .brand {
+				.slideshow-header h6:before {
+					content: "Slideshow";
+				}
+				.slideshow-header .full-title {
 					display: none;
 				}
 
@@ -344,7 +347,10 @@ Slideshow Header
 					font-weight: 100;
 					padding: 0 5px;
 				}
-				.av-fullscreen .slideshow-header .brand {
+				.av-fullscreen .slideshow-header h6:before {
+					content: "";
+				}
+				.av-fullscreen .slideshow-header .full-title {
 					display: inline;
 				}
 
