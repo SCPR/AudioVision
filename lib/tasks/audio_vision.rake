@@ -42,5 +42,3 @@ namespace :av do
     end
   end
 end
-
-
