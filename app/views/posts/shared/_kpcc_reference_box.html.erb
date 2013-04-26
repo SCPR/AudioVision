@@ -1,4 +1,4 @@
-<% if (article = post.related_kpcc_article).present? %>
+<% if article = post.related_kpcc_article %>
     <aside class="newsbox related">
         <header>
             <p>This AudioVision post is related to an article at KPCC. Follow the link to read more.</p>
@@ -13,20 +13,5 @@
                 </a>
             </p>
         </div>
-    </aside><!--/ .newsbox -->
-
-<% elsif popular_kpcc_articles = Rails.cache.read('popular_kpcc_articles') %>
-    <aside class="newsbox unrelated">
-        <header>
-            <p>Explore what’s popular now on KPCC.</p>
-            <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
-        </header>
-        <ul class="popular-links">
-            <ul>
-            <% popular_kpcc_articles.first(3).each do |article| %>
-                <li><%= link_to article.short_title, article.permalink %></li>
-            <% end %>
-            </ul>
-        </ul>
     </aside><!--/ .newsbox -->
 <% end %>
