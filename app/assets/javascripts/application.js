@@ -4,8 +4,13 @@
 //= require jquery_ujs
 //= require selectivizr-min
 //= require jquery.imagesloaded.min
+//= require spin
 
 //= require base
+
+//= require_tree ./templates/
+
+//= require related_kpcc_article
 //= require scripts
 
 //= require_tree ./slideshow/templates
