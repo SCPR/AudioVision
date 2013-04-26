@@ -68,9 +68,9 @@ class audiovision.Slideshow
             #----------
             # Fill in the main element with all the pieces
             @el.html @header
-            @header.append @traytoggler.el
-            @header.append @fullscreenButton
             @header.append @nav.el
+            @header.append @fullscreenButton
+            @header.append @traytoggler.el
             
             @el.append      @thumbtray.el
             @el.append      @slides.el

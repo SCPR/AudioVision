@@ -70,11 +70,17 @@
     .slideshow-header {
         margin-bottom: 5px;
         height: 21px;
+		position: relative;
+		z-index: 1;
 
         h6 {
-            display: inline;
+			white-space: nowrap;
             line-height: 21px;
             color: #c2c2c2;
+			position: absolute;
+			top: 2px;
+			left: 0;
+			z-index: 2;
         }
         
 		/*
@@ -83,6 +89,13 @@
             float: right;
         }
 		*/
+		
+		.pager-nav,
+		.slideshow-fullscreen,
+		.thumbtray-toggler {
+			position: relative;
+			z-index: 3;
+		}
 
         .pager-nav {
             padding: 0 0 0 5px;
@@ -131,6 +144,7 @@
             height: 22px;
             background: transparent image-url('thumbnails-btn.png') no-repeat 0 0;
             vertical-align: middle;
+			box-shadow: -18px 0 10px white;
 
         
             &:hover, &.active {
