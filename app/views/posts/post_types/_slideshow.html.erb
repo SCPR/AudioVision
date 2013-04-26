@@ -4,6 +4,23 @@
 
     <div id="asset_slideshow_<%= post.id %>" class="slideview"></div>
 
+    <div class="static-slides">
+
+      <% post.assets.each_with_index do |asset, i| %>
+      <div class="slide">
+        <div class="media-wrapper">
+            <img src="<%= asset.full.url %>" />
+        </div><!--/ .media-wrapper -->
+
+        <aside class="caption">
+            <h3 class="credit"><%= asset.owner %></h3>
+            <p><%= asset.caption %></p>
+        </aside>
+      </div>
+      <% end %>
+
+    </div>
+
     <%# Don't put this in content_for :footer, because it's wrapped in cache. %>
     <script type="text/javascript">
       $(document).ready(function(){
@@ -15,7 +32,8 @@
             start: params["slide"],
             deeplink: true,
             el: "#asset_slideshow_<%= post.id %>",
-            assets: <%= raw post.assets.to_json %>
+            assets: <%= raw post.assets.to_json %>,
+            title: "<%= j post.title %>"
         });
 
 

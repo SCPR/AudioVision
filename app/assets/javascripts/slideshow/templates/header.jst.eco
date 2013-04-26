@@ -1,3 +1,11 @@
 <div class="slideshow-header">
-    <h6><span class="brand">AudioVision <b>|</b> </span>Slideshow</h6>
+    <h6><%= @title %><span class="brand"> <b>|</b> AudioVision</span></h6>
+ 
+    <div class="thumbnail-toggler-button"></div>
+
+    <% if @fullscreenTarget?: %>
+    <button class="slideshow-fullscreen" data-target="<%=@fullscreenTarget%>">Fullscreen</button>
+    <% end %>
+
+    <div class="paginator"></div>
 </div>
