@@ -1,6 +1,6 @@
 class audiovision.RelatedKpccArticle
     defaults:
-        wrapper: '.js-kpcc-article.preview'
+        wrapper: '.js-related-kpcc-article .preview'
         template: JST['templates/related_kpcc_article']
 
     constructor: (@url, options={}) ->
