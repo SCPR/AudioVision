@@ -2,9 +2,15 @@ module Kpcc
   class Client
 
     def get(path, params={})
-      connection.get do |request|
-        request.url path
-        request.params = params
+      begin
+        connection.get do |request|
+          request.url path
+          request.params = params
+          request.options[:timeout]      = 10
+          request.options[:open_timeout] = 10
+        end
+      rescue Faraday::Error::TimeoutError
+        nil
       end
     end
 

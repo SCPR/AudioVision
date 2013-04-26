@@ -5,7 +5,7 @@ module Kpcc
       def find(obj_key)
         response = client.get("content/#{obj_key}")
         
-        if response.success?
+        if response && response.success?
           new(response.body)
         else
           raise ActiveRecord::RecordNotFound
@@ -17,7 +17,7 @@ module Kpcc
       def find_by_url(url)
         response = client.get("content/by_url", url: url)
         
-        if response.success?
+        if response && response.success?
           new(response.body)
         else
           nil
@@ -29,7 +29,7 @@ module Kpcc
       def most_viewed
         response = client.get("content/most_viewed")
 
-        if response.success?
+        if response && response.success?
           articles = []
 
           Array(response.body).each do |article_json|
@@ -82,6 +82,5 @@ module Kpcc
         self.id == comparison_object.id
     end
     alias :eql? :==
-
   end
 end

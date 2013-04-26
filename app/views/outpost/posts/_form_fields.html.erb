@@ -12,6 +12,7 @@
   <%= f.input :related_kpcc_article_url, input_html: { class: "wide kpcc-url" } %>
   
   <% if record.related_kpcc_article.present? %>
+    <%= f.input :_update_related_kpcc_article_cache, label: "Refresh article?", as: :boolean, hint: "Update the local article cache if information has been changed on KPCC.org" %>
   <% end %>
 <% end %>
 
