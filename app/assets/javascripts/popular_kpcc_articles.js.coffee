@@ -1,6 +1,6 @@
 class audiovision.PopularKpccArticles
     defaults:
-        wrapper: '.js-kpcc-popular-articles .popular-links ul'
+        wrapper: '.js-kpcc-popular-articles .popular-links'
         template: JST['templates/popular_kpcc_article']
         limit: 3
         
