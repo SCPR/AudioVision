@@ -86,12 +86,6 @@
             { limit: 3 }
         );
     <% end %>
-
-    <% if @post.related_kpcc_article_url.present? %>
-        relatedKpccArticle = new audiovision.RelatedKpccArticle(
-            "<%= j @post.related_kpcc_article_url %>"
-        );
-    <% end %>
     });
 </script>
 <% end %>
