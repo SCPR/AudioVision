@@ -1,17 +1,15 @@
-<% if article = post.related_kpcc_article %>
+<% if post.related_kpcc_article_url.present? %>
     <aside class="newsbox related">
         <header>
-            <p>This AudioVision post is related to an article at KPCC. Follow the link to read more.</p>
+            <p>This AudioVision post is related to an article at KPCC. <%= link_to "Read More at KPCC.org", post.related_kpcc_article_url %></p>
             <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
         </header>
-        <div class="preview clearfix">
-            <b class="img"><a href="<%=article.permalink%>"><%= article.thumbnail.html_safe %></a></b>
-            <p class="desc">
-                <a href="<%=article.permalink%>">
-                    <mark class="title"><%= article.short_title %></mark>
-                    <span class="date"><%= format_date(article.published_at) %></span>
-                </a>
-            </p>
-        </div>
-    </aside><!--/ .newsbox -->
+        <div class="js-kpcc-article preview clearfix"></div>
+    </aside>
+
+    <script>
+        $(document).ready(function(){
+            relatedKpccArticle = new audiovision.RelatedKpccArticle("<%=post.related_kpcc_article_url%>");
+        });
+    </script>
 <% end %>

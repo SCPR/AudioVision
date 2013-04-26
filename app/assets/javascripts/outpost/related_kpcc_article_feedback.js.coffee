@@ -7,18 +7,22 @@ class audiovision.RelatedKpccArticleFeedback
         @options = _.defaults options, @defaults
         
         @input          = $(@options.input)
-        url             = @input.val()
         @feedbackEl     = $(@options.feedbackEl)
+
+        url = @input.val()
 
         @fetchArticle(url) if !_.isEmpty(url)
             
         @input.on blur: (event) => 
             @fetchArticle $(event.target).val()
 
+
     fetchArticle: (url) ->
         if _.isEmpty(url)
-            @feedbackEl.empty()
+            @feedbackEl.empty().hide()
             return
+
+        @feedbackEl.show().spin("small")
 
         $.getJSON("http://www.scpr.org/api/v2/content/by_url", { url: url })
         .success((data, textStatus, jqXHR) => 
@@ -30,4 +34,7 @@ class audiovision.RelatedKpccArticleFeedback
                 "error", 
                 "Not a valid URL for KPCC content"
             ).replace()
+        
+        ).complete((jqXHR, status) =>
+            @feedbackEl.spin(false)
         )
