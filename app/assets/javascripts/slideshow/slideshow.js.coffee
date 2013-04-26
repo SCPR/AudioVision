@@ -34,12 +34,6 @@ class audiovision.Slideshow
             #----------
             # Create the elements we need for the complete slideshow
             
-            @header = $(JST[Slideshow.TemplatePath + "header"]())
-
-            @fullscreen_button = JST[Slideshow.TemplatePath + "fullscreen_button"](
-                target: "#" + @el.attr('id')
-            )
-
             @nav = new Slideshow.NavigationLinks 
                 start:  @start
                 total:  @total
@@ -64,11 +58,13 @@ class audiovision.Slideshow
             
             #----------            
             # Fill in the main element with all the pieces
-            @el.html        @header
-            @header.append  @title
-            @header.append  @nav.el
-            @header.append(@fullscreen_button) if @canGoFullScreen()
-            @header.append  @traytoggler.el
+            @el.html JST[Slideshow.TemplatePath + 'header'](
+                title: @options.title,
+                fullscreenTarget: if @canGoFullScreen() then "#" + @el.attr('id') else null
+            )
+            
+            $(".paginator", @header).html @nav.el
+            $(".thumbnail-toggler-button", @header).html @traytoggler.el
             
             @el.append      @thumbtray.el
             @el.append      @slides.el
@@ -160,31 +156,6 @@ class audiovision.Slideshow
         
     #----------
         
-    class @Slide extends Backbone.View
-        className: "slide"
-        template: JST[Slideshow.TemplatePath + 'slide']
-
-        #----------
-
-        initialize: ->
-            @index = @options.index
-            @start = @options.start
-
-        #----------
-
-        render: ->
-            $(@el).html(@template
-                credit:     @model.get("credit")
-                caption:    @model.get("caption")
-                url:        @model.get("urls")['full']
-            )
-
-            if @index is @start
-                $(@el).addClass("active")
-
-            @
-
-    #----------
 
     class @Slides extends Backbone.View
         className: "slides asset-block"
@@ -195,24 +166,15 @@ class audiovision.Slideshow
             @slides     = []
             @current    = @options.start
             @overlayNav = @options.overlayNav
-            
-            @collection.each (a,idx) => 
-                s = new Slideshow.Slide 
-                    model:  a
-                    index:  idx
-                    start:  @options.start
-
-                @slides[idx] = s
-            
-            @total = @slides.length
+            @total      = @collection.length
 
 
        #----------
 
         switchTo: (idx) ->
             if idx >= 0 and idx <= @total - 1
-                @currentEl  = $ @slides[@current].el
-                @nextEl     = $ @slides[idx].el
+                @currentEl  = $ @slides[@current]
+                @nextEl     = $ @slides[idx]
 
                 @currentEl.stop(true, true).fadeOut 'fast', =>
                     @currentEl.removeClass 'active'
@@ -227,9 +189,13 @@ class audiovision.Slideshow
         #----------
 
         render: ->
-            # add our slides
-            _(@slides).each (s,idx) =>
-                $(@el).append s.render().el
+            $(".static-slides .slide").each (i, el) =>
+                $(@el).append el
+
+                if i == @options.start
+                    $(el).addClass("active")
+
+                @slides[i] = $(el)
             
             # And the overlay nav
             $(@el).append @overlayNav.el
