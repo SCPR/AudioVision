@@ -2745,6 +2745,11 @@ EXHIBIT: NEWSBOX
 				
 				.newsbox.related header {
 					background: #60c8eb;
+					a { 
+						color: #000;
+						text-shadow: none;
+						&:hover { color: #fff; } 
+					}
 				}
 				.newsbox.related header p {
 					font-style: italic;
@@ -2776,6 +2781,7 @@ EXHIBIT: NEWSBOX
 		.newsbox .preview {
 			margin: 0 5%;
 			padding: 0 0 20px;
+			min-height: 60px;
 		}
 				.newsbox .preview .img,
 				.newsbox .preview a,
