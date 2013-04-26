@@ -12,7 +12,7 @@ class audiovision.RelatedKpccArticleFeedback
         url = @input.val()
 
         @fetchArticle(url) if !_.isEmpty(url)
-            
+        
         @input.on blur: (event) => 
             @fetchArticle $(event.target).val()
 

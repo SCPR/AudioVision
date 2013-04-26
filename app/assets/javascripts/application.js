@@ -12,6 +12,7 @@
 //= require_tree ./templates/
 
 //= require related_kpcc_article
+//= require popular_kpcc_articles
 //= require scripts
 
 //= require_tree ./slideshow/templates

@@ -1,0 +1,21 @@
+<% if post.related_kpcc_article_url.present? %>
+<aside class="newsbox related js-related-kpcc-article">
+    <header>
+        <p>This AudioVision post is related to an article at KPCC. <%= link_to "Read More at KPCC.org", post.related_kpcc_article_url %></p>
+        <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
+    </header>
+    <div class="preview clearfix"></div>
+</aside><!--/ .newsbox -->
+<% end %>
+
+
+<aside class="newsbox unrelated js-kpcc-popular-articles">
+    <header>
+        <p>Explore what’s popular now on KPCC.</p>
+        <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
+    </header>
+
+    <ul class="popular-links">
+        <ul></ul>
+    </ul>
+</aside>
