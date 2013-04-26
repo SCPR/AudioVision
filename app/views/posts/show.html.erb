@@ -1,7 +1,12 @@
 <% meta_tags(description: @post.teaser, image: @post.asset.lsquare.url, url: @post.remote_link_path) %>
 <% add_to_page_title @post.title %>
 
-<%= render @post %>
+<% @BODY_CLASS = "single" %>
+
+
+<%= cache @post do %>
+    <%= render @post %>
+<% end %>
 
 <%= render "shared/promos/promo_1" %>
 
@@ -69,3 +74,19 @@
 
     </div>
 </div><!--/ .single-plugs -->
+
+<% if popular_kpcc_articles = Rails.cache.read('popular_kpcc_articles') %>
+<aside class="newsbox unrelated">
+    <header>
+        <p>Explore what’s popular now on KPCC.</p>
+        <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
+    </header>
+    <ul class="popular-links">
+        <ul>
+        <% popular_kpcc_articles.first(3).each do |article| %>
+            <li><%= link_to article.short_title, article.permalink %></li>
+        <% end %>
+        </ul>
+    </ul>
+</aside><!--/ .newsbox -->
+<% end %>
