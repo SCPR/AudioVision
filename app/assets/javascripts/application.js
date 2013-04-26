@@ -6,6 +6,7 @@
 //= require jquery.imagesloaded.min
 
 //= require base
+//= require kpcc_article_box
 //= require scripts
 
 //= require_tree ./slideshow/templates

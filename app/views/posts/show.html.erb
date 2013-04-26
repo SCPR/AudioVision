@@ -69,3 +69,27 @@
 
     </div>
 </div><!--/ .single-plugs -->
+
+<% content_for :footer do %>
+<% if popular_kpcc_articles = Rails.cache.read('popular_kpcc_articles') %>
+<div id="kpcc-popular-articles" style="display:none;">
+    <aside class="newsbox unrelated">
+        <header>
+            <p>Explore what’s popular now on KPCC.</p>
+            <span class="logo"><a href="http://scpr.org">89.3 KPCC</a></span>
+        </header>
+        <ul class="popular-links">
+            <ul>
+            <% popular_kpcc_articles.first(3).each do |article| %>
+                <li><%= link_to article.short_title, article.permalink %></li>
+            <% end %>
+            </ul>
+        </ul>
+    </aside><!--/ .newsbox -->
+</div>
+<% end %>
+
+<script>
+    kpccReferencebox = new audiovision.KpccReferenceBox();
+</script>
+<% end %>
