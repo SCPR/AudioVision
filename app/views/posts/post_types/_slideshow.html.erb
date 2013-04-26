@@ -28,7 +28,7 @@
         var params = {};
         query = _(window.location.search.substring(1).split("&")).each(function(pair) { keyval = pair.split("="); params[keyval[0]] = keyval[1]; });
         
-        ahSlides = new audiovision.Slideshow({
+        slideshow = new audiovision.Slideshow({
             start: params["slide"],
             deeplink: true,
             el: "#asset_slideshow_<%= post.id %>",
@@ -37,7 +37,7 @@
         });
 
 
-        ahSlides.bind("switch", function(idx) {
+        slideshow.bind("switch", function(idx) {
               
           // (1.) add slide change listener for analytics
           // ------------------------------------------------------------------------------------------
@@ -52,17 +52,16 @@
           // (2.) assess image dimensions
           // ------------------------------------------------------------------------------------------
           //if($("body").hasClass("av-fullscreen")) {
-            var nextImg, workingWidth, workingHeight;
+            var nextSlide, workingWidth, workingHeight;
 
-            console.log(this.slides);
+            nextSlide = this.slides.slides[idx];
 
-            // This the correct image, just at this point it hasn't been
-            // set to be visible yet so its width and height is 0.
-            nextImg         = $("img", this.slides.slides[idx].el);
-            workingWidth    = nextImg.width();
-            workingHeight   = nextImg.height();
+            nextSlide.on("activated", function(){
+              img = $("img", this);
+              workingWidth    = img.width();
+              workingHeight   = img.height();
+            });
 
-            console.log("w, h", workingWidth, workingHeight);
           //}
         });
       });

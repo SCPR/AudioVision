@@ -31,13 +31,9 @@ class audiovision.Slideshow
                 if startingSlide > 0 and startingSlide <= @total
                     @start = startingSlide - 1
 
+
             #----------
             # Create the elements we need for the complete slideshow
-            
-            @nav = new Slideshow.NavigationLinks 
-                start:  @start
-                total:  @total
-            
             @overlayNav = new Slideshow.OverlayNav
                 start:  @start
                 total:  @total
@@ -53,18 +49,28 @@ class audiovision.Slideshow
                 collection: @assets
                 start:      @start
             
+
+            # Setup Header elements
+            @header = $ JST[Slideshow.TemplatePath + 'header']
+                title: @options.title
+
+            @nav = new Slideshow.NavigationLinks 
+                start:  @start
+                total:  @total
+
             @traytoggler = new Slideshow.ThumbtrayToggler
                 thumbtray:  @thumbtray
-            
-            #----------            
+
+            @fullscreenButton = JST[Slideshow.TemplatePath + 'fullscreen_button']
+                target: $(@el).attr('id')
+
+
+            #----------
             # Fill in the main element with all the pieces
-            @el.html JST[Slideshow.TemplatePath + 'header'](
-                title: @options.title,
-                fullscreenTarget: if @canGoFullScreen() then "#" + @el.attr('id') else null
-            )
-            
-            $(".paginator", @header).html @nav.el
-            $(".thumbnail-toggler-button", @header).html @traytoggler.el
+            @el.html @header
+            @header.append @traytoggler.el
+            @header.append @fullscreenButton
+            @header.append @nav.el
             
             @el.append      @thumbtray.el
             @el.append      @slides.el
@@ -103,9 +109,6 @@ class audiovision.Slideshow
                     slideNum = idx + 1
                     window.history.replaceState { slide: slideNum }, document.title + ": Slide #{slideNum}", window.location.pathname + "?slide=#{slideNum}"
 
-            @thumbtray.bind     "switch_page", (page) =>
-                # do something
-
             #----------
             # Keyboard Navigation
             @hasmouse = false
@@ -118,7 +121,7 @@ class audiovision.Slideshow
                             when 39 then @slides.switchTo(@slides.current + 1)
 
             #----------
-            # Show/Hide targets
+            # Show/Hide targets on mouseover/mouseout
             @el.on
                 mouseenter: (e) =>
                     if @hasmouse is false
@@ -128,14 +131,16 @@ class audiovision.Slideshow
                     if @hasmouse is true
                         @hasmouse = false
 
+            # Handle the fullscreen clickage
             $("button.slideshow-fullscreen").on
                 click: (event) ->
                     el = $($(@).data('target'))[0]
-            
+                    
                     el.requestFullScreen?() or 
                     el.mozRequestFullScreen?() or 
                     el.webkitRequestFullScreen?()
                     
+
     # Make a fake element and see if it would be able to go fullscreen
     canGoFullScreen: ->
         el = $('<div />')[0]
@@ -151,7 +156,7 @@ class audiovision.Slideshow
         #
 
     class @Assets extends Backbone.Collection
-        url: "/"
+        url: "/" # This is unneeded since we're never actually fetching anything
         model: Slideshow.Asset
         
     #----------
@@ -166,13 +171,11 @@ class audiovision.Slideshow
             @slides     = []
             @current    = @options.start
             @overlayNav = @options.overlayNav
-            @total      = @collection.length
-
 
        #----------
 
         switchTo: (idx) ->
-            if idx >= 0 and idx <= @total - 1
+            if idx >= 0 and idx <= @slides.length - 1
                 @currentEl  = $ @slides[@current]
                 @nextEl     = $ @slides[idx]
 
@@ -180,6 +183,7 @@ class audiovision.Slideshow
                     @currentEl.removeClass 'active'
                     @trigger "switch", idx
                     @nextEl.addClass('active').fadeIn('fast')
+                    @nextEl.trigger "activated"
 
         #----------
 
@@ -200,6 +204,7 @@ class audiovision.Slideshow
             # And the overlay nav
             $(@el).append @overlayNav.el
             
+            # Give the images time to start loading
             setTimeout () =>
                 @overlayNav.showTargets()
             , 2000
@@ -310,7 +315,7 @@ class audiovision.Slideshow
         className: "thumbtray"
 
         events:
-            "click .nav.active":    "_buttonClick"
+            "click .nav.active": "_buttonClick"
 
         options:
             per_page: 5
