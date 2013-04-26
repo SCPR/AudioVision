@@ -2700,7 +2700,7 @@ EXHIBIT: NEWSBOX
 	background: #e7e7e7;
 	width: 60.504201680672%; /* 432 / 714 */
 	width: 100%;
-	margin-top: 80px; /* just for now -- will fix on thursday */
+	margin-top: 80px;
 }
 		.exhibit-type-sandbox .newsbox {
 			margin-top: 0;
@@ -2747,7 +2747,7 @@ EXHIBIT: NEWSBOX
 				}
 				.newsbox.related header p {
 					font-style: italic;
-					text-shadow: 0 0 2px rgba(15,82,104,0.65);
+					text-shadow: 0 1px 2px rgba(15,82,104,0.65);
 					font-weight: 400;
 					line-height: 1.15;
 					color: #d4f4ff;
