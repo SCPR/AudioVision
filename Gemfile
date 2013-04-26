@@ -62,7 +62,7 @@ end
 group :test do
   gem 'simplecov', require: false
   gem 'factory_girl_rails', "~> 4.1"
-  gem 'database_cleaner'
+  gem 'database_cleaner', git: 'git@github.com:bmabey/database_cleaner.git'
   gem 'capybara', "~> 2.0"
   gem 'fakeweb'
 end

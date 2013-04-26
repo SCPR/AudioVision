@@ -70,6 +70,12 @@ GIT
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
 
+GIT
+  remote: git@github.com:bmabey/database_cleaner.git
+  revision: 20136e8987c222013d96e07c27d1230d2bbebd61
+  specs:
+    database_cleaner (0.9.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -118,7 +124,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
-    database_cleaner (0.9.1)
     dbsync (0.1.2)
       activerecord (>= 3.2.8)
       activesupport (>= 3.2.8)
@@ -306,7 +311,7 @@ DEPENDENCIES
   capistrano!
   capybara (~> 2.0)
   coffee-rails (~> 4.0.0.beta1)
-  database_cleaner
+  database_cleaner!
   dbsync
   eco (~> 1.0.0)
   escape_utils

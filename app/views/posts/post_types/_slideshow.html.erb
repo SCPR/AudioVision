@@ -4,6 +4,23 @@
 
     <div id="asset_slideshow_<%= post.id %>" class="slideview"></div>
 
+    <div class="static-slides">
+
+      <% post.assets.each_with_index do |asset, i| %>
+      <div class="slide">
+        <div class="media-wrapper">
+            <img src="<%= asset.full.url %>" />
+        </div><!--/ .media-wrapper -->
+
+        <aside class="caption">
+            <h3 class="credit"><%= asset.owner %></h3>
+            <p><%= asset.caption %></p>
+        </aside>
+      </div>
+      <% end %>
+
+    </div>
+
     <%# Don't put this in content_for :footer, because it's wrapped in cache. %>
     <script type="text/javascript">
       $(document).ready(function(){
@@ -11,15 +28,16 @@
         var params = {};
         query = _(window.location.search.substring(1).split("&")).each(function(pair) { keyval = pair.split("="); params[keyval[0]] = keyval[1]; });
         
-        ahSlides = new audiovision.Slideshow({
+        slideshow = new audiovision.Slideshow({
             start: params["slide"],
             deeplink: true,
             el: "#asset_slideshow_<%= post.id %>",
-            assets: <%= raw post.assets.to_json %>
+            assets: <%= raw post.assets.to_json %>,
+            title: "<%= j post.title %>"
         });
 
 
-        ahSlides.bind("switch", function(idx) {
+        slideshow.bind("switch", function(idx) {
               
           // (1.) add slide change listener for analytics
           // ------------------------------------------------------------------------------------------
@@ -34,17 +52,16 @@
           // (2.) assess image dimensions
           // ------------------------------------------------------------------------------------------
           //if($("body").hasClass("av-fullscreen")) {
-            var nextImg, workingWidth, workingHeight;
+            var nextSlide, workingWidth, workingHeight;
 
-            console.log(this.slides);
+            nextSlide = this.slides.slides[idx];
 
-            // This the correct image, just at this point it hasn't been
-            // set to be visible yet so its width and height is 0.
-            nextImg         = $("img", this.slides.slides[idx].el);
-            workingWidth    = nextImg.width();
-            workingHeight   = nextImg.height();
+            nextSlide.on("activated", function(){
+              img = $("img", this);
+              workingWidth    = img.width();
+              workingHeight   = img.height();
+            });
 
-            console.log("w, h", workingWidth, workingHeight);
           //}
         });
       });

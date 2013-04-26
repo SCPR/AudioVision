@@ -55,6 +55,13 @@
 }
 
 
+.static-slides {
+    position: relative;
+
+    .slide {
+        position: absolute;
+    }
+}
 
 .slideview {
     width: 100%;
