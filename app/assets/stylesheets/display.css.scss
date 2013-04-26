@@ -2700,7 +2700,6 @@ EXHIBIT: NEWSBOX
 	background: #e7e7e7;
 	width: 60.504201680672%; /* 432 / 714 */
 	width: 100%;
-/*	float: right;*/
 	margin-top: 80px; /* just for now -- will fix on thursday */
 }
 		.exhibit-type-sandbox .newsbox {
@@ -2745,17 +2744,21 @@ EXHIBIT: NEWSBOX
 				
 				.newsbox.related header {
 					background: #60c8eb;
-					a { 
-						color: #000;
-						text-shadow: none;
-						&:hover { color: #fff; } 
-					}
 				}
 				.newsbox.related header p {
 					font-style: italic;
+					text-shadow: 0 0 2px rgba(15,82,104,0.65);
 					font-weight: 400;
-					line-height: 1.15
+					line-height: 1.15;
+					color: #d4f4ff;
 				}
+				.newsbox.related header p a {
+					color: white;
+				}
+						.newsbox.related header p a:hover {
+							text-decoration: underline;
+						}
+
 				.secondary .newsbox.related header p {
 					font-size: 0.75em;
 				}
