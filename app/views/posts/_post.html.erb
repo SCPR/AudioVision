@@ -1,8 +1,4 @@
-<%# Keep this separate so that we can use it for preview! %>
-
-<% @BODY_CLASS = "single" %>
-
-<%= cache post do %>
+<%# Keep this separate so that we can use it for preview! Don't cache anthing in here or lower, lest it be cached in preview! %>
 
 <!-- Common code for all single posts -->
 <div class="exhibit exhibit-type-<%= post.post_type_key %>">
@@ -12,5 +8,3 @@
 
     </div><!--/ .exhibit-inner -->
 </div><!--/ .exhibit -->
-
-<% end %>
