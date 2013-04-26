@@ -1,0 +1,7 @@
+<b class="img"><a href="<%=@article.permalink%>"><%- @article.thumbnail %></a></b>
+<p class="desc">
+    <a href="<%=@article.permalink%>">
+        <mark class="title"><%= @article.short_title %></mark>
+        <span class="date"><%= @article.published_at %></span>
+    </a>
+</p>
