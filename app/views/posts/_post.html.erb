@@ -8,3 +8,13 @@
 
     </div><!--/ .exhibit-inner -->
 </div><!--/ .exhibit -->
+
+<script>
+$(document).ready(function(){
+<% if @post.related_kpcc_article_url.present? %>
+    relatedKpccArticle = new audiovision.RelatedKpccArticle(
+        "<%= j @post.related_kpcc_article_url %>"
+    );
+<% end %>
+});
+</script>
