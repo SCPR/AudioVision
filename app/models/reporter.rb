@@ -14,7 +14,7 @@ class Reporter < ActiveRecord::Base
 
   class << self
     def select_collection
-      self.all.map { |r| [r.name, r.id] }
+      self.order("name").map { |r| [r.name, r.id] }
     end
   end
 

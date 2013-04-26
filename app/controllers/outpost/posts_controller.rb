@@ -14,6 +14,7 @@ class Outpost::PostsController < Outpost::ResourceController
 
     l.filter :post_type, collection: -> { Post.post_types_collection }
     l.filter :status, collection: -> { Post.status_collection }
+    l.filter :attributions, collection: -> { Reporter.select_collection }
   end
 
 
