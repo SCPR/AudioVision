@@ -5,8 +5,7 @@
     <div id="asset_slideshow_<%= post.id %>" class="slideview"></div>
 
     <div class="static-slides">
-
-      <% post.assets.each_with_index do |asset, i| %>
+    <% post.assets.each_with_index do |asset, i| %>
       <div class="slide">
         <div class="media-wrapper">
             <img src="<%= asset.full.url %>" />
@@ -17,8 +16,7 @@
             <p><%= asset.caption %></p>
         </aside>
       </div>
-      <% end %>
-
+    <% end %>
     </div>
 
     <%# Don't put this in content_for :footer, because it's wrapped in cache. %>
@@ -28,6 +26,7 @@
         var params = {};
         query = _(window.location.search.substring(1).split("&")).each(function(pair) { keyval = pair.split("="); params[keyval[0]] = keyval[1]; });
         
+        
         slideshow = new audiovision.Slideshow({
             start: params["slide"],
             deeplink: true,
@@ -35,12 +34,11 @@
             assets: <%= raw post.assets.to_json %>,
             title: "<%= j post.title %>"
         });
-
+        
+        
 
         slideshow.bind("switch", function(idx) {
-              
           // (1.) add slide change listener for analytics
-          // ------------------------------------------------------------------------------------------
           if(typeof(_gaq) != 'undefined') {
             _gaq.push(['_trackPageview',window.location.pathname + 'photos/' + (Number(idx) + 1)]);
             dcsMultiTrack(
@@ -48,29 +46,12 @@
                 'WT.ti', 'SlideShow PageView'
             );
           }
+        });
 
-          // (2.) assess image dimensions
-          // ------------------------------------------------------------------------------------------
-            var nextSlide, workingWidth, workingHeight;
-
-            nextSlide = this.slides.slides[idx];
-
-            nextSlide.on("activated", function(){
-
-              img = $("img", this);
-              workingWidth      = img.width();
-              workingHeight     = img.height();
-              workingRatio      = workingHeight / workingWidth;
-              
-              if(workingRatio < 0.65) {
-//			      alert("whoa hang on, the upcoming ratio is ridiculous");
-                  $(nextSlide).addClass("supports-wideness");
-  			  }
-  			        
-
-            });
-
-
+        $(".slide").on("activated", function(event){
+          if(slideshow.fullscreenActive) {
+            slideshow.slides.setVerticalOffset(this);
+          }
         });
       });
     </script>
