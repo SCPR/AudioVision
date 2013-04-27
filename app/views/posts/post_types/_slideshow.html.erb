@@ -5,8 +5,7 @@
     <div id="asset_slideshow_<%= post.id %>" class="slideview"></div>
 
     <div class="static-slides">
-
-      <% post.assets.each_with_index do |asset, i| %>
+    <% post.assets.each_with_index do |asset, i| %>
       <div class="slide">
         <div class="media-wrapper">
             <img src="<%= asset.full.url %>" />
@@ -17,8 +16,7 @@
             <p><%= asset.caption %></p>
         </aside>
       </div>
-      <% end %>
-
+    <% end %>
     </div>
 
     <%# Don't put this in content_for :footer, because it's wrapped in cache. %>
