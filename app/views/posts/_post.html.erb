@@ -1,4 +1,4 @@
-<%# Keep this separate so that we can use it for preview! Don't cache anthing in here or lower, lest it be cached in preview! %>
+<%# Keep this separate so that we can use it for preview! Don't cache anthing in here or lower, or it will be cached in preview. Don't use content_for in here or lower, because this (and everything lower) is cached. %>
 
 <!-- Common code for all single posts -->
 <div class="exhibit exhibit-type-<%= post.post_type_key %>">
