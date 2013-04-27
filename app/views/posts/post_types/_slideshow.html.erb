@@ -53,19 +53,25 @@
 
           // (2.) assess sequential image dimensions
           // ------------------------------------------------------------------------------------------
-            var nextSlide, workingWidth, workingHeight;
+            var nextSlide, imgWidth, imgHeight, wrapperWidth, wrapperHeight, heightDiff;
 
             nextSlide = this.slides.slides[idx];
 
             nextSlide.on("activated", function(){
+              wrapper   = $(".media-wrapper", this)
+              img       = $("img", this);
 
-              img = $("img", this);
-              workingWidth      = img.width();
-              workingHeight     = img.height();
-              workingRatio      = workingHeight / workingWidth;
-              
-              if(workingRatio < 0.65) {
-                  $(nextSlide).addClass("supports-wideness");
+              imgWidth        = img.width();
+              imgHeight       = img.height();
+              wrapperWidth    = wrapper.width();
+              wrapperHeight   = wrapper.height();
+
+              // We can't use CSS to vertically center the images.
+              // If this image is taller than it container,
+              // then set a margin-top of half of the height difference.
+              if(imgHeight < wrapperHeight) {
+                heightDiff = wrapperHeight - imgHeight;
+                img.css({top: heightDiff/2});
               }
             });
 

@@ -77,10 +77,7 @@
 			white-space: nowrap;
             line-height: 21px;
             color: #c2c2c2;
-			position: absolute;
-			top: 2px;
-			left: 0;
-			z-index: 2;
+            float: left;
         }
 
 		.pager-nav,
@@ -326,13 +323,17 @@ Slideshow Header
 					display: none;
 				}
 
+        .av-fullscreen .slideshow-header {
+            padding-top: 10px;
+        }
+
 		.av-fullscreen .slideshow-header h6 {
 			font-weight: 700;
 			font-size: 1.2em;
 			text-transform: none;
-			padding: 10px 0 0 34px;
+			padding: 0 0 0 34px;
 			margin-left: 15px;
-			background: image-url('i/logo-av-lightningbolt-fullcolor.png') no-repeat left 11px;
+			background: image-url('i/logo-av-lightningbolt-fullcolor.png') no-repeat left top;
 			background-size: 22px 22px;
 		}
 				.av-fullscreen .slideshow-header h6 b {
@@ -386,7 +387,12 @@ Slideshow Header
 			width: auto;
 			max-width: auto;
 		    margin: 0 auto;
-		}
+            position: relative; // This is necessary so that it obeys the "top" 
+                                // attrobite set by the vertical-centering-JS
+                                // The image should go back to static position 
+                                // outside of Fullscreen, otherwise the "top" 
+                                // property will have an effect there too.
+        }
 				.av-fullscreen .slideview .slides .slide.supports-wideness {
 					padding-top: 30px;
 				}
