@@ -1,15 +1,15 @@
 <%= form_block "URL" do %>
   <%= f.input :path %>
-  <%= f.input :redirect_to %>
+  <%= f.input :redirect_to, hint: "Redirect this path to another path or URL." %>
 <% end %>
 
 <%= form_block "Details" do %>
   <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :description, hint: "Internal use only", input_html: { class: 'wide' } %>
   <%= f.input :content, input_html: { class: "ckeditor" } %>
 <% end %>
 
 <%= form_block "Extra" do %>
-  <%= f.input :extra_head, input_html: { class: 'tiny' } %>
-  <%= f.input :extra_footer, input_html: { class: 'tiny' } %>
+  <%= f.input :extra_head, input_html: { class: 'tiny fixed-font' } %>
+  <%= f.input :extra_footer, input_html: { class: 'tiny fixed-font' } %>
 <% end %>
