@@ -26,6 +26,7 @@
         var params = {};
         query = _(window.location.search.substring(1).split("&")).each(function(pair) { keyval = pair.split("="); params[keyval[0]] = keyval[1]; });
         
+        
         slideshow = new audiovision.Slideshow({
             start: params["slide"],
             deeplink: true,
@@ -33,13 +34,11 @@
             assets: <%= raw post.assets.to_json %>,
             title: "<%= j post.title %>"
         });
-
+        
         
 
         slideshow.bind("switch", function(idx) {
-              
           // (1.) add slide change listener for analytics
-          // ------------------------------------------------------------------------------------------
           if(typeof(_gaq) != 'undefined') {
             _gaq.push(['_trackPageview',window.location.pathname + 'photos/' + (Number(idx) + 1)]);
             dcsMultiTrack(
@@ -47,33 +46,12 @@
                 'WT.ti', 'SlideShow PageView'
             );
           }
+        });
 
-
-          // (2.) assess sequential image dimensions
-          // ------------------------------------------------------------------------------------------
-            var nextSlide, imgWidth, imgHeight, wrapperWidth, wrapperHeight, heightDiff;
-
-            nextSlide = this.slides.slides[idx];
-
-            nextSlide.on("activated", function(){
-              wrapper   = $(".media-wrapper", this)
-              img       = $("img", this);
-
-              imgWidth        = img.width();
-              imgHeight       = img.height();
-              wrapperWidth    = wrapper.width();
-              wrapperHeight   = wrapper.height();
-
-              // We can't use CSS to vertically center the images.
-              // If this image is taller than it container,
-              // then set a margin-top of half of the height difference.
-              if(imgHeight < wrapperHeight) {
-                heightDiff = wrapperHeight - imgHeight;
-                img.css({top: heightDiff/2});
-              }
-            });
-
-
+        $(".slide").on("activated", function(event){
+          if(slideshow.fullscreenActive) {
+            slideshow.slides.setVerticalOffset(this);
+          }
         });
       });
     </script>
