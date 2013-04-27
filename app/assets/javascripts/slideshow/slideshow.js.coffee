@@ -105,7 +105,7 @@ class audiovision.Slideshow
 
                 # Chrome won't let you change the history while in fullscreen mode,
                 # so we'll just have to disable it in that case.
-                if @deeplink and window.history.replaceState and !@isFullscreen()
+                if @deeplink and window.history.replaceState and !@fullscreenActive()
                     slideNum = idx + 1
                     window.history.replaceState { slide: slideNum }, document.title + ": Slide #{slideNum}", window.location.pathname + "?slide=#{slideNum}"
 
@@ -133,26 +133,32 @@ class audiovision.Slideshow
 
             # Handle the fullscreen clickage
             $("button.slideshow-fullscreen").on
-                click: (event) ->
-                    el = $($(@).data('target'))[0]
+                click: (event) =>
+                    el = $($(event.target).data('target'))[0]
                     
                     el.requestFullScreen?() or 
                     el.mozRequestFullScreen?() or 
                     el.webkitRequestFullScreen?()
-                    
+
+
+                    # Trigger all the goodies.
+                    # Wait a second to let fullscreen finish fullscreening.
+                    setTimeout =>
+                        @slides.currentSlide().trigger "activated"
+                    , 500
 
     # Make a fake element and see if it would be able to go fullscreen
     canGoFullScreen: ->
-        el = $('<div />')[0]
-
-        el.requestFullScreen or 
-        el.mozRequestFullScreen or 
-        el.webkitRequestFullScreen
+        document.fullscreenEnabled or
+        document.mozFullScreenEnabled or
+        document.webkitFullscreenEnabled
 
     #----------
 
-    isFullscreen: ->
-        $('body').hasClass('av-fullscreen')
+    fullscreenActive: ->
+        document.fullscreenElement? or 
+        document.mozFullScreenElement? or
+        document.webkitFullscreenElement?
 
     #----------
 
@@ -180,7 +186,7 @@ class audiovision.Slideshow
 
         switchTo: (idx) ->
             if idx >= 0 and idx <= @slides.length - 1
-                @currentEl  = $ @slides[@current]
+                @currentEl  = @currentSlide()
                 @nextEl     = $ @slides[idx]
 
                 @currentEl.stop(true, true).fadeOut 'fast', =>
@@ -188,6 +194,30 @@ class audiovision.Slideshow
                     @trigger "switch", idx
                     @nextEl.addClass('active').fadeIn('fast')
                     @nextEl.trigger "activated"
+
+        #----------
+
+        currentSlide: ->
+            $ @slides[@current]
+
+        #----------
+
+        setVerticalOffset: (slide) ->
+            wrapper   = $(".media-wrapper", slide)
+            img       = $("img", slide)
+
+            imgWidth        = img.width()
+            imgHeight       = img.height()
+            wrapperWidth    = wrapper.width()
+            wrapperHeight   = wrapper.height()
+
+            # We can't use CSS to vertically center the images.
+            # If this image is taller than its container,
+            # then set a top of half of the height difference.
+            if imgHeight < wrapperHeight
+                heightDiff = wrapperHeight - imgHeight
+                img.css top: heightDiff/2
+            
 
         #----------
 
