@@ -51,6 +51,11 @@ class Billboard < ActiveRecord::Base
   end
 
 
+  def layout_text
+    LAYOUTS[self.layout]
+  end
+
+
   private
 
   def build_content_association(content_hash, content)
