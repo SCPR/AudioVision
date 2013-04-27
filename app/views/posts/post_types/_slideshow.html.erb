@@ -36,6 +36,7 @@
             title: "<%= j post.title %>"
         });
 
+        
 
         slideshow.bind("switch", function(idx) {
               
@@ -49,7 +50,8 @@
             );
           }
 
-          // (2.) assess image dimensions
+
+          // (2.) assess sequential image dimensions
           // ------------------------------------------------------------------------------------------
             var nextSlide, workingWidth, workingHeight;
 
@@ -63,10 +65,8 @@
               workingRatio      = workingHeight / workingWidth;
               
               if(workingRatio < 0.65) {
-//			      alert("whoa hang on, the upcoming ratio is ridiculous");
                   $(nextSlide).addClass("supports-wideness");
-  			  }
-  			        
+  			  }  
 
             });
 
