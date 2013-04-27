@@ -404,6 +404,14 @@ Slideshow Header
 			max-width: auto;
 		    margin: 0 auto;
 		}
+				.av-fullscreen .slideview .slides .slide.supports-wideness {
+					padding-top: 30px;
+				}
+				.av-fullscreen .slideview .slides .slide.supports-wideness .media-wrapper img {
+					height: auto;
+					max-height: 100%;
+					width: 100%;
+				}
 
 		/*
 		.av-fullscreen .slideview .slides .slide.active {
