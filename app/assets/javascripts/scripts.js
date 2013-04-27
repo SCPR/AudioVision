@@ -62,7 +62,6 @@ jQuery(document).ready(function($) {
 			var sampleWidth = $(".billboard .filmstrip img:first").width();
 			var sampleHeight = $(".billboard .filmstrip img:first").height();
 			sampleRatio = sampleHeight / sampleWidth;
-			//alert("sampleWidth is: " + sampleWidth + " ...and sampleHeight is: " + sampleHeight + " ...and sampleRatio is: " + sampleRatio);
 			if(sampleRatio > 0.85) {
 				$(".billboard").addClass("aspect-ratio-square");
 			} else if(sampleRatio > 0.78 && sampleRatio < 0.85) {
@@ -74,6 +73,28 @@ jQuery(document).ready(function($) {
 	}	
 
 
+
+
+/*	-----------------------------------------------------------------------------------------------------------------
+	Here & there ratios (sorry for the redundancy)
+	~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+	Credit to: http://stackoverflow.com/a/9210902
+	----------------------------------------------------------------------------------------------------------------- */
+	if ($(".single-plugs .recently").length) {
+		$(".single-plugs recently").imagesLoaded(function() {
+			$(".single-plugs .recently article").each(function(){
+
+				var sampleRatio;
+				var sampleWidth = $(this).find("img")[0].naturalWidth;
+				var sampleHeight = $(this).find("img")[0].naturalHeight;
+				sampleRatio = sampleHeight / sampleWidth;
+				if(sampleRatio < 0.65) {
+					$(this).addClass("wide");
+				}
+				
+			});
+		});
+	}
 
 
 
