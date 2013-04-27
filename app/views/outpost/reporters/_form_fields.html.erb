@@ -14,5 +14,5 @@
 <%= form_block "Website" do %>
   <%= f.association :user, hint: "Only for Outpost - lets this user edit his/her profile. If this field is blank, only a superuser can edit this profile." %>
   <%= f.input :slug, hint: "This is *not* automatically generated." %>
-  <%= f.input :is_listed, hint: "Should this bio show up in the list of reporters on the website?" %>
+  <%= f.input :is_listed, hint: "Should this bio show up in the list of reporters on the about page?" %>
 <% end %>
