@@ -82,14 +82,7 @@
 			left: 0;
 			z-index: 2;
         }
-        
-		/*
-        .slideshow-fullscreen {
-            padding: 5px;
-            float: right;
-        }
-		*/
-		
+
 		.pager-nav,
 		.slideshow-fullscreen,
 		.thumbtray-toggler {
@@ -387,18 +380,7 @@ Slideshow Header
 				    =================================================================================== */
 				
 
-		.av-fullscreen .slideview .slides .slide .media-wrapper {
-		}
-		/*
-		.av-fullscreen .slideview .slides .slide .media-wrapper b {
-			display: block;
-			height: 100%;
-			width: auto;
-			margin: auto;
-		}
-		*/
 		.av-fullscreen .slideview .slides .slide .media-wrapper img {
-			/*height: 100%;*/
 			height: auto;
 			max-height: auto;
 			width: auto;
@@ -408,37 +390,3 @@ Slideshow Header
 				.av-fullscreen .slideview .slides .slide.supports-wideness {
 					padding-top: 30px;
 				}
-				.av-fullscreen .slideview .slides .slide.supports-wideness .media-wrapper img {
-					/*
-					height: auto;
-					max-height: 100%;
-					width: 100%;
-					*/
-				}
-
-		/*
-		.av-fullscreen .slideview .slides .slide.active {
-			display: block;
-			width: 100%;
-			height: 100%;
-			position: relative;
-		}
-				.av-fullscreen .slideview .slides .slide.active .media-wrapper {
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					display: block;
-				}
-				.av-fullscreen .slideview .slides .slide.active .media-wrapper img {
-					display: block;
-					width: auto;
-					height: 100%;
-					max-width: 100%;
-					margin: 0 auto;
-				}
-		*/
-
-
-
