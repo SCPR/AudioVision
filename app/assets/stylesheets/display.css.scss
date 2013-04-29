@@ -1298,6 +1298,51 @@ LANDING-RECENTS
 							margin-bottom: 9px;
 						}
 						
+
+
+						/*	===================================================================================
+						    =================================================================================== */
+
+						    @media screen and (min-width: 768px) and (max-width: 1230px) {
+
+								.landing-recents .primary {
+									position: relative;
+									z-index: 1;
+								}
+								.landing-recents .primary figcaption {
+									position: relative;
+									z-index: 3;
+								}
+										.landing-recents .primary figcaption div {
+											position: absolute;
+											z-index: 4;
+										}
+												.landing-recents .primary figcaption .date {
+													margin-bottom: 2px;
+												}
+												.landing-recents .primary figcaption mark {
+													font-size: 0.9em; /* not 1.125 */
+													background: white;
+													padding: 10px 12px 12px 0;
+													position: relative;
+													display: block;
+													width: auto;
+													overflow: visible;
+													margin-bottom: 0;
+												}
+												.landing-recents .primary figcaption .desc {
+													background: white;
+													max-width: 80%;
+													padding: 9px 5px 7px 0;
+												}
+								
+								.landing-recents .primary figure .img {
+									position: relative;
+									z-index: 2;
+								}
+
+						    }
+
 						
 						/*	===================================================================================
 						    =================================================================================== */
