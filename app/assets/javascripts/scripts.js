@@ -127,8 +127,8 @@ jQuery(document).ready(function($) {
 /*	-----------------------------------------------------------------------------------------------------------------
 	If any video embeds show up in a post, wrap them in a flexible container
 	----------------------------------------------------------------------------------------------------------------- */
-	if ($(".single .essay .prose iframe").length) {
-		$(".single .essay .prose iframe").each(function(){
+	if ($(".prose iframe").length) {
+		$(".prose iframe").each(function(){
 			$(this)
 				.removeAttr("width height")
 				.wrap("<div class=\"media-scaler\"></div>");
