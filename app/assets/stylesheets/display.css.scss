@@ -3216,7 +3216,7 @@ SINGLE-PLUGS
 /*
 #####################################################################################################################
 #####################################################################################################################
-NOVELLA (for now, just ABOUT)
+NOVELLA
 #####################################################################################################################
 ##################################################################################################################### */
 
@@ -3252,6 +3252,27 @@ NOVELLA (for now, just ABOUT)
 				.novella.onecol .prose {
 					width: 100%;
 				}
+		
+		.novella.flatpage .novella-inner {
+			padding-top: 70px;
+		}
+				.novella.flatpage header {
+					width: 30%;
+					float: left;
+				}
+						.novella.flatpage h1 {
+							font-size: 2em; /* not 2.85... */
+						}
+
+				.novella.flatpage .prose {
+					width: 60%;
+					float: right;
+				}
+						.novella.flatpage .prose img {
+							display: block;
+							max-width: 100% !important;
+							height: auto !important;
+						}
 
 		.novella .staff {
 			width: 42.5%; /* 510 / 1200 *//* the R-side overhang will come from dimensions below... */
@@ -3341,6 +3362,28 @@ NOVELLA (for now, just ABOUT)
 								/*	===================================================================================
 								    =================================================================================== */
 
+								    @media screen and (max-width: 875px) {
+
+										.novella.flatpage header {
+											float: none;
+											width: 100%;
+											border-bottom: 1px solid #60c8eb;
+											padding-bottom: 1.5em;
+											margin-bottom: 2em;
+										}
+										.novella.flatpage h1 {
+											margin-bottom: 0;
+										}
+										.novella.flatpage .prose {
+											float: none;
+											width: 100%;
+										}
+
+								    }
+
+								/*	===================================================================================
+								    =================================================================================== */
+
 								    @media screen and (max-width: 850px) {
 
 										.novella-inner {
@@ -3366,6 +3409,7 @@ NOVELLA (for now, just ABOUT)
 												}
 
 								    }
+
 
 								/*	===================================================================================
 								    =================================================================================== */
