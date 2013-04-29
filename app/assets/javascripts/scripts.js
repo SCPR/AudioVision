@@ -44,7 +44,7 @@ jQuery(document).ready(function($) {
 
 
 /*	-----------------------------------------------------------------------------------------------------------------
-	Billboard slideshows
+	Billboards!
 	----------------------------------------------------------------------------------------------------------------- */		
 	// 1.)	Let's fade out the first & third image.
 	$(".billboard .filmstrip img:first,.billboard .filmstrip img:last").css("opacity",0.5);
@@ -52,11 +52,8 @@ jQuery(document).ready(function($) {
 	// 2.)	If we're dealing with squares, then let's adjust the westward positioning.
 	//		Since I'm lacking a better idea, let's go with "any ratio higher than 0.85 is a square, and anything less is a rectangle."
 	//		Only run this after our reference image loads, however.
-
 	$(".billboard .filmstrip").imagesLoaded(function() {
-
 		var sampleRatio = 0.66;
-
 		var sampleWidth = $(".billboard .filmstrip img:first").width();
 		var sampleHeight = $(".billboard .filmstrip img:first").height();
 		sampleRatio = sampleHeight / sampleWidth;
@@ -65,7 +62,21 @@ jQuery(document).ready(function($) {
 		} else if(sampleRatio > 0.78 && sampleRatio < 0.85) {
 			$(".billboard").addClass("aspect-ratio-squarish");
 		}
+	});
+	
+	// 3.) Sometimes, titles & subtitles can just be too damn long.
+	$(".billboard .row.secondary .component").each(function(){
+		var titleMax = 35;
+		var subtitleMax = 50;
+		var myTitleChars = $(this).find(".title span").html().length;
+		var mySubtitleChars = $(this).find(".subtitle span").html().length;
 
+		if(myTitleChars > titleMax) {
+			$(this).find(".title").addClass("verbose");
+		}
+		if(mySubtitleChars > subtitleMax) {
+			$(this).find(".subtitle").addClass("verbose");
+		}
 	});
 
 
