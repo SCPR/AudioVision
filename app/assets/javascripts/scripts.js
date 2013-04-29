@@ -45,32 +45,28 @@ jQuery(document).ready(function($) {
 
 /*	-----------------------------------------------------------------------------------------------------------------
 	Billboard slideshows
-	----------------------------------------------------------------------------------------------------------------- */
-	if ($(".billboard .filmstrip").length) {
-		
-		// 1.)	Let's fade out the first & third image.
-		$(".billboard .filmstrip img:first,.billboard .filmstrip img:last").css("opacity",0.5);
+	----------------------------------------------------------------------------------------------------------------- */		
+	// 1.)	Let's fade out the first & third image.
+	$(".billboard .filmstrip img:first,.billboard .filmstrip img:last").css("opacity",0.5);
 
-		// 2.)	If we're dealing with squares, then let's adjust the westward positioning.
-		//		Since I'm lacking a better idea, let's go with "any ratio higher than 0.85 is a square, and anything less is a rectangle."
-		//		Only run this after our reference image loads, however.
+	// 2.)	If we're dealing with squares, then let's adjust the westward positioning.
+	//		Since I'm lacking a better idea, let's go with "any ratio higher than 0.85 is a square, and anything less is a rectangle."
+	//		Only run this after our reference image loads, however.
 
-		$(".billboard .filmstrip").imagesLoaded(function() {
+	$(".billboard .filmstrip").imagesLoaded(function() {
 
-			var sampleRatio = 0.66;
+		var sampleRatio = 0.66;
 
-			var sampleWidth = $(".billboard .filmstrip img:first").width();
-			var sampleHeight = $(".billboard .filmstrip img:first").height();
-			sampleRatio = sampleHeight / sampleWidth;
-			if(sampleRatio > 0.85) {
-				$(".billboard").addClass("aspect-ratio-square");
-			} else if(sampleRatio > 0.78 && sampleRatio < 0.85) {
-				$(".billboard").addClass("aspect-ratio-squarish");
-			}
+		var sampleWidth = $(".billboard .filmstrip img:first").width();
+		var sampleHeight = $(".billboard .filmstrip img:first").height();
+		sampleRatio = sampleHeight / sampleWidth;
+		if(sampleRatio > 0.85) {
+			$(".billboard").addClass("aspect-ratio-square");
+		} else if(sampleRatio > 0.78 && sampleRatio < 0.85) {
+			$(".billboard").addClass("aspect-ratio-squarish");
+		}
 
-		});
-
-	}	
+	});
 
 
 
@@ -80,21 +76,20 @@ jQuery(document).ready(function($) {
 	~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 	Credit to: http://stackoverflow.com/a/9210902
 	----------------------------------------------------------------------------------------------------------------- */
-	if ($(".single-plugs .recently").length) {
-		$(".single-plugs recently").imagesLoaded(function() {
-			$(".single-plugs .recently article").each(function(){
+	$(".single-plugs recently").imagesLoaded(function() {
+		$(".single-plugs .recently article").each(function(){
 
-				var sampleRatio;
-				var sampleWidth = $(this).find("img")[0].naturalWidth;
-				var sampleHeight = $(this).find("img")[0].naturalHeight;
-				sampleRatio = sampleHeight / sampleWidth;
-				if(sampleRatio < 0.65) {
-					$(this).addClass("wide");
-				}
-				
-			});
+			var sampleRatio;
+			var sampleWidth = $(this).find("img")[0].naturalWidth;
+			var sampleHeight = $(this).find("img")[0].naturalHeight;
+			sampleRatio = sampleHeight / sampleWidth;
+			if(sampleRatio < 0.65) {
+				$(this).addClass("wide");
+			}
+			
 		});
-	}
+	});
+
 
 
 
@@ -115,10 +110,8 @@ jQuery(document).ready(function($) {
 /*	-----------------------------------------------------------------------------------------------------------------
 	Tweaking the "Sandbox" post type
 	----------------------------------------------------------------------------------------------------------------- */
-	if($(".exhibit-type-sandbox").length) {
-		if($(".media-wrapper").length) {
-			$(".exhibit").addClass("includes-feature");
-		}
+	if($(".exhibit-type-sandbox .media-wrapper").length) {
+		$(".exhibit").addClass("includes-feature");
 	}
 
 
@@ -127,13 +120,11 @@ jQuery(document).ready(function($) {
 /*	-----------------------------------------------------------------------------------------------------------------
 	If any video embeds show up in a post, wrap them in a flexible container
 	----------------------------------------------------------------------------------------------------------------- */
-	if ($(".prose iframe").length) {
-		$(".prose iframe").each(function(){
-			$(this)
-				.removeAttr("width height")
-				.wrap("<div class=\"media-scaler\"></div>");
-		});
-	}
+	$(".prose iframe").each(function(){
+		$(this)
+			.removeAttr("width height")
+			.wrap("<div class=\"media-scaler\"></div>");
+	});
 
 
 
@@ -189,14 +180,11 @@ jQuery(document).ready(function($) {
 	Ephemeral styling
 	----------------------------------------------------------------------------------------------------------------- */
 	// 1.) Single posts
-	if ($(".essay .prose p").length) {
-		$(".essay .prose p:first").addClass("first");
-	}
+	$(".essay .prose p:first").addClass("first");
 	
 	// 2.) Novella pages
-	if ($(".novella .prose p").length) {
-		$(".novella .prose p:first").addClass("first");
-	}
+	$(".novella .prose p:first").addClass("first");
+
 
 
 /*	-----------------------------------------------------------------------------------------------------------------
