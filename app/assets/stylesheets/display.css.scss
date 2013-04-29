@@ -859,11 +859,17 @@ BILLBOARD
 							padding: 8px 15px;
 							background: black;
 						}
+						.billboard .caption .title.verbose span {
+							font-size: 1.1em;
+						}
 						.billboard .caption .subtitle span {
 							padding: 5px 15px;
 							font-size: 0.8em;
 							line-height: 1.1;
 							background: white;
+						}
+						.billboard .caption .subtitle.verbose span {
+							font-size: 0.65em;
 						}
 
 		.billboard .imagery {
@@ -948,6 +954,9 @@ BILLBOARD
 						.billboard .caption .title span {
 							font-size: 1.1em;
 						}
+						.billboard .caption .title.verbose span {
+							font-size: 0.9em;
+						}
 						.billboard .caption .title {
 							margin-bottom: 5px;
 						}
@@ -976,6 +985,13 @@ BILLBOARD
 				}
 				.billboard .component.slideshow .caption .subtitle span {
 					font-size: 0.75em;
+				}
+				.billboard .caption .title.verbose span {
+					font-size: 0.75em;
+					line-height: 1.05;
+				}
+				.billboard .caption .subtitle.verbose span {
+					font-size: 0.55em;
 				}
 
 		    }
