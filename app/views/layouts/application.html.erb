@@ -20,12 +20,12 @@
     <%= tag "meta", property: "og:title", content: h(page_title) %>
     <%= tag "meta", name: "description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
     <%= tag "meta", property: "description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
-    <%= tag "meta", property: "og:image", content: meta_information[:image] || image_url('meta/audiovision-opengraph.png') %>
+    <%= tag "meta", property: "og:image", content: meta_information[:image] || 'http://audiovision.scpr.org/images/audiovision-opengraph.png' %>
     <%= tag "meta", property: "og:url", content: meta_information[:url] || "http://audiovision.scpr.org/" %>
 
     <%= csrf_meta_tags %>
 
-    <link rel="apple-touch-icon-precomposed" href="<%=image_path('meta/apple-touch-icon-144x144-precomposed.png')%>" />
+    <link rel="apple-touch-icon-precomposed" href="http://audiovision.scpr.org/apple-touch-icon-precomposed.png" />
     <link href="http://media.scpr.org/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="http://audiovision.scpr.org/feed" />
 
