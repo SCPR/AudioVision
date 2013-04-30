@@ -14,17 +14,19 @@ AudioVision::Application.routes.draw do
   namespace :api, defaults: { format: "json" } do
     scope module: "public" do
       namespace :v1 do  
-        get '/posts'        => 'posts#index'
-        get '/posts/by_url' => 'posts#by_url'
-        get '/posts/:id'    => 'posts#show'
+        resources :posts, only: [:index, :show] do
+          get '/posts/by_url' => 'posts#by_url'
+        end
+
+        resources :buckets, only: [:index, :show]
       end
     end
     
     namespace :private do
       namespace :v1 do
-        get '/posts'        => 'posts#index'
-        get '/posts/by_url' => 'posts#by_url'
-        get '/posts/:id'    => 'posts#show'
+        resources :posts, only: [:index, :show] do
+          get '/posts/by_url' => 'posts#by_url'
+        end
       end
     end
   end
