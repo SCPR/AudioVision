@@ -1,5 +1,12 @@
 <%# Keep this separate so that we can use it for preview! Don't cache anthing in here or lower, or it will be cached in preview. Don't use content_for in here or lower, because this (and everything lower) is cached. %>
 
+<%# Template Dependency: posts/post_types/gallery %>
+<%# Template Dependency: posts/post_types/image %>
+<%# Template Dependency: posts/post_types/sandbox %>
+<%# Template Dependency: posts/post_types/slideshow %>
+<%# Template Dependency: posts/post_types/video %>
+
+
 <!-- Common code for all single posts -->
 <div class="exhibit exhibit-type-<%= post.post_type_key %>">
     <div class="exhibit-inner bound clearfix">
