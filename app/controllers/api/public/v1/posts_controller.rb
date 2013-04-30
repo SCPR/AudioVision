@@ -12,7 +12,7 @@ module Api::Public::V1
 
     def index
       @posts = Post.published.page(@page).per(@limit)
-      
+
       if @query.present?
         @posts = @posts.where("title like ?", "%#{@query}%")
       end
