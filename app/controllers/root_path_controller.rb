@@ -16,7 +16,7 @@ class RootPathController < ApplicationController
       if @category = Category.find_by_slug(slug)
         handle_category and return
       else
-        render_error(404, ActionController::RoutingError.new("Not Found")) and return
+        raise ActionController::RoutingError.new("Not Found")
       end
     end
   end
