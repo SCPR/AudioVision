@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.0.beta1'
+gem 'rails', github: "bricker/rails", branch: "allow_numbers_in_partial_names"
 gem 'mysql2'
 gem 'jquery-rails'
 gem 'newrelic_rpm'
