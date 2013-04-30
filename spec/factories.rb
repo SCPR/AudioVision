@@ -3,6 +3,7 @@ FactoryGirl.define do
     title "Post about something"
     subtitle "It's interesting I swear"
     status 5
+    sequence(:published_at) { |n| Time.now + n.days }
     body "This is a post about something."
     teaser "Teaser"
     post_type 0
