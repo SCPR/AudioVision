@@ -15,7 +15,7 @@ AudioVision::Application.routes.draw do
     scope module: "public" do
       namespace :v1 do  
         resources :posts, only: [:index, :show] do
-          get '/posts/by_url' => 'posts#by_url'
+          get '/by_url' => 'posts#by_url', on: :collection
         end
 
         resources :buckets, only: [:index, :show]
@@ -25,7 +25,7 @@ AudioVision::Application.routes.draw do
     namespace :private do
       namespace :v1 do
         resources :posts, only: [:index, :show] do
-          get '/posts/by_url' => 'posts#by_url'
+          get '/by_url' => 'posts#by_url', on: :collection
         end
       end
     end
