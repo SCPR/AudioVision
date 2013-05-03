@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/SCPR/asset_host_client.git
-  revision: 631b7aaa8295c738c1e2b83668eb719d5138c5f3
+  revision: 64ee24c2008a6dcd81e893ede9385673c8b728d6
   specs:
     asset_host_client (1.0.0)
       faraday (~> 0.8)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/SCPR/outpost-aggregator.git
-  revision: 8fe631e7dcc18761cdc2859dc6cb7cc75eda1634
+  revision: 9dc53080481628635794c72d71473dbb4bfb78da
   specs:
     outpost-aggregator (0.1.0)
 
@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: git://github.com/amatsuda/kaminari.git
-  revision: eda92d564f337d5c63c0be1856cc97d9bb84e9d6
+  revision: c721d3bc9cbe48d08d22e1057cb3d2f3310fe90c
   specs:
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
@@ -115,7 +115,7 @@ GIT
 
 GIT
   remote: git@github.com:bmabey/database_cleaner.git
-  revision: 20136e8987c222013d96e07c27d1230d2bbebd61
+  revision: ce1d16298960c28182568611892bfa4c386cfaf5
   specs:
     database_cleaner (0.9.1)
 
@@ -127,7 +127,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.8)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.3.1.1)
+    bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.1.4)
     capybara (2.1.0)
@@ -179,9 +179,9 @@ GEM
     guard-resque (0.0.5)
       guard (>= 0.8)
       resque
-    guard-rspec (2.5.4)
-      guard (>= 1.1)
-      rspec (~> 2.11)
+    guard-rspec (2.6.0)
+      guard (>= 1.8)
+      rspec (~> 2.13)
     hashie (1.2.0)
     highline (1.6.18)
     hike (1.2.2)
@@ -205,7 +205,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.23)
-    minitest (4.7.3)
+    minitest (4.7.4)
     mono_logger (1.0.1)
     multi_json (1.7.2)
     multipart-post (1.2.0)
@@ -236,7 +236,7 @@ GEM
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
     redis (3.0.4)
-    redis-namespace (1.2.1)
+    redis-namespace (1.3.0)
       redis (~> 3.0.0)
     resque (1.24.1)
       mono_logger (~> 1.0)
@@ -292,7 +292,7 @@ GEM
     thor (0.18.1)
     thread_safe (0.1.0)
       atomic
-    tilt (1.3.7)
+    tilt (1.4.0)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
