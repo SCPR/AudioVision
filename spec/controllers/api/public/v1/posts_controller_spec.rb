@@ -92,6 +92,17 @@ describe Api::Public::V1::PostsController do
       assigns(:posts).should eq [post]
     end
 
+    it "can filter by category" do
+      category_images = create :category, title: "Cool Images"
+      category_videos = create :category, title: "Cool Videos"
+
+      post_image = create :post, category: category_images
+      post_video = create :post, category: category_videos
+
+      get :index, { category: category_images.slug }.merge(request_params)
+      assigns(:posts).should eq [post_image]
+    end
+
     it "only grabs published posts" do
       unpublished_post = create :post, status: Post::STATUS[:draft]
 

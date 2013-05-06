@@ -3,6 +3,7 @@ module Api::Public::V1
     before_filter :sanitize_page, 
       :sanitize_limit, 
       :sanitize_query,
+      :sanitize_category,
       only: [:index]
 
     before_filter :sanitize_url, only: [:by_url]
@@ -14,7 +15,12 @@ module Api::Public::V1
       @posts = Post.published.page(@page).per(@limit)
 
       if @query.present?
-        @posts = @posts.where("title like ?", "%#{@query}%")
+        @posts.where!("title like ?", "%#{@query}%")
+      end
+
+      if @category_slug.present?
+        @posts = @posts.includes(:category)
+          .where(Category.table_name => { slug: @category_slug })
       end
 
       respond_with @posts
@@ -90,6 +96,12 @@ module Api::Public::V1
     
     def sanitize_query
       @query = params[:query].to_s
+    end
+
+    #---------------------------
+
+    def sanitize_category
+      @category_slug = params[:category].to_s
     end
   end
 end
