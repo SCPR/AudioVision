@@ -8,7 +8,12 @@ module Api::Public::V1
     end
 
     def show
-      @bucket = Bucket.find_by_key(@id)
+      @bucket = Bucket.where(key: @id).first
+      
+      if !@bucket
+        render_not_found and return false
+      end
+
       respond_with @bucket
     end
 
