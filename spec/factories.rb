@@ -64,7 +64,7 @@ FactoryGirl.define do
 
   factory :category do
     title "Images"
-    slug "images"
+    slug { title.parameterize }
     description "These are some images"
   end
 
