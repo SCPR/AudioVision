@@ -69,8 +69,10 @@ FactoryGirl.define do
   end
 
   #---------------
-
+  # Need to pass in referrer
   factory :post_reference do
+    post
+    sequence(:position)
   end
 
   #---------------
