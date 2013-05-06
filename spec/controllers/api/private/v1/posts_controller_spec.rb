@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Api::Private::V1::PostsController do
+  render_views
+  
     request_params = {
     :format     => :json,
     :auth_token => "doesntactuallydoanythingyet"
