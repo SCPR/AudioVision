@@ -46,7 +46,7 @@ group :assets do
 end
 
 group :development do
-  gem 'capistrano', github: 'jimryan/capistrano', branch: "support-json-manifest"
+  gem 'capistrano'
   gem 'pry'
   gem 'dbsync'
 end
