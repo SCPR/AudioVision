@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Api::Public::V1::BucketsController do
+  render_views
+  
   request_params = {
     :format => :json
   }
