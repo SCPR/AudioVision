@@ -3,7 +3,7 @@ module Api::Public::V1
     before_filter :sanitize_id, only: [:show]
 
     def index
-      @billboards = Billboard.published.all
+      @billboards = Billboard.published
       respond_with @billboards
     end
 
