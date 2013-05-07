@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   respond_to :html, :json
 
   def show
-    @post       = Post.includes(:attributions, :category).find(params[:id])
+    @post       = Post.includes(:category).find(params[:id])
     @category   = @post.category
 
     @nav_highlight = @category.slug
