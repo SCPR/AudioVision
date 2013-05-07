@@ -31,6 +31,13 @@ describe Outpost::PostsController do
         response.should_not render_template partial: "posts/_post"
         response.body.should render_template partial: "outpost/shared/_preview_errors"
       end
+
+      it "renders okay for draft posts" do
+        post = create :post, status: Post::STATUS[:draft]
+        put :preview, obj_key: post.obj_key, post: post.attributes, id: post.id
+
+        response.should render_template partial: "posts/_post"
+      end
     end
 
 
