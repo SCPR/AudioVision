@@ -1,5 +1,7 @@
-json.partial! @bucket
+json.cache! @bucket do
+  json.partial! @bucket
 
-json.posts @bucket.posts do |post|
-  json.partial! 'api/public/v1/posts/post', post: post
+  json.posts @bucket.posts do |post|
+    json.partial! 'api/public/v1/posts/post', post: post
+  end
 end

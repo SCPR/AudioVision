@@ -1,5 +1,7 @@
-json.partial! @billboard
+json.cache! @billboard do
+  json.partial! @billboard
 
-json.posts @billboard.posts do |post|
-  json.partial! 'api/public/v1/posts/post', post: post
+  json.posts @billboard.posts do |post|
+    json.partial! 'api/public/v1/posts/post', post: post
+  end
 end
