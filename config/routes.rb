@@ -19,6 +19,10 @@ AudioVision::Application.routes.draw do
         end
 
         resources :buckets, only: [:index, :show]
+        
+        resources :billboards, only: [:index, :show] do
+          get 'current' => 'billboards#current', on: :collection
+        end
       end
     end
     
