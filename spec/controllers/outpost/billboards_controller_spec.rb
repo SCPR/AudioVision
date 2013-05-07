@@ -30,6 +30,12 @@ describe Outpost::BillboardsController do
         response.should_not render_template partial: "billboards/_billboard"
         response.body.should render_template partial: "outpost/shared/_preview_errors"
       end
+
+      it "renders okay for draft billboards" do
+        billboard = create :billboard, status: Billboard::STATUS[:draft]
+        put :preview, obj_key: billboard.obj_key, billboard: billboard.attributes, id: billboard.id
+        response.should render_template partial: "billboards/_billboard"
+      end
     end
 
 
