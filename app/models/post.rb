@@ -100,10 +100,11 @@ class Post < ActiveRecord::Base
   # Callbacks
   before_validation :generate_slug, if: -> { self.should_validate? && self.slug.blank? }
 
+  after_save :touch_referrers, if: :changed?
+
   # Always update the updated_at attribute, 
   # even if nothing was actually changed.
   after_save -> { self.touch }
-  after_save :touch_referrers
 
   # Generate the slug based on the title.
   def generate_slug
