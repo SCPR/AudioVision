@@ -19,7 +19,7 @@
     <!-- Always-present, Dynamically-populated tags - these will be set by the page we're on, other otherwise fallback to a default -->
     <%= tag "meta", property: "og:title", content: h(meta_information[:title] || page_title) %>
     <%= tag "meta", property: "og:type", content: h(meta_information[:type] || "website") %>
-    <%= tag "meta", property: "og:url", content: meta_information[:url] || "http://audiovision.scpr.org/" %>
+    <%= tag "meta", property: "og:url", content: meta_information[:url] || "http://audiovision.scpr.org" %>
     <%= tag "meta", name: "description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
     <%= tag "meta", property: "og:description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
 
