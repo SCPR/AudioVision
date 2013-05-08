@@ -4,9 +4,9 @@
 <% content_for :extra_meta_tags do %>
 <% cache [@reporter, "meta_tags"] do %>
 <% name = @reporter.name.split %>
-<meta property="og:profile:first_name" content="<%=name[0]%>" />
-<meta property="og:profile:last_name" content="<%=name[1..-1].join%>" />
-<meta property="og:profile:username" content="<%=@reporter.name.parameterize%>" />
+<meta property="profile:first_name" content="<%=name[0]%>" />
+<meta property="profile:last_name" content="<%=name[1..-1].join%>" />
+<meta property="profile:username" content="<%=@reporter.name.parameterize%>" />
 
 <meta property="og:image" content="<%=@reporter.asset.full.url%>" />
 <meta property="og:image:type" content="image/jpeg" />
