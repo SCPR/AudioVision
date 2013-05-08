@@ -3,12 +3,12 @@
 
 <% content_for :extra_meta_tags do %>
 <% cache [@post, "meta_tags"] do %>
-<meta property="og:article:published_time" content="<%=@post.published_at%>" />
-<meta property="og:article:modified_time" content="<%=@post.updated_at%>" />
-<meta property="og:article:section" content="<%=h(@post.category.title)%>" />
+<meta property="article:published_time" content="<%=@post.published_at%>" />
+<meta property="article:modified_time" content="<%=@post.updated_at%>" />
+<meta property="article:section" content="<%=h(@post.category.title)%>" />
 
 <% @post.attributions.for_byline.each do |attribution| %>
-<meta property="og:article:author" content="<%=attribution.display_name%>" />
+<meta property="article:author" content="<%=attribution.display_name%>" />
 <% end %> <%# attributions %>
 
 <% @post.assets.map(&:full).each do |image| %>
