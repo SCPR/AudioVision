@@ -8,7 +8,7 @@
 <meta property="article:section" content="<%=h(@post.category.title)%>" />
 
 <% @post.attributions.for_byline.each do |attribution| %>
-<meta property="article:author" content="<%=attribution.display_name%>" />
+<meta property="article:author" content="<%=attribution.display_url%>" />
 <% end %> <%# attributions %>
 
 <% @post.assets.map(&:full).each do |image| %>
