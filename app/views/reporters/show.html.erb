@@ -1,5 +1,20 @@
-<% meta_tags(description: @reporter.bio, image: @reporter.asset.full.url, url: @reporter.remote_link_path) %>
 <% add_to_page_title @reporter.name %>
+<% meta_tags(type: "profile", description: @reporter.bio, url: @reporter.remote_link_path) %>
+
+<% content_for :extra_meta_tags do %>
+<% cache [@reporter, "meta_tags"] do %>
+<% name = @reporter.name.split %>
+<meta property="og:profile:first_name" content="<%=name[0]%>" />
+<meta property="og:profile:last_name" content="<%=name[1..-1].join%>" />
+<meta property="og:profile:username" content="<%=@reporter.name.parameterize%>" />
+
+<meta property="og:image" content="<%=@reporter.asset.full.url%>" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="<%=@reporter.asset.full.width%>" />
+<meta property="og:image:height" content="<%=@reporter.asset.full.height%>" />
+<% end %><%# cache %>
+<% end %><%# meta_tags %>
+
 
 
 <div class="dossier bound">
