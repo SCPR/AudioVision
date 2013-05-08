@@ -14,9 +14,5 @@ module Job
         raise "No articles available from the KPCC API!"
       end
     end
-
-    class << self
-      add_transaction_tracer :perform, category: :task
-    end
   end
 end
