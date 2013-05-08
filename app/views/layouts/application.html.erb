@@ -16,13 +16,17 @@
     <meta name="keywords" content="KPCC,SCPR,AudioVision,photojournalism,Los Angeles,LA,Pasadena,Southern California,California,video,mobile photography,images,Grant Slater,Mae Ryan,Maya Sugarman" />
     <meta name="author" content="89.3 KPCC" />
 
-    <!-- Dynamic Tags - these will be set by the page we're on, other otherwise fallback to a default -->
-    <%= tag "meta", property: "og:title", content: h(page_title) %>
-    <%= tag "meta", name: "description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
-    <%= tag "meta", property: "description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
-    <%= tag "meta", property: "og:image", content: meta_information[:image] || 'http://audiovision.scpr.org/images/audiovision-opengraph.png' %>
+    <!-- Always-present, Dynamically-populated tags - these will be set by the page we're on, other otherwise fallback to a default -->
+    <%= tag "meta", property: "og:title", content: h(meta_information[:title] || page_title) %>
+    <%= tag "meta", property: "og:type", content: h(meta_information[:type] || "website") %>
     <%= tag "meta", property: "og:url", content: meta_information[:url] || "http://audiovision.scpr.org/" %>
+    <%= tag "meta", name: "description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
+    <%= tag "meta", property: "og:description", content: h(meta_information[:description] || "AudioVision is the visual journalism blog of KPCC and Southern California Public Radio.") %>
 
+    <%= content_for :extra_meta_tags %>
+
+    <!-- Always provide the logo as a fallback thumbnail option. -->
+    <meta property="og:image" content="http://audiovision.scpr.org/images/audiovision-opengraph.png" />
     <%= csrf_meta_tags %>
 
     <link rel="apple-touch-icon-precomposed" href="http://audiovision.scpr.org/apple-touch-icon-precomposed.png" />
