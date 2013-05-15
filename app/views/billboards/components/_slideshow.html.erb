@@ -3,9 +3,9 @@
 <a href="<%= post.link_path %>" class="component slideshow">
     <div class="imagery">
         <div class="filmstrip clearfix">
-            <% if post.assets[1] %><img src="<%=post.assets[1].eight.url%>" alt="" /><% end %>
-            <% if post.assets[0] %><img src="<%=post.assets[0].eight.url%>" alt="" /><% end %>
-            <% if post.assets[2] %><img src="<%=post.assets[2].eight.url%>" alt="" /><% end %>
+            <% if post.assets[1] %><img src="<%=post.assets[1].full.url%>" alt="" /><% end %>
+            <% if post.assets[0] %><img src="<%=post.assets[0].full.url%>" alt="" /><% end %>
+            <% if post.assets[2] %><img src="<%=post.assets[2].full.url%>" alt="" /><% end %>
         </div>
     </div>
     <hgroup class="caption">
