@@ -11,7 +11,7 @@
 <%= cache @posts do %>
 
 <section class="feedgrid med bound">
-    <%= render "/posts/collection", posts: @posts %>
+    <%= render "/posts/collection", posts: @posts, size: :eight %>
 </section>
 
 <% end %>
