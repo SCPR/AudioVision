@@ -13,7 +13,7 @@
         <div class="recent">
         <% Array(@recent_posts[0..2]).each do |post| %>
             <figure class="clearfix">
-                <b class="img"><a href="<%=post.link_path%>"><img src="<%=post.asset.eight.url%>" alt="" /></a></b>
+                <b class="img"><a href="<%=post.link_path%>"><img src="<%=post.asset.full.url%>" alt="" /></a></b>
                 <figcaption>
                     <ul class="meta">
                         <li class="date"><%= format_date(post.published_at) %></li>
@@ -65,7 +65,7 @@
 
 
 <section class="feedgrid med bound">
-    <%= render "/posts/collection", posts: @recent_posts[3..6] %>
+    <%= render "/posts/collection", posts: @recent_posts[3..6], size: :eight %>
 </section>
 
 
@@ -102,7 +102,7 @@
 
 
 <section class="feedgrid med bound">
-    <%= render "/posts/collection", posts: @recent_posts[7..10] %>
+    <%= render "/posts/collection", posts: @recent_posts[7..10], size: :eight %>
 </section>
 
 <%= render "shared/archive_bar", posts: @recent_posts[11..14] %>
