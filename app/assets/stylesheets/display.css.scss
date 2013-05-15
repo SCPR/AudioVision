@@ -903,7 +903,9 @@ BILLBOARD
 		.billboard.layout-5 .row.primary img,
 		.billboard.layout-6 .row.primary img,
 		.billboard.layout-7 .row.primary img {
-			width: 100%;
+			width: auto;
+			max-width: 100%;
+			margin: 0 auto;
 		}
 
 		.billboard .component.slideshow .imagery {
@@ -1668,8 +1670,10 @@ WARMUP
 								}
 								.warmup .recent figure .img img {
 									display: block;
-									width: 100%;
+									width: auto;
+									max-width: 100%;
 									height: auto;
+									margin: 0 auto;
 								}
 								.warmup .recent figcaption {
 									float: left;
