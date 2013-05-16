@@ -1067,7 +1067,8 @@ BILLBOARD
 							.billboard.aspect-ratio-squarish .filmstrip {
 								left: 0;
 							}
-							.billboard.aspect-ratio-square .filmstrip img {
+							.billboard.aspect-ratio-square .filmstrip img,
+							.billboard.aspect-ratio-squarish .filmstrip img {
 								width: 100%;
 								height: auto;
 							}
