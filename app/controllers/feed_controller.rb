@@ -8,16 +8,16 @@ class FeedController < ApplicationController
     if params[:category].present?
       @category = Category.find_by_slug(params[:category])
       @posts.where!(category_id: @category.id)
-      feed_title = @category.title.pluralize
+      feed_title = "#{@category.title.pluralize} | AudioVision | KPCC"
     else
-      feed_title = "Posts"
+      feed_title = "AudioVision | KPCC"
     end
 
     if request.format.xml?
       @feed = {
-        :title          => "Recent #{feed_title}",
+        :title          => feed_title,
         :href           => feed_url(category: @category.try(:slug)),
-        :description    => "The most recent #{feed_title} from AudioVision."
+        :description    => "From Southern California, public radio for your eyes."
       }
     end
 
