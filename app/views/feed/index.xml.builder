@@ -13,9 +13,8 @@ xml.rss('version' => '2.0', 'xmlns:dc' => "http://purl.org/dc/elements/1.1/", 'x
           xml.link  post.remote_link_path
           xml.dc :creator, post.byline
 
-          if post.assets.first.present?
-            asset = post.assets.first.asset
-            xml.enclosure url: asset.thumb.url, type: "image/jpeg", length: asset.image_file_size.to_i / 100
+          if post.asset.present?
+            xml.enclosure url: post.asset.full.url, type: "image/jpeg", length: post.asset.image_file_size.to_i
           end
 
           xml.description post.body.html_safe
