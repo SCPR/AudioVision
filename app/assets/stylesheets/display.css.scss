@@ -1063,7 +1063,8 @@ BILLBOARD
 							.billboard .filmstrip img:last-child {
 								display: none;
 							}
-							.billboard.aspect-ratio-square .filmstrip {
+							.billboard.aspect-ratio-square .filmstrip,
+							.billboard.aspect-ratio-squarish .filmstrip {
 								left: 0;
 							}
 							.billboard.aspect-ratio-square .filmstrip img {
