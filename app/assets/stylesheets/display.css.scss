@@ -2284,7 +2284,7 @@ PROSE (anywhere it shows up) (reset its parent's contextual em to 1.0, first, if
 					text-decoration: underline;
 				}
 		
-		.prose .media-scaler {
+		.media-scaler {
 			/* Thanks to http://amobil.se/2011/11/responsive-embeds/ */
 		    position: relative;
 		    padding-bottom: 56.25%; /* 16/9 ratio */
@@ -2292,9 +2292,9 @@ PROSE (anywhere it shows up) (reset its parent's contextual em to 1.0, first, if
 		    overflow: hidden;
 			margin-bottom: 1.3em;
 		}
-				.prose .media-scaler iframe,
-				.prose .media-scaler object,
-				.prose .media-scaler embed {
+				.media-scaler iframe,
+				.media-scaler object,
+				.media-scaler embed {
 				    position: absolute;
 				    top: 0;
 				    left: 0;
