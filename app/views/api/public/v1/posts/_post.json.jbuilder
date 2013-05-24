@@ -26,6 +26,10 @@ json.cache! post do
     json.title asset.title
     json.caption asset.caption.present? ? asset.caption : asset.asset.caption
     json.owner asset.owner
+    if asset.native.present?
+      json.type asset.native[:class]
+      json.id   asset.native[:id]
+    end
 
     json.thumbnail do
       json.url asset.lsquare.url
