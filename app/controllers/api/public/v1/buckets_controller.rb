@@ -7,6 +7,8 @@ module Api::Public::V1
       respond_with @buckets
     end
 
+    #---------------
+
     def show
       @bucket = Bucket.where(key: @id).first
       
@@ -21,6 +23,7 @@ module Api::Public::V1
 
     private
 
+    # Note: params[:id] is actually the KEY for this bucket.
     def sanitize_id
       @id = params[:id].to_s
     end
