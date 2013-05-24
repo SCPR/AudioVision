@@ -1,4 +1,4 @@
-json.cache! @bucket do
+json.cache! [Api::Public::V1::VERSION, @bucket] do
   json.partial! @bucket
 
   json.posts @bucket.posts do |post|
