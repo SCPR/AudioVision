@@ -2,7 +2,7 @@ FakeWeb.allow_net_connect = false
 
 if !defined?(AH_JSON)
   AH_JSON = {
-    :asset   => File.read("#{Rails.root}/lib/asset_host/fallback/asset.json"),
+    :asset   => File.read("#{Rails.root}/spec/fixtures/api/assethost/asset.json"),
     :outputs => File.read("#{Rails.root}/lib/asset_host/fallback/outputs.json")
   }
 end
