@@ -1,0 +1,88 @@
+{
+  "id": 61746,
+  "title": "Bad Cars",
+  "caption": "Bad Cars",
+  "owner": "MadAtoms (via Vimeo)",
+  "size": "640x360",
+  "tags": {
+    "thumb": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-thumb.jpg\" width=\"88\" height=\"88\" alt=\"Bad Cars\" />",
+    "lsquare": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-lsquare.jpg\" width=\"188\" height=\"188\" alt=\"Bad Cars\" />",
+    "lead": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-lead.jpg\" width=\"324\" height=\"182\" alt=\"Bad Cars\" />",
+    "wide": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-wide.jpg\" width=\"620\" height=\"349\" alt=\"Bad Cars\" data-assethost=\"VimeoVideo\" data-ah-videoid=\"65349801\"/>",
+    "full": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-full.jpg\" width=\"640\" height=\"360\" alt=\"Bad Cars\" data-assethost=\"VimeoVideo\" data-ah-videoid=\"65349801\"/>",
+    "six": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-six.jpg\" width=\"540\" height=\"304\" alt=\"Bad Cars\" data-assethost=\"VimeoVideo\" data-ah-videoid=\"65349801\"/>",
+    "eight": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-eight.jpg\" width=\"640\" height=\"360\" alt=\"Bad Cars\" data-assethost=\"VimeoVideo\" data-ah-videoid=\"65349801\"/>",
+    "four": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-four.jpg\" width=\"600\" height=\"338\" alt=\"Bad Cars\" />",
+    "three": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-three.jpg\" width=\"255\" height=\"143\" alt=\"Bad Cars\" />",
+    "five": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-five.jpg\" width=\"594\" height=\"334\" alt=\"Bad Cars\" />",
+    "small": "<img src=\"http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-small.jpg\" width=\"450\" height=\"253\" alt=\"Bad Cars\" />"
+  },
+  "notes": "Imported from Vimeo: http://vimeo.com/65349801",
+  "created_at": "2013-05-29T04:07:13Z",
+  "taken_at": "2013-05-29T04:07:13Z",
+  "native": {
+    "class": "VimeoVideo",
+    "videoid": "65349801"
+  },
+  "image_file_size": 58173,
+  "url": "http://a.scpr.org/api/assets/61746/",
+  "sizes": {
+    "thumb": {
+      "width": 88,
+      "height": 88
+    },
+    "lsquare": {
+      "width": 188,
+      "height": 188
+    },
+    "lead": {
+      "width": 324,
+      "height": 182
+    },
+    "wide": {
+      "width": 620,
+      "height": 349
+    },
+    "full": {
+      "width": 640,
+      "height": 360
+    },
+    "six": {
+      "width": 540,
+      "height": 304
+    },
+    "eight": {
+      "width": 640,
+      "height": 360
+    },
+    "four": {
+      "width": 600,
+      "height": 338
+    },
+    "three": {
+      "width": 255,
+      "height": 143
+    },
+    "five": {
+      "width": 594,
+      "height": 334
+    },
+    "small": {
+      "width": 450,
+      "height": 253
+    }
+  },
+  "urls": {
+    "thumb": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-thumb.jpg",
+    "lsquare": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-lsquare.jpg",
+    "lead": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-lead.jpg",
+    "wide": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-wide.jpg",
+    "full": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-full.jpg",
+    "six": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-six.jpg",
+    "eight": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-eight.jpg",
+    "four": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-four.jpg",
+    "three": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-three.jpg",
+    "five": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-five.jpg",
+    "small": "http://a.scpr.org/i/f73d90eda2c4c051241cea1982e46763/61746-small.jpg"
+  }
+}
