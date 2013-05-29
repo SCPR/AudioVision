@@ -2098,7 +2098,8 @@ FEEDGRID
 											    =================================================================================== */
 
 												.feedgrid .type-video figure img {
-													width: 100%;
+													max-width: 100%;
+													width: auto;
 													height: auto;
 												}
 
