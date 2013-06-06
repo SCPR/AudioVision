@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: git://github.com/SCPR/outpost-aggregator.git
-  revision: 9dc53080481628635794c72d71473dbb4bfb78da
+  revision: 578c57a4cd722189e94e76061f853aa9b7f827da
   specs:
-    outpost-aggregator (0.1.0)
+    outpost-aggregator (0.1.1)
 
 GIT
   remote: git://github.com/SCPR/outpost-asset_host.git
@@ -27,9 +27,9 @@ GIT
 
 GIT
   remote: git://github.com/SCPR/outpost.git
-  revision: 3568568eede5113235ea2019bd961e820e95d6d4
+  revision: 3597cefd6059f9f66b566f39a8db7d7cc212a2cf
   specs:
-    outpost (0.0.2)
+    outpost (0.0.3)
       bcrypt-ruby (~> 3.0)
       jquery-rails
       rails (>= 3.2)
@@ -109,7 +109,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.9)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.3.1.2)
+    bootstrap-sass (2.3.1.3)
       sass (~> 3.2)
     builder (3.1.4)
     capistrano (2.15.4)
@@ -173,17 +173,17 @@ GEM
       rspec (~> 2.13)
     hashie (1.2.0)
     highline (1.6.19)
-    hike (1.2.2)
+    hike (1.2.3)
     i18n (0.6.4)
-    jbuilder (1.4.1)
+    jbuilder (1.4.2)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
-    jquery-rails (2.2.1)
+    jquery-rails (3.0.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     launchy (2.3.0)
       addressable (~> 2.3)
-    listen (1.1.4)
+    listen (1.1.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
@@ -195,7 +195,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.4)
     mono_logger (1.1.0)
-    multi_json (1.7.4)
+    multi_json (1.7.6)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
     net-scp (1.1.1)
@@ -205,7 +205,7 @@ GEM
     net-ssh (2.6.7)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    newrelic_rpm (3.6.2.96)
+    newrelic_rpm (3.6.3.111)
     nokogiri (1.5.9)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -281,7 +281,7 @@ GEM
     thread_safe (0.1.0)
       atomic
     tilt (1.4.1)
-    treetop (1.4.12)
+    treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
