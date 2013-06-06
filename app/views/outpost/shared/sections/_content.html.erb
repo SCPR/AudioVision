@@ -10,6 +10,12 @@
     aggregator = new outpost.Aggregator(
       "#aggregator", "#content_json",
       <%= raw render(partial: 'api/private/v1/posts/collection', formats: [:json], locals: { posts: record.posts }) %>, 
-      <%= raw options.to_json %>);
+      {
+        apiType: 'private',
+        params: {
+          limit: 20
+        }
+      }
+    );
   </script>
 <% end %>
