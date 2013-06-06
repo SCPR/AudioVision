@@ -10,12 +10,16 @@ module Api::Private::V1
     before_filter :sanitize_id, only: [:show]
     
     #-------------------------
-
+    # There is currently no reason for us to allow unpublished
+    # posts to be found via the API. Once we need that capability,
+    # we can change it here.
     def index
       @posts = Post.published.page(@page).per(@limit)
       
       if @query.present?
-        @posts = @posts.where("title like ?", "%#{@query}%")
+        @posts.where!("title like ?", "%#{@query}%")
+      end
+
       if @category_slug.present?
         @posts = @posts.includes(:category)
           .where(Category.table_name => { slug: @category_slug })
@@ -26,8 +30,11 @@ module Api::Private::V1
 
     #-------------------------
 
+    # There is currently no reason for us to allow unpublished
+    # posts to be found via the API. Once we need that capability,
+    # we can change it here.
     def show
-      @post = Post.where(id: @id).first
+      @post = Post.published.where(id: @id).first
 
       if !@post
         render_not_found and return false
