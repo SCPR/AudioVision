@@ -1,6 +1,6 @@
 <%= form_block "Content" do %>
   <div id="aggregator" class="aggregator"></div>
-  <%= f.input :content_json, as: :hidden, input_html: { id: "content_json" } %>
+  <%= f.input :post_references_json, as: :hidden, input_html: { id: "post_references_json" } %>
 <% end %>
 
 <% options['apiType'] = "private" %>
@@ -8,7 +8,7 @@
 <% content_for :footer do %>
   <script>
     aggregator = new outpost.Aggregator(
-      "#aggregator", "#content_json",
+      "#aggregator", "#post_references_json",
       <%= render_json('api/private/v1/posts/collection', posts: record.posts) %>, 
       {
         apiType: 'private',

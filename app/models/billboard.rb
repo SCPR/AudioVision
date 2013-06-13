@@ -5,6 +5,7 @@ class Billboard < ActiveRecord::Base
   include StatusMethods
   include PublishedScope
   include AutoPublishedAt
+  include PostReferenceAssociation
 
   LAYOUTS = {
     1 => "1 - TOP: Slideshow / BOTTOM: Video (16:9), Mobile (1:1)",
@@ -28,20 +29,11 @@ class Billboard < ActiveRecord::Base
     STATUS[:published] => "Published"
   }
 
-
-
-  has_many :post_references, -> { order("position") }, as: :referrer, dependent: :destroy
-  has_many :posts, through: :post_references
-
-  accepts_json_input_for_content(name: :post_references)
-
-
   validates :layout, presence: true, inclusion: { in: LAYOUTS.keys }
   validates :status, presence: true
 
 
   after_save -> { self.touch }
-
 
 
   class << self
@@ -53,16 +45,5 @@ class Billboard < ActiveRecord::Base
 
   def layout_text
     LAYOUTS[self.layout]
-  end
-
-
-  private
-
-  def build_content_association(content_hash, content)
-    PostReference.new(
-      :post       => content,
-      :referrer   => self,
-      :position   => content_hash['position'].to_i
-    )
   end
 end

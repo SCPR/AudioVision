@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: git://github.com/SCPR/outpost-aggregator.git
-  revision: 6298e36e257496596e5a31a371d5b846934be0cc
+  revision: 57fc2eebcffb2d4bad14dc622b4145a3af89f428
   specs:
-    outpost-aggregator (0.1.1)
+    outpost-aggregator (1.0.0)
 
 GIT
   remote: git://github.com/SCPR/outpost-asset_host.git
