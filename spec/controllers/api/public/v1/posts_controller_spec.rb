@@ -26,7 +26,7 @@ describe Api::Public::V1::PostsController do
   describe "GET by_url" do
     it "finds the object if the URI matches" do
       post = create :post
-      get :by_url, { url: post.remote_link_path }.merge(request_params)
+      get :by_url, { url: post.public_url }.merge(request_params)
       assigns(:post).should eq post
       response.should render_template "show"
     end

@@ -1,6 +1,6 @@
 <% if post.present? %>
 
-<a href="<%=post.link_path%>" class="component image">
+<a href="<%=post.public_path%>" class="component image">
     <div class="imagery">
         <img src="<%=post.asset.send(size).url%>" alt="" />
     </div>

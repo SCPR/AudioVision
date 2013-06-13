@@ -36,6 +36,6 @@ class Attribution < ActiveRecord::Base
   end
 
   def display_url
-    @display_url ||= self.url.present? ? self.url : self.reporter.try(:remote_link_path)
+    @display_url ||= self.url.present? ? self.url : self.reporter.try(:public_url)
   end
 end

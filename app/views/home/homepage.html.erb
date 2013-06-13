@@ -13,13 +13,13 @@
         <div class="recent">
         <% Array(@recent_posts[0..2]).each do |post| %>
             <figure class="clearfix">
-                <b class="img"><a href="<%=post.link_path%>"><img src="<%=post.asset.full.url%>" alt="" /></a></b>
+                <b class="img"><a href="<%=post.public_path%>"><img src="<%=post.asset.full.url%>" alt="" /></a></b>
                 <figcaption>
                     <ul class="meta">
                         <li class="date"><%= format_date(post.published_at) %></li>
-                        <li class="type"><%= link_to post.category.title, post.category.link_path %></li>
+                        <li class="type"><%= link_to post.category.title, post.category.public_path %></li>
                     </ul>
-                    <mark><%= link_to post.title, post.link_path %></mark>
+                    <mark><%= link_to post.title, post.public_path %></mark>
                     <div class="desc">
                         <p><%= post.teaser.html_safe %></p>
                     </div>
@@ -41,9 +41,9 @@
 
                 <% @right_bar_bucket.posts.each do |post| %>
                     <figure>
-                        <b class="img"><a href="<%=post.link_path%>"><img src="<%=post.asset.small.url%>" alt="" /></a></b>
+                        <b class="img"><a href="<%=post.public_path%>"><img src="<%=post.asset.small.url%>" alt="" /></a></b>
                         <figcaption>
-                            <mark><%= link_to post.title, post.link_path %></mark>
+                            <mark><%= link_to post.title, post.public_path %></mark>
                             <ul class="meta">
                                 <li class="type"><%= post.category.title %></li>
                                 <li class="date"><%= format_date(post.published_at) %></li>
@@ -82,7 +82,7 @@
         <nav class="clearfix">
 
         <% posts.each do |post| %>
-            <a href="<%=post.link_path%>">
+            <a href="<%=post.public_path%>">
                 <figure>
                     <b class="img"><img src="<%=post.asset.small.url%>" alt="" /></b>
                     <figcaption>

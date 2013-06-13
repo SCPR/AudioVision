@@ -1,5 +1,5 @@
 json.id post.id
-json.permalink post.remote_link_path
+json.permalink post.public_url
 
 json.published_at post.published_at
 json.updated_at post.updated_at

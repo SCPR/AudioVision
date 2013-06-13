@@ -6,7 +6,7 @@
        
         <ul class="thumbnails clearfix">
         <% Array(posts).each do |post| %>
-            <li><a href="<%=post.link_path%>"><img src="<%=post.asset.small.url%>" alt="" /></a></li>
+            <li><a href="<%=post.public_path%>"><img src="<%=post.asset.small.url%>" alt="" /></a></li>
         <% end %>
         </ul>
     </div>

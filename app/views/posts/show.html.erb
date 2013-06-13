@@ -1,5 +1,5 @@
 <% add_to_page_title @post.title %>
-<% meta_tags(description: @post.teaser, url: @post.remote_link_path, type: "article") %>
+<% meta_tags(description: @post.teaser, url: @post.public_url, type: "article") %>
 
 <% content_for :extra_meta_tags do %>
 <% cache [@post, "meta_tags"] do %>
@@ -48,7 +48,7 @@
                 <div class="pair clearfix">
                 <% group.each do |post| %>
                     <article>
-                        <a href="<%=post.link_path%>">
+                        <a href="<%=post.public_path%>">
                             <figure>
                                 <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
                                 <figcaption>
@@ -74,7 +74,7 @@
             <h2><span>Featured <%= @category.title.pluralize %></span></h2>
 
             <% @recent_posts_this_category.each do |post| %>
-                <a href="<%=post.link_path%>" class="preview">
+                <a href="<%=post.public_path%>" class="preview">
                     <figure>
                         <div class="img"><b><img src="<%=post.asset.small.url%>" alt="" /></b></div>
                         <figcaption>

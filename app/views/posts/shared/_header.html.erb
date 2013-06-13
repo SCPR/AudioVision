@@ -1,16 +1,16 @@
 <header class="intro">
-    <h1 class="title"><%= link_to post.title, post.link_path %></h1>
+    <h1 class="title"><%= link_to post.title, post.public_path %></h1>
     <aside class="share">
         <ul class="clearfix">
 
             <li class="fbk">
-                <a href="https://www.facebook.com/sharer.php?u=<%=u(post.remote_link_path)%>&amp;t=<%=u(post.title)%>" target="_blank">Share this on Facebook</a>
+                <a href="https://www.facebook.com/sharer.php?u=<%=u(post.public_url)%>&amp;t=<%=u(post.title)%>" target="_blank">Share this on Facebook</a>
             </li>
             <li class="twi">
-                <a href="https://twitter.com/intent/tweet?text=<%=u("#{post.title} #{post.remote_link_path} via @KPCC 's @AudioVision blog")%>" target="_blank">Share this on Twitter</a>
+                <a href="https://twitter.com/intent/tweet?text=<%=u("#{post.title} #{post.public_url} via @KPCC 's @AudioVision blog")%>" target="_blank">Share this on Twitter</a>
             </li>
             <li class="tum">
-                <a href="http://tumblr.com/share?s=&amp;v=3&amp;t=<%=u(post.title)%>&amp;u=<%=u(post.remote_link_path)%>" target="_blank">Share this on Tumblr</a>
+                <a href="http://tumblr.com/share?s=&amp;v=3&amp;t=<%=u(post.title)%>&amp;u=<%=u(post.public_url)%>" target="_blank">Share this on Tumblr</a>
             </li>
 
         </ul>

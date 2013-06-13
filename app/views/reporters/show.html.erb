@@ -1,5 +1,5 @@
 <% add_to_page_title @reporter.name %>
-<% meta_tags(type: "profile", description: @reporter.bio, url: @reporter.remote_link_path) %>
+<% meta_tags(type: "profile", description: @reporter.bio, url: @reporter.public_url) %>
 
 <% content_for :extra_meta_tags do %>
 <% cache [@reporter, "meta_tags"] do %>

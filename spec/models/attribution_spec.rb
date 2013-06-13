@@ -34,7 +34,7 @@ describe Attribution do
 
     it 'uses the reporter url if available' do
       attribution = build :attribution, :with_reporter, url: nil
-      attribution.display_url.should eq attribution.reporter.remote_link_path
+      attribution.display_url.should eq attribution.reporter.public_url
     end
 
     it 'is the passed in URL if no reporter is available' do

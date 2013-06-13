@@ -4,7 +4,7 @@
     <div class="pair clearfix">
     <% group.each do |post| %>
         <article class="type-<%= post.post_type_key %>">
-            <a href="<%=post.link_path%>">
+            <a href="<%=post.public_path%>">
                 <figure class="clearfix">
                     <div class="img"><b><img src="<%=post.asset.send(size).url%>" alt="" />
 </b></div> 

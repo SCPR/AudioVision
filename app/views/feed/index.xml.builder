@@ -9,8 +9,8 @@ xml.rss('version' => '2.0', 'xmlns:dc' => "http://purl.org/dc/elements/1.1/", 'x
       @posts.each do |post|
         xml.item do
           xml.title post.title
-          xml.guid  post.remote_link_path
-          xml.link  post.remote_link_path
+          xml.guid  post.public_url
+          xml.link  post.public_url
           xml.dc :creator, post.byline
 
           if post.asset.present?

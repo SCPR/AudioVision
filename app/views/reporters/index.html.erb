@@ -26,7 +26,7 @@
             <% @reporters.each do |reporter| %>
             <article>
                 <header>
-                    <h3><%= link_to reporter.name, reporter.link_path %></h3>
+                    <h3><%= link_to reporter.name, reporter.public_path %></h3>
                     <ul class="clearfix">
                     <% if reporter.email.present? %>
                         <li class="email"><a href="mailto:<%=reporter.email%>" title="<%=reporter.email%>"><%= reporter.email %></a></li>
