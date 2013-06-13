@@ -42,14 +42,14 @@
                         <%= simple_format(reporter.bio, {}, sanitize: false) %>
                     </div>
                     
-                <% if reporter.asset.present? %>
+                <% if reporter.asset %>
                     <b class="img"><img src="<%=reporter.asset.small.url%>" alt="<%=reporter.name%>" /></b>
                 <% end %>
                 </div>
             </article>
             <% end %>
 
-            <% end %>
+            <% end %> <%# cache %>
         </section><!--/ .staff -->
     </div>
 </div><!--/ novella -->
