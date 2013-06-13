@@ -6,7 +6,7 @@ json.cache! [Api::Public::V1::VERSION, post] do
   json.published_at post.published_at
   json.teaser       post.teaser.html_safe
   json.body         post.body.html_safe
-  json.permalink    post.remote_link_path
+  json.public_url   post.public_url
 
   asset = post.assets.first
   json.thumbnail asset ? asset.lsquare.tag : nil
@@ -18,7 +18,9 @@ json.cache! [Api::Public::V1::VERSION, post] do
       json.title       post.category.title
       json.slug        post.category.slug
       json.description post.category.description
-      json.permalink   post.category.remote_link_path
+      json.public_url  post.category.public_url
+      
+      json.permalink   post.category.public_url # Deprecated
     end
   end
 
@@ -67,4 +69,6 @@ json.cache! [Api::Public::V1::VERSION, post] do
     json.role_text  attribution.role_text 
     json.role       attribution.role
   end
+
+  json.permalink    post.public_url # Deprecated
 end
