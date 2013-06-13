@@ -8,10 +8,12 @@
 <meta property="profile:last_name" content="<%=name[1..-1].join%>" />
 <meta property="profile:username" content="<%=@reporter.name.parameterize%>" />
 
+<% if @reporter.asset %>
 <meta property="og:image" content="<%=@reporter.asset.full.url%>" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="<%=@reporter.asset.full.width%>" />
 <meta property="og:image:height" content="<%=@reporter.asset.full.height%>" />
+<% end %><%# asset check %>
 <% end %><%# cache %>
 <% end %><%# meta_tags %>
 
@@ -36,7 +38,11 @@
                 </ul>
             </div>
             
-            <b class="img"><img src="<%=@reporter.asset.small.url%>" alt="<%=@reporter.name%>" /></b>
+            <b class="img">
+            <% if @reporter.asset %>
+                <img src="<%=@reporter.asset.small.url%>" alt="<%=@reporter.name%>" />
+            <% end %>
+            </b>
         </div>
     </article>
 

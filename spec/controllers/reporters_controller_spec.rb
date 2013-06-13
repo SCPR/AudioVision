@@ -30,5 +30,14 @@ describe ReportersController do
       assigns(:reporter).should eq reporter
       assigns(:posts).should eq [published_post]
     end
+
+    context 'without asset' do
+      it 'still renders the page' do
+        reporter = create :reporter, asset_id: nil
+        get :show, reporter.route_hash
+
+        response.should be_success
+      end
+    end
   end
 end
