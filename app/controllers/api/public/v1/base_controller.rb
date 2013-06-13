@@ -1,5 +1,5 @@
 module Api::Public::V1
-  VERSION   = Gem::Version.new("1.4.1")
+  VERSION   = Gem::Version.new("1.5.0")
   TYPE      = "public"
 
   class BaseController < ::ActionController::Base
