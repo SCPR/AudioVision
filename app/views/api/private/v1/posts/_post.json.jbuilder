@@ -3,7 +3,7 @@ json.title            post.to_title
 json.public_datetime  post.published_at
 json.teaser           post.teaser.html_safe
 json.body             post.body.html_safe
-json.url              post.public_url
+json.public_url       post.public_url
 json.thumbnail        post.asset.lsquare.tag
 json.byline           post.byline
 json.edit_url         post.admin_edit_url
