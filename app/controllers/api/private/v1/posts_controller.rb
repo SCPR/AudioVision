@@ -1,6 +1,8 @@
 module Api::Private::V1
   class PostsController < BaseController
-    before_filter :sanitize_page, 
+    
+    before_filter \
+      :sanitize_page, 
       :sanitize_limit, 
       :sanitize_query,
       :sanitize_category,
