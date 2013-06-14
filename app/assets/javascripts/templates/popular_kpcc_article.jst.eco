@@ -1,1 +1,1 @@
-<li><a href="<%=@article.permalink%>"><%= @article.short_title %></a></li>
+<li><a href="<%=@article.public_url%>"><%= @article.short_title %></a></li>

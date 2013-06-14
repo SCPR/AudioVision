@@ -24,7 +24,7 @@ class audiovision.RelatedKpccArticleFeedback
 
         @feedbackEl.show().spin("small")
 
-        $.getJSON("http://www.scpr.org/api/v2/content/by_url", { url: url })
+        $.getJSON("http://www.scpr.org/api/v2/articles/by_url", { url: url })
         .success((data, textStatus, jqXHR) => 
             @feedbackEl.html JST['outpost/templates/related_kpcc_article'](article: data)
 
