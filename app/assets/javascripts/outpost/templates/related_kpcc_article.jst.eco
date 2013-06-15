@@ -2,5 +2,5 @@
   <div class="pull-left" style="max-width:80px;padding-right:10px;">
     <%- @article.thumbnail %>
   </div>
-  <p><strong><a href="<%= @article.permalink %>" target="_blank"><%= @article.short_title %></a></strong><br /><em><%= @article.teaser %></em></p>
+  <p><strong><a href="<%= @article.public_url %>" target="_blank"><%= @article.short_title %></a></strong><br /><em><%= @article.teaser %></em></p>
 </div>

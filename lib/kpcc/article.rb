@@ -56,7 +56,7 @@ module Kpcc
 
 
     ATTRIBUTES = [:id, :title, :short_title, :teaser, 
-    :body, :published_at, :thumbnail, :byline, :permalink]
+    :body, :published_at, :thumbnail, :byline, :public_url]
 
     attr_accessor *ATTRIBUTES
 
@@ -68,7 +68,7 @@ module Kpcc
       @body         = attributes["body"]
       @thumbnail    = attributes["thumbnail"]
       @byline       = attributes["byline"]
-      @permalink    = attributes["permalink"]
+      @public_url   = attributes["public_url"]
       @published_at = Time.parse(attributes["published_at"].to_s)
     end
 
