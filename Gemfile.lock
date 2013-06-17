@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: git://github.com/SCPR/outpost.git
-  revision: ba6f47489ff104865e4a0dc7d0ff9e194544b9ab
+  revision: db18c7e58cdb17d690a2057bfbb0d0119234aff3
   specs:
     outpost (0.0.3)
       bcrypt-ruby (~> 3.0)
@@ -195,7 +195,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.4)
     mono_logger (1.1.0)
-    multi_json (1.7.6)
+    multi_json (1.7.7)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
     net-scp (1.1.1)
