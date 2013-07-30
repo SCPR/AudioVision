@@ -2,6 +2,8 @@
 
 KPCC's Media Blog
 
+[![Build Status](https://circleci.com/gh/SCPR/AudioVision.png?circle-token=6b0598955b109f205b4210062884cc34d7480797)](https://circleci.com/gh/SCPR/AudioVision)
+
 ## Dependencies
 * Ruby (>= 1.9.3)
 * MySQL
