@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', github: "bricker/rails", branch: "allow_numbers_in_partial_names"
+gem 'rails', github: "rails/rails"
 gem 'mysql2'
 gem 'jquery-rails'
 gem 'newrelic_rpm'
 gem 'jbuilder'
 gem 'resque', '~> 1.24'
+gem 'bcrypt-ruby', '~> 3.1.0'
 
 #gem 'asset_host_client', path: "#{ENV['PROJECT_HOME']}/asset_host_client"
 gem 'asset_host_client', github: "SCPR/asset_host_client"
@@ -53,7 +54,7 @@ group :development do
 end
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.13.0"
+  gem "rspec-rails", "~> 2.14.0"
   gem 'launchy'
   gem 'guard'
   gem 'guard-rspec'
