@@ -44,7 +44,7 @@ namespace :deploy do
   # --------------
 
   task :symlink_config do
-    %w{ database.yml app_config.yml newrelic.yml }.each do |file|
+    %w{ database.yml app_config.yml api_config.yml newrelic.yml }.each do |file|
       run "ln -nfs #{shared_path}/config/#{file} #{release_path}/config/#{file}"
     end
   end

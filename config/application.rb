@@ -20,14 +20,15 @@ module AudioVision
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.scpr = ActiveSupport::OrderedOptions.new
-    
     config.secrets = YAML.load_file("#{Rails.root}/config/app_config.yml")
+    config.api     = YAML.load_file("#{Rails.root}/config/api_config.yml")
 
-    config.assethost = ActiveSupport::OrderedOptions.new
-    config.assethost.server = "a.scpr.org"
-    config.assethost.token  = "droQQ2LcESKeGPzldQr7" 
-    config.assethost.prefix = "/api"
+    config.scpr         = ActiveSupport::OrderedOptions.new
+    
+    config.assethost        = ActiveSupport::OrderedOptions.new
+    config.assethost.server = config.api['assethost']['server']
+    config.assethost.prefix = config.api['assethost']['prefix']
+    config.assethost.token  = config.api['assethost']['token']
 
     config.autoload_paths += %W( #{config.root}/lib )
 
