@@ -1,0 +1,4 @@
+assethost:
+    token: xxxx
+    prefix: "/api"
+    server: "a.scpr.org"
