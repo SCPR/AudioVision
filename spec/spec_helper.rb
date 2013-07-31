@@ -47,7 +47,7 @@ RSpec.configure do |config|
     begin
       Rails.cache.clear
     rescue Errno::ENOENT => e
-      $stdout.warn e
+      warn e
     end
   end
 end
