@@ -4,8 +4,11 @@ require 'simplecov'
 SimpleCov.start 'rails'
 
 require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
-require 'rspec/autorun'
+
+silence_warnings do
+  # Minitest is giving warnings that we can ignore for now
+  require 'rspec/rails'
+end
 
 require 'database_cleaner'
 
