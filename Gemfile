@@ -11,7 +11,7 @@ gem 'resque', '~> 1.24'
 gem 'asset_host_client', github: "SCPR/asset_host_client"
 
 #gem 'outpost', path: "#{ENV['PROJECT_HOME']}/outpost"
-gem 'outpost', github: 'SCPR/outpost'
+gem 'outpost-cms', github: 'SCPR/outpost'
 
 #gem 'outpost-asset_host', path: "#{ENV['PROJECT_HOME']}/outpost-asset_host"
 gem 'outpost-asset_host', github: "SCPR/outpost-asset_host"
@@ -37,6 +37,7 @@ gem 'redis-rack', github: "bricker/redis-store"
 gem "faraday", "~> 0.8"
 gem "faraday_middleware", "~> 0.8"
 gem "hashie", "~> 1.2.0"
+
 
 group :assets do
   gem 'eco', '~> 1.0.0'
