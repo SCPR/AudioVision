@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 	----------------------------------------------------------------------------------------------------------------- */
 	function is_touch_device() {
 	  return !!('ontouchstart' in window) // works on most browsers 
-	      || !!('onmsgesturechange' in window); // works on ie10
+		  || !!('onmsgesturechange' in window); // works on ie10
 	};
 
 
@@ -132,9 +132,18 @@ jQuery(document).ready(function($) {
 	If any video embeds show up in a post, wrap them in a flexible container
 	----------------------------------------------------------------------------------------------------------------- */
 	$(".prose iframe").each(function(){
+		var height, width, padding, scaler;
+
+		height      = $(this).attr('height') || $(this).height();
+		width       = $(this).attr('width') || $(this).width();
+		padding     = (height/width + 0.2) * 100;
+
+		scaler = $("<div class=\"media-scaler\"></div>");
+		scaler.css({'padding-bottom': padding + "%"});
+
 		$(this)
 			.removeAttr("width height")
-			.wrap("<div class=\"media-scaler\"></div>");
+			.wrap(scaler);
 	});
 
 
