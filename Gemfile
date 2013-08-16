@@ -11,7 +11,7 @@ gem 'bcrypt-ruby', '~> 3.1.0'
 #gem 'asset_host_client', path: "#{ENV['PROJECT_HOME']}/asset_host_client"
 gem 'asset_host_client', github: "SCPR/asset_host_client"
 
-#gem 'outpost', path: "#{ENV['PROJECT_HOME']}/outpost"
+#gem 'outpost-cms', path: "#{ENV['PROJECT_HOME']}/outpost"
 gem 'outpost-cms', github: 'SCPR/outpost'
 
 #gem 'outpost-asset_host', path: "#{ENV['PROJECT_HOME']}/outpost-asset_host"
