@@ -27,12 +27,13 @@ GIT
 
 GIT
   remote: git://github.com/SCPR/outpost.git
-  revision: 123ec90e745fb0e7c50558b8ae5f757f4c676314
+  revision: 0927136169ec5ab973dd2fedf79d43a8ae75b827
   specs:
     outpost-cms (0.0.3)
       bcrypt-ruby (>= 3.0.0)
       jquery-rails
       rails (>= 3.2)
+      select2-rails (= 3.4.1)
 
 GIT
   remote: git://github.com/amatsuda/kaminari.git
@@ -61,7 +62,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 5c6e11d6b89444eefcb12e24d5419dadefdea1ba
+  revision: 28189f2524d6d7754d6f39b18d24c4b47c258891
   specs:
     actionmailer (4.1.0.beta)
       actionpack (= 4.1.0.beta)
@@ -257,7 +258,7 @@ GEM
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
-    select2-rails (3.4.8)
+    select2-rails (3.4.1)
       sass-rails
       thor (~> 0.14)
     simple_form (3.0.0.rc)
@@ -338,7 +339,7 @@ DEPENDENCIES
   resque (~> 1.24)
   rspec-rails (~> 2.14.0)
   sass-rails (~> 4.0.0.beta1)
-  select2-rails (~> 3.3)
+  select2-rails (= 3.4.1)
   simple_form (~> 3.0.0.beta1)
   simplecov
   uglifier (>= 1.0.3)
