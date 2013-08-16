@@ -3,7 +3,7 @@ module Kpcc
 
     class << self
       def find(obj_key)
-        response = client.get("content/#{obj_key}")
+        response = client.get("articles/#{obj_key}")
         
         if response.success?
           new(response.body)
@@ -15,7 +15,7 @@ module Kpcc
       #-----------------
 
       def find_by_url(url)
-        response = client.get("content/by_url", url: url)
+        response = client.get("articles/by_url", url: url)
         
         if response.success?
           new(response.body)
@@ -27,7 +27,7 @@ module Kpcc
       #-----------------
 
       def most_viewed
-        response = client.get("content/most_viewed")
+        response = client.get("articles/most_viewed")
 
         if response.success?
           articles = []
