@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: git://github.com/SCPR/outpost.git
-  revision: 0927136169ec5ab973dd2fedf79d43a8ae75b827
+  revision: 7b2851099682736de70c3303f9482149ed0f1456
   specs:
     outpost-cms (0.0.3)
       bcrypt-ruby (>= 3.0.0)
@@ -62,13 +62,13 @@ GIT
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 28189f2524d6d7754d6f39b18d24c4b47c258891
+  revision: 3b351037937199d6dcb95c0db2ed9519f660e353
   specs:
     actionmailer (4.1.0.beta)
       actionpack (= 4.1.0.beta)
+      actionview (= 4.1.0.beta)
       mail (~> 2.5.4)
     actionpack (4.1.0.beta)
-      actionview (= 4.1.0.beta)
       activesupport (= 4.1.0.beta)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
@@ -111,7 +111,7 @@ GEM
     addressable (2.3.5)
     arel (4.0.0)
     atomic (1.1.13)
-    bcrypt-ruby (3.1.1)
+    bcrypt-ruby (3.1.2)
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
     builder (3.1.4)
@@ -196,7 +196,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.2)
-    mime-types (1.24)
+    mime-types (1.25)
     mini_portile (0.5.1)
     minitest (5.0.6)
     mono_logger (1.1.0)
@@ -286,7 +286,7 @@ GEM
     thread_safe (0.1.2)
       atomic
     tilt (1.4.1)
-    treetop (1.4.14)
+    treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
