@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
     @billboard          = Billboard.published.includes(:post_references).first
     @recent_posts       = Post.published.limit(15)
-    @midway_bucket      = Bucket.where(key: "instagram").first
+    @midway_bucket      = Bucket.where(key: "public-square-community-project").first
     @right_bar_bucket   = Bucket.where(key: "featured-posts").first
 
     # If we have a billboard, then don't show any of its posts in "Recent"
