@@ -45,7 +45,7 @@ describe HomeController do
     end
 
     it "assigns the buckets matching the requested keys" do
-      midway_bucket = create :bucket, key: "instagram"
+      midway_bucket = create :bucket, key: "public-square-community-project"
       right_bar_bucket = create :bucket, key: "featured-posts"
 
       get :homepage
