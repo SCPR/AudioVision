@@ -45,8 +45,8 @@ describe HomeController do
     end
 
     it "assigns the buckets matching the requested keys" do
-      midway_bucket = create :bucket, key: "public-square-community-project"
-      right_bar_bucket = create :bucket, key: "featured-posts"
+      midway_bucket = create :bucket, key: HomeController::MIDWAY_BUCKET_KEY
+      right_bar_bucket = create :bucket, key: HomeController::RIGHT_BAR_BUCKET_KEY
 
       get :homepage
       assigns(:midway_bucket).should eq midway_bucket
