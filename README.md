@@ -37,8 +37,6 @@ Run `rake` to run the test suite.
 
 ## Deployment
 This application deploys to media via [capistrano](http://rubygems.org/gems/capistrano). 
-Capistrano isn't officially compatible with Rails 4 yet, so this app 
-requires a different repository that contains a proposed fix.
 
 To deploy to production:
 
