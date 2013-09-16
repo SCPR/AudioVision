@@ -55,8 +55,17 @@ module Kpcc
 
 
 
-    ATTRIBUTES = [:id, :title, :short_title, :teaser, 
-    :body, :published_at, :thumbnail, :byline, :public_url]
+    ATTRIBUTES = [
+      :id,
+      :title,
+      :short_title,
+      :teaser,
+      :body,
+      :published_at,
+      :thumbnail,
+      :byline,
+      :public_url
+    ]
 
     attr_accessor *ATTRIBUTES
 
