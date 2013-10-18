@@ -11,7 +11,7 @@ module Api::Public::V1
 
     def show
       @bucket = Bucket.where(key: @id).first
-      
+
       if !@bucket
         render_not_found and return false
       end

@@ -1,13 +1,17 @@
 module Api::Public::V1
   class PostsController < BaseController
-    before_filter :sanitize_page, 
-      :sanitize_limit, 
+    before_filter :sanitize_page,
+      :sanitize_limit,
       :sanitize_query,
       :sanitize_category,
       only: [:index]
 
     before_filter :sanitize_url, only: [:by_url]
     before_filter :sanitize_id, only: [:show]
+
+    MAX_LIMIT       = 40
+    DEFAULT_LIMIT   = 10
+    DEFAULT_PAGE    = 1
 
     #-------------------------
 
@@ -42,7 +46,7 @@ module Api::Public::V1
 
     def by_url
       @post = Post.find_by_url(@url)
-      
+
       if !@post
         render_not_found and return false
       end
@@ -79,21 +83,21 @@ module Api::Public::V1
     def sanitize_limit
       if params[:limit].present?
         limit = params[:limit].to_i
-        @limit = limit > 40 ? 40 : limit
+        @limit = limit > MAX_LIMIT ? MAX_LIMIT : limit
       else
-        @limit = 10
+        @limit = DEFAULT_LIMIT
       end
     end
 
     #---------------------------
-    
+
     def sanitize_page
       page = params[:page].to_i
-      @page = page > 0 ? page : 1
+      @page = page > 0 ? page : DEFAULT_PAGE
     end
-    
+
     #---------------------------
-    
+
     def sanitize_query
       @query = params[:query].to_s
     end
