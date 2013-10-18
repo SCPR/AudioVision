@@ -24,7 +24,7 @@ gem 'outpost-aggregator', github: "SCPR/outpost-aggregator"
 gem 'outpost-publishing', github: "SCPR/outpost-publishing"
 
 
-gem 'kaminari', github: "amatsuda/kaminari"
+gem 'kaminari', github: "bricker/kaminari", branch: 'count-arity'
 gem 'simple_form', '~> 3.0.0.beta1'
 gem 'select2-rails', '3.4.1'
 gem 'bootstrap-sass', '~> 2.2'
@@ -42,8 +42,8 @@ gem "hashie", "~> 1.2.0"
 
 group :assets do
   gem 'eco', '~> 1.0.0'
-  gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
+  gem 'sass-rails',   '~> 4.0.1'
+  gem 'coffee-rails', '~> 4.0.1'
   gem 'uglifier', '>= 1.0.3'
 end
 

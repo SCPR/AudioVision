@@ -2,15 +2,23 @@ class Outpost::PostsController < Outpost::ResourceController
   outpost_controller
 
   define_list do |l|
-    l.default_order = "updated_at"
-    l.default_sort_mode = "desc"
+    l.default_order_attribute = "updated_at"
+    l.default_order_direction = DESCENDING
 
     l.column :title
-    l.column :post_type, header: "Type", display: ->(r) { Post::POST_TYPES_TEXT[r.post_type] }
+    l.column :post_type,
+      :header     => "Type",
+      :display    => ->(r) { Post::POST_TYPES_TEXT[r.post_type] }
+
     l.column :byline
     l.column :status
-    l.column :published_at, sortable: true, default_sort_mode: "desc"
-    l.column :updated_at, sortable: true, default_sort_mode: "desc"
+    l.column :published_at,
+      :sortable                   => true,
+      :default_order_direction    => DESCENDING
+
+    l.column :updated_at,
+      :sortable             => true,
+      :default_sort_mode    => DESCENDING
 
     l.filter :post_type, collection: -> { Post.post_types_collection }
     l.filter :status, collection: -> { Post.status_collection }

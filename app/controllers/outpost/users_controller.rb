@@ -2,8 +2,8 @@ class Outpost::UsersController < Outpost::ResourceController
   outpost_controller
 
   define_list do |l|
-    l.default_order     = "name"
-    l.default_sort_mode = "asc"
+    l.default_order_attribute   = "name"
+    l.default_order_direction   = ASCENDING
 
     l.column :name
     l.column :username
