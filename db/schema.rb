@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130423224721) do
+ActiveRecord::Schema.define(version: 20131018173348) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "attributions", ["post_id", "role"], name: "index_attributions_on_post_id_and_role"
-  add_index "attributions", ["reporter_id"], name: "index_attributions_on_reporter_id"
+  add_index "attributions", ["post_id", "role"], name: "index_attributions_on_post_id_and_role", using: :btree
+  add_index "attributions", ["post_id"], name: "index_attributions_on_post_id", using: :btree
+  add_index "attributions", ["reporter_id"], name: "index_attributions_on_reporter_id", using: :btree
 
   create_table "billboards", force: true do |t|
     t.integer  "layout"
@@ -34,7 +35,7 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "billboards", ["status"], name: "index_billboards_on_status"
+  add_index "billboards", ["published_at", "status"], name: "index_billboards_on_published_at_and_status", using: :btree
 
   create_table "buckets", force: true do |t|
     t.string   "title"
@@ -44,7 +45,7 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "buckets", ["key"], name: "index_buckets_on_key"
+  add_index "buckets", ["key"], name: "index_buckets_on_key", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "categories", ["slug"], name: "index_categories_on_slug"
+  add_index "categories", ["slug"], name: "index_categories_on_slug", using: :btree
 
   create_table "flatpages", force: true do |t|
     t.string   "path"
@@ -68,7 +69,7 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "flatpages", ["path"], name: "index_flatpages_on_path"
+  add_index "flatpages", ["path"], name: "index_flatpages_on_path", using: :btree
 
   create_table "permissions", force: true do |t|
     t.string   "resource"
@@ -76,7 +77,7 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "permissions", ["resource"], name: "index_permissions_on_resource"
+  add_index "permissions", ["resource"], name: "index_permissions_on_resource", using: :btree
 
   create_table "post_assets", force: true do |t|
     t.integer  "asset_id"
@@ -87,7 +88,7 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "post_assets", ["post_id", "position"], name: "index_post_assets_on_post_id_and_position"
+  add_index "post_assets", ["post_id", "position"], name: "index_post_assets_on_post_id_and_position", using: :btree
 
   create_table "post_references", force: true do |t|
     t.string   "referrer_type"
@@ -98,9 +99,9 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "post_references", ["position"], name: "index_post_references_on_position"
-  add_index "post_references", ["post_id"], name: "index_post_references_on_post_id"
-  add_index "post_references", ["referrer_type", "referrer_id"], name: "index_post_references_on_referrer_type_and_referrer_id"
+  add_index "post_references", ["position"], name: "index_post_references_on_position", using: :btree
+  add_index "post_references", ["post_id"], name: "index_post_references_on_post_id", using: :btree
+  add_index "post_references", ["referrer_type", "referrer_id"], name: "index_post_references_on_referrer_type_and_referrer_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -118,9 +119,12 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.boolean  "related_kpcc_article_json_is_cached", default: false
   end
 
-  add_index "posts", ["category_id"], name: "index_posts_on_category_id"
-  add_index "posts", ["post_type"], name: "index_posts_on_post_type"
-  add_index "posts", ["status", "published_at"], name: "index_posts_on_status_and_published_at"
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
+  add_index "posts", ["post_type"], name: "index_posts_on_post_type", using: :btree
+  add_index "posts", ["published_at"], name: "index_posts_on_published_at", using: :btree
+  add_index "posts", ["status", "published_at"], name: "index_posts_on_status_and_published_at", using: :btree
+  add_index "posts", ["status"], name: "index_posts_on_status", using: :btree
+  add_index "posts", ["updated_at"], name: "index_posts_on_updated_at", using: :btree
 
   create_table "publish_alarms", force: true do |t|
     t.integer  "content_id"
@@ -130,8 +134,8 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "publish_alarms", ["content_id", "content_type"], name: "index_publish_alarms_on_content_id_and_content_type"
-  add_index "publish_alarms", ["fire_at"], name: "index_publish_alarms_on_fire_at"
+  add_index "publish_alarms", ["content_id", "content_type"], name: "index_publish_alarms_on_content_id_and_content_type", using: :btree
+  add_index "publish_alarms", ["fire_at"], name: "index_publish_alarms_on_fire_at", using: :btree
 
   create_table "reporters", force: true do |t|
     t.string   "name"
@@ -146,9 +150,9 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.string   "email"
   end
 
-  add_index "reporters", ["is_listed"], name: "index_reporters_on_is_listed"
-  add_index "reporters", ["slug"], name: "index_reporters_on_slug"
-  add_index "reporters", ["user_id"], name: "index_reporters_on_user_id"
+  add_index "reporters", ["is_listed"], name: "index_reporters_on_is_listed", using: :btree
+  add_index "reporters", ["slug"], name: "index_reporters_on_slug", using: :btree
+  add_index "reporters", ["user_id"], name: "index_reporters_on_user_id", using: :btree
 
   create_table "user_permissions", force: true do |t|
     t.integer  "user_id"
@@ -157,9 +161,9 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "updated_at"
   end
 
-  add_index "user_permissions", ["permission_id"], name: "index_user_permissions_on_permission_id"
-  add_index "user_permissions", ["user_id", "permission_id"], name: "index_user_permissions_on_user_id_and_permission_id"
-  add_index "user_permissions", ["user_id"], name: "index_user_permissions_on_user_id"
+  add_index "user_permissions", ["permission_id"], name: "index_user_permissions_on_permission_id", using: :btree
+  add_index "user_permissions", ["user_id", "permission_id"], name: "index_user_permissions_on_user_id_and_permission_id", using: :btree
+  add_index "user_permissions", ["user_id"], name: "index_user_permissions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -172,5 +176,7 @@ ActiveRecord::Schema.define(version: 20130423224721) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["name"], name: "index_users_on_name", using: :btree
 
 end
