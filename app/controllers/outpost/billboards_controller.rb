@@ -16,7 +16,9 @@ class Outpost::BillboardsController < Outpost::ResourceController
       @billboard.assign_attributes(form_params)
 
       if @billboard.valid?
-        render "/billboards/_billboard", layout: "outpost/preview/application", locals: { billboard: @billboard }
+        render "/billboards/_billboard",
+          :layout => "outpost/preview/application",
+          :locals => { billboard: @billboard }
       else
         render_preview_validation_errors(@billboard)
       end

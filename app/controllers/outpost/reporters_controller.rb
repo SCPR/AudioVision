@@ -11,7 +11,8 @@ class Outpost::ReportersController < Outpost::ResourceController
 
   def authorize_resource
     if @record
-      if current_user.profile == @record && %w{show edit update}.include?(action_name)
+      if current_user.profile == @record &&
+      %w{show edit update}.include?(action_name)
         return true
       end
     end

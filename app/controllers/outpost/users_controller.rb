@@ -28,7 +28,11 @@ class Outpost::UsersController < Outpost::ResourceController
 
   def form_params
     permitted = [:name, :email, :username, :password, :password_confirmation]
-    permitted += [:can_login, :is_superuser, { permission_ids: [] }] if current_user.is_superuser?
+
+    if current_user.is_superuser?
+      permitted += [:can_login, :is_superuser, { permission_ids: [] }]
+    end
+
     params.require(model.singular_route_key).permit(*permitted)
   end
 end

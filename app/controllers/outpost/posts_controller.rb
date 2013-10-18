@@ -25,7 +25,9 @@ class Outpost::PostsController < Outpost::ResourceController
       @post.assign_attributes(form_params)
 
       if @post.unconditionally_valid?
-        render "/posts/_post", layout: "outpost/preview/application", locals: { post: @post }
+        render "/posts/_post",
+          :layout => "outpost/preview/application",
+          :locals => { post: @post }
       else
         render_preview_validation_errors(@post)
       end
