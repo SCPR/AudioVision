@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: git://github.com/bricker/kaminari.git
-  revision: 163dcbee7cb0f9d61b259c02278a5f7958899a6e
+  revision: 2abd905a6a35b16796224cfe2c1dd02be70890b3
   branch: count-arity
   specs:
     kaminari (0.14.1)
