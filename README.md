@@ -34,10 +34,3 @@ rest of the steps (your custom `database.yml` will not be overwritten).
 
 ## Running Tests
 Run `rake` to run the test suite.
-
-## Deployment
-This application deploys to media via [capistrano](http://rubygems.org/gems/capistrano). 
-
-To deploy to production:
-
-    cap deploy
