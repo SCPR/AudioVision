@@ -33,4 +33,5 @@ and modify the information as necessary. Then run `bin/setup` to perform the
 rest of the steps (your custom `database.yml` will not be overwritten).
 
 ## Running Tests
-Run `rake` to run the test suite.
+Run `rake` to run the test suite. Tests must be run on a ruby HIGHER than
+1.9.3-p0. p0 has a problem wth MiniTest.
