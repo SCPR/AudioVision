@@ -3,10 +3,21 @@ class PostAsset < ActiveRecord::Base
 
   belongs_to :post
 
-  delegate :title, :size, 
-    :taken_at, :owner, :url, :api_url, 
-    :native, :image_file_size,
-    :lsquare, :small, :eight, :full, to: :asset
+  delegate \
+    :title,
+    :size,
+    :taken_at,
+    :owner,
+    :url,
+    :api_url,
+    :native,
+    :is_rich?,
+    :image_file_size,
+    :lsquare,
+    :small,
+    :eight,
+    :full,
+    :to => :asset
 
 
   def asset
