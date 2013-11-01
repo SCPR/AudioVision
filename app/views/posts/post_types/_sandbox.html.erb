@@ -8,7 +8,13 @@
 <div class="primary">
     <article class="essay">
 
-        <% if post.assets.present? %>
+<% if post.assets.present? %>
+
+    <% if post.asset.is_rich? %>
+
+        <%= render 'posts/shared/video_asset', post: post %>
+
+    <% else %>
 
         <div class="media-wrapper">
             <img src="<%=post.asset.full.url%>" alt="" />
@@ -19,7 +25,9 @@
             <p><%= post.asset.caption %></p>
         </aside>
 
-        <% end %>
+    <% end %>
+
+<% end %>
 
 
         <%= render "posts/shared/body", post: post %>
