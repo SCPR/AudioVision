@@ -6,7 +6,7 @@
 
   <%= stylesheet_link_tag "outpost/application" %>
   <%= javascript_include_tag "outpost/application" %>
-  
+
   <script>
     var CKEDITOR_BASEPATH = '/ckeditor/';
     var APPLICATION_CSS   = '<%= asset_path("application.css") %>';
@@ -24,7 +24,7 @@
   <div class="navbar-inner">
     <div class="container">
       <a href="<%=outpost_root_path%>" class="brand"><%= image_tag "outpost/outpost-audiovision.png" %></a>
-      
+
       <% if current_user %>
         <ul class="nav">
           <!-- Full Navigation -->
@@ -38,7 +38,7 @@
                   <a href="<%=model.admin_index_path%>">
                     <%= model.name.titleize.pluralize %>
                   </a>
-                  
+
                   <div class="btn-links">
                     <% if model.respond_to?(:admin_new_path) %>
                       <a class="add btn btn-mini" href="<%=model.admin_new_path%>"><i class="icon-plus-sign"></i> Add</a>

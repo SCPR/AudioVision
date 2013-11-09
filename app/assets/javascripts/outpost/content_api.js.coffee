@@ -17,18 +17,18 @@ class outpost.ContentAPI
                 id:       @get 'id'
                 position: @get 'position'
             }
-    
+
     #-----------------------------
-    
+
     class @ContentCollection extends Backbone.Collection
         url: "/api/v1/posts"
         model: ContentAPI.Content
-            
+
         #----------
         # Sort by position attribute
         comparator: (model) ->
             model.get 'position'
-        
+
         #----------
         # An array of content turned into simpleJSON. See
         # Content#simpleJSON for more.
@@ -38,8 +38,8 @@ class outpost.ContentAPI
             contents
 
     #-----------------------------
-    
+
     class @PrivateContentCollection extends @ContentCollection
         url: "/api/private/v1/posts"
-        
+
     #-----------------------------

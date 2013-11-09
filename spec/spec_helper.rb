@@ -46,7 +46,7 @@ RSpec.configure do |config|
 
   config.after :each do
     DatabaseCleaner.clean
-    
+
     begin
       Rails.cache.clear
     rescue Errno::ENOENT => e

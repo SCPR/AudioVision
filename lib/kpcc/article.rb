@@ -4,7 +4,7 @@ module Kpcc
     class << self
       def find(obj_key)
         response = client.get("articles/#{obj_key}")
-        
+
         if response.success?
           new(response.body)
         else
@@ -16,7 +16,7 @@ module Kpcc
 
       def find_by_url(url)
         response = client.get("articles/by_url", url: url)
-        
+
         if response.success?
           new(response.body)
         else
@@ -37,7 +37,7 @@ module Kpcc
           end
 
           articles
-          
+
         else
           nil
         end

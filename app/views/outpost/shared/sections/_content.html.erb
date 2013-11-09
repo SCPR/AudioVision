@@ -9,7 +9,7 @@
   <script>
     aggregator = new outpost.Aggregator(
       "#aggregator", "#post_references_json",
-      <%= render_json('api/private/v1/posts/collection', posts: record.posts) %>, 
+      <%= render_json('api/private/v1/posts/collection', posts: record.posts) %>,
       {
         apiType: 'private',
         params: {

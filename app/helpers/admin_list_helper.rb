@@ -9,7 +9,7 @@ module AdminListHelper
   def display_status(status)
     content_tag :div, Post::STATUS_TEXT[status], class: STATUS_BOOTSTRAP_MAP[status]
   end
-  
+
   def display_post_type(post_type)
     Post::POST_TYPES_TEXT[post_type]
   end

@@ -6,7 +6,7 @@ class Reporter < ActiveRecord::Base
 
   has_many :attributions
   has_many :posts, through: :attributions
-  
+
   validates :name, presence: true
   validates :slug, presence: true
 

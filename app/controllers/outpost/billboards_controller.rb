@@ -8,10 +8,10 @@ class Outpost::BillboardsController < Outpost::ResourceController
     l.column :updated_at
   end
 
-  
+
   def preview
     @billboard = Outpost.obj_by_key(params[:obj_key]) || Billboard.new
-    
+
     with_rollback @billboard do
       @billboard.assign_attributes(form_params)
 

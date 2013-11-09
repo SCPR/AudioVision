@@ -3,7 +3,7 @@ window.openCMS = (newWin) ->
     domain = window.location.protocol + '//' + window.location.host
     path   = window.location.pathname
     redirectUrl = null
-    
+
     res = [
             {
                 re: new RegExp "^/(.+)/.+/?$", "gi"

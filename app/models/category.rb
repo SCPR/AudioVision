@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
   outpost_model
   ROUTE_KEY = "root_slug"
-  
+
   has_many :posts
 
   validates :slug, presence: true

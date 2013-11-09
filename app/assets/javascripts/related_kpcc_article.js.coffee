@@ -14,9 +14,9 @@ class audiovision.RelatedKpccArticle
         return if _.isEmpty(url)
 
         @wrapper.spin()
-        
+
         $.getJSON("http://www.scpr.org/api/v2/articles/by_url", { url: url })
-        .success((data, textStatus, jqXHR) => 
+        .success((data, textStatus, jqXHR) =>
             @wrapper.html @options.template(article: data)
 
         ).error((jqXHR, textStatus, errorThrown) =>

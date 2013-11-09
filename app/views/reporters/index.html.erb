@@ -17,12 +17,12 @@
                 <p>AudioVision's graphical identity was created by <a href="http://madebysa.com/">Simplify Advance</a>.</p>
             </footer>
         </section><!--/ .prose -->
-        
+
         <section class="staff">
             <h2>AudioVision Editors</h2>
 
             <%= cache @reporters do %>
-            
+
             <% @reporters.each do |reporter| %>
             <article>
                 <header>
@@ -41,7 +41,7 @@
                     <div class="text">
                         <%= simple_format(reporter.bio, {}, sanitize: false) %>
                     </div>
-                    
+
                 <% if reporter.asset %>
                     <b class="img"><img src="<%=reporter.asset.small.url%>" alt="<%=reporter.name%>" /></b>
                 <% end %>

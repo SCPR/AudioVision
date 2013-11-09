@@ -10,7 +10,7 @@ describe FeedController do
       get :index
 
       # `published` scope orders the posts by reverse publish date,
-      # but they are created in the opposite order, so we need to 
+      # but they are created in the opposite order, so we need to
       # reverse them
       assigns(:posts).to_a.should eq posts.reverse
     end

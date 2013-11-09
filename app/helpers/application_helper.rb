@@ -9,17 +9,17 @@ module ApplicationHelper
   #---------------
 
   def render_byline(post)
-    render "shared/byline", 
+    render "shared/byline",
       elements: byline_elements(post.attributions.for_byline)
   end
 
   #---------------
-  # This is broken into a separate method so that 
+  # This is broken into a separate method so that
   # the Contributors list can use the logic as well.
   #
   # Take an array of attributions (a single attribution
-  # works too) and return an array of rendered attributions. 
-  # All you have to do is iterate through them and print 
+  # works too) and return an array of rendered attributions.
+  # All you have to do is iterate through them and print
   # them once you have this array.
   def byline_elements(attributions)
     elements = []

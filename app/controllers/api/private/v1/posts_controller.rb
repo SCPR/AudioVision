@@ -1,23 +1,23 @@
 module Api::Private::V1
   class PostsController < BaseController
-    
+
     before_filter \
-      :sanitize_page, 
-      :sanitize_limit, 
+      :sanitize_page,
+      :sanitize_limit,
       :sanitize_query,
       :sanitize_category,
       only: [:index]
 
     before_filter :sanitize_url, only: [:by_url]
     before_filter :sanitize_id, only: [:show]
-    
+
     #-------------------------
     # There is currently no reason for us to allow unpublished
     # posts to be found via the API. Once we need that capability,
     # we can change it here.
     def index
       @posts = Post.published.page(@page).per(@limit)
-      
+
       if @query.present?
         @posts.where!("title like ?", "%#{@query}%")
       end
@@ -49,7 +49,7 @@ module Api::Private::V1
 
     def by_url
       @post = Post.find_by_url(@url)
-      
+
       if !@post
         render_not_found and return false
       end
@@ -88,14 +88,14 @@ module Api::Private::V1
     end
 
     #---------------------------
-    
+
     def sanitize_page
       page = params[:page].to_i
       @page = page > 0 ? page : 1
     end
-    
+
     #---------------------------
-    
+
     def sanitize_query
       @query = params[:query].to_s
     end

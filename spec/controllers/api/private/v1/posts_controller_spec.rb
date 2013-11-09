@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Api::Private::V1::PostsController do
   render_views
-  
+
     request_params = {
     :format     => :json,
     :auth_token => "doesntactuallydoanythingyet"
@@ -98,7 +98,7 @@ describe Api::Private::V1::PostsController do
       get :index, { category: category_images.slug }.merge(request_params)
       assigns(:posts).should eq [post_image]
     end
-    
+
     it "only grabs published posts" do
       unpublished_post = create :post, status: Post::STATUS[:draft]
 

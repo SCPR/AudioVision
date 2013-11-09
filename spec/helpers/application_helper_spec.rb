@@ -17,12 +17,12 @@ describe ApplicationHelper do
 
   describe '#render_byline' do
     let(:post) { create :post }
-    
+
     it "includes only authors and sources" do
       author        = create :attribution, post: post, role: Attribution::ROLE_AUTHOR, name: "Leela"
       contributor   = create :attribution, post: post, role: Attribution::ROLE_CONTRIBUTOR, name: "Bender"
       source        = create :attribution, post: post, role: Attribution::ROLE_SOURCE, name: "Fry"
-      
+
       rendered = helper.render_byline(post)
       rendered.should match /Fry/
       rendered.should match /Leela/
@@ -42,7 +42,7 @@ describe ApplicationHelper do
 
     it "is not a link if no URL present" do
       attribution = build :attribution, name: "Amy", role: Attribution::ROLE_AUTHOR
-      
+
       array = helper.byline_elements(attribution)
       array.first.should_not match /<a href/
     end

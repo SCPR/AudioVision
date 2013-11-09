@@ -33,7 +33,7 @@ FactoryGirl.define do
     trait :with_post do
       post
     end
-    
+
     trait :with_reporter do
       reporter
     end
@@ -99,7 +99,7 @@ FactoryGirl.define do
     email "scruffy@planetexpress.com"
     can_login true
     is_superuser false
-    
+
     password "secret"
     password_confirmation "secret"
   end

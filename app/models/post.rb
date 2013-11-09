@@ -51,10 +51,10 @@ class Post < ActiveRecord::Base
 
   scope :with_related_kpcc_article, -> { where('related_kpcc_article_url > ?', '') }
 
-  scope :filtered_by_attributions, ->(reporter_id) { 
-    self.includes(:attributions).where(Attribution.table_name => { reporter_id: reporter_id }) 
+  scope :filtered_by_attributions, ->(reporter_id) {
+    self.includes(:attributions).where(Attribution.table_name => { reporter_id: reporter_id })
   }
-  
+
   # Associations
   has_many :assets, -> { order("position") }, class_name: "PostAsset", dependent: :destroy
   accepts_json_input_for_assets
@@ -75,8 +75,8 @@ class Post < ActiveRecord::Base
     :if       => :should_validate?,
     :presence => true,
     :length   => { maximum: 50 },
-    :format   => { 
-      :with    => %r{\A[\w-]+\z}, 
+    :format   => {
+      :with    => %r{\A[\w-]+\z},
       :message => "Only letters, numbers, underscores, and hyphens allowed"
     }
   }
@@ -102,7 +102,7 @@ class Post < ActiveRecord::Base
 
   after_save :touch_referrers, if: :changed?
 
-  # Always update the updated_at attribute, 
+  # Always update the updated_at attribute,
   # even if nothing was actually changed.
   after_save -> { self.touch }
 
@@ -132,7 +132,7 @@ class Post < ActiveRecord::Base
       rescue URI::InvalidURIError
         return nil
       end
-      
+
       u.path.match(%r{\A/(\d+)}) do |match|
         Post.published.find_by_id(match[1])
       end
@@ -141,7 +141,7 @@ class Post < ActiveRecord::Base
 
 
   #------------------
-  # Grab the first asset. 
+  # Grab the first asset.
   # If for some reason it's empty, return a Fallback asset.
   def asset
     @asset ||= (self.assets.first || AssetHost::Asset::Fallback.new)

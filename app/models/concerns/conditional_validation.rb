@@ -15,7 +15,7 @@ module ConditionalValidation
   # validated. This is ususually reserved
   # for "whenever this object is going live".
   #
-  # True by default, so that if it's not 
+  # True by default, so that if it's not
   # overridden then it will always validate.
   #
   # This should be true by default,

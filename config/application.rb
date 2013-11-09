@@ -24,7 +24,7 @@ module AudioVision
     config.api     = YAML.load_file("#{Rails.root}/config/api_config.yml")
 
     config.scpr         = ActiveSupport::OrderedOptions.new
-    
+
     config.assethost        = ActiveSupport::OrderedOptions.new
     config.assethost.server = config.api['assethost']['server']
     config.assethost.prefix = config.api['assethost']['prefix']

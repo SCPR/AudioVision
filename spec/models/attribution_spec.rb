@@ -6,7 +6,7 @@ describe Attribution do
       source        = create :attribution, role: Attribution::ROLE_SOURCE
       contributor   = create :attribution, role: Attribution::ROLE_CONTRIBUTOR
       author        = create :attribution, role: Attribution::ROLE_AUTHOR
-      
+
       Attribution.for_byline.to_a.should eq [author, source]
     end
   end

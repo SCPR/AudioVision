@@ -8,7 +8,7 @@ Outpost::Config.configure do |config|
     "Billboard",
     "Bucket"
   ]
-  
+
   config.authentication_attribute   = :username
   config.title_attributes           = [:title, :name]
   config.excluded_form_fields       = []

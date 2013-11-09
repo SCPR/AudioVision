@@ -3,7 +3,7 @@ class audiovision.PopularKpccArticles
         wrapper: '.js-kpcc-popular-articles .popular-links'
         template: JST['templates/popular_kpcc_article']
         limit: 3
-        
+
     constructor: (@articles, options={}) ->
         @options    = _.defaults options, @defaults
         @wrapper    = $(@options.wrapper)

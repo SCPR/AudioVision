@@ -8,7 +8,7 @@
 #
 module Schedulable
   extend ActiveSupport::Concern
-  
+
   included do
     has_one :publish_alarm, as: :content, dependent: :destroy
     accepts_nested_attributes_for :publish_alarm, reject_if: :should_reject_publish_alarm?, allow_destroy: true
@@ -25,7 +25,7 @@ module Schedulable
   def should_reject_publish_alarm?(attributes)
     self.publish_alarm.blank? && attributes['fire_at'].blank?
   end
-  
+
   #------------------
   # If we're changing status from Pending to something else,
   # and there was an alarm, get rid of it.
@@ -34,7 +34,7 @@ module Schedulable
     (self.publish_alarm.present? && self.status_changed? && self.status_was == self.class::STATUS[:pending]) ||
     (self.publish_alarm.present? && self.publish_alarm.fire_at.blank?)
   end
-  
+
   #------------------
   # Mark the alarm for destruction
   def destroy_publish_alarm

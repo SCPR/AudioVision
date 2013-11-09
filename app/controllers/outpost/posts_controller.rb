@@ -28,7 +28,7 @@ class Outpost::PostsController < Outpost::ResourceController
 
   def preview
     @post = Outpost.obj_by_key(params[:obj_key]) || Post.new
-    
+
     with_rollback @post do
       @post.assign_attributes(form_params)
 
@@ -48,8 +48,8 @@ class Outpost::PostsController < Outpost::ResourceController
   def form_params
     params.require(model.singular_route_key)
       .permit(
-        :post_type, :title, :subtitle, :body, :teaser, :slug, 
-        :related_kpcc_article_url, :asset_json, :status, :published_at, 
+        :post_type, :title, :subtitle, :body, :teaser, :slug,
+        :related_kpcc_article_url, :asset_json, :status, :published_at,
         :category_id,
 
         { publish_alarm_attributes: [
@@ -59,7 +59,7 @@ class Outpost::PostsController < Outpost::ResourceController
 
         { attributions_attributes: [
             :reporter_id, :name, :url, :role, :_destroy, :id
-          ] 
+          ]
         }
       )
   end

@@ -1,6 +1,6 @@
 AudioVision::Application.routes.draw do
   root to: 'home#homepage'
-  
+
   get '/:id/:slug' => 'posts#show', constraints: { id: /\d+/ }, as: :post
 
   get '/about'          => 'reporters#index', as: :reporters
@@ -13,19 +13,19 @@ AudioVision::Application.routes.draw do
   ## API
   namespace :api, defaults: { format: "json" } do
     scope module: "public" do
-      namespace :v1 do  
+      namespace :v1 do
         resources :posts, only: [:index, :show] do
           get '/by_url' => 'posts#by_url', on: :collection
         end
 
         resources :buckets, only: [:index, :show]
-        
+
         resources :billboards, only: [:index, :show] do
           get 'current' => 'billboards#current', on: :collection
         end
       end
     end
-    
+
     namespace :private do
       namespace :v1 do
         resources :posts, only: [:index, :show] do
@@ -53,7 +53,7 @@ AudioVision::Application.routes.draw do
     resources :buckets
 
     root to: 'home#dashboard'
-    
+
     resources :sessions, only: [:create, :destroy]
     get 'login'  => "sessions#new", as: :login
     get 'logout' => "sessions#destroy", as: :logout

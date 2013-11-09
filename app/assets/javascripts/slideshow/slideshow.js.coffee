@@ -7,14 +7,14 @@ class audiovision.Slideshow
 
     constructor: (options={}) ->
         @options = _.defaults options, @DefaultOptions
-        
+
         # add in events
         _.extend(this, Backbone.Events)
 
-        $ => 
+        $ =>
             # -- get our parent element -- #
             @el = $ @options.el
-    
+
             # -- create asset collection -- #
             @assets = new Slideshow.Assets @options.assets
             @total  = @assets.length
@@ -48,13 +48,13 @@ class audiovision.Slideshow
             @thumbtray = new Slideshow.Thumbtray
                 collection: @assets
                 start:      @start
-            
+
 
             # Setup Header elements
             @header = $ JST[Slideshow.TemplatePath + 'header']
                 title: @options.title
 
-            @nav = new Slideshow.NavigationLinks 
+            @nav = new Slideshow.NavigationLinks
                 start:  @start
                 total:  @total
 
@@ -71,10 +71,10 @@ class audiovision.Slideshow
             @header.append @nav.el
             @header.append(@fullscreenButton) if @canGoFullScreen()
             @header.append @traytoggler.el
-            
+
             @el.append      @thumbtray.el
             @el.append      @slides.el
-            
+
             #----------
             # Render the elements
             @traytoggler.render()
@@ -86,13 +86,13 @@ class audiovision.Slideshow
             # Click on a nav button, send switchTo() to Slides
             @nav.bind           "switch", (idx) =>
                 @slides.switchTo idx
-                
+
             @overlayNav.bind    "switch", (idx) =>
                 @slides.switchTo idx
 
             @thumbtray.bind     "switch", (idx) =>
                 @slides.switchTo idx
-            
+
             # switchTo() emits "switch" on slides, which sends setCurrent()
             # to those who need it. Also emits "switch" on Slideshow for
             # Google Analytics
@@ -113,7 +113,7 @@ class audiovision.Slideshow
             #----------
             # Keyboard Navigation
             @hasmouse = false
-            $(window).on 
+            $(window).on
                 keydown: (e) =>
                     if @hasmouse
                         # is this a keypress we care about?
@@ -136,9 +136,9 @@ class audiovision.Slideshow
             $("button.slideshow-fullscreen").on
                 click: (event) =>
                     el = $($(event.target).data('target'))[0]
-                    
-                    el.requestFullScreen?() or 
-                    el.mozRequestFullScreen?() or 
+
+                    el.requestFullScreen?() or
+                    el.mozRequestFullScreen?() or
                     el.webkitRequestFullScreen?()
 
 
@@ -156,7 +156,7 @@ class audiovision.Slideshow
     #----------
 
     fullscreenActive: ->
-        document.fullscreenElement? or 
+        document.fullscreenElement? or
         document.mozFullScreenElement? or
         document.webkitFullscreenElement?
 
@@ -168,9 +168,9 @@ class audiovision.Slideshow
     class @Assets extends Backbone.Collection
         url: "/" # This is unneeded since we're never actually fetching anything
         model: Slideshow.Asset
-        
+
     #----------
-        
+
 
     class @Slides extends Backbone.View
         className: "slides asset-block"
@@ -217,7 +217,7 @@ class audiovision.Slideshow
             if imgHeight < wrapperHeight
                 heightDiff = wrapperHeight - imgHeight
                 img.css top: heightDiff/2
-            
+
 
         #----------
 
@@ -234,17 +234,17 @@ class audiovision.Slideshow
                     $(el).addClass("active")
 
                 @slides[i] = $(el)
-            
+
             # And the overlay nav
             $(@el).append @overlayNav.el
-            
+
             # Give the images time to start loading
             setTimeout () =>
                 @overlayNav.showTargets()
             , 2000
 
     #----------
-    
+
     class @Navigation extends Backbone.View
         initialize: ->
             @total      = @options.total
@@ -283,7 +283,7 @@ class audiovision.Slideshow
                 idx = @current + 1
             else if target.hasClass 'prev'
                 idx = @current - 1
-            
+
             if idx?
                 @trigger "switch", idx
 
@@ -302,14 +302,14 @@ class audiovision.Slideshow
 
         #----------
         # Handle the hiding and showing of the buttons
-        
+
         showTargets: ->
             if @hasmouse is false
                 @hasmouse = true
                 $(@el).stop(false, true).css(height: @_getTargetHeight())
                 @render()
                 $(@el).css opacity: 1
-            
+
         hideTargets: ->
             if @hasmouse is true
                 @hasmouse = false
@@ -322,7 +322,7 @@ class audiovision.Slideshow
 
 
     #----------
-                
+
     class @NavigationLinks extends @Navigation
         className: "pager-nav"
 
@@ -335,7 +335,7 @@ class audiovision.Slideshow
 
     class @ThumbtrayToggler extends Backbone.View
         className: 'thumbtray-toggler'
-        
+
         events:
             'click':    '_toggleThumbTray'
 
@@ -374,13 +374,13 @@ class audiovision.Slideshow
 
             @current_page   = @_pageForIdx @current
             @total_pages    = @_pageForIdx @thumbs.length - 1
-            
+
             $(@el).html     @thumbnailView.el
             $(@el).prepend  @_prevTemplate()
             $(@el).append   @_nextTemplate()
-            
+
         #----------
-        
+
         setCurrent: (idx) ->
             @current = idx
             @thumbnailView.setCurrent idx
@@ -388,7 +388,7 @@ class audiovision.Slideshow
             page = @_pageForIdx idx
             if page isnt @current_page
                 @switchTo page
-            
+
         switchTo: (page) ->
             if page >= 1 and page <= @total_pages and page isnt @current_page
                 @current_page = page
@@ -399,7 +399,7 @@ class audiovision.Slideshow
 
         toggle: ->
             if @visible then @hide() else @show()
-            
+
         show: ->
             @current_page = @_pageForIdx @current
             @render()
@@ -420,7 +420,7 @@ class audiovision.Slideshow
             @.$(".nav.prev").replaceWith @_prevTemplate()
             @.$(".nav.next").replaceWith @_nextTemplate()
             @
-        
+
         #----------
 
         _prevTemplate: ->
@@ -433,7 +433,7 @@ class audiovision.Slideshow
 
         _activeIf: (condition) ->
             if condition then "active" else "disabled"
-            
+
         #----------
 
         _pageForIdx: (idx) ->
@@ -451,26 +451,26 @@ class audiovision.Slideshow
 
             if page?
                 @switchTo page
-       
- 
+
+
     #----------
 
     class @ThumbnailsView extends Backbone.View
         className: "thumbnails"
-            
+
         initialize: ->
             @thumbs     = []
             @thumbidx   = 0
             @per_page   = @options.per_page
 
-            @collection.each (asset,idx) => 
+            @collection.each (asset,idx) =>
                 thumb = new Slideshow.Thumbnail
                     model:      asset
                     index:      idx
                     thumbtray:  @options.thumbtray
 
                 @thumbs[idx] = thumb
-            
+
             _(@thumbs).each (thumb) =>
                 $(@el).append thumb.render().el
 
@@ -480,7 +480,7 @@ class audiovision.Slideshow
             @.$('.active').removeClass 'active'
             active = _(@thumbs).find (thumb) -> thumb.index is idx
             $(active.el).addClass 'active'
-            
+
         #----------
 
         sliceThumbs: (page) ->
@@ -492,10 +492,10 @@ class audiovision.Slideshow
 
         render: ->
             @.$(".thumbnail").removeClass 'current-set'
-            
+
             _(@thumbSlice).each (thumb) ->
                 $(thumb.el).addClass 'current-set'
-        
+
             $(@el).animate opacity: 1, 'fast'
             @
 
@@ -515,7 +515,7 @@ class audiovision.Slideshow
         initialize: ->
             @thumbtray  = @options.thumbtray
             @index      = @options.index
-            
+
         #----------
 
         render: ->
@@ -529,5 +529,5 @@ class audiovision.Slideshow
 
         _thumbClick: (evt) ->
             @thumbtray.trigger "switch", @index
-            
+
 #----------

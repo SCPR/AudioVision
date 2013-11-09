@@ -2,13 +2,13 @@ development: &development
   adapter: mysql2
   database: audio_vision
   username: root
-  password: 
+  password:
 
 test:
   adapter: mysql2
   database: audio_vision_test
   username: root
-  password: 
+  password:
 
 production:
   <<: *development

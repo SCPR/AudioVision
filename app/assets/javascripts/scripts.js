@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
 	Are we tapping or clicking?
 	----------------------------------------------------------------------------------------------------------------- */
 	function is_touch_device() {
-	  return !!('ontouchstart' in window) // works on most browsers 
+	  return !!('ontouchstart' in window) // works on most browsers
 		  || !!('onmsgesturechange' in window); // works on ie10
 	};
 

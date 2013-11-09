@@ -23,7 +23,7 @@ class PublishAlarm < ActiveRecord::Base
       false
     end
   end
-  
+
   #---------------------
 
   def pending?

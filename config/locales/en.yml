@@ -1,6 +1,6 @@
 en:
   views:
-    pagination: 
+    pagination:
       first: "&laquo; Latest"
       last: "Oldest &raquo;"
       previous: "&lsaquo; Newer"
