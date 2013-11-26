@@ -29,7 +29,7 @@ gem 'kaminari', '~> 0.15.0'
 gem 'simple_form', '~> 3.0.0'
 gem 'select2-rails', '3.4.1'
 gem 'bootstrap-sass', '~> 2.2'
-gem 'escape_utils', github: 'bricker/escape_utils'
+gem 'escape_utils', github: 'brianmario/escape_utils'
 
 gem "faraday", "~> 0.8"
 gem "faraday_middleware", "~> 0.8"
