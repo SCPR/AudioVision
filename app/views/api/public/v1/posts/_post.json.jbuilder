@@ -19,7 +19,7 @@ json.cache! [Api::Public::V1::VERSION, post] do
       json.slug        post.category.slug
       json.description post.category.description
       json.public_url  post.category.public_url
-      
+
       json.permalink   post.category.public_url # Deprecated
     end
   end
@@ -66,7 +66,7 @@ json.cache! [Api::Public::V1::VERSION, post] do
   json.attributions post.attributions do |attribution|
     json.name       attribution.display_name
     json.url        attribution.display_url
-    json.role_text  attribution.role_text 
+    json.role_text  attribution.role_text
     json.role       attribution.role
   end
 

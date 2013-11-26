@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Api::Public::V1::BillboardsController do
   render_views
-  
+
   request_params = {
     :format => :json
   }
@@ -13,7 +13,7 @@ describe Api::Public::V1::BillboardsController do
       billboard.posts = create_list :post, 2
 
       get :show, { id: billboard.id }.merge(request_params)
-      
+
       assigns(:billboard).should eq billboard
       response.should render_template "show"
     end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Api::Public::V1::PostsController do
   render_views
-  
+
   request_params = {
     :format => :json
   }

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Api::Public::V1::BucketsController do
   render_views
-  
+
   request_params = {
     :format => :json
   }
@@ -13,7 +13,7 @@ describe Api::Public::V1::BucketsController do
       bucket.posts = create_list :post, 2
 
       get :show, { id: bucket.key }.merge(request_params)
-      
+
       assigns(:bucket).should eq bucket
       response.should render_template "show"
     end

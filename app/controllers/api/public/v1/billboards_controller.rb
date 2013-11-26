@@ -11,7 +11,7 @@ module Api::Public::V1
 
     def show
       @billboard = Billboard.published.where(id: @id).first
-      
+
       if !@billboard
         render_not_found and return false
       end
