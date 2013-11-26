@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', github: "rails/rails"
+gem 'rails', '~> 4.0.1'
 gem 'mysql2'
 gem 'jquery-rails'
 gem 'newrelic_rpm'
 gem 'jbuilder'
-gem 'resque', '~> 1.24'
+gem 'resque', '~> 1.25.0'
 gem 'bcrypt-ruby', '~> 3.1.0'
+gem 'redis-rails', '~> 4.0.0'
 
 #gem 'asset_host_client', path: "#{ENV['PROJECT_HOME']}/asset_host_client"
 gem 'asset_host_client', github: "SCPR/asset_host_client"
@@ -24,16 +25,11 @@ gem 'outpost-aggregator', github: "SCPR/outpost-aggregator"
 gem 'outpost-publishing', github: "SCPR/outpost-publishing"
 
 
-gem 'kaminari', github: "bricker/kaminari", branch: 'count-arity'
-gem 'simple_form', '~> 3.0.0.beta1'
+gem 'kaminari', '~> 0.15.0'
+gem 'simple_form', '~> 3.0.0'
 gem 'select2-rails', '3.4.1'
 gem 'bootstrap-sass', '~> 2.2'
-gem 'escape_utils'
-
-gem 'redis-store', github: "bricker/redis-store"
-gem 'redis-actionpack', github: "bricker/redis-store"
-gem 'redis-activesupport', github: "bricker/redis-store"
-gem 'redis-rack', github: "bricker/redis-store"
+gem 'escape_utils', github: 'bricker/escape_utils'
 
 gem "faraday", "~> 0.8"
 gem "faraday_middleware", "~> 0.8"
@@ -42,13 +38,13 @@ gem "hashie", "~> 1.2.0"
 
 group :assets do
   gem 'eco', '~> 1.0.0'
-  gem 'sass-rails',   '~> 4.0.1'
+  gem 'sass-rails', '~> 4.0.1'
   gem 'coffee-rails', '~> 4.0.1'
   gem 'uglifier', '>= 1.0.3'
 end
 
 group :development do
-  gem 'capistrano'
+  gem 'capistrano', '~> 2.0'
   gem 'pry'
   gem 'dbsync'
 end
