@@ -33,7 +33,7 @@ describe Api::Public::V1::BillboardsController do
 
     it "get the billboards" do
       get :index, request_params
-      assigns(:billboards).to_a.should eq @billboards
+      assigns(:billboards).to_a.should eq @billboards.reverse
     end
   end
 

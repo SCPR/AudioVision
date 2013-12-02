@@ -15,7 +15,7 @@ FactoryGirl.define do
   factory :billboard do
     layout 1
     status 5
-    # lol sweet factory bro
+    sequence(:published_at) { |n| Time.now + n.days }
   end
 
   #---------------
