@@ -49,20 +49,35 @@ class Post < ActiveRecord::Base
 
 
 
-  scope :with_related_kpcc_article, -> { where('related_kpcc_article_url > ?', '') }
+  scope :with_related_kpcc_article, -> {
+    where('related_kpcc_article_url > ?', '')
+  }
 
   scope :filtered_by_attributions, ->(reporter_id) {
-    self.includes(:attributions).where(Attribution.table_name => { reporter_id: reporter_id })
+    self.includes(:attributions)
+    .where(Attribution.table_name => { reporter_id: reporter_id })
   }
 
   # Associations
-  has_many :assets, -> { order("position") }, class_name: "PostAsset", dependent: :destroy
+  has_many :assets, -> { order("position") },
+    :class_name => "PostAsset",
+    :dependent  => :destroy
+
   accepts_json_input_for_assets
 
   has_many :attributions, dependent: :destroy
-  has_many :authors, -> { where(role: Attribution::ROLE_AUTHOR) }, class_name: "Attribution"
-  has_many :contributors, -> { where(role: Attribution::ROLE_CONTRIBUTOR) }, class_name: "Attribution"
-  accepts_nested_attributes_for :attributions, allow_destroy: true, reject_if: :should_reject_attributions?
+
+  has_many :authors,
+    -> { where(role: Attribution::ROLE_AUTHOR) },
+    :class_name => "Attribution"
+
+  has_many :contributors,
+    -> { where(role: Attribution::ROLE_CONTRIBUTOR) },
+    :class_name => "Attribution"
+
+  accepts_nested_attributes_for :attributions,
+    :allow_destroy => true,
+    :reject_if     => :should_reject_attributions?
 
   belongs_to :category
 
@@ -98,7 +113,8 @@ class Post < ActiveRecord::Base
 
 
   # Callbacks
-  before_validation :generate_slug, if: -> { self.should_validate? && self.slug.blank? }
+  before_validation :generate_slug,
+    :if => -> { self.should_validate? && self.slug.blank? }
 
   after_save :touch_referrers, if: :changed?
 
