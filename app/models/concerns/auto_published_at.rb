@@ -2,10 +2,19 @@ module AutoPublishedAt
   extend ActiveSupport::Concern
 
   included do
-    before_validation :set_published_at_to_now, if: -> { self.published? && self.published_at.blank? }
-    before_validation :set_published_at_to_nil, if: -> { !self.published? && self.published_at.present? }
+    before_validation :set_published_at_to_now,
+      :if => -> {
+        self.published? && self.published_at.blank?
+      }
 
-    validates :published_at, presence: true, if: :published?
+    before_validation :set_published_at_to_nil,
+      :if => -> {
+        !self.published? && self.published_at.present?
+      }
+
+    validates :published_at,
+      :presence   => true,
+      :if         => :published?
   end
 
 
