@@ -36,7 +36,7 @@ AudioVision::Application.configure do
   config.dbsync.filename    = "audio_vision_production.dump"
   config.dbsync.local_dir   = "#{Rails.root}/../dbsync" # No trailing slash
   config.dbsync.remote_host = "scprdb@12.345.678.9"
-  config.dbsync.remote_dir  = "~username"
+  config.dbsync.remote_dir  = "~scprdb"
 
   config.scpr.host     = "http://www.scpr.org"
   config.scpr.api_path = "/api/v2"
