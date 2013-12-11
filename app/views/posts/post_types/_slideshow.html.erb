@@ -36,18 +36,6 @@
         });
 
 
-
-        slideshow.bind("switch", function(idx) {
-          // (1.) add slide change listener for analytics
-          if(typeof(_gaq) != 'undefined') {
-            _gaq.push(['_trackPageview',window.location.pathname + 'photos/' + (Number(idx) + 1)]);
-            dcsMultiTrack(
-                'DCS.dcsuri', window.location.pathname + 'photos/' + (Number(idx) + 1),
-                'WT.ti', 'SlideShow PageView'
-            );
-          }
-        });
-
         $(".slide").on("activated", function(event){
           if(slideshow.fullscreenActive) {
             slideshow.slides.setVerticalOffset(this);
