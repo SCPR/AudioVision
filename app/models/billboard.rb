@@ -14,7 +14,8 @@ class Billboard < ActiveRecord::Base
     4 => "4 - TOP: Video (16:9) + Mobile (1:1) / BOTTOM: Triptych of Images (3:2)",
     5 => "5 - TOP: Mobile (1:1) + Video (16:9) / BOTTOM: Triptych of Images (3:2)",
     6 => "6 - TOP: Mobile (1:1) + Image (3:2) / BOTTOM: Pair of Videos (16:9)",
-    7 => "7 - TOP: Image (3:2) + Mobile (1:1) / BOTTOM: Pair of Videos (16:9)"
+    7 => "7 - TOP: Image (3:2) + Mobile (1:1) / BOTTOM: Pair of Videos (16:9)",
+    8 => "8 - Single Episode Promo"
   }
 
   STATUS = {

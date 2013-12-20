@@ -142,5 +142,16 @@ describe HomeController do
         response.should render_template(partial: "billboards/components/_video")
       end
     end
+
+    context 'with layout_8' do
+      it "renders properly" do
+        billboard = create :billboard, layout: 8
+        billboard.posts = [video_post]
+
+        get :homepage
+        response.should render_template(partial: "billboards/_layout_8")
+        response.body.should match video_post.title
+      end
+    end
   end
 end
