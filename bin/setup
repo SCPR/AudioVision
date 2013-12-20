@@ -49,4 +49,4 @@ system "bundle exec rake dbsync"
 
 # Run tests
 puts "\n*** Running tests"
-system "rake db:test:prepare && rspec"
+system "bundle exec rake db:test:prepare && rspec"
