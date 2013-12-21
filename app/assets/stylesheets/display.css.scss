@@ -773,7 +773,9 @@ BILLBOARD
 		.billboard.layout-6 .component.mobile,
 		.billboard.layout-7 .component.mobile,
 		.billboard.layout-6 .component.image,
-		.billboard.layout-7 .component.image	{ padding-bottom: 38.2%;					}
+		.billboard.layout-7 .component.image	{ padding-bottom: 38.2%;					        }
+		
+		.billboard.layout-8 .component.video    { padding-bottom: 50%;                              } /* big single episode promo */
 
 		/* ------------------------------------------------------------------------------------------------------------------ */
 		/* Define margins (infrequent) */
@@ -834,7 +836,8 @@ BILLBOARD
 				.billboard.layout-6 .component.mobile,
 				.billboard.layout-7 .component.mobile,
 				.billboard.layout-6 .component.image,
-				.billboard.layout-7 .component.image	{ padding-bottom: 0; }
+				.billboard.layout-7 .component.image,
+        		.billboard.layout-8 .component.video	{ padding-bottom: 0; }
 
 		    }
 
@@ -862,6 +865,16 @@ BILLBOARD
 				.billboard .caption .subtitle {
 					color: black;
 				}
+				.billboard .caption .promo {
+				    background: #e54152;
+				    color: white;
+				    font-size: 0.9375em;
+				    padding: 6px 15px 5px;
+				    display: inline-block;
+				    white-space: nowrap;
+				    font-weight: 700;
+				    margin-bottom: 6px;
+			    }
 				.billboard .caption span {
 					display: inline-block;
 					max-width: 80%;
@@ -902,7 +915,8 @@ BILLBOARD
 		.billboard.layout-4 .row.primary img,
 		.billboard.layout-5 .row.primary img,
 		.billboard.layout-6 .row.primary img,
-		.billboard.layout-7 .row.primary img {
+		.billboard.layout-7 .row.primary img,
+		.billboard.layout-8 img {
 			width: 100%;
 		}
 
@@ -970,6 +984,9 @@ BILLBOARD
 						}
 						.billboard .caption .title.verbose span {
 							font-size: 0.9em;
+						}						
+						.billboard .caption .promo {
+    						font-size: 0.8125em;
 						}
 						.billboard .caption .title {
 							margin-bottom: 5px;
@@ -1026,6 +1043,9 @@ BILLBOARD
 					max-width: 100%;
 					margin-top: -1px;
 				}
+				        .billboard.layout-8 .caption {
+				            margin-top: -23px;
+			            }
 						.billboard .caption .title span {
 							font-size: 0.9em;
 						}

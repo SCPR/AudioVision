@@ -1,5 +1,3 @@
 <div class="billboard layout-8 bound">
-    <% post = billboard.posts[0] %>
-    <%= post.title %>
-    <%= post.assets.first %>
+    <%= render "billboards/components/episode", post: billboard.posts[0] %>
 </div><!--/ .billboard -->
