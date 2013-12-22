@@ -150,7 +150,7 @@ describe HomeController do
 
         get :homepage
         response.should render_template(partial: "billboards/_layout_8")
-        response.body.should match video_post.title
+        response.should render_template(partial: "billboards/components/_episode")
       end
     end
   end
