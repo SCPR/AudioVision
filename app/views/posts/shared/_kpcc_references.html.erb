@@ -1,6 +1,6 @@
 <div class="newsboxes">
 
-    <% if post.related_kpcc_article_url.present? %>
+<% if post.related_kpcc_article_url.present? %>
     <aside class="newsbox related js-related-kpcc-article">
         <header>
             <p>This AudioVision post is related to an article at KPCC. <%= link_to "Read More at KPCC.org", post.related_kpcc_article_url %></p>
@@ -8,7 +8,7 @@
         </header>
         <div class="preview clearfix"></div>
     </aside><!--/ .related -->
-    <% end %>
+<% end %>
 
 
     <aside class="newsbox unrelated js-kpcc-popular-articles">

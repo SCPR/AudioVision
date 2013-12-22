@@ -1,21 +1,21 @@
 <div class="primary">
 
-    <% if post.assets.present? %>
+<% if post.assets.present? %>
 
     <div id="asset_slideshow_<%= post.id %>" class="slideview"></div>
 
     <div class="static-slides">
     <% post.assets.each_with_index do |asset, i| %>
-      <div class="slide">
-        <div class="media-wrapper">
-            <img src="<%= asset.full.url %>" />
-        </div><!--/ .media-wrapper -->
+        <div class="slide">
+            <div class="media-wrapper">
+                <img src="<%= asset.full.url %>" />
+            </div><!--/ .media-wrapper -->
 
-        <aside class="caption">
-            <h3 class="credit"><%= asset.owner %></h3>
-            <p><%= asset.caption %></p>
-        </aside>
-      </div>
+            <aside class="caption">
+                <h3 class="credit"><%= asset.owner %></h3>
+                <p><%= asset.caption %></p>
+            </aside>
+        </div>
     <% end %>
     </div>
 
@@ -44,7 +44,7 @@
       });
     </script>
 
-    <% end %>
+<% end %>
 
 
     <%= render "posts/shared/kpcc_references", post: post %>
