@@ -2,7 +2,9 @@
 
 <a href="<%=post.public_path%>" class="component mobile">
     <div class="imagery">
+    <% if post.asset.present? %>
         <img src="<%=post.asset.full.url%>" alt="" />
+    <% end %>
     </div>
     <hgroup class="caption">
         <h2 class="title"><span><%= post.title %></span></h2>
