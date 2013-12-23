@@ -1,4 +1,7 @@
-<% add_to_page_title @post.title %>
+<%  title = "#{@post.title}"
+    title += ": #{@post.subtitle}" if @post.subtitle.present? %>
+
+<% add_to_page_title title %>
 <% meta_tags(description: @post.teaser, url: @post.public_url, type: "article") %>
 
 <% content_for :extra_meta_tags do %>
