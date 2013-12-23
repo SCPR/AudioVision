@@ -2,8 +2,14 @@ module PostReferenceAssociation
   extend ActiveSupport::Concern
 
   included do
-    has_many :post_references, -> { order('position') }, as: :referrer, dependent: :destroy
-    has_many :posts, -> { where(status: Post::STATUS[:published]) }, through: :post_references
+    has_many :post_references,
+      -> { order('position') },
+      :as           => :referrer,
+      :dependent    => :destroy
+
+    has_many :posts,
+      -> { where(status: Post::STATUS[:published]) },
+      :through => :post_references
 
     accepts_json_input_for :post_references
   end
