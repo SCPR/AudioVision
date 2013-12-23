@@ -46,7 +46,7 @@ end
 group :development do
   gem 'capistrano', '~> 2.0'
   gem 'pry'
-  gem 'dbsync'
+  gem 'dbsync', github: "bricker/dbsync"
 end
 
 group :test, :development do

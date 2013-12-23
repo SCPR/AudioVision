@@ -41,6 +41,15 @@ GIT
   specs:
     escape_utils (1.0.0)
 
+GIT
+  remote: git://github.com/bricker/dbsync.git
+  revision: dc654f3d790ec7e97c6d0f34211a6961c6e2341b
+  specs:
+    dbsync (0.2.0)
+      activerecord (>= 3.2.8)
+      cocaine (~> 0.5.3)
+      railties (>= 3.2.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -89,6 +98,10 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.3)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -98,10 +111,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     database_cleaner (1.2.0)
-    dbsync (0.1.2)
-      activerecord (>= 3.2.8)
-      activesupport (>= 3.2.8)
-      railties (>= 3.2.8)
     diff-lcs (1.2.5)
     docile (1.1.0)
     eco (1.0.0)
@@ -302,7 +311,7 @@ DEPENDENCIES
   capybara (~> 2.0)
   coffee-rails (~> 4.0.1)
   database_cleaner (~> 1.0)
-  dbsync
+  dbsync!
   eco (~> 1.0.0)
   escape_utils!
   factory_girl_rails (~> 4.1)
