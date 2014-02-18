@@ -1,7 +1,9 @@
 require File.expand_path('../boot', __FILE__)
+
 require 'rails/all'
 
-Bundler.require(:default, Rails.env)
+# Assets should be precompiled for production (so we don't need the gems loaded then)
+Bundler.require(*Rails.groups(assets: %w(development test)))
 
 module AudioVision
   class Application < Rails::Application
@@ -21,7 +23,7 @@ module AudioVision
     config.secrets = YAML.load_file("#{Rails.root}/config/app_config.yml")
     config.api     = YAML.load_file("#{Rails.root}/config/api_config.yml")
 
-    config.scpr = ActiveSupport::OrderedOptions.new
+    config.scpr         = ActiveSupport::OrderedOptions.new
 
     config.assethost        = ActiveSupport::OrderedOptions.new
     config.assethost.server = config.api['assethost']['server']
