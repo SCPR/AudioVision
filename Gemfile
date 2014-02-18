@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.0.1'
 gem 'mysql2'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.1'
 gem 'newrelic_rpm'
-gem 'jbuilder'
+gem 'jbuilder', '~> 2.0'
 gem 'resque', '~> 1.25.0'
 gem 'bcrypt-ruby', '~> 3.1.0'
 gem 'redis-rails', '~> 4.0.0'
@@ -29,7 +29,7 @@ gem 'kaminari', '~> 0.15.0'
 gem 'simple_form', '~> 3.0.0'
 gem 'select2-rails', '3.4.1'
 gem 'bootstrap-sass', '~> 2.2'
-gem 'escape_utils', github: 'brianmario/escape_utils'
+gem 'escape_utils', '~> 1.0'
 
 gem "faraday", "~> 0.8"
 gem "faraday_middleware", "~> 0.8"
