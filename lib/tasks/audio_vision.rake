@@ -19,12 +19,16 @@ namespace :av do
 
   desc "Cache the KPCC Popular Articles"
   task :cache_kpcc_popular_articles => [:environment] do
-    log "Enqueing Popular KPCC Article cache. (Do you have a resque working running?)"
-
     if Rails.env == "production"
+      log "Enqueing Popular KPCC Article cache. " \
+          "(Do you have a resque working running?)"
+
       Resque.enqueue(Job::CachePopularKpccArticlesJob)
     else
+      log "Performing CachePopularKpccArticlesJob"
       Job::CachePopularKpccArticlesJob.perform
     end
+
+    log "Done."
   end
 end
