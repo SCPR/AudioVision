@@ -1,3 +1,5 @@
+require 'kpcc'
+
 # Cache popular KPCC articles from KPCC API
 module Job
   class CachePopularKpccArticlesJob < Base

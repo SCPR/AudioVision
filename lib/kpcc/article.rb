@@ -1,3 +1,5 @@
+require 'kpcc/client'
+
 module Kpcc
   class Article
 
