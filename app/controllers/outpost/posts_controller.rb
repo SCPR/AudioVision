@@ -48,6 +48,7 @@ class Outpost::PostsController < Outpost::ResourceController
   def form_params
     params.require(model.singular_route_key)
       .permit(
+        :logged_user_id,
         :post_type, :title, :subtitle, :body, :teaser, :slug,
         :related_kpcc_article_url, :asset_json, :status, :published_at,
         :category_id,

@@ -18,6 +18,11 @@ module Schedulable
       :reject_if        => :should_reject_publish_alarm?,
       :allow_destroy    => true
 
+
+    if self.has_secretary?
+      tracks_association :publish_alarm
+    end
+
     before_save :destroy_publish_alarm, if: :should_destroy_publish_alarm?
   end
 

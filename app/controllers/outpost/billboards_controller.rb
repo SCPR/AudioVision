@@ -30,6 +30,7 @@ class Outpost::BillboardsController < Outpost::ResourceController
 
   def form_params
     params.require(model.singular_route_key).permit(
+      :logged_user_id,
       :layout, :status, :published_at, :post_references_json,
 
       { publish_alarm_attributes: [

@@ -7,6 +7,10 @@ module PostReferenceAssociation
       :as           => :referrer,
       :dependent    => :destroy
 
+    if self.has_secretary?
+      tracks_association :post_references
+    end
+
     has_many :posts,
       -> { where(status: Post::STATUS[:published]) },
       :through => :post_references

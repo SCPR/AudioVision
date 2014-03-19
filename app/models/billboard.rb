@@ -1,5 +1,6 @@
 class Billboard < ActiveRecord::Base
   outpost_model
+  has_secretary
 
   include Schedulable
   include StatusMethods

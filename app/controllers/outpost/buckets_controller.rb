@@ -11,7 +11,7 @@ class Outpost::BucketsController < Outpost::ResourceController
   private
 
   def form_params
-    permitted = [:title, :description, :post_references_json]
+    permitted = [:logged_user_id, :title, :description, :post_references_json]
     permitted += [:key] if action_name == "create"
     params.require(model.singular_route_key).permit(*permitted)
   end

@@ -1,6 +1,8 @@
 class Reporter < ActiveRecord::Base
   outpost_model
-  ROUTE_KEY = "reporter"
+  has_secretary
+
+  self.public_route_key = "reporter"
 
   belongs_to :user
 

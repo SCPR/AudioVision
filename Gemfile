@@ -24,8 +24,10 @@ gem 'outpost-aggregator', github: "SCPR/outpost-aggregator"
 #gem 'outpost-publishing', path: "#{ENV['PROJECT_HOME']}/outpost-publishing"
 gem 'outpost-publishing', github: "SCPR/outpost-publishing"
 
+gem 'secretary-rails', github: "SCPR/secretary-rails"
+gem 'outpost-secretary', github: "SCPR/outpost-secretary"
 
-gem 'kaminari', '~> 0.15.0'
+gem 'kaminari', '~> 0.15.1'
 gem 'simple_form', '~> 3.0.0'
 gem 'select2-rails', '3.4.1'
 gem 'bootstrap-sass', '~> 2.2'

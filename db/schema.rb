@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018173348) do
+ActiveRecord::Schema.define(version: 20140319200646) do
 
   create_table "attributions", force: true do |t|
     t.string   "name"
@@ -178,5 +178,20 @@ ActiveRecord::Schema.define(version: 20131018173348) do
   end
 
   add_index "users", ["name"], name: "index_users_on_name", using: :btree
+
+  create_table "versions", force: true do |t|
+    t.integer  "version_number"
+    t.string   "versioned_type"
+    t.integer  "versioned_id"
+    t.integer  "user_id"
+    t.text     "description"
+    t.text     "object_changes"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["created_at"], name: "index_versions_on_created_at", using: :btree
+  add_index "versions", ["user_id"], name: "index_versions_on_user_id", using: :btree
+  add_index "versions", ["version_number"], name: "index_versions_on_version_number", using: :btree
+  add_index "versions", ["versioned_type", "versioned_id"], name: "index_versions_on_versioned_type_and_versioned_id", using: :btree
 
 end

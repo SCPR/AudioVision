@@ -1,6 +1,8 @@
 class Category < ActiveRecord::Base
   outpost_model
-  ROUTE_KEY = "root_slug"
+  has_secretary
+
+  self.public_route_key = "root_slug"
 
   has_many :posts
 

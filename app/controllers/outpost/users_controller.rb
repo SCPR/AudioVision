@@ -27,7 +27,14 @@ class Outpost::UsersController < Outpost::ResourceController
   private
 
   def form_params
-    permitted = [:name, :email, :username, :password, :password_confirmation]
+    permitted = [
+      :logged_user_id,
+      :name,
+      :email,
+      :username,
+      :password,
+      :password_confirmation
+    ]
 
     if current_user.is_superuser?
       permitted += [:can_login, :is_superuser, { permission_ids: [] }]

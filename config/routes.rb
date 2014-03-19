@@ -52,6 +52,10 @@ AudioVision::Application.routes.draw do
     resources :categories
     resources :buckets
 
+    get "/activity" => "versions#activity", as: :activity
+    get "/:resources/:resource_id/history" => "versions#index", as: :history
+    get "/:resources/:resource_id/history/:version_number" => "versions#show", as: :version
+
     root to: 'home#dashboard'
 
     resources :sessions, only: [:create, :destroy]

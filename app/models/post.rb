@@ -2,7 +2,9 @@ class Post < ActiveRecord::Base
   include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
 
   outpost_model
-  ROUTE_KEY = "post"
+  has_secretary
+
+  self.public_route_key = "post"
 
   include ConditionalValidation
   include Schedulable
@@ -64,8 +66,10 @@ class Post < ActiveRecord::Base
     :dependent  => :destroy
 
   accepts_json_input_for_assets
+  tracks_association :assets
 
   has_many :attributions, dependent: :destroy
+  tracks_association :attributions
 
   has_many :authors,
     -> { where(role: Attribution::ROLE_AUTHOR) },
@@ -82,7 +86,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
 
   has_many :post_references, dependent: :destroy
-
+  tracks_association :post_references
 
 
   # Validations

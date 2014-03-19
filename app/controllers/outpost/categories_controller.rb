@@ -7,7 +7,7 @@ class Outpost::CategoriesController < Outpost::ResourceController
   def form_params
     params.require(model.singular_route_key)
       .permit(
-        :title, :slug, :description
+        :logged_user_id, :title, :slug, :description
       )
   end
 end
