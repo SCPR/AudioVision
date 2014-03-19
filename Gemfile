@@ -9,6 +9,8 @@ gem 'resque', '~> 1.25.0'
 gem 'bcrypt-ruby', '~> 3.1.0'
 gem 'redis-rails', '~> 4.0.0'
 
+gem 'thread_safe', '~> 0.2.0'
+
 #gem 'asset_host_client', path: "#{ENV['PROJECT_HOME']}/asset_host_client"
 gem 'asset_host_client', github: "SCPR/asset_host_client"
 
