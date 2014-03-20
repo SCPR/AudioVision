@@ -46,7 +46,7 @@ GIT
 
 GIT
   remote: git://github.com/SCPR/secretary-rails.git
-  revision: e59968939ce253fe59f5738292e19951a9bbd945
+  revision: 610533b7997aff9d2151c26e9c717ecaece37ab6
   specs:
     secretary-rails (1.0.1)
       activerecord (>= 3.2.0)
@@ -189,7 +189,7 @@ GEM
     mini_portile (0.5.2)
     minitest (4.7.5)
     mono_logger (1.1.0)
-    multi_json (1.9.0)
+    multi_json (1.9.2)
     multipart-post (1.2.0)
     mysql2 (0.3.14)
     net-scp (1.1.2)
