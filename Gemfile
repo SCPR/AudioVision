@@ -36,12 +36,11 @@ gem "faraday_middleware", "~> 0.8"
 gem "hashie", "~> 1.2.0"
 
 
-group :assets do
-  gem 'eco', '~> 1.0.0'
-  gem 'sass-rails', '~> 4.0.1'
-  gem 'coffee-rails', '~> 4.0.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+# Assets
+gem 'eco', '~> 1.0.0'
+gem 'sass-rails', '~> 4.0.1'
+gem 'coffee-rails', '~> 4.0.1'
+gem 'uglifier', '>= 1.0.3'
 
 group :development do
   gem 'capistrano', '~> 2.0'
@@ -58,7 +57,6 @@ group :test, :development do
 end
 
 group :test do
-  gem 'simplecov', require: false
   gem 'factory_girl_rails', "~> 4.1"
   gem 'database_cleaner', "~> 1.0"
   gem 'capybara', "~> 2.0"
