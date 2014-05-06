@@ -1,8 +1,7 @@
 class Post < ActiveRecord::Base
   include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
 
-  outpost_model
-  ROUTE_KEY = "post"
+  outpost_model public_route_key: "post"
 
   include ConditionalValidation
   include Schedulable
