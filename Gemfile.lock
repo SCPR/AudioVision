@@ -1,48 +1,3 @@
-GIT
-  remote: git://github.com/SCPR/asset_host_client.git
-  revision: 23ded47d041f5ebe5efa92e6fc181bad9a46f897
-  specs:
-    asset_host_client (1.2.0)
-      faraday (~> 0.8)
-      faraday_middleware (~> 0.8)
-      rails (>= 3.0, < 5)
-
-GIT
-  remote: git://github.com/SCPR/outpost-aggregator.git
-  revision: 221f792b2ccd274d7e41469086b65adc2df2fb0f
-  specs:
-    outpost-aggregator (1.1.3)
-
-GIT
-  remote: git://github.com/SCPR/outpost-asset_host.git
-  revision: 612b8a5d058049acba7e6d4f8b753d00d630bea0
-  specs:
-    outpost-asset_host (1.1.1)
-
-GIT
-  remote: git://github.com/SCPR/outpost-publishing.git
-  revision: 6b487d9a1cca97196d0d29aa11476b99e4aae705
-  specs:
-    outpost-publishing (1.0.1)
-
-GIT
-  remote: git://github.com/SCPR/outpost.git
-  revision: dd2a79f33bbfee6c2ae95a15d085e38b625baeb1
-  specs:
-    outpost-cms (0.0.5)
-      bcrypt-ruby (>= 3.0.0, < 4)
-      jquery-rails (~> 3.0)
-      kaminari (~> 0.15.1)
-      rails (>= 3.2, < 5)
-      select2-rails (= 3.4.1)
-
-GIT
-  remote: git://github.com/bricker/dbsync.git
-  revision: 216368e97e07ea485b4d2b22e46e85662c679057
-  specs:
-    dbsync (0.3.0)
-      cocaine (>= 0.5.0, < 0.6)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -72,6 +27,10 @@ GEM
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
     arel (4.0.2)
+    asset_host_client (1.2.1)
+      faraday (~> 0.8)
+      faraday_middleware (~> 0.8)
+      rails (>= 3.0, < 5)
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
@@ -108,6 +67,8 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     database_cleaner (1.2.0)
+    dbsync (0.3.0)
+      cocaine (>= 0.5.0, < 0.6)
     diff-lcs (1.2.5)
     eco (1.0.0)
       coffee-script
@@ -185,6 +146,15 @@ GEM
     nio4r (1.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    outpost-aggregator (1.2.0)
+    outpost-asset_host (1.1.1)
+    outpost-cms (0.1.0)
+      bcrypt-ruby (>= 3.0.0, < 4)
+      jquery-rails (~> 3.0)
+      kaminari (~> 0.15.1)
+      rails (>= 3.2, < 5)
+      select2-rails (= 3.4.1)
+    outpost-publishing (1.0.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -299,14 +269,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  asset_host_client!
+  asset_host_client
   bcrypt-ruby (~> 3.1.0)
   bootstrap-sass (~> 2.2)
   capistrano (~> 2.0)
   capybara (~> 2.0)
   coffee-rails (~> 4.0.1)
   database_cleaner (~> 1.0)
-  dbsync!
+  dbsync
   eco (~> 1.0.0)
   escape_utils (~> 1.0)
   factory_girl_rails (~> 4.1)
@@ -323,10 +293,10 @@ DEPENDENCIES
   launchy
   mysql2
   newrelic_rpm
-  outpost-aggregator!
-  outpost-asset_host!
-  outpost-cms!
-  outpost-publishing!
+  outpost-aggregator
+  outpost-asset_host
+  outpost-cms
+  outpost-publishing
   pry
   rails (~> 4.0.1)
   redis-rails (~> 4.0.0)

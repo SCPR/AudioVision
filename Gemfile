@@ -9,20 +9,11 @@ gem 'resque', '~> 1.25.0'
 gem 'bcrypt-ruby', '~> 3.1.0'
 gem 'redis-rails', '~> 4.0.0'
 
-#gem 'asset_host_client', path: "#{ENV['PROJECT_HOME']}/asset_host_client"
-gem 'asset_host_client', github: "SCPR/asset_host_client"
-
-#gem 'outpost-cms', path: "#{ENV['PROJECT_HOME']}/outpost"
-gem 'outpost-cms', github: 'SCPR/outpost'
-
-#gem 'outpost-asset_host', path: "#{ENV['PROJECT_HOME']}/outpost-asset_host"
-gem 'outpost-asset_host', github: "SCPR/outpost-asset_host"
-
-#gem 'outpost-aggregator', path: "#{ENV['PROJECT_HOME']}/outpost-aggregator"
-gem 'outpost-aggregator', github: "SCPR/outpost-aggregator"
-
-#gem 'outpost-publishing', path: "#{ENV['PROJECT_HOME']}/outpost-publishing"
-gem 'outpost-publishing', github: "SCPR/outpost-publishing"
+gem 'asset_host_client'
+gem 'outpost-cms'
+gem 'outpost-asset_host'
+gem 'outpost-aggregator'
+gem 'outpost-publishing'
 
 
 gem 'kaminari', '~> 0.15.0'
@@ -45,7 +36,7 @@ gem 'uglifier', '>= 1.0.3'
 group :development do
   gem 'capistrano', '~> 2.0'
   gem 'pry'
-  gem 'dbsync', github: "bricker/dbsync"
+  gem 'dbsync'
 end
 
 group :test, :development do
