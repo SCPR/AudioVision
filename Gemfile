@@ -15,7 +15,6 @@ gem 'outpost-asset_host'
 gem 'outpost-aggregator'
 gem 'outpost-publishing'
 
-
 gem 'kaminari', '~> 0.15.0'
 gem 'simple_form', '~> 3.0.0'
 gem 'select2-rails', '3.4.1'
