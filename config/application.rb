@@ -18,6 +18,20 @@ module AudioVision
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.autoload_paths += %W( #{config.root}/lib )
+
+    # Precompile additional assets.
+    # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+    config.assets.precompile += %w[
+      outpost/application.css
+      outpost/application.js
+      *.png *.jpg *.jpeg *.gif
+      display-ie.css
+    ]
+
+    config.assets.js_compressor  = :uglifier
+    config.assets.css_compressor = :sass
+
     config.secrets = YAML.load_file("#{Rails.root}/config/app_config.yml")
     config.api     = YAML.load_file("#{Rails.root}/config/api_config.yml")
 
@@ -27,11 +41,5 @@ module AudioVision
     config.assethost.server = config.api['assethost']['server']
     config.assethost.prefix = config.api['assethost']['prefix']
     config.assethost.token  = config.api['assethost']['token']
-
-    config.autoload_paths += %W( #{config.root}/lib )
-
-    # Precompile additional assets.
-    # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-    config.assets.precompile += %w( outpost/application.css outpost/application.js *.png *.jpg *.jpeg *.gif display-ie.css )
   end
 end
