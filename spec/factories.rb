@@ -20,13 +20,6 @@ FactoryGirl.define do
 
   #---------------
 
-  factory :flatpage do
-    title "This is a flatpage"
-    content "Lorem etc."
-  end
-
-  #---------------
-
   factory :attribution do
     role 1
 

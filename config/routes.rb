@@ -48,7 +48,6 @@ AudioVision::Application.routes.draw do
     resources :posts, concerns: [:previewable]
     resources :billboards, concerns: [:previewable]
 
-    resources :flatpages
     resources :reporters
     resources :users
     resources :categories
