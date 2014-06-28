@@ -6,22 +6,20 @@ class audiovision.PopularKpccArticles
         template: JST['templates/popular_kpcc_article']
         limit: 3
 
-    constructor: (url, options={}) ->
+    constructor: (options={}) ->
         @options    = _.defaults options, @defaults
         @wrapper    = $(@options.wrapper)
 
-        @fetchArticles(url)
+        @fetchArticles()
 
 
-    fetchArticles: (url) ->
-        return if _.isEmpty(url)
-
+    fetchArticles: ->
         @wrapper.spin()
 
         $.getJSON(PopularKpccArticles.API_ENDPOINT)
         .success((data, textStatus, jqXHR) =>
             if data['articles'].length > 0
-                for article in data['articles'][0..@options.limit]
+                for article in data['articles'][0..@options.limit - 1]
                     @wrapper.append @options.template(article: article)
             else
                 @wrapper.hide()
