@@ -1,5 +1,5 @@
 def log(msg)
-  puts "*** [#{Time.now}] #{msg}"
+  puts "*** [#{Time.zone.now}] #{msg}"
 end
 
 

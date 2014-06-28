@@ -1,5 +1,5 @@
 class PublishAlarm < ActiveRecord::Base
-  scope :pending, -> { where("fire_at <= ?", Time.now).order("fire_at") }
+  scope :pending, -> { where("fire_at <= ?", Time.zone.now).order("fire_at") }
   belongs_to :content, polymorphic: true
 
   class << self
@@ -27,7 +27,7 @@ class PublishAlarm < ActiveRecord::Base
   #---------------------
 
   def pending?
-    self.fire_at <= Time.now
+    self.fire_at <= Time.zone.now
   end
 
   #---------------------

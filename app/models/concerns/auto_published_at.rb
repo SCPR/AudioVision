@@ -18,9 +18,9 @@ module AutoPublishedAt
   end
 
 
-  # Set published_at to Time.now
+  # Set published_at to Time.zone.now
   def set_published_at_to_now
-    self.published_at = Time.now
+    self.published_at = Time.zone.now
   end
 
   # Set published_at to nil
