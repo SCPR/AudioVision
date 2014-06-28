@@ -6,5 +6,3 @@ if defined?(PhusionPassenger)
     end
   end
 end
-
-$redis = Rails.cache.instance_variable_get(:@data)
