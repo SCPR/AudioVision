@@ -23,7 +23,6 @@ RSpec.configure do |config|
   config.include AuthenticationHelper, type: :feature
 
   config.before :suite do
-    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation, except: ["permissions"])
 
     Outpost.config.registered_models.each do |model|
@@ -31,14 +30,16 @@ RSpec.configure do |config|
     end
   end
 
-  config.before type: :feature do
-    DatabaseCleaner.strategy = :truncation, { except: ["permissions"] }
-  end
-
   config.before :each do
     FakeWeb.clean_registry
     FakeWeb.load_callback
+
+    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.start
+  end
+
+  config.before type: :feature do
+    DatabaseCleaner.strategy = :truncation, { except: ["permissions"] }
   end
 
   config.after :each do
