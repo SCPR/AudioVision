@@ -1,10 +1,3 @@
-guard :resque, task: 'environment resque:work', environment: 'development' do
-  watch(%r{^app/models/(.+)\.rb$})
-  watch(%r{^app/jobs/(.+)\.rb$})
-  watch(%r{^lib/(.+)\.rb$})
-  watch(%r{^config/(.+)\.rb$})
-end
-
 guard :rspec, cli: "-c -f progress", all_on_start: false, all_after_pass: false do
   # --format nested --profile --fail-fast
   watch(%r{^spec/.+_spec\.rb$})

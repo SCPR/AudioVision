@@ -10,25 +10,4 @@ namespace :av do
     PublishAlarm.fire_pending
     log "Finished.\n"
   end
-
-  desc "Rebuild the caches that don't rebuild on first-serve"
-  task :rebuild_cache => [:environment] do
-    Rake::Task["av:cache_kpcc_popular_articles"].invoke
-  end
-
-
-  desc "Cache the KPCC Popular Articles"
-  task :cache_kpcc_popular_articles => [:environment] do
-    if Rails.env == "production"
-      log "Enqueing Popular KPCC Article cache. " \
-          "(Do you have a resque working running?)"
-
-      Resque.enqueue(Job::CachePopularKpccArticlesJob)
-    else
-      log "Performing CachePopularKpccArticlesJob"
-      Job::CachePopularKpccArticlesJob.perform
-    end
-
-    log "Done."
-  end
 end

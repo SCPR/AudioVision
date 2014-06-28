@@ -5,7 +5,6 @@ gem 'mysql2'
 gem 'jquery-rails', '~> 3.1'
 gem 'newrelic_rpm'
 gem 'jbuilder', '~> 2.0'
-gem 'resque', '~> 1.25.0'
 gem 'bcrypt-ruby', '~> 3.1.0'
 gem 'redis-rails', '~> 4.0.0'
 
@@ -43,7 +42,6 @@ group :test, :development do
   gem 'launchy'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'guard-resque'
 end
 
 group :test do

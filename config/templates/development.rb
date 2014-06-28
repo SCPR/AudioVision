@@ -37,9 +37,6 @@ AudioVision::Application.configure do
     :remote => "user@db-server:~user/audiovision.dump"
   }
 
-  config.scpr.host     = "http://www.scpr.org"
-  config.scpr.api_path = "/api/v2"
-
   # Uncomment to use Pry instead of IRB
   # silence_warnings { IRB = Pry }
 end
