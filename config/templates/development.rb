@@ -34,7 +34,7 @@ AudioVision::Application.configure do
 
   config.dbsync = {
     :local => "#{Rails.root}/../dbdumps/audiovision.dump",
-    :remote => "user@db-server:~user/audiovision.dump"
+    :remote => "user@db-server:~user/audio_vision_production.dump"
   }
 
   # Uncomment to use Pry instead of IRB
