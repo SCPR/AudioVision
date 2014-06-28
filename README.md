@@ -10,27 +10,8 @@ KPCC's Media Blog
 * Redis
 
 ## Setup
-**Please read this entire section before running the setup command**
-
-It is recommended to use an RVM Gemset for this application.
-Run the following command from the root of the app:
-
-    rvm gemset use 1.9.3@audio_vision --create && echo "rvm $(rvm current)" > .rvmrc
-
-Then execute `bin/setup`. This does a few things:
-
-1. Copies `config/templates/development.rb` to `config/environments/`
-2. Copies `config/templates/database.yml` to `config/`
-3. Generates a `secret_token` and stores it in `config/app_config.yml`
-4. Runs `bundle install`
-5. Creates the database
-6. Syncs your local database with the production database using `dbsync` 
-7. Finally, runs all of the tests to ensure you're setup properly.
-
-If your database information is different than what's in the `database.yml`
-template file, then copy it in `config/` manually prior to running `bin/setup`,
-and modify the information as necessary. Then run `bin/setup` to perform the
-rest of the steps (your custom `database.yml` will not be overwritten).
+1. Copy `config/templates/development.rb` into `config/environments` and update it as necessary.
+2. Copy all YML files in `config/templates/` into `config/`, switch the environments to `development`, and update as necessary.
 
 ## Running Tests
-Run `rake` to run the test suite. If you run the tests with Ruby 1.9.3-p0, you'll see warnings from MiniTest. Move to a Ruby higher patch to get rid of them.
+Run `bundle exec rspec` to run the test suite.
