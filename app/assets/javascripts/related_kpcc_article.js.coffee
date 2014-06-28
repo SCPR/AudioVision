@@ -1,13 +1,15 @@
 class audiovision.RelatedKpccArticle
+    @API_ENDPOINT = "http://www.scpr.org/api/v3/articles/by_url"
+
     defaults:
         wrapper: '.js-related-kpcc-article .preview'
         template: JST['templates/related_kpcc_article']
 
-    constructor: (@url, options={}) ->
+    constructor: (url, options={}) ->
         @options    = _.defaults options, @defaults
         @wrapper    = $(@options.wrapper)
 
-        @fetchArticle(url) if !_.isEmpty(url)
+        @fetchArticle(url)
 
 
     fetchArticle: (url) ->
@@ -15,9 +17,12 @@ class audiovision.RelatedKpccArticle
 
         @wrapper.spin()
 
-        $.getJSON("http://www.scpr.org/api/v2/articles/by_url", { url: url })
+        $.getJSON(RelatedKpccArticle.API_ENDPOINT, { url: url })
         .success((data, textStatus, jqXHR) =>
-            @wrapper.html @options.template(article: data)
+            if data['article']
+                @wrapper.html @options.template(article: data['article'])
+            else
+                @wrapper.hide()
 
         ).error((jqXHR, textStatus, errorThrown) =>
             # Display an error? Maybe best just to ignore it.
