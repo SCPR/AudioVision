@@ -1,4 +1,5 @@
-assethost:
-    token: xxxx
-    prefix: "/api"
-    server: "a.scpr.org"
+test:
+    assethost:
+        token: "xxx"
+        prefix: "/api"
+        server: "a.scpr.org"

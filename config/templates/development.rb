@@ -16,7 +16,7 @@ AudioVision::Application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-  config.cache_store = :redis_store, "redis://localhost:6379/7"
+  config.cache_store = :redis_store, config.secrets['redis']
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
@@ -32,11 +32,10 @@ AudioVision::Application.configure do
 
   default_url_options[:host] = "localhost:3001"
 
-  config.dbsync = ActiveSupport::OrderedOptions.new
-  config.dbsync.filename    = "audio_vision_production.dump"
-  config.dbsync.local_dir   = "#{Rails.root}/../dbsync" # No trailing slash
-  config.dbsync.remote_host = "scprdb@12.345.678.9"
-  config.dbsync.remote_dir  = "~scprdb"
+  config.dbsync = {
+    :local => "#{Rails.root}/../dbdumps/audiovision.dump",
+    :remote => "user@db-server:~user/audiovision.dump"
+  }
 
   config.scpr.host     = "http://www.scpr.org"
   config.scpr.api_path = "/api/v2"

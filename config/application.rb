@@ -32,8 +32,8 @@ module AudioVision
     config.assets.js_compressor  = :uglifier
     config.assets.css_compressor = :sass
 
-    config.secrets = YAML.load_file("#{Rails.root}/config/app_config.yml")
-    config.api     = YAML.load_file("#{Rails.root}/config/api_config.yml")
+    config.secrets = YAML.load_file("#{Rails.root}/config/app_config.yml")[Rails.env]
+    config.api     = YAML.load_file("#{Rails.root}/config/api_config.yml")[Rails.env]
 
     config.scpr = ActiveSupport::OrderedOptions.new
 
