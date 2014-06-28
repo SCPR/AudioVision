@@ -98,18 +98,3 @@
 
     </div>
 </div><!--/ .single-plugs -->
-
-
-<% content_for :footer do %>
-<%# This has to be in this template so that we can keep it out of cache %>
-<script>
-    $(document).ready(function(){
-    <% if popular_kpcc_articles = Rails.cache.read('popular_kpcc_articles') %>
-        popularKpccArticles = new audiovision.PopularKpccArticles(
-            <%= raw popular_kpcc_articles.to_json %>,
-            { limit: 3 }
-        );
-    <% end %>
-    });
-</script>
-<% end %>
