@@ -1,3 +1,5 @@
+config = YAML.load_file(File.expand_path("../deploy_config.yml", __FILE__))
+
 require "bundler/capistrano"
 require 'net/http'
 require 'new_relic/recipes'
@@ -10,20 +12,17 @@ set :scm, :git
 set :repository,  "git@github.com:SCPR/AudioVision.git"
 set :scm_verbose, true
 set :deploy_via, :remote_cache
-set :deploy_to, "/web/audiovision"
+set :deploy_to, config['deploy_to']
 set :keep_releases, 5
 
-set :user, "audiovision"
+set :user, config['user']
 set :use_sudo, false
 set :group_writable, false
 
-
-media = "66.226.4.228"
-
-role :app,      media
-role :web,      media
-role :workers,  media
-role :db,       media, :primary => true
+role :app,      config["servers"]["app"]
+role :web,      config["servers"]["app"]
+role :workers,  config["servers"]["workers"]
+role :db,       config["servers"]["db"], :primary => true
 
 
 
