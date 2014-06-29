@@ -11,6 +11,8 @@ namespace :av do
     log "Finished.\n"
   end
 
+  # This can be removed after this app has been fully migrated to the
+  # new servers.
   desc "Fix timezones"
   task :fix_tz => [:environment] do
     connection = ActiveRecord::Base.connection
