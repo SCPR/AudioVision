@@ -25,7 +25,7 @@ namespace :av do
         %Q{#{col.name} = convert_tz(#{col.name}, 'America/Los_Angeles', 'UTC')}
       }.join(", ")
 
-      execute "UPDATE #{table} SET #{query}"
+      ActiveRecord::Base.connection.execute "UPDATE #{table} SET #{query}"
     end
   end
 end
