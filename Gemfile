@@ -32,7 +32,6 @@ gem 'coffee-rails', '~> 4.0.1'
 gem 'uglifier', '>= 1.0.3'
 
 group :development do
-  gem 'capistrano', '~> 2.0'
   gem 'pry'
   gem 'dbsync'
 end
