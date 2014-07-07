@@ -10,22 +10,4 @@ namespace :av do
     PublishAlarm.fire_pending
     log "Finished.\n"
   end
-
-  # This can be removed after this app has been fully migrated to the
-  # new servers.
-  desc "Fix timezones"
-  task :fix_tz => [:environment] do
-    connection = ActiveRecord::Base.connection
-
-    connection.tables.each do |table|
-      cols = connection.columns(table).select { |c| c.type == :datetime }
-      next if cols.empty?
-
-      query = cols.map { |col|
-        %Q{#{col.name} = convert_tz(#{col.name}, 'America/Los_Angeles', 'UTC')}
-      }.join(", ")
-
-      ActiveRecord::Base.connection.execute "UPDATE #{table} SET #{query}"
-    end
-  end
 end
