@@ -33,8 +33,9 @@ AudioVision::Application.configure do
   default_url_options[:host] = "localhost:3001"
 
   config.dbsync = {
-    :local => "#{Rails.root}/../dbdumps/audiovision.dump",
-    :remote => "user@db-server:~user/audio_vision_production.dump"
+    :local => "~/dbdumps/dbsync-audiovision.sql",
+    :remote => "ftp://backups.server.org/audiovision/audiovision-latest.sql.gz",
+    :bin_opts => "--netrc"
   }
 
   # Uncomment to use Pry instead of IRB
