@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.0.1'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.16'
 gem 'jquery-rails', '~> 3.1'
-gem 'newrelic_rpm'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt-ruby', '~> 3.1.0'
 gem 'redis-rails', '~> 4.0.0'

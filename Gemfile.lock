@@ -124,7 +124,6 @@ GEM
     multi_json (1.10.1)
     multipart-post (2.0.0)
     mysql2 (0.3.15)
-    newrelic_rpm (3.8.0.218)
     nio4r (1.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -256,7 +255,6 @@ DEPENDENCIES
   kaminari (~> 0.15.0)
   launchy
   mysql2
-  newrelic_rpm
   outpost-aggregator
   outpost-asset_host
   outpost-cms
