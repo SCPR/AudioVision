@@ -34,7 +34,8 @@ AudioVision::Application.configure do
 
   config.dbsync = {
     :local => "~/dbdumps/dbsync-audiovision.sql",
-    :remote => "ftp://backups.server.org/audiovision-latest.sql.gz",
+    :remote => "ftp://backups.server.org/database/audiovision-latest.sql.gz",
+    :strategy => :curl,
     :bin_opts => "--netrc"
   }
 

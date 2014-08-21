@@ -32,7 +32,7 @@ gem 'uglifier', '>= 1.0.3'
 
 group :development do
   gem 'pry'
-  gem 'dbsync', ">= 1.0.0.beta2"
+  gem 'dbsync', [">= 1.0.0.beta3", "< 2.0.0"]
 end
 
 group :test, :development do
