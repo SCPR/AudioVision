@@ -39,5 +39,7 @@ module AudioVision
     config.assethost.server = config.api['assethost']['server']
     config.assethost.prefix = config.api['assethost']['prefix']
     config.assethost.token  = config.api['assethost']['token']
+
+    config.cache_store = :redis_store, config.secrets['cache']
   end
 end
